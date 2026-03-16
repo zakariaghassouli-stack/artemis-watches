@@ -1,0 +1,63 @@
+{
+  "id": "rolex-gmt-master-ii-pepsi",
+  "slug": "gmt-master-ii-pepsi",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "GMT-Master II",
+  "collectionSlug": "gmt-master-ii",
+  "name": "GMT-Master II",
+  "variant": "Pepsi — Red/Blue Bezel",
+  "description": "The GMT-Master II 'Pepsi' is arguably the most desirable Rolex in the entire collection. Originally designed for Pan Am pilots in 1955, the dual-timezone complication combined with the legendary red and blue bezel has made this one of the most coveted watches in horological history.\n\nThe Pepsi colorway — red for day, blue for night — is instantly recognizable to watch enthusiasts worldwide. On a Jubilee bracelet, the overall package is nothing short of spectacular. This is the Rolex that collectors obsess over and style icons wear. Limited availability — serious buyers only.",
+  "descriptionShort": "The legendary Pepsi. Red/blue bezel, dual timezone. The most coveted GMT-Master configuration.",
+  "keyPoints": [
+    "Iconic 'Pepsi' red and blue Cerachrom bezel",
+    "Dual-timezone display — perfect for travelers",
+    "Jubilee bracelet for maximum elegance",
+    "One of the most sought-after Rolex references",
+    "Instantly recognized by watch connoisseurs",
+    "Limited stock — high demand item"
+  ],
+  "range": "premium",
+  "price": 1400,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 2,
+  "badge": "best-seller",
+  "images": [
+    "/images/IMG_9798.GIF",
+    "/images/IMG_3038.GIF",
+    "/images/IMG_1678.GIF",
+    "/images/IMG_3816.GIF",
+    "/images/IMG_9798.GIF",
+    "/images/IMG_9798.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Black",
+    "bracelet": "Jubilee, five-piece links",
+    "clasp": "Folding Oysterlock",
+    "bezel": "Bidirectional rotating, red/blue Cerachrom 24h",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": true,
+  "essentialPrice": 340,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-daytona-black",
+    "rolex-submariner-date-black",
+    "ap-royal-oak-blue",
+    "patek-nautilus-blue"
+  ],
+  "reviews": [],
+  "featured": true,
+  "bestSeller": true,
+  "seoTitle": "Rolex GMT-Master II Pepsi | Artemis Watches Montreal",
+  "seoDescription": "Shop the Rolex GMT-Master II 'Pepsi' at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,400 CAD."
+}

@@ -1,0 +1,63 @@
+{
+  "id": "rolex-submariner-date-black",
+  "slug": "submariner-date-black-dial",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Submariner",
+  "collectionSlug": "submariner",
+  "name": "Submariner Date",
+  "variant": "Black Dial",
+  "description": "The Rolex Submariner Date is more than a watch — it's a statement. Originally designed for professional divers, the Submariner has become the most recognized luxury sports watch in the world. Its clean lines, luminous dial, and rotating bezel are instantly recognizable from boardroom to beach.\n\nThis Artemis edition features a black dial with luminous hour markers, a unidirectional rotating bezel with Cerachrom insert, and the iconic Oyster bracelet with Oysterclasp. Every detail is executed with precision that only Rolex achieves. The weight on your wrist is exactly what you'd expect from a legend.",
+  "descriptionShort": "The world's most iconic dive watch. Black dial, Cerachrom bezel, Oyster bracelet. Pure Rolex DNA.",
+  "keyPoints": [
+    "Iconic design recognized worldwide",
+    "Rotating Cerachrom bezel with precision markings",
+    "Chromalight luminous indices for low-light visibility",
+    "Robust Oyster bracelet with Oysterclasp",
+    "Premium weight and finish on wrist",
+    "Instantly recognizable status symbol"
+  ],
+  "range": "premium",
+  "price": 1200,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": "best-seller",
+  "images": [
+    "/images/IMG_9316.GIF",
+    "/images/IMG_9815.GIF",
+    "/images/IMG_9316.GIF",
+    "/images/IMG_9316.GIF",
+    "/images/IMG_9316.GIF",
+    "/images/IMG_9316.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Black",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Unidirectional rotating, 60-min Cerachrom",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": true,
+  "essentialPrice": 320,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-submariner-date-blue",
+    "rolex-gmt-master-ii-pepsi",
+    "rolex-datejust-41",
+    "ap-royal-oak-blue"
+  ],
+  "reviews": [],
+  "featured": true,
+  "bestSeller": true,
+  "seoTitle": "Rolex Submariner Date Black Dial | Artemis Watches Montreal",
+  "seoDescription": "Shop the Rolex Submariner Date (Black Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,200 CAD."
+}

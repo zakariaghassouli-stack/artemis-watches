@@ -1,0 +1,63 @@
+{
+  "id": "cartier-santos-black",
+  "slug": "santos-black-essential",
+  "brand": "Cartier",
+  "brandSlug": "cartier",
+  "collection": "Santos",
+  "collectionSlug": "santos",
+  "name": "Santos de Cartier",
+  "variant": "Black Dial — Essential",
+  "description": "The Santos de Cartier Essential brings the iconic square case and Roman numeral dial to the most accessible price point in the Artemis collection. The black dial configuration gives the Santos a more contemporary, assertive character — equally fitting in a creative industry as in a boardroom.\n\nFor those who want to wear one of the most historically significant watches ever created without the premium price tag, this is the answer. Same iconic proportions, same recognizable profile, same conversation-starting design. Carefully curated by Artemis for accuracy and wrist impact.",
+  "descriptionShort": "The legendary Santos DNA at the Essential price point. Black dial — the contemporary Cartier entry.",
+  "keyPoints": [
+    "Iconic Santos square case and exposed screws",
+    "Black dial for a contemporary, assertive look",
+    "Essential range — maximum value",
+    "Historically significant design since 1904",
+    "Statement piece at an accessible entry price",
+    "Integrated bracelet for clean aesthetic"
+  ],
+  "range": "essential",
+  "price": 340,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 10,
+  "badge": "new-arrival",
+  "images": [
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "39.8mm",
+    "dialColor": "Black",
+    "bracelet": "Integrated steel",
+    "clasp": "Deployant buckle",
+    "bezel": "Fixed with exposed screws",
+    "lume": "Applied hour markers"
+  },
+  "availableSizes": [
+    "39.8mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "cartier-santos-silver",
+    "rolex-datejust-36",
+    "ap-royal-oak-black-essential",
+    "rolex-submariner-date-black"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Cartier Santos de Cartier Black Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Cartier Santos de Cartier (Black Dial, Essential) at Artemis — Montreal's premier luxury watch destination. Essential range, 30-day guarantee, free shipping. $340 CAD."
+}

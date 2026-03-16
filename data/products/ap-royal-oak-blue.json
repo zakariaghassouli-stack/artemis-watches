@@ -1,0 +1,66 @@
+{
+  "id": "ap-royal-oak-blue",
+  "slug": "royal-oak-blue-dial",
+  "brand": "Audemars Piguet",
+  "brandSlug": "audemars-piguet",
+  "collection": "Royal Oak",
+  "collectionSlug": "royal-oak",
+  "name": "Royal Oak",
+  "variant": "Blue Dial · 41mm",
+  "description": "When Gerald Genta designed the Royal Oak in 1972, he created a scandal — a luxury sports watch in steel with an octagonal bezel and integrated bracelet, priced higher than gold watches. The industry laughed. Then it became the most imitated watch design in history.\n\nThe blue 'Grande Tapisserie' dial is the Royal Oak's most celebrated expression. The deep blue surface, worked into an ultra-precise checkerboard pattern, changes character throughout the day as light angles shift. At 41mm, this is the definitive contemporary Royal Oak — assertive, architectural, and absolutely unmistakable. For those who understand that true luxury is about vision, not just price.",
+  "descriptionShort": "The watch that redefined luxury. Royal Oak blue 'Grande Tapisserie' dial — architectural genius.",
+  "keyPoints": [
+    "The watch that revolutionized luxury in 1972",
+    "Iconic octagonal bezel with exposed hexagonal screws",
+    "Blue 'Grande Tapisserie' dial — AP's signature",
+    "Integrated tapisserie bracelet with satin-polished finish",
+    "41mm — the definitive modern Royal Oak size",
+    "The most influential sports watch design ever created"
+  ],
+  "range": "premium",
+  "price": 1450,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 2,
+  "badge": "best-seller",
+  "images": [
+    "/images/IMG_0418.GIF",
+    "/images/IMG_7728.GIF",
+    "/images/IMG_7272.GIF",
+    "/images/IMG_0418.GIF",
+    "/images/IMG_0418.GIF",
+    "/images/IMG_0418.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Blue (Grande Tapisserie)",
+    "bracelet": "Integrated, alternating polished and brushed",
+    "clasp": "AP-signed fold-over clasp",
+    "bezel": "Octagonal, 8 white gold screws",
+    "lume": "Applied luminescent hour markers"
+  },
+  "availableSizes": [
+    "37mm",
+    "41mm"
+  ],
+  "availableColors": [
+    "blue",
+    "black",
+    "silver"
+  ],
+  "hasEssentialVariant": true,
+  "essentialPrice": 330,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "ap-royal-oak-black-essential",
+    "patek-nautilus-blue",
+    "rolex-submariner-date-black",
+    "rolex-daytona-black"
+  ],
+  "reviews": [],
+  "featured": true,
+  "bestSeller": true,
+  "seoTitle": "Audemars Piguet Royal Oak Blue Dial 41mm | Artemis Watches Montreal",
+  "seoDescription": "Shop the Audemars Piguet Royal Oak (Blue Dial, 41mm) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,450 CAD."
+}

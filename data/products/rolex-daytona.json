@@ -1,0 +1,64 @@
+{
+  "id": "rolex-daytona-black",
+  "slug": "daytona-black-dial",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Daytona",
+  "collectionSlug": "daytona",
+  "name": "Daytona",
+  "variant": "Black Dial",
+  "description": "The Rolex Daytona is the ultimate expression of performance and prestige. Born on the racing circuits of Daytona Beach, this chronograph has transcended its sporting origins to become one of the most desirable watches ever created. Paul Newman made it immortal. Collectors obsess over it. And for good reason.\n\nThe black dial configuration is the purest form of the Daytona — three white sub-dials against a black backdrop, tachymeter bezel, and the sophisticated chronograph pushers. There are watches, and then there is the Daytona. This is what makes men stop and stare.",
+  "descriptionShort": "The most desirable chronograph ever made. Black dial Daytona — race-born, legend-status.",
+  "keyPoints": [
+    "Iconic racing chronograph heritage",
+    "Black dial with white sub-registers",
+    "Tachymeter bezel for speed calculation",
+    "Oyster bracelet with Oysterclasp",
+    "The most collectible Rolex reference",
+    "Extremely limited availability"
+  ],
+  "range": "premium",
+  "price": 1550,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 1,
+  "badge": "high-demand",
+  "images": [
+    "/images/IMG_4323.GIF",
+    "/images/IMG_4323.GIF",
+    "/images/IMG_4323.GIF",
+    "/images/IMG_4323.GIF",
+    "/images/IMG_4323.GIF",
+    "/images/IMG_4323.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Black",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with Easylink",
+    "bezel": "Fixed tachymeter",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "black",
+    "white"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-gmt-master-ii-pepsi",
+    "rolex-submariner-date-black",
+    "ap-royal-oak-blue",
+    "patek-nautilus-blue"
+  ],
+  "reviews": [],
+  "featured": true,
+  "bestSeller": false,
+  "seoTitle": "Rolex Daytona Black Dial | Artemis Watches Montreal",
+  "seoDescription": "Shop the Rolex Daytona (Black Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,550 CAD."
+}

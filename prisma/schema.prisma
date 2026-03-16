@@ -1,0 +1,145 @@
+// Prisma schema — ARTEMIS e-commerce
+// DB: PostgreSQL via Supabase
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Auth (NextAuth v5) ────────────────────────────────────────
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─── User ─────────────────────────────────────────────────────
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String?   // For email/password auth
+
+  // ARTEMIS-specific
+  promoCode     String?   @unique // Format: ARTEMIS-XXXX
+  promoUsed     Boolean   @default(false)
+
+  accounts      Account[]
+  sessions      Session[]
+  orders        Order[]
+  reviews       Review[]
+  wishlist      WishlistItem[]
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// ─── Order ────────────────────────────────────────────────────
+model Order {
+  id               String      @id @default(cuid())
+  userId           String?
+  user             User?       @relation(fields: [userId], references: [id])
+
+  stripeSessionId  String      @unique
+  status           OrderStatus @default(PENDING)
+
+  // JSON array of { productId, name, price, qty, variant }
+  items            Json
+
+  subtotal         Float
+  discount         Float       @default(0)
+  promoCodeUsed    String?
+  shipping         Float       @default(0)
+  tax              Float       @default(0)
+  total            Float
+
+  // Shipping address
+  shippingName     String?
+  shippingEmail    String?
+  shippingAddress  String?
+  shippingCity     String?
+  shippingProvince String?
+  shippingPostal   String?
+  shippingCountry  String?     @default("CA")
+
+  // Fulfillment
+  trackingNumber   String?
+  trackingCarrier  String?
+  shippedAt        DateTime?
+  deliveredAt      DateTime?
+
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+// ─── Review ───────────────────────────────────────────────────
+model Review {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  productId  String   // Matches product JSON id
+  rating     Int      // 1–5
+  title      String?
+  body       String   @db.Text
+  verified   Boolean  @default(false) // Verified purchase badge
+  approved   Boolean  @default(false) // Admin moderation
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// ─── Wishlist ─────────────────────────────────────────────────
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String   // Matches product JSON id
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}

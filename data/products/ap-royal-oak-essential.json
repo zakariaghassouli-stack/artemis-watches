@@ -1,0 +1,63 @@
+{
+  "id": "ap-royal-oak-black-essential",
+  "slug": "royal-oak-black-essential",
+  "brand": "Audemars Piguet",
+  "brandSlug": "audemars-piguet",
+  "collection": "Royal Oak",
+  "collectionSlug": "royal-oak",
+  "name": "Royal Oak",
+  "variant": "Black Dial — Essential",
+  "description": "The Royal Oak Essential brings Gerald Genta's revolutionary 1972 design to the most accessible price point in the Artemis collection. The black dial configuration gives the Royal Oak an even more assertive, contemporary character — the octagonal bezel and tapisserie pattern rendered in contrast that demands attention.\n\nFor those who want to wear one of the most influential designs in watchmaking history without the premium price tag, this is the entry. The Royal Oak changed the industry. The Essential version lets you wear that legacy on your wrist from day one.",
+  "descriptionShort": "The Royal Oak's revolutionary DNA at the Essential entry price. Black dial — pure impact.",
+  "keyPoints": [
+    "Iconic octagonal bezel — Gerald Genta's masterpiece",
+    "Black tapisserie-pattern dial",
+    "Essential range — accessible entry to AP",
+    "Integrated bracelet for cohesive design",
+    "Most recognizable AP silhouette worldwide",
+    "Revolutionary 1972 design that changed luxury"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 7,
+  "badge": null,
+  "images": [
+    "/images/IMG_3268.GIF",
+    "/images/IMG_3268.GIF",
+    "/images/IMG_3268.GIF",
+    "/images/IMG_3268.GIF",
+    "/images/IMG_3268.GIF",
+    "/images/IMG_3268.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Black (Tapisserie)",
+    "bracelet": "Integrated, alternating polished and brushed",
+    "clasp": "Fold-over clasp",
+    "bezel": "Octagonal with decorative screws",
+    "lume": "Applied hour markers"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "ap-royal-oak-blue",
+    "rolex-datejust-36",
+    "cartier-santos-black",
+    "patek-aquanaut-blue"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Audemars Piguet Royal Oak Black Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Audemars Piguet Royal Oak (Black Dial, Essential) at Artemis — Montreal's premier luxury watch destination. Essential range, 30-day guarantee, free shipping. $330 CAD."
+}

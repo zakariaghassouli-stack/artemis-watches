@@ -1,0 +1,63 @@
+{
+  "id": "patek-nautilus-blue",
+  "slug": "nautilus-blue-dial",
+  "brand": "Patek Philippe",
+  "brandSlug": "patek-philippe",
+  "collection": "Nautilus",
+  "collectionSlug": "nautilus",
+  "name": "Nautilus",
+  "variant": "Blue Dial",
+  "description": "The Patek Philippe Nautilus is the undisputed holy grail of modern watchmaking. Designed by the same Gerald Genta who created the Royal Oak, the Nautilus was Patek's 1976 answer to the integrated sports watch — and it redefined what a luxury steel watch could be.\n\nThe signature porthole-shaped case, horizontally embossed blue dial, and integrated bracelet create one of the most harmonious designs in the history of horology. In recent years, waiting lists for new Nautilus watches stretched to a decade at authorized dealers. At Artemis, availability is immediate. This is the piece that watch enthusiasts spend years trying to acquire. The blue dial is the reference — the one that started it all.",
+  "descriptionShort": "The holy grail. Patek Nautilus blue dial — the most coveted steel sports watch in the world.",
+  "keyPoints": [
+    "The most coveted steel sports watch ever created",
+    "Porthole-shaped case — Gerald Genta's second masterpiece",
+    "Horizontally embossed blue 'Clous de Paris' dial",
+    "Seamlessly integrated bracelet",
+    "Decade-long waiting lists at authorized dealers",
+    "Available immediately at Artemis — no waiting"
+  ],
+  "range": "premium",
+  "price": 1500,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 1,
+  "badge": "high-demand",
+  "images": [
+    "/images/IMG_6709.GIF",
+    "/images/IMG_6709.GIF",
+    "/images/IMG_6709.GIF",
+    "/images/IMG_6709.GIF",
+    "/images/IMG_6709.GIF",
+    "/images/IMG_6709.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Blue (horizontally embossed)",
+    "bracelet": "Integrated, polished and satin-finished",
+    "clasp": "Fold-over clasp with push-button release",
+    "bezel": "Octagonal with rounded corners",
+    "lume": "Applied luminescent hour markers"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "patek-aquanaut-blue",
+    "ap-royal-oak-blue",
+    "rolex-daytona-black",
+    "rolex-gmt-master-ii-pepsi"
+  ],
+  "reviews": [],
+  "featured": true,
+  "bestSeller": false,
+  "seoTitle": "Patek Philippe Nautilus Blue Dial | Artemis Watches Montreal",
+  "seoDescription": "Shop the Patek Philippe Nautilus (Blue Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,500 CAD."
+}

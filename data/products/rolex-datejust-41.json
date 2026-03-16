@@ -1,0 +1,66 @@
+{
+  "id": "rolex-datejust-41",
+  "slug": "datejust-41-silver-dial",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Datejust",
+  "collectionSlug": "datejust",
+  "name": "Datejust 41",
+  "variant": "Silver Dial",
+  "description": "The Rolex Datejust is the definition of timeless elegance. Introduced in 1945, it was the first self-winding wristwatch to display the date in a window on the dial. Decades later, it remains one of the most elegant dress watches ever made.\n\nThe 41mm silver dial variant strikes the perfect balance between classic and contemporary. The Jubilee bracelet adds a level of refinement rarely seen at any price point. This is the watch you wear to close deals, celebrate milestones, and mark the moments that matter.",
+  "descriptionShort": "Timeless Rolex elegance. Silver dial, Jubilee bracelet — the quintessential dress watch.",
+  "keyPoints": [
+    "Rolex's most enduring and elegant design",
+    "Silver dial with applied Roman numerals",
+    "Jubilee bracelet — Rolex's most refined",
+    "Date display with Cyclops lens",
+    "Versatile from boardroom to formal dinner",
+    "41mm — commanding yet refined presence"
+  ],
+  "range": "premium",
+  "price": 950,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 8,
+  "badge": "best-seller",
+  "images": [
+    "/images/IMG_3284.GIF",
+    "/images/IMG_3284.GIF",
+    "/images/IMG_3284.GIF",
+    "/images/IMG_3284.GIF",
+    "/images/IMG_3284.GIF",
+    "/images/IMG_3284.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Silver",
+    "bracelet": "Jubilee, five-piece links",
+    "clasp": "Crownclasp",
+    "bezel": "Smooth, polished",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "36mm",
+    "41mm"
+  ],
+  "availableColors": [
+    "silver",
+    "black",
+    "blue"
+  ],
+  "hasEssentialVariant": true,
+  "essentialPrice": 320,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-datejust-36",
+    "rolex-submariner-date-black",
+    "cartier-santos-silver",
+    "patek-nautilus-blue"
+  ],
+  "reviews": [],
+  "featured": true,
+  "bestSeller": true,
+  "seoTitle": "Rolex Datejust 41 Silver Dial | Artemis Watches Montreal",
+  "seoDescription": "Shop the Rolex Datejust 41 (Silver Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $950 CAD."
+}

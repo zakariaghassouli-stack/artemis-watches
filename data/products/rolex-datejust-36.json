@@ -1,0 +1,64 @@
+{
+  "id": "rolex-datejust-36",
+  "slug": "datejust-36-black-dial",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Datejust",
+  "collectionSlug": "datejust",
+  "name": "Datejust 36",
+  "variant": "Black Dial",
+  "description": "The Datejust 36 is where iconic Rolex design meets an accessible entry into the collection. The 36mm case sits elegantly on all wrist sizes — neither too bold nor too understated. The black dial with silver applied indices projects quiet confidence.\n\nFor those entering the world of luxury timepieces, the Datejust 36 Essential is the perfect starting point. You get the look, the weight, and the wrist presence of a true Rolex — curated by Artemis for design accuracy and visual impact.",
+  "descriptionShort": "Entry into the Rolex Datejust legacy. 36mm, black dial — understated luxury at its finest.",
+  "keyPoints": [
+    "Classic 36mm case — universally flattering",
+    "Black dial with applied silver indices",
+    "Jubilee bracelet with polished center links",
+    "Essential range — best value entry point",
+    "Perfect gift for milestone occasions",
+    "Pairs with both casual and formal attire"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 12,
+  "badge": null,
+  "images": [
+    "/images/IMG_6039.GIF",
+    "/images/IMG_6039.GIF",
+    "/images/IMG_6039.GIF",
+    "/images/IMG_6039.GIF",
+    "/images/IMG_6039.GIF",
+    "/images/IMG_6039.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "36mm",
+    "dialColor": "Black",
+    "bracelet": "Jubilee, five-piece links",
+    "clasp": "Crownclasp",
+    "bezel": "Smooth, polished",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "36mm"
+  ],
+  "availableColors": [
+    "black",
+    "silver"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-datejust-41",
+    "rolex-submariner-date-black",
+    "cartier-santos-black",
+    "ap-royal-oak-black-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Datejust 36 Black Dial — Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Rolex Datejust 36 (Black Dial) at Artemis — Montreal's premier luxury watch destination. Essential range, 30-day guarantee, free shipping. $320 CAD."
+}

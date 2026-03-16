@@ -1,0 +1,66 @@
+{
+  "id": "cartier-panthere-gold",
+  "slug": "panthere-gold-tone",
+  "brand": "Cartier",
+  "brandSlug": "cartier",
+  "collection": "Panthère",
+  "collectionSlug": "panthere",
+  "name": "Panthère de Cartier",
+  "variant": "Gold Tone",
+  "description": "The Panthère de Cartier is femininity distilled into metal. First launched in 1983, the Panthère became the defining luxury watch of an era — worn by royalty, worn by icons, worn by those who understand that true luxury never shouts.\n\nThe gold tone variant with its supple mesh bracelet flows on the wrist like liquid. The square case with rounded corners, the guilloche-patterned dial, and the sapphire cabochon crown are details that reward close inspection. This is Cartier at its most Cartier — elegant, mysterious, effortless. A watch for those who have arrived.",
+  "descriptionShort": "The Panthère is Cartier's most iconic feminine expression. Supple mesh bracelet, guilloche dial, sapphire crown.",
+  "keyPoints": [
+    "Iconic 1983 design — the ultimate Cartier classic",
+    "Supple mesh bracelet that flows on the wrist",
+    "Guilloche-patterned dial with Roman numerals",
+    "Sapphire cabochon crown — the Cartier signature",
+    "Worn by royalty and cultural icons for decades",
+    "Available in multiple sizes for perfect fit"
+  ],
+  "range": "premium",
+  "price": 1250,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": null,
+  "images": [
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF",
+    "/images/IMG_7155.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "35mm",
+    "dialColor": "White (guilloche)",
+    "bracelet": "Integrated mesh, gold tone",
+    "clasp": "Deployant buckle",
+    "bezel": "Fixed, polished gold tone",
+    "lume": "Applied hour markers"
+  },
+  "availableSizes": [
+    "22mm",
+    "27mm",
+    "35mm"
+  ],
+  "availableColors": [
+    "gold",
+    "silver"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "cartier-santos-silver",
+    "cartier-santos-black",
+    "patek-nautilus-blue",
+    "rolex-datejust-41"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Cartier Panthère de Cartier Gold Tone | Artemis Watches Montreal",
+  "seoDescription": "Shop the Cartier Panthère de Cartier (Gold Tone) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,250 CAD."
+}

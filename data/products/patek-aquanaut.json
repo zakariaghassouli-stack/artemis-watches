@@ -1,0 +1,63 @@
+{
+  "id": "patek-aquanaut-blue",
+  "slug": "aquanaut-blue-black",
+  "brand": "Patek Philippe",
+  "brandSlug": "patek-philippe",
+  "collection": "Aquanaut",
+  "collectionSlug": "aquanaut",
+  "name": "Aquanaut",
+  "variant": "Blue/Black Dial",
+  "description": "The Patek Philippe Aquanaut is the younger, more adventurous sibling of the Nautilus. Introduced in 1997 for a new generation of collectors, the Aquanaut broke from tradition with its rounded octagonal case, tropical composite strap, and embossed checkerboard dial.\n\nThe blue/black dial — where the blue surface is overlaid with a black embossed pattern — creates a depth and dynamism unique to this reference. On the rubber composite strap, the Aquanaut has an athletic sophistication that no other Patek achieves. This is for the collector who understands that exclusivity isn't always found at the most formal address.",
+  "descriptionShort": "Patek's adventurous spirit. Aquanaut blue/black dial on composite strap — modern horological royalty.",
+  "keyPoints": [
+    "The Aquanaut — Patek's modern sports icon since 1997",
+    "Embossed blue/black 'Clous de Paris' dial",
+    "Rounded octagonal case — contemporary and bold",
+    "Tropical composite strap — sporty sophistication",
+    "Patek's most accessible sports reference",
+    "Coveted by a new generation of collectors"
+  ],
+  "range": "premium",
+  "price": 1350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": null,
+  "images": [
+    "/images/IMG_6279.GIF",
+    "/images/IMG_6279.GIF",
+    "/images/IMG_6279.GIF",
+    "/images/IMG_6279.GIF",
+    "/images/IMG_6279.GIF",
+    "/images/IMG_6279.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "38mm",
+    "dialColor": "Blue/Black (embossed checkerboard)",
+    "bracelet": "Tropical composite strap",
+    "clasp": "Fold-over tang buckle",
+    "bezel": "Rounded octagonal, brushed",
+    "lume": "Applied luminescent hour markers"
+  },
+  "availableSizes": [
+    "38mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "patek-nautilus-blue",
+    "ap-royal-oak-blue",
+    "rolex-gmt-master-ii-pepsi",
+    "cartier-santos-silver"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Patek Philippe Aquanaut Blue/Black | Artemis Watches Montreal",
+  "seoDescription": "Shop the Patek Philippe Aquanaut (Blue/Black Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,350 CAD."
+}

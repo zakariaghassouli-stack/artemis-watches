@@ -1,0 +1,63 @@
+{
+  "id": "rolex-submariner-date-blue",
+  "slug": "submariner-date-blue-dial",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Submariner",
+  "collectionSlug": "submariner",
+  "name": "Submariner Date",
+  "variant": "Blue Dial",
+  "description": "The Blue Dial Submariner is the boldest expression of Rolex's most iconic model. Where the black dial whispers authority, the blue speaks with confidence. The deep gradient blue dial — sometimes called 'Smurf' in collector circles — catches light in a way that turns heads without trying.\n\nFeaturing the same unidirectional rotating bezel with blue Cerachrom insert, the color coordination between dial and bezel creates a cohesive, striking aesthetic. On the wrist, this watch doesn't just tell time — it tells your story.",
+  "descriptionShort": "The bold Submariner variant. Deep blue dial and Cerachrom bezel — the collector's choice.",
+  "keyPoints": [
+    "Deep blue gradient dial — the 'Smurf' colorway",
+    "Blue Cerachrom unidirectional rotating bezel",
+    "High demand — limited availability",
+    "Chromalight luminous indices",
+    "Oyster bracelet with Oysterclasp",
+    "One of Rolex's most sought-after variants"
+  ],
+  "range": "premium",
+  "price": 1150,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": "high-demand",
+  "images": [
+    "/images/IMG_9815.GIF",
+    "/images/IMG_5447.GIF",
+    "/images/IMG_9815.GIF",
+    "/images/IMG_9815.GIF",
+    "/images/IMG_9815.GIF",
+    "/images/IMG_9815.GIF"
+  ],
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Blue",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Unidirectional rotating, 60-min blue Cerachrom",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": true,
+  "essentialPrice": 320,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-submariner-date-black",
+    "rolex-gmt-master-ii-pepsi",
+    "patek-nautilus-blue",
+    "ap-royal-oak-blue"
+  ],
+  "reviews": [],
+  "featured": true,
+  "bestSeller": false,
+  "seoTitle": "Rolex Submariner Date Blue Dial | Artemis Watches Montreal",
+  "seoDescription": "Shop the Rolex Submariner Date (Blue Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,150 CAD."
+}
