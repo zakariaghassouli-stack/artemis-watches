@@ -31,8 +31,8 @@ export const authConfig = {
     async session({ session, token }) {
       if (token) {
         session.user.id = token.id as string;
-        session.user.promoCode = token.promoCode;
-        session.user.promoUsed = token.promoUsed;
+        session.user.promoCode = token.promoCode as string | undefined;
+        session.user.promoUsed = token.promoUsed as boolean | undefined;
       }
       return session;
     },
