@@ -21,6 +21,7 @@ interface Props {
     freeShipping: string;
     returnPolicy: string;
     authenticityLabel: string;
+    braceletTool: string;
     keyPoints: string;
     lowStock: string;
     bestSeller: string;
@@ -700,6 +701,7 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
           { icon: '✈', label: t.freeShipping },
           { icon: '↩', label: t.returnPolicy },
           { icon: '✓', label: t.authenticityLabel },
+          { icon: '🔧', label: t.braceletTool },
         ].map(({ icon, label }) => (
           <div
             key={label}

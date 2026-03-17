@@ -25,12 +25,9 @@
   "stockCount": 2,
   "badge": "best-seller",
   "images": [
-    "/images/IMG_0418.GIF",
-    "/images/IMG_7728.GIF",
-    "/images/IMG_7272.GIF",
-    "/images/IMG_0418.GIF",
-    "/images/IMG_0418.GIF",
-    "/images/IMG_0418.GIF"
+    "/images/IMG_0418.webp",
+    "/images/IMG_7728.webp",
+    "/images/IMG_7272.webp"
   ],
   "specs": {
     "caseDiameter": "41mm",

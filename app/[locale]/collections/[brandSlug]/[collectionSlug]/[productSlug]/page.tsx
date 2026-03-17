@@ -72,6 +72,7 @@ export default async function ProductPage({ params }: Props) {
   if (!brand || !collection) notFound();
 
   const t = await getTranslations('product');
+  const tCommon = await getTranslations('common');
   const tCollections = await getTranslations('collections');
 
   const productInfoT = {
@@ -83,6 +84,7 @@ export default async function ProductPage({ params }: Props) {
     freeShipping: t('freeShipping'),
     returnPolicy: t('returnPolicy'),
     authenticityLabel: t('authenticityLabel'),
+    braceletTool: tCommon('braceletTool'),
     keyPoints: t('keyPoints'),
     lowStock: t('lowStock'),
     bestSeller: t('bestSeller'),

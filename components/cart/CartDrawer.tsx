@@ -15,7 +15,13 @@ function formatCAD(amount: number): string {
   }).format(amount);
 }
 
-function CartItemRow({ item, removeLabel, boxAndPapersLabel }: { item: CartItem; removeLabel: string; boxAndPapersLabel: string }) {
+function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabel, onUpgradeBP }: {
+  item: CartItem;
+  removeLabel: string;
+  boxAndPapersLabel: string;
+  addBoxAndPapersLabel: string;
+  onUpgradeBP?: (item: CartItem) => void;
+}) {
   const { removeItem, updateQuantity } = useCartStore();
 
   return (
@@ -76,6 +82,37 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel }: { item: CartItem;
           >
             {boxAndPapersLabel}
           </p>
+        )}
+        {/* Upsell: add box & papers for premium items */}
+        {item.range === 'premium' && !item.boxAndPapers && onUpgradeBP && (
+          <button
+            onClick={() => onUpgradeBP(item)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 4,
+              marginBottom: 8,
+              background: 'none',
+              border: '1px solid rgba(201,169,110,0.2)',
+              borderRadius: 2,
+              padding: '4px 8px',
+              cursor: 'pointer',
+              fontSize: '0.6rem',
+              color: '#C9A96E',
+              letterSpacing: '0.06em',
+              transition: 'border-color 0.2s, background 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'rgba(201,169,110,0.07)';
+              (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(201,169,110,0.4)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.background = 'none';
+              (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(201,169,110,0.2)';
+            }}
+          >
+            + {addBoxAndPapersLabel}
+          </button>
         )}
         {/* Qty controls */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
@@ -188,7 +225,7 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel }: { item: CartItem;
 
 export function CartDrawer() {
   const t = useTranslations('cart');
-  const { items, isOpen, closeCart } = useCartStore();
+  const { items, isOpen, closeCart, removeItem, addItem } = useCartStore();
   const itemCount = useCartStore(selectItemCount);
   const total = useCartStore(selectCartTotal);
 
@@ -242,6 +279,23 @@ export function CartDrawer() {
       setPromoLoading(false);
     }
   }, [promoInput, t]);
+
+  const upgradeItemBP = useCallback((item: CartItem) => {
+    removeItem(item.cartKey);
+    addItem({
+      id: item.id,
+      slug: item.slug,
+      brandSlug: item.brandSlug,
+      collectionSlug: item.collectionSlug,
+      brand: item.brand,
+      name: item.name,
+      variant: item.variant,
+      size: item.size,
+      range: item.range,
+      price: item.price + 49,
+      boxAndPapers: true,
+    });
+  }, [removeItem, addItem]);
 
   const removePromo = useCallback(() => {
     setPromoCode('');
@@ -469,6 +523,8 @@ export function CartDrawer() {
                 item={item}
                 removeLabel={t('remove')}
                 boxAndPapersLabel={t('boxAndPapers')}
+                addBoxAndPapersLabel={t('addBoxAndPapers')}
+                onUpgradeBP={upgradeItemBP}
               />
             ))
           )}

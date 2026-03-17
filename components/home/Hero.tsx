@@ -238,7 +238,7 @@ export function Hero() {
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/IMG_9316.GIF"
+              src="/images/IMG_9316.webp"
               alt="Rolex Submariner Date — Artemis Watches Montreal"
               style={{
                 width: '88%',

@@ -11,28 +11,28 @@ const BRANDS = [
     slug: 'rolex',
     bgAccent: 'rgba(0,135,81,0.06)',
     priority: true,
-    image: '/images/IMG_9316.GIF',
+    image: '/images/IMG_9316.webp',
   },
   {
     key: 'cartier' as const,
     slug: 'cartier',
     bgAccent: 'rgba(180,30,30,0.05)',
     priority: false,
-    image: '/images/IMG_7155.GIF',
+    image: '/images/IMG_7155.webp',
   },
   {
     key: 'ap' as const,
     slug: 'audemars-piguet',
     bgAccent: 'rgba(0,80,160,0.05)',
     priority: false,
-    image: '/images/IMG_0418.GIF',
+    image: '/images/IMG_0418.webp',
   },
   {
     key: 'patek' as const,
     slug: 'patek-philippe',
     bgAccent: 'rgba(140,100,0,0.05)',
     priority: false,
-    image: '/images/IMG_6709.GIF',
+    image: '/images/IMG_6709.webp',
   },
 ];
 
