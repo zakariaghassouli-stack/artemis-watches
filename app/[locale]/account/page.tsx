@@ -1,37 +1,11 @@
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
-import { redirect } from 'next/navigation';
-import Link from 'next/link';
+import { redirect } from '@/i18n/navigation';
+import { getTranslations, getLocale } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import type { Order } from '@prisma/client';
 import { SignOutButton } from './SignOutButton';
 import { ReferralShare } from './ReferralShare';
-
-function formatCAD(amount: number): string {
-  return new Intl.NumberFormat('en-CA', {
-    style: 'currency',
-    currency: 'CAD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
-function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-CA', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }).format(new Date(date));
-}
-
-const STATUS_LABEL: Record<string, string> = {
-  PENDING: 'Pending',
-  PAID: 'Paid',
-  PROCESSING: 'Processing',
-  SHIPPED: 'Shipped',
-  DELIVERED: 'Delivered',
-  CANCELLED: 'Cancelled',
-  REFUNDED: 'Refunded',
-};
 
 const STATUS_COLOR: Record<string, string> = {
   PENDING: '#A8A5A0',
@@ -44,17 +18,52 @@ const STATUS_COLOR: Record<string, string> = {
 };
 
 export default async function AccountPage() {
+  const [t, locale] = await Promise.all([
+    getTranslations('auth.account'),
+    getLocale(),
+  ]);
+
+  const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-CA';
+  const formatter = new Intl.DateTimeFormat(dateLocale, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+
+  function formatDate(date: Date): string {
+    return formatter.format(new Date(date));
+  }
+
+  function formatCAD(amount: number): string {
+    return new Intl.NumberFormat('en-CA', {
+      style: 'currency',
+      currency: 'CAD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  }
+
+  const STATUS_LABEL: Record<string, string> = {
+    PENDING: t('statusPending'),
+    PAID: t('statusPaid'),
+    PROCESSING: t('statusProcessing'),
+    SHIPPED: t('statusShipped'),
+    DELIVERED: t('statusDelivered'),
+    CANCELLED: t('statusCancelled'),
+    REFUNDED: t('statusRefunded'),
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let session: any;
   try {
     session = await auth();
   } catch (err) {
     console.error('[account] auth() failed:', err);
-    throw err; // Let error.tsx handle it and show real message
+    throw err;
   }
 
   if (!session?.user?.email) {
-    redirect('/account/login');
+    redirect({ href: '/account/login', locale });
   }
 
   let orders: Order[] = [];
@@ -77,7 +86,6 @@ export default async function AccountPage() {
       promoUsed = user?.promoUsed ?? false;
     } catch (err) {
       console.error('[account] DB query failed:', err);
-      // Page renders gracefully without order data
     }
   }
 
@@ -97,7 +105,7 @@ export default async function AccountPage() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
           <div>
             <p style={{ fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A96E', marginBottom: 8 }}>
-              Your Account
+              {t('overline')}
             </p>
             <h1
               style={{
@@ -108,7 +116,7 @@ export default async function AccountPage() {
                 margin: 0,
               }}
             >
-              Welcome, {userName}
+              {t('welcome', { name: userName })}
             </h1>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -116,6 +124,9 @@ export default async function AccountPage() {
               .acc-settings-link { color: #6B6965; border-color: rgba(255,255,255,0.08); }
               .acc-settings-link:hover { color: #C9A96E !important; border-color: rgba(201,169,110,0.25) !important; }
               .acc-order-row:hover { border-color: rgba(201,169,110,0.2) !important; background: rgba(255,255,255,0.035) !important; }
+              @media (max-width: 560px) {
+                .acc-order-row { grid-template-columns: 1fr auto !important; row-gap: 6px !important; }
+              }
             `}</style>
             <Link
               href="/account/settings"
@@ -132,7 +143,7 @@ export default async function AccountPage() {
                 transition: 'color 0.2s, border-color 0.2s',
               }}
             >
-              Settings
+              {t('settings')}
             </Link>
             <SignOutButton />
           </div>
@@ -158,7 +169,7 @@ export default async function AccountPage() {
           >
             <div>
               <p style={{ fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: promoUsed ? '#6B6965' : '#C9A96E', marginBottom: 10 }}>
-                Your Exclusive Promo Code
+                {t('promoOverline')}
               </p>
               <p
                 style={{
@@ -173,9 +184,7 @@ export default async function AccountPage() {
                 {promoCode}
               </p>
               <p style={{ fontSize: '0.78rem', color: promoUsed ? '#3A3835' : '#A8A5A0', lineHeight: 1.5 }}>
-                {promoUsed
-                  ? 'This code has been redeemed. Thank you for your order.'
-                  : '10% off your first order — enter this code at checkout.'}
+                {promoUsed ? t('promoUsed') : t('promoActive')}
               </p>
             </div>
             {!promoUsed && (
@@ -195,7 +204,7 @@ export default async function AccountPage() {
                   flexShrink: 0,
                 }}
               >
-                Shop Now →
+                {t('shopNow')}
               </Link>
             )}
           </div>
@@ -212,10 +221,12 @@ export default async function AccountPage() {
             }}
           >
             <p style={{ fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 10 }}>
-              Share & Give 10% Off
+              {t('referralOverline')}
             </p>
             <p style={{ fontSize: '0.82rem', color: '#A8A5A0', lineHeight: 1.6, marginBottom: 20 }}>
-              Share your code with a friend — they get <span style={{ color: '#C9A96E', fontWeight: 600 }}>10% off</span> their first order. No conditions.
+              {t.rich('referralBody', {
+                b: (chunks) => <span style={{ color: '#C9A96E', fontWeight: 600 }}>{chunks}</span>,
+              })}
             </p>
             <ReferralShare code={promoCode} />
           </div>
@@ -235,7 +246,7 @@ export default async function AccountPage() {
               paddingBottom: 16,
             }}
           >
-            Order History
+            {t('orderHistory')}
           </p>
 
           {orders.length === 0 ? (
@@ -248,7 +259,7 @@ export default async function AccountPage() {
               }}
             >
               <p style={{ fontSize: '0.85rem', color: '#6B6965', marginBottom: 16 }}>
-                No orders yet.
+                {t('noOrders')}
               </p>
               <Link
                 href="/collections"
@@ -261,7 +272,7 @@ export default async function AccountPage() {
                   textDecoration: 'none',
                 }}
               >
-                Browse Collections →
+                {t('browseCollections')}
               </Link>
             </div>
           ) : (
@@ -293,7 +304,7 @@ export default async function AccountPage() {
                     </p>
                     {order.promoCodeUsed && (
                       <p style={{ fontSize: '0.62rem', color: 'rgba(201,169,110,0.5)', marginTop: 4, letterSpacing: '0.08em' }}>
-                        Promo: {order.promoCodeUsed}
+                        {t('promoLabel')} {order.promoCodeUsed}
                       </p>
                     )}
                   </div>
@@ -315,7 +326,7 @@ export default async function AccountPage() {
                     {formatCAD(order.total)}
                   </p>
                   <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A96E' }}>
-                    View →
+                    {t('orderView')}
                   </span>
                 </Link>
               ))}
@@ -338,7 +349,7 @@ export default async function AccountPage() {
           }}
         >
           <p style={{ fontSize: '0.78rem', color: '#6B6965' }}>
-            Need help with an order?
+            {t('supportQuestion')}
           </p>
           <a
             href={`https://wa.me/15145609765?text=${encodeURIComponent('Hello ARTEMIS, I need help with my order.')}`}
@@ -353,7 +364,7 @@ export default async function AccountPage() {
               textDecoration: 'none',
             }}
           >
-            WhatsApp Support →
+            {t('supportCta')}
           </a>
         </div>
       </div>

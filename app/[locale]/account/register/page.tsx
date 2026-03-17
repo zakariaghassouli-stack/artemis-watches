@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Link, useRouter } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { signIn } from 'next-auth/react';
 
 export default function RegisterPage() {
   const router = useRouter();
+  const t = useTranslations('auth.register');
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const [promoCode, setPromoCode] = useState('');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -30,7 +31,7 @@ export default function RegisterPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error ?? 'Registration failed. Please try again.');
+        setError(data.error ?? t('errorRegistration'));
         setLoading(false);
         return;
       }
@@ -43,7 +44,7 @@ export default function RegisterPage() {
       router.push('/account');
       router.refresh();
     } catch {
-      setError('Something went wrong. Please try again.');
+      setError(t('errorGeneric'));
       setLoading(false);
     }
   };
@@ -54,15 +55,16 @@ export default function RegisterPage() {
 
       <div style={cardStyle}>
         <p style={logoStyle}>ARTEMIS</p>
-        <h1 style={headlineStyle}>Create Account</h1>
+        <h1 style={headlineStyle}>{t('headline')}</h1>
         <p style={subStyle}>
-          Register and instantly receive your exclusive{' '}
-          <span style={{ color: '#C9A96E', fontWeight: 500 }}>10% off</span> promo code.
+          {t('subPre')}{' '}
+          <span style={{ color: '#C9A96E', fontWeight: 500 }}>{t('subHighlight')}</span>{' '}
+          {t('subPost')}
         </p>
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>
-            <label style={labelStyle}>First Name (optional)</label>
+            <label style={labelStyle}>{t('firstNameLabel')}</label>
             <input
               type="text"
               value={name}
@@ -74,7 +76,7 @@ export default function RegisterPage() {
             />
           </div>
           <div>
-            <label style={labelStyle}>Email</label>
+            <label style={labelStyle}>{t('emailLabel')}</label>
             <input
               type="email"
               value={email}
@@ -87,14 +89,14 @@ export default function RegisterPage() {
             />
           </div>
           <div>
-            <label style={labelStyle}>Password</label>
+            <label style={labelStyle}>{t('passwordLabel')}</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={8}
-              placeholder="Min. 8 characters"
+              placeholder={t('passwordPlaceholder')}
               style={inputStyle}
               onFocus={(e) => (e.currentTarget.style.borderColor = 'rgba(201,169,110,0.5)')}
               onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}
@@ -105,31 +107,31 @@ export default function RegisterPage() {
 
           {promoCode && (
             <div style={promoSuccessStyle}>
-              <p style={{ fontSize: '0.72rem', color: '#A8A5A0', marginBottom: 6 }}>Your promo code:</p>
+              <p style={{ fontSize: '0.72rem', color: '#A8A5A0', marginBottom: 6 }}>{t('promoYourCode')}</p>
               <p style={{ fontSize: '1.1rem', fontWeight: 700, letterSpacing: '0.2em', color: '#C9A96E' }}>
                 {promoCode}
               </p>
               <p style={{ fontSize: '0.65rem', color: '#6B6965', marginTop: 4 }}>
-                Applies 10% off at checkout — one time use.
+                {t('promoApplies')}
               </p>
             </div>
           )}
 
           <button type="submit" disabled={loading} style={btnPrimaryStyle}>
-            {loading ? 'Creating account...' : 'Create Account & Get 10% Off →'}
+            {loading ? t('creatingAccount') : t('createAndGet')}
           </button>
         </form>
 
         <div style={dividerStyle}>
           <span style={dividerLineStyle} />
-          <span style={{ fontSize: '0.68rem', color: '#6B6965', padding: '0 12px', flexShrink: 0 }}>OR</span>
+          <span style={{ fontSize: '0.68rem', color: '#6B6965', padding: '0 12px', flexShrink: 0 }}>{t('orDivider')}</span>
           <span style={dividerLineStyle} />
         </div>
 
         <p style={{ textAlign: 'center', fontSize: '0.78rem', color: '#6B6965' }}>
-          Already have an account?{' '}
+          {t('haveAccount')}{' '}
           <Link href="/account/login" style={{ color: '#C9A96E', textDecoration: 'none', fontWeight: 500 }}>
-            Sign in →
+            {t('signIn')}
           </Link>
         </p>
       </div>

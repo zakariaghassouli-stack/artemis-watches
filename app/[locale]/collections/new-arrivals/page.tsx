@@ -63,14 +63,14 @@ export default async function NewArrivalsPage() {
           <Breadcrumb
             crumbs={[
               { label: t('breadcrumbCollections'), href: '/collections' },
-              { label: 'New Arrivals' },
+              { label: t('newArrivalsLabel') },
             ]}
           />
           <div style={{ marginTop: 32 }}>
             <SectionHeader
-              overline="NEW ARRIVALS"
-              headline="Freshly Curated."
-              subheadline={`${ALL_PRODUCTS.length} timepieces — Rolex, Cartier, Audemars Piguet, Patek Philippe. Every piece inspected and ready to ship from Montreal. ${t('startingFrom')} ${formatPrice(LOWEST_PRICE)} CAD.`}
+              overline={t('newArrivalsOverline')}
+              headline={t('newArrivalsHeadline')}
+              subheadline={`${t('piecesAvailable', { count: ALL_PRODUCTS.length })} — Rolex, Cartier, Audemars Piguet, Patek Philippe. ${t('startingFrom')} ${formatPrice(LOWEST_PRICE)} CAD.`}
             />
           </div>
         </div>
@@ -104,10 +104,10 @@ export default async function NewArrivalsPage() {
           }}
         >
           {[
-            'Free shipping across Canada',
-            '30-day money-back guarantee',
-            'Authenticity guaranteed',
-            'WhatsApp support: 514-560-9765',
+            t('trustShipping'),
+            t('trustGuarantee'),
+            t('trustQuality'),
+            t('trustWhatsApp'),
           ].map((item) => (
             <span
               key={item}

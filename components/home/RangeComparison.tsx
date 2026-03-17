@@ -195,7 +195,7 @@ export function RangeComparison() {
                   borderRadius: '0 0 6px 6px',
                 }}
               >
-                RECOMMENDED
+                {t('recommendedBadge')}
               </div>
 
               <span

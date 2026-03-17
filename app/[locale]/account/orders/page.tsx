@@ -1,6 +1,8 @@
-import { redirect } from 'next/navigation';
+import { getLocale } from 'next-intl/server';
+import { redirect } from '@/i18n/navigation';
 
 // /account/orders redirects to /account — order history lives in the main dashboard
-export default function OrdersPage() {
-  redirect('/account');
+export default async function OrdersPage() {
+  const locale = await getLocale();
+  redirect({ href: '/account', locale });
 }

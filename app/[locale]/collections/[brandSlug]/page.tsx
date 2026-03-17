@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
@@ -98,7 +98,7 @@ export default async function BrandPage({ params, searchParams }: Props) {
                 marginBottom: 16,
               }}
             >
-              {allProducts.length} {allProducts.length === 1 ? 'piece' : 'pieces'} available
+              {t('piecesAvailable', { count: allProducts.length })}
             </p>
           </ScrollReveal>
 
@@ -228,7 +228,7 @@ export default async function BrandPage({ params, searchParams }: Props) {
                           marginBottom: 10,
                         }}
                       >
-                        {colProducts.length} {colProducts.length === 1 ? 'piece' : 'pieces'}
+                        {t('piecesCount', { count: colProducts.length })}
                       </p>
                       <h3
                         style={{
@@ -296,7 +296,7 @@ export default async function BrandPage({ params, searchParams }: Props) {
               marginBottom: 32,
             }}
           >
-            All {brand.name} Pieces
+            {t('allBrandPieces', { name: brand.name })}
           </p>
 
           <ProductGridClient products={allProducts} t={translations} initialFilter={initialFilter} />

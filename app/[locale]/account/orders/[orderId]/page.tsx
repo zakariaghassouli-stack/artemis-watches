@@ -1,7 +1,8 @@
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
-import { redirect, notFound } from 'next/navigation';
-import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { redirect } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 
 interface Props {
@@ -68,11 +69,11 @@ interface OrderItem {
 }
 
 export default async function OrderDetailPage({ params }: Props) {
-  const { orderId } = await params;
+  const { orderId, locale } = await params;
   const session = await auth();
 
   if (!session?.user?.email) {
-    redirect('/account/login');
+    redirect({ href: '/account/login', locale });
   }
 
   if (!prisma) notFound();
@@ -82,7 +83,7 @@ export default async function OrderDetailPage({ params }: Props) {
     include: { user: true },
   });
 
-  if (!order || order.user?.email !== session.user.email) {
+  if (!order || order.user?.email !== session!.user!.email) {
     notFound();
   }
 

@@ -1,8 +1,11 @@
 'use client';
 
 import { signOut } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 
 export function SignOutButton() {
+  const t = useTranslations('auth.account');
+
   return (
     <button
       onClick={() => signOut({ callbackUrl: '/' })}
@@ -29,7 +32,7 @@ export function SignOutButton() {
         (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.1)';
       }}
     >
-      Sign Out
+      {t('signOut')}
     </button>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { getScarcityState, formatPrice, getInstallmentPrice } from '@/lib/products';
 import { useCartStore } from '@/store/cart';
 import { pixel } from '@/lib/pixel';
@@ -31,7 +31,8 @@ interface Props {
     outOfStock: string;
     rangeEssential: string;
     rangePremium: string;
-    viewersLabel: string;
+    reviewSingular: string;
+    reviewPlural: string;
     rangeSelectorLabel: string;
     variantsLabel: string;
     sizeSelectorLabel: string;
@@ -67,21 +68,7 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
       ? product.essentialPrice
       : product.price;
 
-  // Live viewers — deterministic seed + subtle drift
-  const [viewers, setViewers] = useState<number | null>(null);
-  useEffect(() => {
-    const seed = product.id.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-    const base = 3 + (seed % 9);
-    setViewers(base);
-    const id = setInterval(() => {
-      setViewers((v) => {
-        if (v === null) return base;
-        const delta = Math.random() > 0.45 ? 1 : -1;
-        return Math.max(2, Math.min(15, v + delta));
-      });
-    }, 7000);
-    return () => clearInterval(id);
-  }, [product.id]);
+  // viewers counter removed — replaced with stock/scarcity indicator
 
   const installmentAmt = formatPrice(getInstallmentPrice(activePrice, 4));
   const totalPrice = activePrice + (boxAndPapers ? product.boxAndPapersPrice : 0);
@@ -187,7 +174,7 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
           <Stars rating={avgRating} />
           <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>
             {avgRating.toFixed(1)} ({product.reviews.length}{' '}
-            {product.reviews.length === 1 ? 'review' : 'reviews'})
+            {product.reviews.length === 1 ? t.reviewSingular : t.reviewPlural})
           </span>
         </div>
       )}
@@ -397,29 +384,6 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
           </span>
         )}
       </div>
-
-      {/* Live viewers */}
-      {viewers !== null && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 16 }}>
-          <span style={{ display: 'flex', gap: 3 }}>
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                style={{
-                  width: 6, height: 6, borderRadius: '50%',
-                  background: '#C9A96E',
-                  opacity: 1 - i * 0.28,
-                  animation: `infoPulse ${1.6 + i * 0.4}s ease infinite`,
-                }}
-              />
-            ))}
-          </span>
-          <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.38)', letterSpacing: '0.04em' }}>
-            <span style={{ color: '#C9A96E', fontWeight: 600 }}>{viewers}</span>{' '}
-            {t.viewersLabel.replace('{count}', '').trim()}
-          </span>
-        </div>
-      )}
 
       {/* Price block */}
       <div style={{ marginBottom: 20 }}>

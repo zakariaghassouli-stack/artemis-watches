@@ -147,7 +147,7 @@ export default async function CollectionPage({ params }: Props) {
                   textTransform: 'uppercase',
                 }}
               >
-                {products.length} {products.length === 1 ? 'piece' : 'pieces'} available
+                {t('piecesAvailable', { count: products.length })}
               </p>
               {products.length > 0 && (
                 <p

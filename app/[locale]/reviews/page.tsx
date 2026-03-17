@@ -1,13 +1,16 @@
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 
-export const metadata: Metadata = {
-  title: 'Client Reviews — ARTEMIS Watches',
-  description:
-    'Read what our clients say about ARTEMIS. 200+ satisfied collectors across Canada. 4.9/5 average rating on every order.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('reviewsPage');
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+  };
+}
 
 const REVIEWS = [
   {
@@ -18,7 +21,7 @@ const REVIEWS = [
     rating: 5,
   },
   {
-    text: "Ordered the Datejust for my husband's birthday. The presentation was gorgeous — he genuinely thought it was from an authorized dealer. The 30-day guarantee gave me total peace of mind.",
+    text: "Ordered the Datejust for my husband's birthday. The presentation was absolutely gorgeous — he was completely blown away by the quality. The packaging experience alone was impressive. The 30-day guarantee gave me total peace of mind.",
     author: 'Sarah L.',
     location: 'Toronto, ON',
     watch: 'Rolex Datejust',
@@ -96,12 +99,6 @@ const REVIEWS = [
   },
 ];
 
-const PLATFORMS = [
-  { label: 'Google Reviews', value: '4.9', count: '80+' },
-  { label: 'Facebook', value: '5.0', count: '45+' },
-  { label: 'Direct Clients', value: '4.9', count: '200+' },
-];
-
 function Stars({ count }: { count: number }) {
   return (
     <div style={{ display: 'flex', gap: 3, marginBottom: 16 }}>
@@ -114,10 +111,19 @@ function Stars({ count }: { count: number }) {
   );
 }
 
-export default function ReviewsPage() {
+export default async function ReviewsPage() {
+  const t = await getTranslations('reviewsPage');
+
+  const PLATFORMS = [
+    { label: t('stat1Label'), value: t('stat1Value'), count: t('stat1Count') },
+    { label: t('stat2Label'), value: t('stat2Value'), count: t('stat2Count') },
+    { label: t('stat3Label'), value: t('stat3Value'), count: t('stat3Count') },
+  ];
+
   const ugcImages: string[] = Array.from({ length: 24 }, (_, i) =>
     `/images/review/review-${String(i + 1).padStart(2, '0')}.png`
   );
+
   return (
     <>
       {/* ── Hero ── */}
@@ -157,7 +163,7 @@ export default function ReviewsPage() {
                 marginBottom: 24,
               }}
             >
-              CLIENT REVIEWS
+              {t('overline')}
             </p>
           </ScrollReveal>
 
@@ -172,7 +178,7 @@ export default function ReviewsPage() {
                 marginBottom: 24,
               }}
             >
-              What Our Clients Say.
+              {t('headline')}
             </h1>
           </ScrollReveal>
 
@@ -185,8 +191,7 @@ export default function ReviewsPage() {
                 marginBottom: 40,
               }}
             >
-              Over 200 collectors and first-time buyers across Canada have trusted ARTEMIS
-              with their most meaningful purchases. Here is what they have to say.
+              {t('heroBody')}
             </p>
           </ScrollReveal>
 
@@ -238,7 +243,7 @@ export default function ReviewsPage() {
                     marginBottom: 4,
                   }}
                 >
-                  200+ Reviews
+                  {t('heroReviewCount')}
                 </p>
                 <p
                   style={{
@@ -247,7 +252,7 @@ export default function ReviewsPage() {
                     letterSpacing: '0.08em',
                   }}
                 >
-                  Across all platforms
+                  {t('heroPlatformsLabel')}
                 </p>
               </div>
             </div>
@@ -311,7 +316,6 @@ export default function ReviewsPage() {
                   }}
                 >
                   {p.value}
-                  <span style={{ fontSize: '0.875rem', color: '#A8A5A0', fontWeight: 400 }}> / 5</span>
                 </p>
                 <p
                   style={{
@@ -319,7 +323,7 @@ export default function ReviewsPage() {
                     color: '#6B6965',
                   }}
                 >
-                  {p.count} reviews
+                  {p.count}
                 </p>
               </div>
             </ScrollReveal>
@@ -367,9 +371,7 @@ export default function ReviewsPage() {
 
             {REVIEWS.map((review, i) => (
               <ScrollReveal key={i} delay={Math.min(i * 50, 300)}>
-                <div
-                  className="review-card"
-                >
+                <div className="review-card">
                   <Stars count={review.rating} />
 
                   <span
@@ -459,7 +461,7 @@ export default function ReviewsPage() {
                   marginBottom: 12,
                 }}
               >
-                #ARTEMISONWRIST
+                {t('ugcHashtag')}
               </p>
               <h2
                 style={{
@@ -470,11 +472,10 @@ export default function ReviewsPage() {
                   marginBottom: 12,
                 }}
               >
-                Wear it. Share it.
+                {t('ugcHeading')}
               </h2>
               <p style={{ fontSize: '0.85rem', color: '#6B6965', lineHeight: 1.6, maxWidth: 480, margin: '0 auto' }}>
-                Tag <span style={{ color: '#C9A96E' }}>@artemis.watches</span> on Instagram or Snapchat.
-                The best shots get featured right here.
+                {t('ugcCaption')}
               </p>
             </div>
           </ScrollReveal>
@@ -564,7 +565,7 @@ export default function ReviewsPage() {
             <div style={{ textAlign: 'center' }}>
               <style>{`
                 .ugc-ig-btn {
-                  display: inline-flex; align-items: center; gap: 10;
+                  display: inline-flex; align-items: center; gap: 10px;
                   padding: 13px 28px;
                   border: 1px solid rgba(201,169,110,0.25);
                   color: #C9A96E;
@@ -612,7 +613,7 @@ export default function ReviewsPage() {
               marginBottom: 16,
             }}
           >
-            JOIN THEM
+            {t('ctaOverline')}
           </p>
         </ScrollReveal>
 
@@ -626,7 +627,7 @@ export default function ReviewsPage() {
               marginBottom: 32,
             }}
           >
-            Your next timepiece is waiting.
+            {t('ctaHeadline')}
           </h2>
         </ScrollReveal>
 
@@ -665,11 +666,8 @@ export default function ReviewsPage() {
             }
           `}</style>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link
-              href="/collections"
-              className="reviews-btn-shop"
-            >
-              Shop the Collection
+            <Link href="/collections" className="reviews-btn-shop">
+              {t('ctaShop')}
             </Link>
             <a
               href="https://wa.me/15145609765?text=Hello%20ARTEMIS%2C%20I%27m%20looking%20for%20a%20watch."
@@ -677,7 +675,7 @@ export default function ReviewsPage() {
               rel="noopener noreferrer"
               className="reviews-btn-whatsapp"
             >
-              Ask on WhatsApp →
+              {t('ctaWhatsApp')}
             </a>
           </div>
         </ScrollReveal>

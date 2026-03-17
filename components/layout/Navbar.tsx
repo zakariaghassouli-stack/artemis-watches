@@ -49,7 +49,7 @@ const COLLECTIONS = [
 ];
 
 // ─── LocaleCurrencySelector ───────────────────────────────────────
-function LocaleCurrencySelector() {
+function LocaleCurrencySelector({ tNav }: { tNav: ReturnType<typeof useTranslations<'nav'>> }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -127,7 +127,7 @@ function LocaleCurrencySelector() {
           {/* Language row */}
           <div>
             <p style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 8 }}>
-              Language
+              {tNav('languageLabel')}
             </p>
             <div style={{ display: 'flex', gap: 6 }}>
               {(['en', 'fr'] as const).map((l) => (
@@ -159,7 +159,7 @@ function LocaleCurrencySelector() {
           {/* Currency row */}
           <div>
             <p style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 8 }}>
-              Currency
+              {tNav('currencyLabel')}
             </p>
             <div style={{ display: 'flex', gap: 6 }}>
               {(['CAD', 'USD'] as const).map((c) => (
@@ -342,7 +342,7 @@ export function Navbar() {
 
           {/* ── Right icons ── */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-            <LocaleCurrencySelector />
+            <LocaleCurrencySelector tNav={t} />
             <SearchBtn label={t('search')} onClick={openSearch} />
             <IconBtn href="/account" label={t('account')} icon={<User size={18} />} />
             <WishlistIcon label={t('wishlist')} />
@@ -448,10 +448,10 @@ export function Navbar() {
                 gap: 24,
               }}
             >
-              <MegaFeatureLink href="/collections" label="All Watches →" />
-              <MegaFeatureLink href="/collections/new-arrivals" label="New Arrivals →" />
-              <MegaFeatureLink href="/collections?range=essential" label="Essential Range ($300–$350) →" />
-              <MegaFeatureLink href="/collections?range=premium" label="Premium Range ($900–$1,600) →" />
+              <MegaFeatureLink href="/collections" label={t('megaAllWatches')} />
+              <MegaFeatureLink href="/collections/new-arrivals" label={t('megaNewArrivals')} />
+              <MegaFeatureLink href="/collections?range=essential" label={t('megaEssential')} />
+              <MegaFeatureLink href="/collections?range=premium" label={t('megaPremium')} />
             </div>
           </div>
         )}
@@ -707,7 +707,7 @@ function MobileMenu({
           <button
             onClick={onClose}
             style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#A8A5A0', padding: 4 }}
-            aria-label="Close menu"
+            aria-label={t('closeMenu')}
           >
             <X size={20} />
           </button>
@@ -851,7 +851,7 @@ function MobileMenu({
               textDecoration: 'none',
             }}
           >
-            WhatsApp Support →
+            {t('whatsappMobile')}
           </a>
         </div>
       </div>

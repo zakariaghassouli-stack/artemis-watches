@@ -101,7 +101,7 @@ export function Hero() {
                 marginBottom: 28,
               }}
             >
-              Wear What the{' '}
+              {t('headlinePart1')}{' '}
               <span
                 style={{
                   display: 'block',
@@ -115,7 +115,7 @@ export function Hero() {
                   backgroundClip: 'text',
                 }}
               >
-                Icons Wear.
+                {t('headlineAccent')}
               </span>
             </h1>
           </ScrollReveal>

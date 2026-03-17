@@ -14,7 +14,7 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
 export const metadata: Metadata = {
   title: 'ARTEMIS — Luxury Watch Boutique | Montreal',
   description:
-    'Authentic Rolex, Cartier, Audemars Piguet & Patek Philippe timepieces. Curated, inspected and delivered from Montreal. 30-day guarantee.',
+    'Rolex, Cartier, Audemars Piguet & Patek Philippe inspired timepieces. Curated, inspected and delivered from Montreal. 30-day quality guarantee.',
   alternates: {
     canonical: BASE,
     languages: {

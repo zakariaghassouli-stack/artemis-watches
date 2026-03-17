@@ -9,7 +9,15 @@ import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { convertPrice } from '@/lib/currency';
 import type { Product } from '@/types/product';
 
-function ProductCard({ product, index }: { product: Product; index: number }) {
+function ProductCard({
+  product,
+  index,
+  t,
+}: {
+  product: Product;
+  index: number;
+  t: ReturnType<typeof useTranslations<'home.bestSellers'>>;
+}) {
   const scarcity = getScarcityState(product);
   const { currency } = useCurrency();
 
@@ -128,7 +136,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                       flexShrink: 0,
                     }}
                   />
-                  Best Seller
+                  {t('bestSeller')}
                 </span>
               )}
               {scarcity.type === 'low-stock' && (
@@ -155,7 +163,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                       flexShrink: 0,
                     }}
                   />
-                  Only {scarcity.count} left
+                  {t('lowStock', { count: scarcity.count })}
                 </span>
               )}
               {scarcity.type === 'high-demand' && (
@@ -183,7 +191,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                       flexShrink: 0,
                     }}
                   />
-                  High Demand
+                  {t('highDemand')}
                 </span>
               )}
             </div>
@@ -218,7 +226,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                 borderRadius: 2,
               }}
             >
-              {product.range === 'premium' ? 'Premium' : 'Essential'}
+              {product.range === 'premium' ? t('premium') : t('essential')}
             </span>
           </div>
         </div>
@@ -322,7 +330,7 @@ export function BestSellers() {
           `}</style>
 
           {products.map((product, i) => (
-            <ProductCard key={product.id} product={product} index={i} />
+            <ProductCard key={product.id} product={product} index={i} t={t} />
           ))}
         </div>
 

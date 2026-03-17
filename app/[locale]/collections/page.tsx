@@ -310,10 +310,10 @@ export default async function CollectionsPage({
           }}
         >
           {[
-            'Free shipping across Canada',
-            '30-day money-back guarantee',
-            'Authenticity guaranteed',
-            'WhatsApp support: 514-560-9765',
+            t('trustShipping'),
+            t('trustGuarantee'),
+            t('trustQuality'),
+            t('trustWhatsApp'),
           ].map((item) => (
             <span
               key={item}

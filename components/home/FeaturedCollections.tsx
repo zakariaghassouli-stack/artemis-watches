@@ -157,7 +157,7 @@ export function FeaturedCollections() {
                         marginBottom: 10,
                       }}
                     >
-                      #1 BESTSELLER
+                      {t('no1Bestseller')}
                     </span>
                   )}
                   <h3

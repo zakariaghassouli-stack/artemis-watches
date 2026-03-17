@@ -1,18 +1,21 @@
 import { auth } from '@/auth';
 import { prisma } from '@/lib/prisma';
-import { redirect } from 'next/navigation';
+import { redirect } from '@/i18n/navigation';
+import { getLocale } from 'next-intl/server';
 import { SettingsClient } from './SettingsClient';
 
 export default async function SettingsPage() {
+  const locale = await getLocale();
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let session: any;
   try {
     session = await auth();
   } catch {
-    redirect('/account/login');
+    redirect({ href: '/account/login', locale });
   }
 
-  if (!session?.user?.email) redirect('/account/login');
+  if (!session?.user?.email) redirect({ href: '/account/login', locale });
 
   let userData = {
     name: session.user.name ?? '',

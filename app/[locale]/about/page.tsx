@@ -1,45 +1,34 @@
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 
-export const metadata: Metadata = {
-  title: 'About ARTEMIS — Our Story',
-  description:
-    "Montreal's premier luxury watch destination. Learn how ARTEMIS was born from a passion for horological excellence and an obsession with quality.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('about');
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+  };
+}
 
-const VALUES = [
-  {
-    number: '01',
-    title: 'Hand-Selected Pieces',
-    body: 'We work exclusively with Rolex, Cartier, Audemars Piguet, and Patek Philippe. No mass inventory. Every timepiece is personally selected for its design integrity, condition, and desirability.',
-  },
-  {
-    number: '02',
-    title: 'Inspected to Perfection',
-    body: 'Every watch undergoes a rigorous multi-point inspection before it leaves our hands. Movement accuracy, case integrity, crystal clarity, bracelet tension — nothing leaves us unless it is flawless.',
-  },
-  {
-    number: '03',
-    title: 'Based in Montreal. Shipped Worldwide.',
-    body: 'We are not a faceless warehouse. We are a Montreal-based team of collectors and enthusiasts who believe luxury should feel personal. Message us, call us, meet us.',
-  },
-  {
-    number: '04',
-    title: '30-Day Money-Back Guarantee',
-    body: 'If your watch does not meet your expectations for any reason, return it within 30 days for a full refund. No restocking fees. No questions. We stand behind every piece we sell.',
-  },
-];
+export default async function AboutPage() {
+  const t = await getTranslations('about');
 
-const STATS = [
-  { value: '200+', label: 'Happy Clients' },
-  { value: '4.9', label: 'Average Rating' },
-  { value: '4', label: 'Iconic Brands' },
-  { value: '30', label: 'Day Guarantee' },
-];
+  const STATS = [
+    { value: t('stat1Value'), label: t('stat1Label') },
+    { value: t('stat2Value'), label: t('stat2Label') },
+    { value: t('stat3Value'), label: t('stat3Label') },
+    { value: t('stat4Value'), label: t('stat4Label') },
+  ];
 
-export default function AboutPage() {
+  const VALUES = [
+    { number: '01', title: t('v1Title'), body: t('v1Body') },
+    { number: '02', title: t('v2Title'), body: t('v2Body') },
+    { number: '03', title: t('v3Title'), body: t('v3Body') },
+    { number: '04', title: t('v4Title'), body: t('v4Body') },
+  ];
+
   return (
     <>
       {/* ── Hero ── */}
@@ -52,7 +41,6 @@ export default function AboutPage() {
           overflow: 'hidden',
         }}
       >
-        {/* Ambient background */}
         <div
           aria-hidden
           style={{
@@ -79,7 +67,7 @@ export default function AboutPage() {
                 marginBottom: 24,
               }}
             >
-              OUR STORY
+              {t('overline')}
             </p>
           </ScrollReveal>
 
@@ -94,7 +82,7 @@ export default function AboutPage() {
                 marginBottom: 32,
               }}
             >
-              Born in Montreal.
+              {t('headline1')}
               <br />
               <em
                 style={{
@@ -103,7 +91,7 @@ export default function AboutPage() {
                   color: '#C9A96E',
                 }}
               >
-                Built for the Collector.
+                {t('headlineAccent')}
               </em>
             </h1>
           </ScrollReveal>
@@ -117,10 +105,7 @@ export default function AboutPage() {
                 maxWidth: 640,
               }}
             >
-              ARTEMIS was founded by watch enthusiasts who were tired of choosing between
-              accessibility and authenticity. We set out to build something different — a
-              curated boutique that treats every client like a collector, every watch like
-              a masterpiece.
+              {t('heroBody')}
             </p>
           </ScrollReveal>
         </div>
@@ -220,7 +205,7 @@ export default function AboutPage() {
                   marginBottom: 20,
                 }}
               >
-                THE ARTEMIS STANDARD
+                {t('storyOverline')}
               </p>
             </ScrollReveal>
 
@@ -235,9 +220,9 @@ export default function AboutPage() {
                   marginBottom: 24,
                 }}
               >
-                We Don&apos;t Just Sell Watches.
+                {t('storyHeadline1')}
                 <br />
-                We Curate Experiences.
+                {t('storyHeadline2')}
               </h2>
             </ScrollReveal>
 
@@ -250,25 +235,13 @@ export default function AboutPage() {
                   marginBottom: 20,
                 }}
               >
-                Every watch that leaves our atelier has been hand-selected, meticulously
-                inspected, and prepared with the same care you would expect from an
-                authorised Rolex boutique. We believe in the object, its story, and what it
-                means to the person wearing it.
+                {t('storyP1')}
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <p
-                style={{
-                  fontSize: '0.95rem',
-                  color: '#A8A5A0',
-                  lineHeight: 1.85,
-                }}
-              >
-                That is why we limit ourselves to four Maisons — Rolex, Cartier, Audemars
-                Piguet, Patek Philippe — and why we refuse to compromise on condition or
-                provenance. When you buy from ARTEMIS, you are not buying a product.
-                You are acquiring a piece of horological history.
+              <p style={{ fontSize: '0.95rem', color: '#A8A5A0', lineHeight: 1.85 }}>
+                {t('storyP2')}
               </p>
             </ScrollReveal>
           </div>
@@ -289,7 +262,6 @@ export default function AboutPage() {
                 overflow: 'hidden',
               }}
             >
-              {/* Decorative circle */}
               <div
                 aria-hidden
                 style={{
@@ -326,8 +298,7 @@ export default function AboutPage() {
                   position: 'relative',
                 }}
               >
-                &ldquo;A watch is more than an instrument of time. It is a statement of
-                who you are, and where you are going.&rdquo;
+                &ldquo;{t('storyQuote')}&rdquo;
               </p>
 
               <div
@@ -338,13 +309,7 @@ export default function AboutPage() {
                   position: 'relative',
                 }}
               >
-                <div
-                  style={{
-                    width: 32,
-                    height: 1,
-                    background: '#C9A96E',
-                  }}
-                />
+                <div style={{ width: 32, height: 1, background: '#C9A96E' }} />
                 <p
                   style={{
                     fontSize: '0.7rem',
@@ -383,7 +348,7 @@ export default function AboutPage() {
                 textAlign: 'center',
               }}
             >
-              OUR COMMITMENTS
+              {t('valuesOverline')}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={80}>
@@ -398,16 +363,12 @@ export default function AboutPage() {
                 textAlign: 'center',
               }}
             >
-              The Four Pillars of ARTEMIS
+              {t('valuesHeadline')}
             </h2>
           </ScrollReveal>
 
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: 2,
-            }}
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 2 }}
             className="values-grid"
           >
             <style>{`
@@ -420,16 +381,12 @@ export default function AboutPage() {
                 border: 1px solid rgba(255,255,255,0.05);
                 transition: border-color 0.3s ease;
               }
-              .value-card:hover {
-                border-color: rgba(201,169,110,0.15);
-              }
+              .value-card:hover { border-color: rgba(201,169,110,0.15); }
             `}</style>
 
             {VALUES.map((item, i) => (
               <ScrollReveal key={i} delay={i * 80}>
-                <div
-                  className="value-card"
-                >
+                <div className="value-card">
                   <p
                     style={{
                       fontSize: '0.65rem',
@@ -452,13 +409,7 @@ export default function AboutPage() {
                   >
                     {item.title}
                   </h3>
-                  <p
-                    style={{
-                      fontSize: '0.875rem',
-                      color: '#6B6965',
-                      lineHeight: 1.8,
-                    }}
-                  >
+                  <p style={{ fontSize: '0.875rem', color: '#6B6965', lineHeight: 1.8 }}>
                     {item.body}
                   </p>
                 </div>
@@ -489,7 +440,7 @@ export default function AboutPage() {
                 marginBottom: 20,
               }}
             >
-              MONTRÉAL, QUÉBEC
+              {t('montrealOverline')}
             </p>
           </ScrollReveal>
 
@@ -504,9 +455,9 @@ export default function AboutPage() {
                 marginBottom: 24,
               }}
             >
-              Rooted in Montreal.
+              {t('montrealHeadline1')}
               <br />
-              Shipping Across Canada & Beyond.
+              {t('montrealHeadline2')}
             </h2>
           </ScrollReveal>
 
@@ -519,10 +470,7 @@ export default function AboutPage() {
                 marginBottom: 40,
               }}
             >
-              We are proud to be a Montreal-first brand. Every order is packaged and
-              shipped from our atelier in Québec. Local clients can arrange a private
-              viewing. Shipping is available across Canada and internationally with
-              full tracking on every order.
+              {t('montrealBody')}
             </p>
           </ScrollReveal>
 
@@ -553,7 +501,7 @@ export default function AboutPage() {
               rel="noopener noreferrer"
               className="about-btn-whatsapp"
             >
-              Contact Us on WhatsApp →
+              {t('ctaWhatsApp')}
             </a>
           </ScrollReveal>
         </div>
@@ -579,7 +527,7 @@ export default function AboutPage() {
               marginBottom: 20,
             }}
           >
-            Ready to find your next timepiece?
+            {t('ctaReadyLabel')}
           </p>
         </ScrollReveal>
 
@@ -597,15 +545,10 @@ export default function AboutPage() {
               text-decoration: none;
               transition: background 0.2s, color 0.2s;
             }
-            .about-btn-shop:hover {
-              background: #C9A96E;
-            }
+            .about-btn-shop:hover { background: #C9A96E; }
           `}</style>
-          <Link
-            href="/collections"
-            className="about-btn-shop"
-          >
-            Shop the Collection
+          <Link href="/collections" className="about-btn-shop">
+            {t('ctaShop')}
           </Link>
         </ScrollReveal>
       </section>

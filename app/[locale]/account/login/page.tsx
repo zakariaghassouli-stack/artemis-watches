@@ -1,21 +1,20 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
+import { Link, useRouter } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { signIn } from 'next-auth/react';
 
 export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') ?? '/account';
+  const t = useTranslations('auth.login');
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -27,10 +26,10 @@ export default function LoginPage() {
     });
 
     if (res?.error) {
-      setError('Invalid email or password.');
+      setError(t('errorInvalid'));
       setLoading(false);
     } else {
-      router.push(callbackUrl);
+      router.push('/account');
       router.refresh();
     }
   };
@@ -43,12 +42,12 @@ export default function LoginPage() {
       <div style={cardStyle}>
         {/* Logo */}
         <p style={logoStyle}>ARTEMIS</p>
-        <h1 style={headlineStyle}>Welcome Back</h1>
-        <p style={subStyle}>Sign in to access your account & exclusive offers.</p>
+        <h1 style={headlineStyle}>{t('headline')}</h1>
+        <p style={subStyle}>{t('sub')}</p>
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>
-            <label style={labelStyle}>Email</label>
+            <label style={labelStyle}>{t('emailLabel')}</label>
             <input
               type="email"
               value={email}
@@ -61,7 +60,7 @@ export default function LoginPage() {
             />
           </div>
           <div>
-            <label style={labelStyle}>Password</label>
+            <label style={labelStyle}>{t('passwordLabel')}</label>
             <input
               type="password"
               value={password}
@@ -77,23 +76,23 @@ export default function LoginPage() {
           {error && <p style={errorStyle}>{error}</p>}
 
           <button type="submit" disabled={loading} style={btnPrimaryStyle}>
-            {loading ? 'Signing in...' : 'Sign In →'}
+            {loading ? t('signingIn') : t('signIn')}
           </button>
         </form>
 
         <div style={dividerStyle}>
           <span style={dividerLineStyle} />
-          <span style={{ fontSize: '0.68rem', color: '#6B6965', padding: '0 12px', flexShrink: 0 }}>OR</span>
+          <span style={{ fontSize: '0.68rem', color: '#6B6965', padding: '0 12px', flexShrink: 0 }}>{t('orDivider')}</span>
           <span style={dividerLineStyle} />
         </div>
 
         <p style={{ textAlign: 'center', fontSize: '0.78rem', color: '#6B6965' }}>
-          No account?{' '}
+          {t('noAccount')}{' '}
           <Link
             href="/account/register"
             style={{ color: '#C9A96E', textDecoration: 'none', fontWeight: 500 }}
           >
-            Create one & get 10% off →
+            {t('createOne')}
           </Link>
         </p>
       </div>
