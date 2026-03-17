@@ -10,6 +10,7 @@ export interface CartItem {
   brand: string;
   name: string;
   variant: string;
+  size?: string;
   range: 'essential' | 'premium';
   price: number;         // final unit price (incl. box & papers if selected)
   boxAndPapers: boolean;

@@ -1,19 +1,11 @@
 import NextAuth from 'next-auth';
-import { PrismaAdapter } from '@auth/prisma-adapter';
 import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import { prisma } from '@/lib/prisma';
+import { authConfig } from './auth.config';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: prisma ? PrismaAdapter(prisma) : undefined,
-
-  // JWT strategy — sessions stored client-side, no DB session table needed
-  session: { strategy: 'jwt' },
-
-  pages: {
-    signIn: '/account/login',
-    error: '/account/login',
-  },
+  ...authConfig,
 
   providers: [
     Credentials({
@@ -40,31 +32,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           id: user.id,
           email: user.email,
           name: user.name,
-          promoCode: user.promoCode,
+          promoCode: user.promoCode ?? undefined,
           promoUsed: user.promoUsed,
         };
       },
     }),
   ],
-
-  callbacks: {
-    // Persist custom fields into the JWT token
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.promoCode = (user as { promoCode?: string }).promoCode;
-        token.promoUsed = (user as { promoUsed?: boolean }).promoUsed;
-      }
-      return token;
-    },
-    // Expose custom fields on the session object
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id as string;
-        (session.user as { promoCode?: string }).promoCode = token.promoCode as string | undefined;
-        (session.user as { promoUsed?: boolean }).promoUsed = token.promoUsed as boolean | undefined;
-      }
-      return session;
-    },
-  },
 });

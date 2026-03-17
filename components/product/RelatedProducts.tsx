@@ -1,7 +1,9 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { getRelatedProducts, getScarcityState, formatPrice } from '@/lib/products';
+import { useCurrency } from '@/components/providers/CurrencyProvider';
+import { convertPrice } from '@/lib/currency';
 import type { Product } from '@/types/product';
 
 interface Props {
@@ -12,6 +14,7 @@ interface Props {
 
 function RelatedCard({ product }: { product: Product }) {
   const scarcity = getScarcityState(product);
+  const { currency } = useCurrency();
 
   return (
     <Link
@@ -211,7 +214,7 @@ function RelatedCard({ product }: { product: Product }) {
             color: '#A8A5A0',
           }}
         >
-          {formatPrice(product.price)} CAD
+          {formatPrice(convertPrice(product.price, currency), currency)} {currency}
         </p>
       </div>
     </Link>

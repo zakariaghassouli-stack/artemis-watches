@@ -1,15 +1,25 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { SectionHeader } from '@/components/shared/SectionHeader';
+import { ProductGridClient } from '@/components/collection/ProductGridClient';
 import { getAllBrands, getCollectionsByBrand } from '@/lib/brands';
-import { getProductsByBrand, getProductCountByBrand, formatPrice } from '@/lib/products';
+import { getProductsByBrand, getProductCountByBrand, formatPrice, getProductsByRange } from '@/lib/products';
 import type { Metadata } from 'next';
+
+const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
 
 export const metadata: Metadata = {
   title: 'Collections | Artemis Watches — Montreal',
   description:
-    'Shop Rolex, Cartier, Audemars Piguet, and Patek Philippe at Artemis. Montreal\'s premier luxury watch destination. Essential and Premium ranges. Free shipping across Canada.',
+    "Shop Rolex, Cartier, Audemars Piguet, and Patek Philippe at Artemis. Montreal's premier luxury watch destination. Essential and Premium ranges. Free shipping across Canada.",
+  alternates: {
+    canonical: `${BASE}/collections`,
+    languages: {
+      'en-CA': `${BASE}/collections`,
+      'fr-CA': `${BASE}/fr/collections`,
+    },
+  },
 };
 
 const BRAND_PRODUCT_COUNTS = getProductCountByBrand();
@@ -171,9 +181,29 @@ function BrandCard({
   );
 }
 
-export default async function CollectionsPage() {
+export default async function CollectionsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ range?: string }>;
+}) {
   const t = await getTranslations('collections');
   const brands = getAllBrands();
+  const { range } = (await searchParams) ?? {};
+  const initialFilter = range === 'essential' || range === 'premium' ? range : undefined;
+  const rangeProducts = initialFilter ? getProductsByRange(initialFilter) : [];
+  const gridTranslations = {
+    filterAll: t('filterAll'),
+    filterEssential: t('filterEssential'),
+    filterPremium: t('filterPremium'),
+    sortBy: t('sortBy'),
+    sortDefault: t('sortDefault'),
+    sortPriceLow: t('sortPriceLow'),
+    sortPriceHigh: t('sortPriceHigh'),
+    products: t('products'),
+    product: t('product'),
+    viewDetails: t('viewDetails'),
+    noResults: t('noResults'),
+  };
 
   return (
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
@@ -240,6 +270,27 @@ export default async function CollectionsPage() {
           </div>
         </div>
       </section>
+
+      {/* Filtered product grid — only when ?range= param is active */}
+      {initialFilter && (
+        <section style={{ padding: 'clamp(48px, 6vw, 80px) 24px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+          <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+            <p
+              style={{
+                fontSize: '0.65rem',
+                fontWeight: 600,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.3)',
+                marginBottom: 32,
+              }}
+            >
+              {initialFilter === 'essential' ? t('filterEssential') : t('filterPremium')} — All Brands
+            </p>
+            <ProductGridClient products={rangeProducts} t={gridTranslations} initialFilter={initialFilter} />
+          </div>
+        </section>
+      )}
 
       {/* Bottom trust strip */}
       <section

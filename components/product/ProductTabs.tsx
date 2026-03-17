@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { Product, ProductSpecs } from '@/types/product';
 
 interface Props {
@@ -9,14 +10,31 @@ interface Props {
     tabDescription: string;
     tabSpecs: string;
     tabReviews: string;
+    tabShipping: string;
+    tabReturns: string;
+    tabHelp: string;
     specsHeading: string;
     reviewsHeading: string;
     verifiedPurchase: string;
     noReviews: string;
+    shippingTitle: string;
+    shippingLine1Label: string;
+    shippingLine1Value: string;
+    shippingLine2Label: string;
+    shippingLine2Value: string;
+    shippingLine3Label: string;
+    shippingLine3Value: string;
+    shippingNote: string;
+    returnsTitle: string;
+    returnsPoints: string[];
+    returnsNote: string;
+    helpTitle: string;
+    helpBody: string;
+    helpCta: string;
   };
 }
 
-type Tab = 'description' | 'specs' | 'reviews';
+type Tab = 'description' | 'specs' | 'reviews' | 'shipping' | 'returns' | 'help';
 
 function Stars({ rating, size = 12 }: { rating: number; size?: number }) {
   return (
@@ -33,27 +51,14 @@ function Stars({ rating, size = 12 }: { rating: number; size?: number }) {
   );
 }
 
-const SPEC_LABELS: Record<string, string> = {
-  caseSize: 'Case Size',
-  caseMaterial: 'Case Material',
-  braceletMaterial: 'Bracelet',
-  dialColor: 'Dial Color',
-  crystalType: 'Crystal',
-  waterResistance: 'Water Resistance',
-  movement: 'Movement',
-  powerReserve: 'Power Reserve',
-  functions: 'Functions',
-  weight: 'Weight',
-};
-
-function SpecsTab({ specs }: { specs: ProductSpecs }) {
+function SpecsTab({ specs, specLabels }: { specs: ProductSpecs; specLabels: Record<string, string> }) {
   const entries = Object.entries(specs).filter(([, v]) => v) as [string, string][];
 
   return (
     <div>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <tbody>
-          {entries.map(([key, value], i) => (
+          {entries.map(([key, value]) => (
             <tr
               key={key}
               style={{
@@ -70,7 +75,7 @@ function SpecsTab({ specs }: { specs: ProductSpecs }) {
                   verticalAlign: 'top',
                 }}
               >
-                {SPEC_LABELS[key] ?? key.replace(/([A-Z])/g, ' $1').trim()}
+                {specLabels[key] ?? key.replace(/([A-Z])/g, ' $1').trim()}
               </td>
               <td
                 style={{
@@ -92,6 +97,9 @@ function SpecsTab({ specs }: { specs: ProductSpecs }) {
 }
 
 export function ProductTabs({ product, t }: Props) {
+  const tProduct = useTranslations('product');
+  const specLabels = tProduct.raw('specLabels') as Record<string, string>;
+
   const [activeTab, setActiveTab] = useState<Tab>('description');
 
   const tabs: { key: Tab; label: string; count?: number }[] = [
@@ -102,6 +110,9 @@ export function ProductTabs({ product, t }: Props) {
       label: t.tabReviews,
       count: product.reviews.length,
     },
+    { key: 'shipping' as Tab, label: t.tabShipping },
+    { key: 'returns' as Tab, label: t.tabReturns },
+    { key: 'help' as Tab, label: t.tabHelp },
   ];
 
   return (
@@ -113,6 +124,7 @@ export function ProductTabs({ product, t }: Props) {
           borderBottom: '1px solid rgba(255,255,255,0.06)',
           marginBottom: 40,
           gap: 0,
+          overflowX: 'auto',
         }}
       >
         {tabs.map(({ key, label, count }) => {
@@ -137,6 +149,8 @@ export function ProductTabs({ product, t }: Props) {
                 display: 'flex',
                 alignItems: 'center',
                 gap: 6,
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
               }}
             >
               {label}
@@ -185,7 +199,7 @@ export function ProductTabs({ product, t }: Props) {
 
       {activeTab === 'specs' && (
         <div style={{ maxWidth: 600 }}>
-          <SpecsTab specs={product.specs} />
+          <SpecsTab specs={product.specs} specLabels={specLabels} />
         </div>
       )}
 
@@ -281,6 +295,72 @@ export function ProductTabs({ product, t }: Props) {
               ))}
             </div>
           )}
+        </div>
+      )}
+
+      {activeTab === 'shipping' && (
+        <div style={{ maxWidth: 600 }}>
+          <p style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 20 }}>
+            {t.shippingTitle}
+          </p>
+          <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: 24 }}>
+            <tbody>
+              {[
+                [t.shippingLine1Label, t.shippingLine1Value],
+                [t.shippingLine2Label, t.shippingLine2Value],
+                [t.shippingLine3Label, t.shippingLine3Value],
+              ].map(([label, value]) => (
+                <tr key={label} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                  <td style={{ padding: '14px 0', width: '40%', fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.04em' }}>{label}</td>
+                  <td style={{ padding: '14px 0 14px 16px', fontSize: '0.82rem', color: '#A8A5A0' }}>{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p style={{ fontSize: '0.82rem', color: '#6B6965', lineHeight: 1.7 }}>{t.shippingNote}</p>
+        </div>
+      )}
+
+      {activeTab === 'returns' && (
+        <div style={{ maxWidth: 600 }}>
+          <p style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 20 }}>
+            {t.returnsTitle}
+          </p>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {(t.returnsPoints as string[]).map((point, i) => (
+              <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: '0.85rem', color: '#A8A5A0', lineHeight: 1.6 }}>
+                <span style={{ color: '#C9A96E', flexShrink: 0, marginTop: 2 }}>✓</span>
+                {point}
+              </li>
+            ))}
+          </ul>
+          <p style={{ fontSize: '0.82rem', color: '#6B6965', lineHeight: 1.7 }}>{t.returnsNote}</p>
+        </div>
+      )}
+
+      {activeTab === 'help' && (
+        <div style={{ maxWidth: 560 }}>
+          <p style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 20 }}>
+            {t.helpTitle}
+          </p>
+          <p style={{ fontSize: '0.9rem', color: '#6B6965', lineHeight: 1.8, marginBottom: 28 }}>{t.helpBody}</p>
+          <a
+            href="https://wa.me/15145609765"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              padding: '14px 24px',
+              background: '#C9A96E', color: '#0A0A0A',
+              fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.14em',
+              textTransform: 'uppercase', textDecoration: 'none', borderRadius: 3,
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            {t.helpCta}
+          </a>
         </div>
       )}
     </div>

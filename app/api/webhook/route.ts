@@ -43,9 +43,24 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
 
   const usedPromoCode = session.metadata?.promoCode || null;
 
+  // Find the user by email to link the order to their account
+  let userId: string | undefined;
+  if (customer?.email) {
+    try {
+      const user = await prisma.user.findUnique({
+        where: { email: customer.email },
+        select: { id: true },
+      });
+      userId = user?.id;
+    } catch {
+      // Non-blocking — order still created without userId
+    }
+  }
+
   try {
     await prisma.order.create({
       data: {
+        userId: userId ?? null,
         stripeSessionId: session.id,
         status: 'PAID',
         items: session.metadata?.items ?? '[]',

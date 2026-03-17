@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Search, X, ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { Product } from '@/types/product';

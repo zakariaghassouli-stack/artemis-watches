@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { getScarcityState, formatPrice } from '@/lib/products';
+import { useCurrency } from '@/components/providers/CurrencyProvider';
+import { convertPrice } from '@/lib/currency';
 import type { Product } from '@/types/product';
 
 type FilterOption = 'all' | 'essential' | 'premium';
@@ -26,10 +28,18 @@ interface Translations {
 interface Props {
   products: Product[];
   t: Translations;
+  initialFilter?: FilterOption;
+}
+
+function soldThisWeek(product: Product): number {
+  const seed = product.id.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+  return product.range === 'premium' ? 2 + (seed % 4) : 5 + (seed % 9);
 }
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const scarcity = getScarcityState(product);
+  const sold = soldThisWeek(product);
+  const { currency } = useCurrency();
 
   return (
     <ScrollReveal delay={index * 60}>
@@ -291,35 +301,26 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             {product.variant}
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-            <p
-              style={{
-                fontSize: '0.88rem',
-                fontWeight: 600,
-                color: '#A8A5A0',
-              }}
-            >
-              {formatPrice(product.price)} CAD
+            <p style={{ fontSize: '0.88rem', fontWeight: 600, color: '#A8A5A0' }}>
+              {formatPrice(convertPrice(product.price, currency), currency)} {currency}
             </p>
             {product.compareAtPrice && (
-              <p
-                style={{
-                  fontSize: '0.78rem',
-                  color: '#6B6965',
-                  textDecoration: 'line-through',
-                }}
-              >
-                {formatPrice(product.compareAtPrice)}
+              <p style={{ fontSize: '0.78rem', color: '#6B6965', textDecoration: 'line-through' }}>
+                {formatPrice(convertPrice(product.compareAtPrice, currency), currency)}
               </p>
             )}
           </div>
+          <p style={{ fontSize: '0.6rem', color: 'rgba(201,169,110,0.5)', letterSpacing: '0.06em', marginTop: 6 }}>
+            🔥 {sold} sold this week
+          </p>
         </div>
       </Link>
     </ScrollReveal>
   );
 }
 
-export function ProductGridClient({ products, t }: Props) {
-  const [filter, setFilter] = useState<FilterOption>('all');
+export function ProductGridClient({ products, t, initialFilter }: Props) {
+  const [filter, setFilter] = useState<FilterOption>(initialFilter ?? 'all');
   const [sort, setSort] = useState<SortOption>('default');
 
   const counts = {

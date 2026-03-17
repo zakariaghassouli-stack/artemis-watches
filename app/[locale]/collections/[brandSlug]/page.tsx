@@ -10,20 +10,29 @@ import type { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ brandSlug: string; locale: string }>;
+  searchParams?: Promise<{ range?: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { brandSlug } = await params;
   const brand = getBrandMeta(brandSlug);
   if (!brand) return {};
+  const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+  const path = `/collections/${brandSlug}`;
   return {
     title: `${brand.name} | Artemis Watches — Montreal`,
     description: `Shop ${brand.name} at Artemis. ${brand.description}`,
+    alternates: {
+      canonical: `${base}${path}`,
+      languages: { 'en-CA': `${base}${path}`, 'fr-CA': `${base}/fr${path}` },
+    },
   };
 }
 
-export default async function BrandPage({ params }: Props) {
+export default async function BrandPage({ params, searchParams }: Props) {
   const { brandSlug } = await params;
+  const { range } = (await searchParams) ?? {};
+  const initialFilter = range === 'essential' || range === 'premium' ? range : undefined;
   const brand = getBrandMeta(brandSlug);
   if (!brand) notFound();
 
@@ -48,8 +57,19 @@ export default async function BrandPage({ params }: Props) {
     noResults: t('noResults'),
   };
 
+  const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Collections', item: `${base}/collections` },
+      { '@type': 'ListItem', position: 2, name: brand.name, item: `${base}/collections/${brandSlug}` },
+    ],
+  };
+
   return (
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Brand hero */}
       <section
         style={{
@@ -279,7 +299,7 @@ export default async function BrandPage({ params }: Props) {
             All {brand.name} Pieces
           </p>
 
-          <ProductGridClient products={allProducts} t={translations} />
+          <ProductGridClient products={allProducts} t={translations} initialFilter={initialFilter} />
         </div>
       </section>
     </div>

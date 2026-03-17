@@ -115,6 +115,9 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function ReviewsPage() {
+  const ugcImages: string[] = Array.from({ length: 24 }, (_, i) =>
+    `/images/review/review-${String(i + 1).padStart(2, '0')}.png`
+  );
   return (
     <>
       {/* ── Hero ── */}
@@ -446,29 +449,43 @@ export default function ReviewsPage() {
       >
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <ScrollReveal delay={0}>
-            <div style={{ textAlign: 'center', marginBottom: 36 }}>
+            <div style={{ textAlign: 'center', marginBottom: 40 }}>
               <p
                 style={{
                   fontSize: '0.7rem',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
                   color: '#C9A96E',
-                  marginBottom: 8,
+                  marginBottom: 12,
                 }}
               >
                 #ARTEMISONWRIST
               </p>
-              <p style={{ fontSize: '0.85rem', color: '#6B6965' }}>
-                Tag us on Instagram or Snapchat @artemis.watches
+              <h2
+                style={{
+                  fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+                  fontWeight: 600,
+                  color: '#F5F3EF',
+                  letterSpacing: '-0.02em',
+                  marginBottom: 12,
+                }}
+              >
+                Wear it. Share it.
+              </h2>
+              <p style={{ fontSize: '0.85rem', color: '#6B6965', lineHeight: 1.6, maxWidth: 480, margin: '0 auto' }}>
+                Tag <span style={{ color: '#C9A96E' }}>@artemis.watches</span> on Instagram or Snapchat.
+                The best shots get featured right here.
               </p>
             </div>
           </ScrollReveal>
 
+          {/* Placeholder grid — replaced with real UGC when available */}
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(6, 1fr)',
               gap: 8,
+              marginBottom: 36,
             }}
             className="ugc-grid"
           >
@@ -479,35 +496,99 @@ export default function ReviewsPage() {
               @media (max-width: 560px) {
                 .ugc-grid { grid-template-columns: repeat(3, 1fr) !important; }
               }
-              .ugc-card {
+              .ugc-card-link {
+                display: block;
                 aspect-ratio: 1/1;
                 border: 1px solid rgba(255,255,255,0.05);
                 border-radius: 4px;
                 position: relative;
                 overflow: hidden;
                 cursor: pointer;
-                transition: border-color 0.25s;
+                text-decoration: none;
+                transition: border-color 0.25s, transform 0.3s;
               }
-              .ugc-card:hover {
-                border-color: rgba(201,169,110,0.2);
+              .ugc-card-link:hover {
+                border-color: rgba(201,169,110,0.25);
+                transform: scale(1.03);
               }
+              .ugc-overlay {
+                position: absolute;
+                inset: 0;
+                background: rgba(0,0,0,0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.25s;
+              }
+              .ugc-overlay svg { opacity: 0; transition: opacity 0.25s; }
+              .ugc-card-link:hover .ugc-overlay { background: rgba(0,0,0,0.45); }
+              .ugc-card-link:hover .ugc-overlay svg { opacity: 1; }
             `}</style>
 
-            {Array.from({ length: 24 }, (_, i) => i + 1).map((n, i) => (
-              <ScrollReveal key={n} delay={i * 40}>
-                <div
-                  className="ugc-card"
+            {ugcImages.map((img: string, i: number) => (
+              <ScrollReveal key={i} delay={i * 35}>
+                <a
+                  href="https://www.instagram.com/artemis.watches"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View on Instagram"
+                  className="ugc-card-link"
                 >
                   <img
-                    src={`/images/review/review-${String(n).padStart(2, '0')}.png`}
-                    alt={`Client review ${n}`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    src={img}
+                    alt="ARTEMIS watch"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
                     loading="lazy"
                   />
-                </div>
+                  {/* Instagram overlay on hover */}
+                  <div className="ugc-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <circle cx="12" cy="12" r="4"/>
+                      <circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/>
+                    </svg>
+                  </div>
+                </a>
               </ScrollReveal>
             ))}
           </div>
+
+          {/* Instagram CTA */}
+          <ScrollReveal delay={0}>
+            <div style={{ textAlign: 'center' }}>
+              <style>{`
+                .ugc-ig-btn {
+                  display: inline-flex; align-items: center; gap: 10;
+                  padding: 13px 28px;
+                  border: 1px solid rgba(201,169,110,0.25);
+                  color: #C9A96E;
+                  font-size: 0.72rem; font-weight: 700;
+                  letter-spacing: 0.14em; text-transform: uppercase;
+                  text-decoration: none; transition: background 0.2s;
+                }
+                .ugc-ig-btn:hover { background: rgba(201,169,110,0.06); }
+              `}</style>
+              <a
+                href="https://www.instagram.com/artemis.watches"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ugc-ig-btn"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+                @artemis.watches
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

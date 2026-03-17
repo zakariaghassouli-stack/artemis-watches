@@ -1,14 +1,17 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { getBestSellers, getScarcityState, formatPrice } from '@/lib/products';
+import { useCurrency } from '@/components/providers/CurrencyProvider';
+import { convertPrice } from '@/lib/currency';
 import type { Product } from '@/types/product';
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const scarcity = getScarcityState(product);
+  const { currency } = useCurrency();
 
   return (
     <ScrollReveal delay={index * 80}>
@@ -262,7 +265,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                 color: '#A8A5A0',
               }}
             >
-              {formatPrice(product.price)} CAD
+              {formatPrice(convertPrice(product.price, currency), currency)} {currency}
             </p>
             {product.compareAtPrice && (
               <p
@@ -272,7 +275,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                   textDecoration: 'line-through',
                 }}
               >
-                {formatPrice(product.compareAtPrice)}
+                {formatPrice(convertPrice(product.compareAtPrice, currency), currency)}
               </p>
             )}
           </div>

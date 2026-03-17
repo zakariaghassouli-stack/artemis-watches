@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { formatPrice } from '@/lib/products';
+import { useCurrency } from '@/components/providers/CurrencyProvider';
+import { convertPrice } from '@/lib/currency';
+import { useCartStore } from '@/store/cart';
+import { pixel } from '@/lib/pixel';
 import type { Product } from '@/types/product';
 
 interface Props {
@@ -12,6 +16,9 @@ interface Props {
 
 export function MobileStickyBar({ product, addToCartLabel, orderWhatsAppLabel }: Props) {
   const [visible, setVisible] = useState(false);
+  const [added, setAdded] = useState(false);
+  const addItem = useCartStore((s) => s.addItem);
+  const defaultSize = product.availableSizes[0] ?? undefined;
 
   // Show bar only after user has scrolled past the hero info panel (~600px)
   useEffect(() => {
@@ -20,8 +27,35 @@ export function MobileStickyBar({ product, addToCartLabel, orderWhatsAppLabel }:
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleAddToCart = () => {
+    if (!product.inStock || added) return;
+    addItem({
+      id: product.id,
+      slug: product.slug,
+      brandSlug: product.brandSlug,
+      collectionSlug: product.collectionSlug,
+      brand: product.brand,
+      name: product.name,
+      variant: product.variant,
+      size: defaultSize,
+      range: product.range,
+      price: product.price,
+      boxAndPapers: false,
+    });
+    pixel.addToCart({
+      content_ids: [product.id],
+      content_name: `${product.brand} ${product.name}`,
+      content_type: 'product',
+      value: product.price,
+      currency: 'CAD',
+    });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
+
+  const sizeStr = defaultSize ? ` (${defaultSize})` : '';
   const whatsappMsg = encodeURIComponent(
-    `Hi, I'm interested in the ${product.brand} ${product.name} (${product.variant}) — ${formatPrice(product.price)} CAD. Is it still available?`
+    `Hi, I'm interested in the ${product.brand} ${product.name}${sizeStr} (${product.variant}) — ${formatPrice(product.price)} CAD. Is it still available?`
   );
   const whatsappUrl = `https://wa.me/15145609765?text=${whatsappMsg}`;
 
@@ -105,10 +139,11 @@ export function MobileStickyBar({ product, addToCartLabel, orderWhatsAppLabel }:
         <div style={{ display: 'flex', gap: 8 }}>
           <button
             disabled={!product.inStock}
+            onClick={handleAddToCart}
             style={{
               flex: 1,
               padding: '13px 0',
-              background: product.inStock ? '#C9A96E' : 'rgba(255,255,255,0.06)',
+              background: added ? 'rgba(201,169,110,0.7)' : product.inStock ? '#C9A96E' : 'rgba(255,255,255,0.06)',
               color: product.inStock ? '#0A0A0A' : 'rgba(255,255,255,0.2)',
               fontSize: '0.68rem',
               fontWeight: 700,
@@ -117,9 +152,10 @@ export function MobileStickyBar({ product, addToCartLabel, orderWhatsAppLabel }:
               border: 'none',
               borderRadius: 3,
               cursor: product.inStock ? 'pointer' : 'not-allowed',
+              transition: 'background 0.2s',
             }}
           >
-            {addToCartLabel}
+            {added ? '✓' : addToCartLabel}
           </button>
 
           <a

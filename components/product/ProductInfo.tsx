@@ -1,16 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getScarcityState, formatPrice, getInstallmentPrice } from '@/lib/products';
 import { useCartStore } from '@/store/cart';
 import { pixel } from '@/lib/pixel';
 import { WishlistButton } from '@/components/product/WishlistButton';
+import { Link } from '@/i18n/navigation';
 import type { Product } from '@/types/product';
 
 interface Props {
   product: Product;
+  collectionVariants: Product[];
   t: {
     addToCart: string;
+    buyNow: string;
     orderWhatsApp: string;
     wishlistLabel: string;
     installmentLine: string;
@@ -28,6 +31,10 @@ interface Props {
     outOfStock: string;
     rangeEssential: string;
     rangePremium: string;
+    viewersLabel: string;
+    rangeSelectorLabel: string;
+    variantsLabel: string;
+    sizeSelectorLabel: string;
   };
 }
 
@@ -46,12 +53,38 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export function ProductInfo({ product, t }: Props) {
+export function ProductInfo({ product, collectionVariants, t }: Props) {
   const [boxAndPapers, setBoxAndPapers] = useState(false);
+  const [isBuyingNow, setIsBuyingNow] = useState(false);
+  const [selectedRange, setSelectedRange] = useState<'essential' | 'premium'>(product.range);
+  const [selectedSize, setSelectedSize] = useState<string>(product.availableSizes[0] ?? '');
   const addItem = useCartStore((s) => s.addItem);
   const scarcity = getScarcityState(product);
-  const installmentAmt = formatPrice(getInstallmentPrice(product.price, 4));
-  const totalPrice = product.price + (boxAndPapers ? product.boxAndPapersPrice : 0);
+
+  // Derived active price based on selected range
+  const activePrice =
+    selectedRange === 'essential' && product.essentialPrice
+      ? product.essentialPrice
+      : product.price;
+
+  // Live viewers — deterministic seed + subtle drift
+  const [viewers, setViewers] = useState<number | null>(null);
+  useEffect(() => {
+    const seed = product.id.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+    const base = 3 + (seed % 9);
+    setViewers(base);
+    const id = setInterval(() => {
+      setViewers((v) => {
+        if (v === null) return base;
+        const delta = Math.random() > 0.45 ? 1 : -1;
+        return Math.max(2, Math.min(15, v + delta));
+      });
+    }, 7000);
+    return () => clearInterval(id);
+  }, [product.id]);
+
+  const installmentAmt = formatPrice(getInstallmentPrice(activePrice, 4));
+  const totalPrice = activePrice + (boxAndPapers ? product.boxAndPapersPrice : 0);
 
   const avgRating =
     product.reviews.length > 0
@@ -59,9 +92,44 @@ export function ProductInfo({ product, t }: Props) {
       : null;
 
   const whatsappMsg = encodeURIComponent(
-    `Hi, I'm interested in the ${product.brand} ${product.name} (${product.variant}) — ${formatPrice(product.price)} CAD. Is it still available?`
+    `Hi, I'm interested in the ${product.brand} ${product.name} (${product.variant}) — ${formatPrice(activePrice)} CAD. Is it still available?`
   );
   const whatsappUrl = `https://wa.me/15145609765?text=${whatsappMsg}`;
+
+  const handleBuyNow = async () => {
+    if (!product.inStock || isBuyingNow) return;
+    setIsBuyingNow(true);
+    const finalPrice = activePrice + (boxAndPapers ? product.boxAndPapersPrice : 0);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: [{
+            id: product.id,
+            slug: product.slug,
+            brandSlug: product.brandSlug,
+            collectionSlug: product.collectionSlug,
+            brand: product.brand,
+            name: product.name,
+            variant: product.variant,
+            size: selectedSize || undefined,
+            range: selectedRange,
+            price: finalPrice,
+            boxAndPapers,
+            quantity: 1,
+            cartKey: product.id,
+          }],
+        }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch {
+      setIsBuyingNow(false);
+    }
+  };
 
   return (
     <div
@@ -132,6 +200,131 @@ export function ProductInfo({ product, t }: Props) {
           marginBottom: 24,
         }}
       />
+
+      {/* Variant pills — other products in same collection */}
+      {collectionVariants.length > 1 && (
+        <div style={{ marginBottom: 20 }}>
+          <p style={{
+            fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em',
+            textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 10,
+          }}>
+            {t.variantsLabel}
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {collectionVariants.map((v) => {
+              const active = v.id === product.id;
+              return (
+                <Link
+                  key={v.id}
+                  href={`/collections/${v.brandSlug}/${v.collectionSlug}/${v.slug}`}
+                  style={{
+                    padding: '7px 14px',
+                    border: `1px solid ${active ? '#C9A96E' : 'rgba(255,255,255,0.1)'}`,
+                    borderRadius: 3,
+                    background: active ? 'rgba(201,169,110,0.08)' : 'transparent',
+                    fontSize: '0.68rem',
+                    fontWeight: active ? 600 : 400,
+                    color: active ? '#C9A96E' : 'rgba(255,255,255,0.45)',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s',
+                    letterSpacing: '0.04em',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {v.variant}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Size Selector — only when multiple sizes available */}
+      {product.availableSizes.length > 1 && (
+        <div style={{ marginBottom: 20 }}>
+          <p style={{
+            fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em',
+            textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 10,
+          }}>
+            {t.sizeSelectorLabel}
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {product.availableSizes.map((sz) => {
+              const active = selectedSize === sz;
+              return (
+                <button
+                  key={sz}
+                  onClick={() => setSelectedSize(sz)}
+                  style={{
+                    padding: '7px 14px',
+                    border: `1px solid ${active ? '#C9A96E' : 'rgba(255,255,255,0.1)'}`,
+                    borderRadius: 3,
+                    background: active ? 'rgba(201,169,110,0.08)' : 'transparent',
+                    fontSize: '0.68rem',
+                    fontWeight: active ? 600 : 400,
+                    color: active ? '#C9A96E' : 'rgba(255,255,255,0.45)',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  {sz}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Range Selector — only if product has essential variant */}
+      {product.hasEssentialVariant && product.essentialPrice && (
+        <div style={{ marginBottom: 24 }}>
+          <p style={{
+            fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em',
+            textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 10,
+          }}>
+            {t.rangeSelectorLabel}
+          </p>
+          <div style={{ display: 'flex', gap: 8 }}>
+            {(['essential', 'premium'] as const).map((r) => {
+              const price = r === 'essential' ? product.essentialPrice! : product.price;
+              const active = selectedRange === r;
+              return (
+                <button
+                  key={r}
+                  onClick={() => setSelectedRange(r)}
+                  style={{
+                    flex: 1,
+                    padding: '10px 12px',
+                    border: `1px solid ${active ? '#C9A96E' : 'rgba(255,255,255,0.1)'}`,
+                    borderRadius: 3,
+                    background: active ? 'rgba(201,169,110,0.08)' : 'transparent',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s',
+                    textAlign: 'left',
+                  }}
+                >
+                  <p style={{
+                    fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: active ? '#C9A96E' : 'rgba(255,255,255,0.3)',
+                    marginBottom: 2,
+                  }}>
+                    {r === 'essential' ? t.rangeEssential : t.rangePremium}
+                  </p>
+                  <p style={{
+                    fontSize: '0.82rem', fontWeight: 600,
+                    color: active ? '#F5F3EF' : 'rgba(255,255,255,0.4)',
+                    letterSpacing: '-0.01em',
+                  }}>
+                    {formatPrice(price)} CAD
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Range badge */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
@@ -204,6 +397,29 @@ export function ProductInfo({ product, t }: Props) {
           </span>
         )}
       </div>
+
+      {/* Live viewers */}
+      {viewers !== null && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 16 }}>
+          <span style={{ display: 'flex', gap: 3 }}>
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                style={{
+                  width: 6, height: 6, borderRadius: '50%',
+                  background: '#C9A96E',
+                  opacity: 1 - i * 0.28,
+                  animation: `infoPulse ${1.6 + i * 0.4}s ease infinite`,
+                }}
+              />
+            ))}
+          </span>
+          <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.38)', letterSpacing: '0.04em' }}>
+            <span style={{ color: '#C9A96E', fontWeight: 600 }}>{viewers}</span>{' '}
+            {t.viewersLabel.replace('{count}', '').trim()}
+          </span>
+        </div>
+      )}
 
       {/* Price block */}
       <div style={{ marginBottom: 20 }}>
@@ -374,7 +590,7 @@ export function ProductInfo({ product, t }: Props) {
           disabled={!product.inStock}
           onClick={() => {
             if (!product.inStock) return;
-            const finalPrice = product.price + (boxAndPapers ? product.boxAndPapersPrice : 0);
+            const finalPrice = activePrice + (boxAndPapers ? product.boxAndPapersPrice : 0);
             addItem({
               id: product.id,
               slug: product.slug,
@@ -383,7 +599,8 @@ export function ProductInfo({ product, t }: Props) {
               brand: product.brand,
               name: product.name,
               variant: product.variant,
-              range: product.range,
+              size: selectedSize || undefined,
+              range: selectedRange,
               price: finalPrice,
               boxAndPapers,
             });
@@ -419,6 +636,40 @@ export function ProductInfo({ product, t }: Props) {
         >
           {product.inStock ? t.addToCart : t.outOfStock}
         </button>
+
+        {/* Buy Now */}
+        {product.inStock && (
+          <button
+            disabled={isBuyingNow}
+            onClick={handleBuyNow}
+            style={{
+              width: '100%',
+              padding: '14px 24px',
+              background: 'transparent',
+              color: isBuyingNow ? 'rgba(201,169,110,0.4)' : '#C9A96E',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              border: `1px solid ${isBuyingNow ? 'rgba(201,169,110,0.2)' : 'rgba(201,169,110,0.35)'}`,
+              borderRadius: 3,
+              cursor: isBuyingNow ? 'wait' : 'pointer',
+              transition: 'border-color 0.2s, color 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              if (!isBuyingNow) {
+                (e.currentTarget as HTMLButtonElement).style.borderColor = '#C9A96E';
+                (e.currentTarget as HTMLButtonElement).style.color = '#E8D5A8';
+              }
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(201,169,110,0.35)';
+              (e.currentTarget as HTMLButtonElement).style.color = '#C9A96E';
+            }}
+          >
+            {isBuyingNow ? '...' : t.buyNow}
+          </button>
+        )}
 
         {/* WhatsApp */}
         <a

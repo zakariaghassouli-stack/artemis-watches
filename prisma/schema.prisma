@@ -55,8 +55,15 @@ model User {
   passwordHash  String?   // For email/password auth
 
   // ARTEMIS-specific
-  promoCode     String?   @unique // Format: ARTEMIS-XXXX
-  promoUsed     Boolean   @default(false)
+  promoCode          String?   @unique // Format: ARTEMIS-XXXX
+  promoUsed          Boolean   @default(false)
+  emailMarketing     Boolean   @default(true)
+  shippingFirstName  String?
+  shippingLastName   String?
+  shippingAddress    String?
+  shippingCity       String?
+  shippingProvince   String?
+  shippingPostal     String?
 
   accounts      Account[]
   sessions      Session[]

@@ -16,9 +16,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const brand = getBrandMeta(brandSlug);
   const collection = getCollectionMeta(collectionSlug);
   if (!brand || !collection) return {};
+  const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+  const path = `/collections/${brandSlug}/${collectionSlug}`;
   return {
     title: `${brand.name} ${collection.name} | Artemis Watches — Montreal`,
     description: `Shop the ${brand.name} ${collection.name} at Artemis. ${collection.description}`,
+    alternates: {
+      canonical: `${base}${path}`,
+      languages: { 'en-CA': `${base}${path}`, 'fr-CA': `${base}/fr${path}` },
+    },
   };
 }
 
@@ -55,8 +61,20 @@ export default async function CollectionPage({ params }: Props) {
     noResults: t('noResults'),
   };
 
+  const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Collections', item: `${base}/collections` },
+      { '@type': 'ListItem', position: 2, name: brand.name, item: `${base}/collections/${brandSlug}` },
+      { '@type': 'ListItem', position: 3, name: collection.name, item: `${base}/collections/${brandSlug}/${collectionSlug}` },
+    ],
+  };
+
   return (
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {/* Collection hero */}
       <section
         style={{

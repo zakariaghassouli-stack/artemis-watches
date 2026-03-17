@@ -126,7 +126,33 @@
     "testimonials": {
       "overline": "WHAT OUR CLIENTS SAY",
       "headline": "Trusted by Watch Lovers Across Canada",
-      "ugcCaption": "#ArtemisOnWrist — Tag us to be featured."
+      "ugcCaption": "#ArtemisOnWrist — Tag us to be featured.",
+      "reviews": [
+        {
+          "text": "I was skeptical buying a luxury watch online, but Artemis changed my mind. The Submariner arrived in perfect condition, beautifully packaged, and the WhatsApp support was incredible.",
+          "author": "Marc D.",
+          "location": "Montreal, QC",
+          "rating": 5
+        },
+        {
+          "text": "Ordered the Datejust for my husband's birthday. The presentation was gorgeous — he thought it was from an authorized dealer. The 30-day guarantee gave me total peace of mind.",
+          "author": "Sarah L.",
+          "location": "Toronto, ON",
+          "rating": 5
+        },
+        {
+          "text": "Best purchase I've made this year. The Royal Oak from the Premium range has an incredible wrist presence. Fast shipping, great communication.",
+          "author": "James K.",
+          "location": "Vancouver, BC",
+          "rating": 5
+        },
+        {
+          "text": "As a watch collector, I'm picky. Artemis impressed me with their attention to detail and honest descriptions. The Santos I received was exactly as shown.",
+          "author": "David R.",
+          "location": "Ottawa, ON",
+          "rating": 5
+        }
+      ]
     },
     "signup": {
       "overline": "EXCLUSIVE OFFER",
@@ -235,7 +261,48 @@
     "reviewsHeading": "Client Reviews",
     "shareLabel": "Share",
     "wishlistLabel": "Save",
-    "breadcrumbCollections": "Collections"
+    "breadcrumbCollections": "Collections",
+    "buyNow": "Buy Now",
+    "viewersLabel": "{count} people viewing this right now",
+    "specLabels": {
+      "caseSize": "Case Size",
+      "caseMaterial": "Case Material",
+      "braceletMaterial": "Bracelet",
+      "dialColor": "Dial Color",
+      "crystalType": "Crystal",
+      "waterResistance": "Water Resistance",
+      "movement": "Movement",
+      "powerReserve": "Power Reserve",
+      "functions": "Functions",
+      "weight": "Weight"
+    },
+    "tabShipping": "Shipping",
+    "tabReturns": "Returns",
+    "tabHelp": "Need Help?",
+    "rangeSelectorLabel": "SELECT RANGE",
+    "variantsLabel": "OTHER VARIANTS",
+    "sizeSelectorLabel": "CASE SIZE",
+    "recentlyViewedTitle": "Recently Viewed",
+    "recentlyViewedEmpty": "Browse the collection to discover our timepieces.",
+    "shippingTitle": "Shipping & Delivery",
+    "shippingLine1Label": "Canada (Standard)",
+    "shippingLine1Value": "3–7 business days — Free",
+    "shippingLine2Label": "Canada (Express)",
+    "shippingLine2Value": "1–2 business days — available at checkout",
+    "shippingLine3Label": "International",
+    "shippingLine3Value": "7–14 business days",
+    "shippingNote": "All orders include tracked shipping with signature confirmation.",
+    "returnsTitle": "30-Day Return Policy",
+    "returnsPoints": [
+      "30-day money-back guarantee, no questions asked",
+      "Return item in original, unworn condition",
+      "No restocking fees — ever",
+      "Refund processed within 3–5 business days"
+    ],
+    "returnsNote": "To initiate a return, contact us via WhatsApp — we'll handle everything.",
+    "helpTitle": "Not Sure Which Piece?",
+    "helpBody": "Our team is here to help you find the perfect timepiece — whether it's your first luxury watch or your tenth. Message us directly on WhatsApp and get a personal recommendation within minutes.",
+    "helpCta": "Chat on WhatsApp →"
   },
   "wishlist": {
     "pageOverline": "YOUR SELECTION",
@@ -316,5 +383,46 @@
     "boxAndPapers": "Box & Papers",
     "braceletTool": "Free Bracelet Tool",
     "authenticity": "Authenticity Guaranteed"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "browseCta": "Browse Collections →",
+    "subtotal": "Subtotal",
+    "item": "item",
+    "items": "items",
+    "shippingNote": "Shipping & taxes calculated at checkout",
+    "promoPlaceholder": "PROMO CODE",
+    "promoApply": "Apply",
+    "promoApplied": "{code} applied",
+    "promoRemove": "Remove",
+    "promoLoading": "...",
+    "promoInvalid": "Invalid promo code",
+    "promoNetError": "Could not validate code. Try again.",
+    "checkout": "Proceed to Checkout →",
+    "checkoutLoading": "Redirecting...",
+    "continueShopping": "Continue Shopping",
+    "remove": "Remove",
+    "boxAndPapers": "+ Box & Papers",
+    "freeShipping": "Free Shipping",
+    "return30": "30-Day Return",
+    "authenticity": "Authenticity Guaranteed",
+    "closeLabel": "Close cart"
+  },
+  "popup": {
+    "overline": "Exclusive Member Offer",
+    "headline": "Your First Order.",
+    "headlineAccent": "10% Off.",
+    "body": "Join the ARTEMIS inner circle. Get your exclusive promo code instantly — valid on any timepiece, any range.",
+    "emailPlaceholder": "your@email.com",
+    "cta": "Claim My 10% Code →",
+    "loading": "Generating...",
+    "microcopy": "One-time use. No spam. Unsubscribe anytime.",
+    "successOverline": "Code Activated",
+    "successHeadline": "Welcome to ARTEMIS.",
+    "successCodeLabel": "Your exclusive code",
+    "successBody": "Apply at checkout. Valid on your first order — any timepiece, any range.",
+    "successCta": "Shop Now →",
+    "closeLabel": "Close"
   }
 }

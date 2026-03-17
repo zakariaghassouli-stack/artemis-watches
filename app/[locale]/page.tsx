@@ -9,10 +9,19 @@ import { Testimonials } from '@/components/home/Testimonials';
 import { SignupPromo } from '@/components/home/SignupPromo';
 import { FAQAccordion } from '@/components/home/FAQAccordion';
 
+const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+
 export const metadata: Metadata = {
   title: 'ARTEMIS — Luxury Watch Boutique | Montreal',
   description:
     'Authentic Rolex, Cartier, Audemars Piguet & Patek Philippe timepieces. Curated, inspected and delivered from Montreal. 30-day guarantee.',
+  alternates: {
+    canonical: BASE,
+    languages: {
+      'en-CA': BASE,
+      'fr-CA': `${BASE}/fr`,
+    },
+  },
 };
 
 export default function HomePage() {

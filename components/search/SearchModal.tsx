@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Link } from '@/i18n/navigation';
 import { Search, X, ArrowRight, Command } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useSearchStore } from '@/store/search';

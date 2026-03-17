@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter, usePathname, Link } from '@/i18n/navigation';
+import { useCurrency } from '@/components/providers/CurrencyProvider';
+import type { Currency } from '@/lib/currency';
 import { Search, ShoppingBag, User, Menu, X, ChevronDown, Heart } from 'lucide-react';
 import { useCartStore, selectItemCount } from '@/store/cart';
 import { useSearchStore } from '@/store/search';
@@ -45,6 +47,148 @@ const COLLECTIONS = [
     ],
   },
 ];
+
+// ─── LocaleCurrencySelector ───────────────────────────────────────
+function LocaleCurrencySelector() {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const { currency, setCurrency } = useCurrency();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    function handle(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handle);
+    return () => document.removeEventListener('mousedown', handle);
+  }, []);
+
+  const switchLocale = (next: string) => {
+    router.replace(pathname, { locale: next });
+    setOpen(false);
+  };
+
+  const switchCurrency = (c: Currency) => {
+    setCurrency(c);
+    setOpen(false);
+  };
+
+  return (
+    <div ref={ref} style={{ position: 'relative' }}>
+      {/* Pill button */}
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-label="Language and currency"
+        style={{
+          background: open ? 'rgba(201,169,110,0.08)' : 'none',
+          border: `1px solid ${open ? 'rgba(201,169,110,0.35)' : 'rgba(255,255,255,0.12)'}`,
+          borderRadius: 3,
+          cursor: 'pointer',
+          color: open ? '#C9A96E' : '#A8A5A0',
+          fontSize: '0.62rem',
+          fontWeight: 700,
+          letterSpacing: '0.12em',
+          padding: '4px 9px',
+          transition: 'border-color 0.2s, color 0.2s, background 0.2s',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 5,
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {locale.toUpperCase()}
+        <span style={{ color: 'rgba(255,255,255,0.2)', fontWeight: 300 }}>·</span>
+        {currency}
+      </button>
+
+      {/* Dropdown */}
+      {open && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 'calc(100% + 8px)',
+            right: 0,
+            background: 'rgba(14,13,11,0.97)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: 4,
+            padding: '16px 18px',
+            minWidth: 180,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 16,
+            zIndex: 200,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+          }}
+        >
+          {/* Language row */}
+          <div>
+            <p style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 8 }}>
+              Language
+            </p>
+            <div style={{ display: 'flex', gap: 6 }}>
+              {(['en', 'fr'] as const).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => switchLocale(l)}
+                  style={{
+                    flex: 1,
+                    padding: '7px 0',
+                    background: locale === l ? 'rgba(201,169,110,0.12)' : 'rgba(255,255,255,0.03)',
+                    border: `1px solid ${locale === l ? 'rgba(201,169,110,0.35)' : 'rgba(255,255,255,0.08)'}`,
+                    borderRadius: 3,
+                    color: locale === l ? '#C9A96E' : '#6B6965',
+                    fontSize: '0.65rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.1em',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div style={{ height: 1, background: 'rgba(255,255,255,0.05)' }} />
+
+          {/* Currency row */}
+          <div>
+            <p style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 8 }}>
+              Currency
+            </p>
+            <div style={{ display: 'flex', gap: 6 }}>
+              {(['CAD', 'USD'] as const).map((c) => (
+                <button
+                  key={c}
+                  onClick={() => switchCurrency(c)}
+                  style={{
+                    flex: 1,
+                    padding: '7px 0',
+                    background: currency === c ? 'rgba(201,169,110,0.12)' : 'rgba(255,255,255,0.03)',
+                    border: `1px solid ${currency === c ? 'rgba(201,169,110,0.35)' : 'rgba(255,255,255,0.08)'}`,
+                    borderRadius: 3,
+                    color: currency === c ? '#C9A96E' : '#6B6965',
+                    fontSize: '0.65rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.1em',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // ─── Navbar ──────────────────────────────────────────────────────
 export function Navbar() {
@@ -89,11 +233,8 @@ export function Navbar() {
   }, [menuOpen]);
 
   const navStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 100,
+    position: 'relative',
+    width: '100%',
     transition: 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease',
     background: scrolled
       ? 'rgba(10,10,10,0.85)'
@@ -107,9 +248,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* Spacer so content doesn't hide under fixed nav */}
-      <div style={{ height: 72 }} aria-hidden />
-
       <nav style={navStyle} aria-label="Main navigation">
         <div
           style={{
@@ -204,6 +342,7 @@ export function Navbar() {
 
           {/* ── Right icons ── */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+            <LocaleCurrencySelector />
             <SearchBtn label={t('search')} onClick={openSearch} />
             <IconBtn href="/account" label={t('account')} icon={<User size={18} />} />
             <WishlistIcon label={t('wishlist')} />

@@ -1,12 +1,13 @@
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { getBrandMeta, getCollectionMeta } from '@/lib/brands';
-import { getProductBySlug } from '@/lib/products';
+import { getProductBySlug, getProductsByCollection } from '@/lib/products';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductInfo } from '@/components/product/ProductInfo';
 import { ProductTabs } from '@/components/product/ProductTabs';
 import { RelatedProducts } from '@/components/product/RelatedProducts';
+import { RecentlyViewed } from '@/components/product/RecentlyViewed';
 import { MobileStickyBar } from '@/components/product/MobileStickyBar';
 import { ViewContentTracker } from '@/components/analytics/ViewContentTracker';
 import type { Metadata } from 'next';
@@ -64,6 +65,8 @@ export default async function ProductPage({ params }: Props) {
   const product = getProductBySlug(productSlug);
   if (!product) notFound();
 
+  const collectionVariants = getProductsByCollection(product.collectionSlug);
+
   const brand = getBrandMeta(brandSlug);
   const collection = getCollectionMeta(collectionSlug);
   if (!brand || !collection) notFound();
@@ -90,6 +93,11 @@ export default async function ProductPage({ params }: Props) {
     outOfStock: t('outOfStock'),
     rangeEssential: t('rangeEssential'),
     rangePremium: t('rangePremium'),
+    buyNow: t('buyNow'),
+    viewersLabel: t('viewersLabel'),
+    rangeSelectorLabel: t('rangeSelectorLabel'),
+    variantsLabel: t('variantsLabel'),
+    sizeSelectorLabel: t('sizeSelectorLabel'),
   };
 
   const productTabsT = {
@@ -100,10 +108,30 @@ export default async function ProductPage({ params }: Props) {
     reviewsHeading: t('reviewsHeading'),
     verifiedPurchase: t('verifiedPurchase'),
     noReviews: t('noReviews'),
+    tabShipping: t('tabShipping'),
+    tabReturns: t('tabReturns'),
+    tabHelp: t('tabHelp'),
+    shippingTitle: t('shippingTitle'),
+    shippingLine1Label: t('shippingLine1Label'),
+    shippingLine1Value: t('shippingLine1Value'),
+    shippingLine2Label: t('shippingLine2Label'),
+    shippingLine2Value: t('shippingLine2Value'),
+    shippingLine3Label: t('shippingLine3Label'),
+    shippingLine3Value: t('shippingLine3Value'),
+    shippingNote: t('shippingNote'),
+    returnsTitle: t('returnsTitle'),
+    returnsPoints: t.raw('returnsPoints') as string[],
+    returnsNote: t('returnsNote'),
+    helpTitle: t('helpTitle'),
+    helpBody: t('helpBody'),
+    helpCta: t('helpCta'),
   };
 
+  const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+  const productPath = `/collections/${brandSlug}/${collectionSlug}/${productSlug}`;
+
   // JSON-LD Product schema
-  const jsonLd = {
+  const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: `${product.brand} ${product.name}`,
@@ -119,9 +147,11 @@ export default async function ProductPage({ params }: Props) {
       availability: product.inStock
         ? 'https://schema.org/InStock'
         : 'https://schema.org/OutOfStock',
+      url: `${base}${productPath}`,
       seller: {
         '@type': 'Organization',
         name: 'Artemis Watches',
+        url: base,
       },
     },
     ...(product.reviews.length > 0 && {
@@ -135,12 +165,48 @@ export default async function ProductPage({ params }: Props) {
     }),
   };
 
+  // JSON-LD BreadcrumbList — helps Google show breadcrumbs in SERPs
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Collections',
+        item: `${base}/collections`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: brand.name,
+        item: `${base}/collections/${brandSlug}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: collection.name,
+        item: `${base}/collections/${brandSlug}/${collectionSlug}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: product.name,
+        item: `${base}${productPath}`,
+      },
+    ],
+  };
+
   return (
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
-      {/* JSON-LD */}
+      {/* JSON-LD: Product + BreadcrumbList */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Meta Pixel — ViewContent */}
@@ -190,7 +256,7 @@ export default async function ProductPage({ params }: Props) {
 
             {/* Sticky info */}
             <div>
-              <ProductInfo product={product} t={productInfoT} />
+              <ProductInfo product={product} collectionVariants={collectionVariants} t={productInfoT} />
             </div>
           </div>
         </div>
@@ -223,6 +289,9 @@ export default async function ProductPage({ params }: Props) {
           />
         </div>
       </section>
+
+      {/* ── Recently Viewed ─────────────────────────────────────────── */}
+      <RecentlyViewed currentProductId={product.id} />
 
       {/* ── Mobile sticky bar ───────────────────────────────────────── */}
       <MobileStickyBar

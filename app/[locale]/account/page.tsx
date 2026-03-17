@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import type { Order } from '@prisma/client';
 import { SignOutButton } from './SignOutButton';
+import { ReferralShare } from './ReferralShare';
 
 function formatCAD(amount: number): string {
   return new Intl.NumberFormat('en-CA', {
@@ -43,7 +44,14 @@ const STATUS_COLOR: Record<string, string> = {
 };
 
 export default async function AccountPage() {
-  const session = await auth();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let session: any;
+  try {
+    session = await auth();
+  } catch (err) {
+    console.error('[account] auth() failed:', err);
+    throw err; // Let error.tsx handle it and show real message
+  }
 
   if (!session?.user?.email) {
     redirect('/account/login');
@@ -54,18 +62,23 @@ export default async function AccountPage() {
   let promoUsed = false;
 
   if (prisma) {
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-      include: {
-        orders: {
-          orderBy: { createdAt: 'desc' },
-          take: 10,
+    try {
+      const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+        include: {
+          orders: {
+            orderBy: { createdAt: 'desc' },
+            take: 10,
+          },
         },
-      },
-    });
-    orders = user?.orders ?? [];
-    promoCode = user?.promoCode ?? null;
-    promoUsed = user?.promoUsed ?? false;
+      });
+      orders = user?.orders ?? [];
+      promoCode = user?.promoCode ?? null;
+      promoUsed = user?.promoUsed ?? false;
+    } catch (err) {
+      console.error('[account] DB query failed:', err);
+      // Page renders gracefully without order data
+    }
   }
 
   const userName = session.user.name ?? session.user.email;
@@ -98,7 +111,31 @@ export default async function AccountPage() {
               Welcome, {userName}
             </h1>
           </div>
-          <SignOutButton />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <style>{`
+              .acc-settings-link { color: #6B6965; border-color: rgba(255,255,255,0.08); }
+              .acc-settings-link:hover { color: #C9A96E !important; border-color: rgba(201,169,110,0.25) !important; }
+              .acc-order-row:hover { border-color: rgba(201,169,110,0.2) !important; background: rgba(255,255,255,0.035) !important; }
+            `}</style>
+            <Link
+              href="/account/settings"
+              className="acc-settings-link"
+              style={{
+                fontSize: '0.68rem',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                padding: '10px 16px',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 3,
+                transition: 'color 0.2s, border-color 0.2s',
+              }}
+            >
+              Settings
+            </Link>
+            <SignOutButton />
+          </div>
         </div>
 
         {/* ── Promo Code Card ── */}
@@ -164,6 +201,26 @@ export default async function AccountPage() {
           </div>
         )}
 
+        {/* ── Referral ── */}
+        {promoCode && !promoUsed && (
+          <div
+            style={{
+              padding: '28px 36px',
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.07)',
+              borderRadius: 4,
+            }}
+          >
+            <p style={{ fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 10 }}>
+              Share & Give 10% Off
+            </p>
+            <p style={{ fontSize: '0.82rem', color: '#A8A5A0', lineHeight: 1.6, marginBottom: 20 }}>
+              Share your code with a friend — they get <span style={{ color: '#C9A96E', fontWeight: 600 }}>10% off</span> their first order. No conditions.
+            </p>
+            <ReferralShare code={promoCode} />
+          </div>
+        )}
+
         {/* ── Orders ── */}
         <div>
           <p
@@ -210,8 +267,10 @@ export default async function AccountPage() {
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {orders.map((order) => (
-                <div
+                <Link
                   key={order.id}
+                  href={`/account/orders/${order.id}`}
+                  className="acc-order-row"
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr auto auto auto',
@@ -221,6 +280,8 @@ export default async function AccountPage() {
                     background: 'rgba(255,255,255,0.02)',
                     border: '1px solid rgba(255,255,255,0.06)',
                     borderRadius: 4,
+                    textDecoration: 'none',
+                    transition: 'border-color 0.2s, background 0.2s',
                   }}
                 >
                   <div>
@@ -253,12 +314,10 @@ export default async function AccountPage() {
                   <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#F5F3EF', letterSpacing: '-0.01em' }}>
                     {formatCAD(order.total)}
                   </p>
-                  {order.trackingNumber && (
-                    <p style={{ fontSize: '0.68rem', color: '#C9A96E', letterSpacing: '0.06em' }}>
-                      Track →
-                    </p>
-                  )}
-                </div>
+                  <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C9A96E' }}>
+                    View →
+                  </span>
+                </Link>
               ))}
             </div>
           )}

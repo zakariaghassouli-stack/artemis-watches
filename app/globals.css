@@ -64,6 +64,11 @@
 :root {
   color-scheme: dark;
   scroll-behavior: smooth;
+  --header-h: 118px; /* fallback: 46px bar + 72px nav */
+}
+
+main {
+  padding-top: var(--header-h);
 }
 
 *, *::before, *::after {

@@ -37,7 +37,9 @@ export function FAQPageAccordion({ categories }: Props) {
         style={{
           display: 'flex',
           gap: 4,
-          flexWrap: 'wrap',
+          flexWrap: 'nowrap',
+          overflowX: 'auto',
+          scrollbarWidth: 'none',
           marginBottom: 48,
           borderBottom: '1px solid rgba(255,255,255,0.06)',
           paddingBottom: 0,
@@ -50,19 +52,20 @@ export function FAQPageAccordion({ categories }: Props) {
               key={cat.id}
               onClick={() => handleCategoryChange(cat.id)}
               style={{
-                padding: '12px 20px',
+                padding: '12px 14px',
                 background: 'none',
                 border: 'none',
                 borderBottom: isActive ? '2px solid #C9A96E' : '2px solid transparent',
                 cursor: 'pointer',
-                fontSize: '0.72rem',
+                fontSize: '0.65rem',
                 fontWeight: 600,
-                letterSpacing: '0.14em',
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 color: isActive ? '#C9A96E' : '#6B6965',
                 transition: 'color 0.2s, border-color 0.2s',
                 marginBottom: -1,
                 whiteSpace: 'nowrap',
+                flexShrink: 0,
               }}
               onMouseEnter={(e) => {
                 if (!isActive) {

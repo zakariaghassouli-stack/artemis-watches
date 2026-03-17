@@ -64,12 +64,12 @@ export async function POST(request: NextRequest) {
     },
   });
 
-  // Send welcome email with promo code (non-blocking)
-  await sendWelcomeEmail({
+  // Send welcome email — non-blocking, never crash the registration
+  sendWelcomeEmail({
     to: user.email!,
     name: user.name,
     promoCode: user.promoCode!,
-  });
+  }).catch((err) => console.error('[register] Welcome email failed:', err));
 
   return NextResponse.json({
     success: true,

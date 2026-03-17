@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 import { useCartStore, selectItemCount, selectCartTotal } from '@/store/cart';
 import type { CartItem } from '@/store/cart';
 
@@ -14,7 +15,7 @@ function formatCAD(amount: number): string {
   }).format(amount);
 }
 
-function CartItemRow({ item }: { item: CartItem }) {
+function CartItemRow({ item, removeLabel, boxAndPapersLabel }: { item: CartItem; removeLabel: string; boxAndPapersLabel: string }) {
   const { removeItem, updateQuantity } = useCartStore();
 
   return (
@@ -54,9 +55,15 @@ function CartItemRow({ item }: { item: CartItem }) {
           {item.name}
         </p>
         {/* Variant */}
-        <p style={{ fontSize: '0.7rem', color: '#6B6965', marginBottom: 4 }}>
+        <p style={{ fontSize: '0.7rem', color: '#6B6965', marginBottom: item.size ? 2 : 4 }}>
           {item.variant}
         </p>
+        {/* Size */}
+        {item.size && (
+          <p style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.08em', marginBottom: 4 }}>
+            {item.size}
+          </p>
+        )}
         {/* Box & papers indicator */}
         {item.boxAndPapers && (
           <p
@@ -67,7 +74,7 @@ function CartItemRow({ item }: { item: CartItem }) {
               marginBottom: 8,
             }}
           >
-            + Box & Papers
+            {boxAndPapersLabel}
           </p>
         )}
         {/* Qty controls */}
@@ -172,7 +179,7 @@ function CartItemRow({ item }: { item: CartItem }) {
             ((e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.2)')
           }
         >
-          Remove
+          {removeLabel}
         </button>
       </div>
     </div>
@@ -180,6 +187,7 @@ function CartItemRow({ item }: { item: CartItem }) {
 }
 
 export function CartDrawer() {
+  const t = useTranslations('cart');
   const { items, isOpen, closeCart } = useCartStore();
   const itemCount = useCartStore(selectItemCount);
   const total = useCartStore(selectCartTotal);
@@ -190,7 +198,7 @@ export function CartDrawer() {
   // Promo code
   const [promoInput, setPromoInput] = useState('');
   const [promoCode, setPromoCode] = useState('');
-  const [promoDiscount, setPromoDiscount] = useState(0); // percentage, e.g. 10
+  const [promoDiscount, setPromoDiscount] = useState(0);
   const [promoError, setPromoError] = useState('');
   const [promoLoading, setPromoLoading] = useState(false);
 
@@ -226,14 +234,14 @@ export function CartDrawer() {
       } else {
         setPromoCode('');
         setPromoDiscount(0);
-        setPromoError(data.error ?? 'Invalid promo code');
+        setPromoError(t('promoInvalid'));
       }
     } catch {
-      setPromoError('Could not validate code. Try again.');
+      setPromoError(t('promoNetError'));
     } finally {
       setPromoLoading(false);
     }
-  }, [promoInput]);
+  }, [promoInput, t]);
 
   const removePromo = useCallback(() => {
     setPromoCode('');
@@ -288,7 +296,7 @@ export function CartDrawer() {
       {/* Drawer panel */}
       <div
         role="dialog"
-        aria-label="Shopping cart"
+        aria-label={t('title')}
         aria-modal="true"
         style={{
           position: 'fixed',
@@ -326,7 +334,7 @@ export function CartDrawer() {
                 color: '#F5F3EF',
               }}
             >
-              Your Cart
+              {t('title')}
             </h2>
             {itemCount > 0 && (
               <span
@@ -366,7 +374,7 @@ export function CartDrawer() {
             onMouseLeave={(e) =>
               ((e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.4)')
             }
-            aria-label="Close cart"
+            aria-label={t('closeLabel')}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path
@@ -437,7 +445,7 @@ export function CartDrawer() {
                   textAlign: 'center',
                 }}
               >
-                Your cart is empty
+                {t('empty')}
               </p>
               <Link
                 href="/collections"
@@ -451,11 +459,18 @@ export function CartDrawer() {
                   textDecoration: 'none',
                 }}
               >
-                Browse Collections →
+                {t('browseCta')}
               </Link>
             </div>
           ) : (
-            items.map((item) => <CartItemRow key={item.cartKey} item={item} />)
+            items.map((item) => (
+              <CartItemRow
+                key={item.cartKey}
+                item={item}
+                removeLabel={t('remove')}
+                boxAndPapersLabel={t('boxAndPapers')}
+              />
+            ))
           )}
         </div>
 
@@ -478,7 +493,7 @@ export function CartDrawer() {
               }}
             >
               <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.06em' }}>
-                Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'})
+                {t('subtotal')} ({itemCount} {itemCount === 1 ? t('item') : t('items')})
               </span>
               <span style={{ fontSize: '1rem', fontWeight: 700, color: '#A8A5A0', letterSpacing: '-0.01em' }}>
                 {formatCAD(total)} CAD
@@ -495,7 +510,7 @@ export function CartDrawer() {
                 }}
               >
                 <span style={{ fontSize: '0.72rem', color: '#C9A96E', letterSpacing: '0.06em' }}>
-                  Promo ({promoCode}) −{promoDiscount}%
+                  {t('promoApplied').replace('{code}', promoCode)} −{promoDiscount}%
                 </span>
                 <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#C9A96E' }}>
                   −{formatCAD(total * promoDiscount / 100)} CAD
@@ -511,7 +526,7 @@ export function CartDrawer() {
                 letterSpacing: '0.04em',
               }}
             >
-              Shipping & taxes calculated at checkout
+              {t('shippingNote')}
             </p>
 
             {/* Promo code input */}
@@ -529,13 +544,13 @@ export function CartDrawer() {
                 }}
               >
                 <span style={{ fontSize: '0.72rem', color: '#C9A96E', letterSpacing: '0.1em' }}>
-                  ✓ {promoCode} applied
+                  ✓ {t('promoApplied').replace('{code}', promoCode)}
                 </span>
                 <button
                   onClick={removePromo}
                   style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.3)', fontSize: '0.65rem', padding: 0 }}
                 >
-                  Remove
+                  {t('promoRemove')}
                 </button>
               </div>
             ) : (
@@ -545,7 +560,7 @@ export function CartDrawer() {
                   value={promoInput}
                   onChange={(e) => setPromoInput(e.target.value.toUpperCase())}
                   onKeyDown={(e) => { if (e.key === 'Enter') applyPromo(); }}
-                  placeholder="PROMO CODE"
+                  placeholder={t('promoPlaceholder')}
                   style={{
                     flex: 1,
                     background: 'rgba(255,255,255,0.03)',
@@ -577,7 +592,7 @@ export function CartDrawer() {
                     transition: 'color 0.2s',
                   }}
                 >
-                  {promoLoading ? '...' : 'Apply'}
+                  {promoLoading ? t('promoLoading') : t('promoApply')}
                 </button>
               </div>
             )}
@@ -622,7 +637,7 @@ export function CartDrawer() {
                 marginBottom: 10,
               }}
             >
-              {isCheckingOut ? 'Redirecting...' : 'Proceed to Checkout →'}
+              {isCheckingOut ? t('checkoutLoading') : t('checkout')}
             </button>
 
             {/* Continue shopping */}
@@ -651,7 +666,7 @@ export function CartDrawer() {
                 (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.07)';
               }}
             >
-              Continue Shopping
+              {t('continueShopping')}
             </button>
 
             {/* Trust strip */}
@@ -665,7 +680,7 @@ export function CartDrawer() {
                 borderTop: '1px solid rgba(255,255,255,0.04)',
               }}
             >
-              {['Free Shipping', '30-Day Return', 'Authenticity Guaranteed'].map((label) => (
+              {[t('freeShipping'), t('return30'), t('authenticity')].map((label) => (
                 <span
                   key={label}
                   style={{
