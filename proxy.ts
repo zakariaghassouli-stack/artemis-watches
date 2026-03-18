@@ -30,7 +30,24 @@ export default auth(function proxy(req) {
     return NextResponse.redirect(new URL('/account', req.url));
   }
 
-  return intlMiddleware(req as NextRequest);
+  const response = intlMiddleware(req as NextRequest);
+
+  // Guard: prevent self-redirect loops (Vercel edge + localePrefix: 'as-needed' can cause / → /)
+  if (response.status >= 300 && response.status < 400) {
+    const location = response.headers.get('location');
+    if (location) {
+      try {
+        const redirectUrl = new URL(location, req.url);
+        if (redirectUrl.pathname === pathname) {
+          return NextResponse.next();
+        }
+      } catch {
+        // ignore malformed location header
+      }
+    }
+  }
+
+  return response;
 });
 
 export const config = {
