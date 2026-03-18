@@ -1,11 +1,8 @@
 import NextAuth from 'next-auth';
-import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { authConfig } from '@/auth.config';
-import { routing } from '@/i18n/routing';
 
 const { auth } = NextAuth(authConfig);
-const intlMiddleware = createMiddleware(routing);
 
 function isProtectedRoute(pathname: string): boolean {
   return /\/(fr\/)?account(?!\/(login|register))(\/|$)/.test(pathname);
@@ -20,6 +17,7 @@ export default auth(function proxy(req) {
   const isLoggedIn = !!session?.user?.email;
   const { pathname } = (req as NextRequest).nextUrl;
 
+  // ── Auth guards (must run before locale routing) ──────────────
   if (isProtectedRoute(pathname) && !isLoggedIn) {
     const loginUrl = new URL('/account/login', req.url);
     loginUrl.searchParams.set('callbackUrl', pathname);
@@ -30,24 +28,30 @@ export default auth(function proxy(req) {
     return NextResponse.redirect(new URL('/account', req.url));
   }
 
-  const response = intlMiddleware(req as NextRequest);
+  // ── Locale routing (manual — no next-intl middleware loops) ───
+  //
+  // Strategy (localePrefix: 'as-needed'):
+  //   /fr/*        → FR locale, App Router handles [locale]=fr natively
+  //   /en/*        → redirect to /* (canonical EN URL has no prefix)
+  //   /* (no pfx)  → internal rewrite to /en/* so [locale] param = 'en'
 
-  // Guard: prevent self-redirect loops (Vercel edge + localePrefix: 'as-needed' can cause / → /)
-  if (response.status >= 300 && response.status < 400) {
-    const location = response.headers.get('location');
-    if (location) {
-      try {
-        const redirectUrl = new URL(location, req.url);
-        if (redirectUrl.pathname === pathname) {
-          return NextResponse.next();
-        }
-      } catch {
-        // ignore malformed location header
-      }
-    }
+  const isFr = pathname === '/fr' || pathname.startsWith('/fr/');
+  if (isFr) {
+    return NextResponse.next();
   }
 
-  return response;
+  const isEnPrefixed = pathname === '/en' || pathname.startsWith('/en/');
+  if (isEnPrefixed) {
+    const url = (req as NextRequest).nextUrl.clone();
+    url.pathname = pathname.slice(3) || '/';
+    return NextResponse.redirect(url);
+  }
+
+  // Default: EN (no prefix in browser URL) — rewrite internally so
+  // Next.js App Router resolves app/[locale]/... with locale='en'
+  const url = (req as NextRequest).nextUrl.clone();
+  url.pathname = '/en' + pathname;
+  return NextResponse.rewrite(url);
 });
 
 export const config = {
