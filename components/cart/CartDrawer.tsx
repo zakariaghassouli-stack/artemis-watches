@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useCartStore, selectItemCount, selectCartTotal } from '@/store/cart';
 import type { CartItem } from '@/store/cart';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 function formatCAD(amount: number): string {
   return new Intl.NumberFormat('en-CA', {
@@ -90,14 +91,14 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: 4,
+              gap: 8,
               marginBottom: 8,
               background: 'none',
               border: '1px solid rgba(201,169,110,0.2)',
-              borderRadius: 2,
-              padding: '4px 8px',
+              borderRadius: 6,
+              padding: '8px 10px',
               cursor: 'pointer',
-              fontSize: '0.6rem',
+              fontSize: '0.64rem',
               color: '#C9A96E',
               letterSpacing: '0.06em',
               transition: 'border-color 0.2s, background 0.2s',
@@ -111,7 +112,24 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
               (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(201,169,110,0.2)';
             }}
           >
-            + {addBoxAndPapersLabel}
+            <span
+              aria-hidden
+              style={{
+                width: 14,
+                height: 14,
+                borderRadius: 3,
+                border: '1px solid rgba(201,169,110,0.45)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '0.7rem',
+                lineHeight: 1,
+                flexShrink: 0,
+              }}
+            >
+              +
+            </span>
+            {addBoxAndPapersLabel}
           </button>
         )}
         {/* Qty controls */}
@@ -225,9 +243,11 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
 
 export function CartDrawer() {
   const t = useTranslations('cart');
+  const locale = useLocale();
   const { items, isOpen, closeCart, removeItem, addItem } = useCartStore();
   const itemCount = useCartStore(selectItemCount);
   const total = useCartStore(selectCartTotal);
+  const supportUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
 
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -319,15 +339,15 @@ export function CartDrawer() {
       const data = await res.json();
 
       if (!res.ok || !data.url) {
-        throw new Error(data.error ?? 'Checkout failed');
+        throw new Error(t('checkoutError'));
       }
 
       window.location.href = data.url;
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
+    } catch {
+      setError(t('checkoutError'));
       setIsCheckingOut(false);
     }
-  }, [items, promoCode]);
+  }, [items, promoCode, t]);
 
   return (
     <>
@@ -501,6 +521,17 @@ export function CartDrawer() {
               >
                 {t('empty')}
               </p>
+              <p
+                style={{
+                  fontSize: '0.72rem',
+                  color: 'rgba(255,255,255,0.22)',
+                  textAlign: 'center',
+                  lineHeight: 1.7,
+                  maxWidth: 260,
+                }}
+              >
+                {t('emptySupport')}
+              </p>
               <Link
                 href="/collections"
                 onClick={closeCart}
@@ -515,6 +546,22 @@ export function CartDrawer() {
               >
                 {t('browseCta')}
               </Link>
+              <a
+                href={supportUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeCart}
+                style={{
+                  fontSize: '0.68rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255,255,255,0.45)',
+                  textDecoration: 'none',
+                }}
+              >
+                {t('supportCta')}
+              </a>
             </div>
           ) : (
             items.map((item) => (
@@ -696,6 +743,18 @@ export function CartDrawer() {
               {isCheckingOut ? t('checkoutLoading') : t('checkout')}
             </button>
 
+            <p
+              style={{
+                marginBottom: 12,
+                textAlign: 'center',
+                fontSize: '0.68rem',
+                color: 'rgba(255,255,255,0.25)',
+                lineHeight: 1.6,
+              }}
+            >
+              {t('checkoutMicrocopy')}
+            </p>
+
             {/* Continue shopping */}
             <button
               onClick={closeCart}
@@ -725,30 +784,43 @@ export function CartDrawer() {
               {t('continueShopping')}
             </button>
 
+            <a
+              href={supportUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'block',
+                textAlign: 'center',
+                marginTop: 12,
+                fontSize: '0.68rem',
+                fontWeight: 600,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: '#C9A96E',
+                textDecoration: 'none',
+              }}
+            >
+              {t('supportCta')}
+            </a>
+
             {/* Trust strip */}
             <div
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: 20,
                 marginTop: 16,
                 paddingTop: 16,
                 borderTop: '1px solid rgba(255,255,255,0.04)',
+                textAlign: 'center',
               }}
             >
-              {[t('freeShipping'), t('return30'), t('authenticity')].map((label) => (
-                <span
-                  key={label}
-                  style={{
-                    fontSize: '0.58rem',
-                    color: 'rgba(255,255,255,0.2)',
-                    letterSpacing: '0.05em',
-                    textAlign: 'center',
-                  }}
-                >
-                  {label}
-                </span>
-              ))}
+              <p
+                style={{
+                  fontSize: '0.6rem',
+                  color: 'rgba(255,255,255,0.34)',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                {[t('return30'), t('freeShipping'), t('securePayment')].join(' · ')}
+              </p>
             </div>
           </div>
         )}

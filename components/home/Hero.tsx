@@ -1,12 +1,15 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export function Hero() {
   const t = useTranslations('home.hero');
+  const locale = useLocale();
+  const heroWhatsAppUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
 
   return (
     <section
@@ -135,7 +138,7 @@ export function Hero() {
           </ScrollReveal>
 
           <ScrollReveal delay={240}>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 18 }}>
               <Link
                 href="/collections"
                 style={{
@@ -162,9 +165,7 @@ export function Hero() {
                 {t('ctaPrimary')}
               </Link>
               <a
-                href={`https://wa.me/15145609765?text=${encodeURIComponent(
-                  "Hello ARTEMIS, I'd like to learn more about your collection."
-                )}`}
+                href={heroWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -208,6 +209,47 @@ export function Hero() {
               </a>
             </div>
           </ScrollReveal>
+
+          <ScrollReveal delay={300}>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 10,
+                maxWidth: 560,
+              }}
+            >
+              {[t('point1'), t('point2'), t('point3')].map((point) => (
+                <span
+                  key={point}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    padding: '8px 12px',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'rgba(255,255,255,0.02)',
+                    borderRadius: 999,
+                    fontSize: '0.66rem',
+                    letterSpacing: '0.06em',
+                    color: '#A8A5A0',
+                  }}
+                >
+                  <span
+                    aria-hidden
+                    style={{
+                      width: 5,
+                      height: 5,
+                      borderRadius: '50%',
+                      background: '#C9A96E',
+                      flexShrink: 0,
+                    }}
+                  />
+                  {point}
+                </span>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Right — Hero watch image */}
@@ -238,7 +280,7 @@ export function Hero() {
             />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/IMG_9316.webp"
+              src="/images/rolex-submariner-date-black-dial.webp"
               alt="Rolex Submariner Date — Artemis Watches Montreal"
               style={{
                 width: '88%',

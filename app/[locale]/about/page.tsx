@@ -1,8 +1,9 @@
 
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('about');
@@ -14,6 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AboutPage() {
   const t = await getTranslations('about');
+  const locale = await getLocale();
+  const aboutWhatsAppUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
 
   const STATS = [
     { value: t('stat1Value'), label: t('stat1Label') },
@@ -496,7 +499,7 @@ export default async function AboutPage() {
               }
             `}</style>
             <a
-              href="https://wa.me/15145609765?text=Hello%20ARTEMIS%2C%20I%27d%20like%20to%20learn%20more."
+              href={aboutWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="about-btn-whatsapp"

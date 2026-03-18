@@ -4,13 +4,15 @@ import { useState } from 'react';
 import { Link, useRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { signIn } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 
 export default function RegisterPage() {
   const router = useRouter();
   const t = useTranslations('auth.register');
+  const searchParams = useSearchParams();
 
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(() => searchParams.get('email') ?? '');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -61,6 +63,15 @@ export default function RegisterPage() {
           <span style={{ color: '#C9A96E', fontWeight: 500 }}>{t('subHighlight')}</span>{' '}
           {t('subPost')}
         </p>
+
+        <div style={benefitsStyle}>
+          {[t('benefit1'), t('benefit2'), t('benefit3')].map((item) => (
+            <div key={item} style={benefitRowStyle}>
+              <span aria-hidden style={benefitDotStyle} />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div>
@@ -120,6 +131,8 @@ export default function RegisterPage() {
           <button type="submit" disabled={loading} style={btnPrimaryStyle}>
             {loading ? t('creatingAccount') : t('createAndGet')}
           </button>
+
+          <p style={noteStyle}>{t('note')}</p>
         </form>
 
         <div style={dividerStyle}>
@@ -266,4 +279,39 @@ const dividerLineStyle: React.CSSProperties = {
   flex: 1,
   height: 1,
   background: 'rgba(255,255,255,0.07)',
+};
+
+const benefitsStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 8,
+  padding: '16px 18px',
+  border: '1px solid rgba(255,255,255,0.07)',
+  background: 'rgba(255,255,255,0.02)',
+  borderRadius: 4,
+};
+
+const benefitRowStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 10,
+  fontSize: '0.76rem',
+  color: '#A8A5A0',
+  lineHeight: 1.6,
+};
+
+const benefitDotStyle: React.CSSProperties = {
+  width: 6,
+  height: 6,
+  borderRadius: '50%',
+  background: '#C9A96E',
+  flexShrink: 0,
+};
+
+const noteStyle: React.CSSProperties = {
+  fontSize: '0.72rem',
+  color: '#6B6965',
+  textAlign: 'center',
+  lineHeight: 1.6,
+  margin: 0,
 };

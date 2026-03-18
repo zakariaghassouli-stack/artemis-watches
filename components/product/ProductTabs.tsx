@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import type { Product, ProductSpecs } from '@/types/product';
+import { formatPrice } from '@/lib/products';
+import { getProductWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface Props {
   product: Product;
@@ -98,7 +100,16 @@ function SpecsTab({ specs, specLabels }: { specs: ProductSpecs; specLabels: Reco
 
 export function ProductTabs({ product, t }: Props) {
   const tProduct = useTranslations('product');
+  const locale = useLocale();
   const specLabels = tProduct.raw('specLabels') as Record<string, string>;
+  const helpWhatsAppUrl = getWhatsAppUrl(
+    getProductWhatsAppMessage({
+      locale,
+      productName: `${product.brand} ${product.name}`,
+      variant: product.variant,
+      price: formatPrice(product.price),
+    })
+  );
 
   const [activeTab, setActiveTab] = useState<Tab>('description');
 
@@ -345,7 +356,7 @@ export function ProductTabs({ product, t }: Props) {
           </p>
           <p style={{ fontSize: '0.9rem', color: '#6B6965', lineHeight: 1.8, marginBottom: 28 }}>{t.helpBody}</p>
           <a
-            href="https://wa.me/15145609765"
+            href={helpWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
             style={{

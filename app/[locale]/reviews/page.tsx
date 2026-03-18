@@ -1,8 +1,9 @@
 
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('reviewsPage');
@@ -12,92 +13,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const REVIEWS = [
-  {
-    text: "I was skeptical buying a luxury watch online, but ARTEMIS changed my mind entirely. The Submariner arrived in perfect condition, beautifully packaged. The WhatsApp support was incredible — they responded within minutes every time.",
-    author: 'Marc D.',
-    location: 'Montreal, QC',
-    watch: 'Rolex Submariner',
-    rating: 5,
-  },
-  {
-    text: "Ordered the Datejust for my husband's birthday. The presentation was absolutely gorgeous — he was completely blown away by the quality. The packaging experience alone was impressive. The 30-day guarantee gave me total peace of mind.",
-    author: 'Sarah L.',
-    location: 'Toronto, ON',
-    watch: 'Rolex Datejust',
-    rating: 5,
-  },
-  {
-    text: "Best purchase I've made this year. The Royal Oak from the Premium range has an incredible wrist presence. Shipping was fast, communication was excellent, and the bracelet adjustment tool was a nice touch.",
-    author: 'James K.',
-    location: 'Vancouver, BC',
-    watch: 'AP Royal Oak',
-    rating: 5,
-  },
-  {
-    text: "As a watch collector, I'm extremely picky. ARTEMIS impressed me with their attention to detail and honest descriptions. The Santos I received was exactly as shown — not a single flaw.",
-    author: 'David R.',
-    location: 'Ottawa, ON',
-    watch: 'Cartier Santos',
-    rating: 5,
-  },
-  {
-    text: "Fantastic experience start to finish. The Nautilus exceeded my expectations. Packaging was premium — felt like opening something from the Maison itself. Will definitely be back for the Aquanaut next.",
-    author: 'Philippe M.',
-    location: 'Quebec City, QC',
-    watch: 'Patek Nautilus',
-    rating: 5,
-  },
-  {
-    text: "I reached out on WhatsApp before buying. The team was knowledgeable, honest about the condition of each piece, and helped me find the right watch for my budget. Customer service is top-tier.",
-    author: 'Emma T.',
-    location: 'Calgary, AB',
-    watch: 'Rolex GMT-Master II',
-    rating: 5,
-  },
-  {
-    text: "The Panthère de Cartier I ordered was stunning. I compared it to pieces I've seen in-store and ARTEMIS held up perfectly. For the price point, this is unbeatable value.",
-    author: 'Isabelle F.',
-    location: 'Montreal, QC',
-    watch: 'Cartier Panthère',
-    rating: 5,
-  },
-  {
-    text: "Quick delivery, zero hassle. The watch came with the bracelet adjustment tool, which I actually used right away. Good communication throughout — I was updated at every stage of my order.",
-    author: 'Ryan B.',
-    location: 'Edmonton, AB',
-    watch: 'Rolex Daytona',
-    rating: 5,
-  },
-  {
-    text: "I've bought from three different online watch sellers. ARTEMIS is by far the most professional. The listing photos are accurate, the shipping is fast, and the after-purchase support is real.",
-    author: 'Nathan C.',
-    location: 'Winnipeg, MB',
-    watch: 'Rolex Submariner',
-    rating: 5,
-  },
-  {
-    text: "Gift for my partner's 30th birthday. The unboxing experience was premium — proper packaging, clean presentation. The watch is exactly as described. She hasn't taken it off since.",
-    author: 'Luc B.',
-    location: 'Laval, QC',
-    watch: 'Cartier Santos',
-    rating: 5,
-  },
-  {
-    text: "Very happy with my Datejust. Process was clean — I messaged them, confirmed everything on WhatsApp, paid through the site, and received the watch in excellent condition within 5 days.",
-    author: 'Alex V.',
-    location: 'Longueuil, QC',
-    watch: 'Rolex Datejust',
-    rating: 5,
-  },
-  {
-    text: "I appreciated the transparency. They told me exactly what was included, the condition of the dial, and even helped me compare two models. That level of honesty is rare in this space.",
-    author: 'Sophie M.',
-    location: 'Halifax, NS',
-    watch: 'AP Royal Oak',
-    rating: 5,
-  },
-];
+interface ReviewItem {
+  text: string;
+  author: string;
+  location: string;
+  watch: string;
+  rating: number;
+}
 
 function Stars({ count }: { count: number }) {
   return (
@@ -113,6 +35,10 @@ function Stars({ count }: { count: number }) {
 
 export default async function ReviewsPage() {
   const t = await getTranslations('reviewsPage');
+  const locale = await getLocale();
+
+  const REVIEWS = (t.raw('reviewsList' as never) ?? []) as ReviewItem[];
+  const waUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
 
   const PLATFORMS = [
     { label: t('stat1Label'), value: t('stat1Value'), count: t('stat1Count') },
@@ -195,66 +121,39 @@ export default async function ReviewsPage() {
             </p>
           </ScrollReveal>
 
-          {/* Overall rating */}
           <ScrollReveal delay={200}>
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: 16,
-                padding: '16px 28px',
+                gap: 12,
+                padding: '12px 18px',
                 background: 'rgba(255,255,255,0.03)',
                 border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 999,
               }}
             >
-              <div>
-                <p
-                  style={{
-                    fontSize: '2.5rem',
-                    fontWeight: 700,
-                    color: '#C9A96E',
-                    lineHeight: 1,
-                    marginBottom: 4,
-                  }}
-                >
-                  4.9
-                </p>
-                <div style={{ display: 'flex', gap: 2 }}>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#C9A96E" aria-hidden>
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <div
+              <span
                 style={{
-                  width: 1,
-                  height: 40,
-                  background: 'rgba(255,255,255,0.08)',
+                  fontSize: '0.72rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#F5F3EF',
                 }}
-              />
-              <div style={{ textAlign: 'left' }}>
-                <p
-                  style={{
-                    fontSize: '1.125rem',
-                    fontWeight: 600,
-                    color: '#F5F3EF',
-                    marginBottom: 4,
-                  }}
-                >
-                  {t('heroReviewCount')}
-                </p>
-                <p
-                  style={{
-                    fontSize: '0.72rem',
-                    color: '#6B6965',
-                    letterSpacing: '0.08em',
-                  }}
-                >
-                  {t('heroPlatformsLabel')}
-                </p>
-              </div>
+              >
+                {t('heroReviewCount')}
+              </span>
+              <span style={{ color: 'rgba(201,169,110,0.5)' }}>•</span>
+              <span
+                style={{
+                  fontSize: '0.72rem',
+                  letterSpacing: '0.08em',
+                  color: '#A8A5A0',
+                }}
+              >
+                {t('heroPlatformsLabel')}
+              </span>
             </div>
           </ScrollReveal>
         </div>
@@ -537,7 +436,7 @@ export default async function ReviewsPage() {
                 >
                   <img
                     src={img}
-                    alt="ARTEMIS watch"
+                    alt="ARTEMIS client wrist shot — luxury watch Montreal"
                     style={{
                       position: 'absolute',
                       inset: 0,
@@ -670,7 +569,7 @@ export default async function ReviewsPage() {
               {t('ctaShop')}
             </Link>
             <a
-              href="https://wa.me/15145609765?text=Hello%20ARTEMIS%2C%20I%27m%20looking%20for%20a%20watch."
+              href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="reviews-btn-whatsapp"

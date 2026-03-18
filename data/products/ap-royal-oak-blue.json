@@ -7,15 +7,15 @@
   "collectionSlug": "royal-oak",
   "name": "Royal Oak",
   "variant": "Blue Dial · 41mm",
-  "description": "When Gerald Genta designed the Royal Oak in 1972, he created a scandal — a luxury sports watch in steel with an octagonal bezel and integrated bracelet, priced higher than gold watches. The industry laughed. Then it became the most imitated watch design in history.\n\nThe blue 'Grande Tapisserie' dial is the Royal Oak's most celebrated expression. The deep blue surface, worked into an ultra-precise checkerboard pattern, changes character throughout the day as light angles shift. At 41mm, this is the definitive contemporary Royal Oak — assertive, architectural, and absolutely unmistakable. For those who understand that true luxury is about vision, not just price.",
-  "descriptionShort": "The watch that redefined luxury. Royal Oak blue 'Grande Tapisserie' dial — architectural genius.",
+  "description": "Introduced in 1972, the Royal Oak helped establish a new language for the steel sports watch. The octagonal bezel, exposed screws, and integrated bracelet still give it a strong architectural identity.\n\nThe blue Grande Tapisserie dial remains one of the model's most familiar configurations. In 41mm, this Artemis selection emphasizes proportion, texture, and the way light moves across the case and dial rather than overt showiness.",
+  "descriptionShort": "Royal Oak blue dial with the strong architecture and texture that define the model.",
   "keyPoints": [
-    "The watch that revolutionized luxury in 1972",
+    "Introduced in 1972, with a design language that reshaped the category",
     "Iconic octagonal bezel with exposed hexagonal screws",
-    "Blue 'Grande Tapisserie' dial — AP's signature",
-    "Integrated tapisserie bracelet with satin-polished finish",
-    "41mm — the definitive modern Royal Oak size",
-    "The most influential sports watch design ever created"
+    "Blue Grande Tapisserie dial",
+    "Integrated bracelet with alternating polished and brushed surfaces",
+    "41mm case with a broad modern stance",
+    "Architecture and texture at the centre of the design"
   ],
   "range": "premium",
   "price": 1450,
@@ -25,7 +25,7 @@
   "stockCount": 2,
   "badge": "best-seller",
   "images": [
-    "/images/IMG_0418.webp",
+    "/images/audemars-piguet-royal-oak-blue.webp",
     "/images/IMG_7728.webp",
     "/images/IMG_7272.webp"
   ],
@@ -59,5 +59,15 @@
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Audemars Piguet Royal Oak Blue Dial 41mm | Artemis Watches Montreal",
-  "seoDescription": "Shop the Audemars Piguet Royal Oak (Blue Dial, 41mm) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,450 CAD."
+  "seoDescription": "Shop the Audemars Piguet Royal Oak (Blue Dial, 41mm) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,450 CAD.",
+  "descriptionFr": "Introduit en 1972, le Royal Oak a contribué à définir un nouveau langage pour la montre sport en acier. La lunette octogonale, les vis apparentes et le bracelet intégré lui donnent encore aujourd'hui une identité très architecturale.\n\nLe cadran bleu Grande Tapisserie reste l'une des configurations les plus familières du modèle. En 41 mm, cette sélection Artemis met l'accent sur les proportions, la texture et la manière dont la lumière circule sur le boîtier et le cadran, sans excès démonstratif.",
+  "descriptionShortFr": "Royal Oak cadran bleu avec l'architecture et la texture qui définissent le modèle.",
+  "keyPointsFr": [
+    "Introduit en 1972 avec un langage de design qui a marqué la catégorie",
+    "Boîtier octogonal emblématique avec vis hexagonales apparentes",
+    "Cadran bleu Grande Tapisserie",
+    "Bracelet intégré aux surfaces polies et brossées",
+    "Boîtier 41 mm à l'assise moderne",
+    "Une montre pensée autour de l'architecture et de la texture"
+  ]
 }

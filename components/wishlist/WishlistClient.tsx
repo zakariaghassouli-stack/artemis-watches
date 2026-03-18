@@ -3,14 +3,16 @@
 import { useMemo } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Heart } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useWishlistStore } from '@/store/wishlist';
 import { WishlistButton } from '@/components/product/WishlistButton';
-import { formatPrice } from '@/lib/products';
+import { RangeBadge } from '@/components/shared/ProductBadges';
+import { formatPrice, getProductImageAlt, localizeProduct } from '@/lib/products';
 import type { Product } from '@/types/product';
 
 export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
   const t = useTranslations('wishlist');
+  const locale = useLocale();
   const productIds = useWishlistStore((s) => s.productIds);
 
   const saved = useMemo(
@@ -133,6 +135,7 @@ export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
 
         {saved.map((product) => {
           const href = `/collections/${product.brandSlug}/${product.collectionSlug}/${product.slug}`;
+          const localizedProduct = localizeProduct(product, locale);
           return (
             <div key={product.id} style={{ position: 'relative' }}>
               {/* Remove button — top left */}
@@ -147,22 +150,14 @@ export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
                   top: 12,
                   right: 12,
                   zIndex: 2,
-                  fontSize: '0.55rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  padding: '3px 8px',
-                  borderRadius: 2,
-                  background: product.range === 'premium'
-                    ? 'rgba(201,169,110,0.12)'
-                    : 'rgba(168,165,160,0.1)',
-                  border: product.range === 'premium'
-                    ? '1px solid rgba(201,169,110,0.25)'
-                    : '1px solid rgba(168,165,160,0.2)',
-                  color: product.range === 'premium' ? '#C9A96E' : '#A8A5A0',
                 }}
               >
-                {product.range === 'premium' ? t('premiumBadge') : t('essentialBadge')}
+                <RangeBadge
+                  range={product.range}
+                  premiumLabel={t('premiumBadge')}
+                  essentialLabel={t('essentialBadge')}
+                  size="xs"
+                />
               </div>
 
               <Link
@@ -200,7 +195,7 @@ export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={product.images[0]}
-                      alt={`${product.brand} ${product.name}`}
+                      alt={getProductImageAlt(localizedProduct)}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       loading="lazy"
                       onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
@@ -213,13 +208,13 @@ export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
                 {/* Info */}
                 <div style={{ padding: '18px 18px 20px' }}>
                   <p style={{ fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C9A96E', marginBottom: 5 }}>
-                    {product.brand}
+                    {localizedProduct.brand}
                   </p>
                   <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#F5F3EF', lineHeight: 1.2, marginBottom: 3, letterSpacing: '-0.01em' }}>
-                    {product.name}
+                    {localizedProduct.name}
                   </h3>
                   <p style={{ fontSize: '0.72rem', color: '#6B6965', marginBottom: 14 }}>
-                    {product.variant}
+                    {localizedProduct.variant}
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <p style={{ fontSize: '1rem', fontWeight: 700, color: '#F5F3EF', letterSpacing: '-0.01em' }}>

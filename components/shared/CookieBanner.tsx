@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Link } from '@/i18n/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 
 const STORAGE_KEY = 'artemis_cookie_consent';
@@ -11,10 +10,15 @@ export function CookieBanner() {
   const [visible, setVisible] = useState(false);
   const t = useTranslations('cookies');
   const locale = useLocale();
+  const privacyHref = locale === 'fr' ? '/fr/privacy' : '/privacy';
 
   useEffect(() => {
-    const consent = localStorage.getItem(STORAGE_KEY);
-    if (!consent) setVisible(true);
+    const frame = window.requestAnimationFrame(() => {
+      const consent = localStorage.getItem(STORAGE_KEY);
+      if (!consent) setVisible(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const accept = (value: ConsentValue) => {
@@ -66,8 +70,8 @@ export function CookieBanner() {
           }}
         >
           {t('message')}{' '}
-          <Link
-            href={`/${locale}/privacy`}
+          <a
+            href={privacyHref}
             style={{
               color: '#C9A96E',
               textDecoration: 'underline',
@@ -75,7 +79,7 @@ export function CookieBanner() {
             }}
           >
             {t('learnMore')}
-          </Link>
+          </a>
           .
         </p>
 

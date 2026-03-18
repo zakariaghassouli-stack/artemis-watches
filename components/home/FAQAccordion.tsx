@@ -26,6 +26,7 @@ export function FAQAccordion() {
         <SectionHeader
           overline={t('overline')}
           headline={t('headline')}
+          subheadline={t('subheadline')}
         />
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>

@@ -4,9 +4,9 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { Search, X, ArrowRight, Command } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useSearchStore } from '@/store/search';
-import { ALL_PRODUCTS, formatPrice } from '@/lib/products';
+import { ALL_PRODUCTS, formatPrice, getProductImageAlt, localizeProduct } from '@/lib/products';
 import type { Product } from '@/types/product';
 
 // ─── Search logic (lightweight — top 6 matches) ───────────────
@@ -37,6 +37,9 @@ function ResultRow({
   onMouseEnter: () => void;
   onClick: () => void;
 }) {
+  const locale = useLocale();
+  const tProduct = useTranslations('product');
+  const localizedProduct = localizeProduct(product, locale);
   const href = `/collections/${product.brandSlug}/${product.collectionSlug}/${product.slug}`;
 
   return (
@@ -74,7 +77,7 @@ function ResultRow({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={product.images[0]}
-            alt=""
+            alt={getProductImageAlt(localizedProduct)}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           />
@@ -98,7 +101,7 @@ function ResultRow({
               color: '#C9A96E',
             }}
           >
-            {product.brand}
+            {localizedProduct.brand}
           </span>
           <span
             style={{
@@ -110,14 +113,14 @@ function ResultRow({
               whiteSpace: 'nowrap',
             }}
           >
-            {product.name}
+            {localizedProduct.name}
           </span>
           <span style={{ fontSize: '0.75rem', color: '#6B6965', whiteSpace: 'nowrap' }}>
-            — {product.variant}
+            — {localizedProduct.variant}
           </span>
         </div>
         <p style={{ fontSize: '0.7rem', color: '#6B6965', marginTop: 2 }}>
-          {product.collection} · {product.range === 'premium' ? 'Premium' : 'Essential'}
+          {product.collection} · {product.range === 'premium' ? tProduct('rangePremium') : tProduct('rangeEssential')}
         </p>
       </div>
 
@@ -191,12 +194,15 @@ export function SearchModal() {
 
   // Focus input when modal opens + reset state
   useEffect(() => {
-    if (isOpen) {
+    if (!isOpen) return;
+
+    const timer = window.setTimeout(() => {
       setQuery('');
       setActiveIndex(0);
-      // Small delay to ensure the DOM is ready
-      setTimeout(() => inputRef.current?.focus(), 50);
-    }
+      inputRef.current?.focus();
+    }, 50);
+
+    return () => window.clearTimeout(timer);
   }, [isOpen]);
 
   // Lock body scroll

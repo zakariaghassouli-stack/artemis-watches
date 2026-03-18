@@ -7,15 +7,15 @@
   "collectionSlug": "nautilus",
   "name": "Nautilus",
   "variant": "Blue Dial",
-  "description": "The Patek Philippe Nautilus is the undisputed holy grail of modern watchmaking. Designed by the same Gerald Genta who created the Royal Oak, the Nautilus was Patek's 1976 answer to the integrated sports watch — and it redefined what a luxury steel watch could be.\n\nThe signature porthole-shaped case, horizontally embossed blue dial, and integrated bracelet create one of the most harmonious designs in the history of horology. In recent years, waiting lists for new Nautilus watches stretched to a decade at authorized dealers. At Artemis, availability is immediate. This is the piece that watch enthusiasts spend years trying to acquire. The blue dial is the reference — the one that started it all.",
-  "descriptionShort": "The holy grail. Patek Nautilus blue dial — the most coveted steel sports watch in the world.",
+  "description": "The Patek Philippe Nautilus, introduced in 1976, helped define a different idea of the luxury sports watch. Its porthole-inspired case, horizontally embossed dial, and integrated bracelet give it an ease and proportion that still feel remarkably current.\n\nThe blue-dial configuration remains the most familiar expression of the model. In this Artemis selection, the focus is on the harmony of the case, bracelet, and dial texture rather than on excess. It is a piece chosen for balance, refinement, and a strong design identity.",
+  "descriptionShort": "A refined integrated-sports reference with blue embossed dial and signature Nautilus case.",
   "keyPoints": [
-    "The most coveted steel sports watch ever created",
+    "A defining modern integrated-sports design",
     "Porthole-shaped case — Gerald Genta's second masterpiece",
     "Horizontally embossed blue 'Clous de Paris' dial",
     "Seamlessly integrated bracelet",
-    "Decade-long waiting lists at authorized dealers",
-    "Available immediately at Artemis — no waiting"
+    "A reference long associated with measured scarcity",
+    "Prepared for immediate dispatch from Artemis"
   ],
   "range": "premium",
   "price": 1500,
@@ -25,7 +25,7 @@
   "stockCount": 1,
   "badge": "high-demand",
   "images": [
-    "/images/IMG_6709.webp"
+    "/images/patek-philippe-nautilus-blue.webp"
   ],
   "specs": {
     "caseDiameter": "40mm",
@@ -54,5 +54,15 @@
   "featured": true,
   "bestSeller": false,
   "seoTitle": "Patek Philippe Nautilus Blue Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Patek Philippe Nautilus (Blue Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,500 CAD."
+  "seoDescription": "Shop the Patek Philippe Nautilus (Blue Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,500 CAD.",
+  "descriptionFr": "La Patek Philippe Nautilus, introduite en 1976, a contribué à définir une autre idée de la montre sport de luxe. Son boîtier inspiré d'un hublot, son cadran bleu gaufré horizontalement et son bracelet intégré lui donnent une aisance et des proportions toujours très actuelles.\n\nLa configuration cadran bleu reste l'expression la plus familière du modèle. Dans cette sélection Artemis, l'attention se porte sur l'harmonie entre le boîtier, le bracelet et la texture du cadran, sans surenchère. C'est une pièce choisie pour son équilibre, sa retenue et sa forte identité de design.",
+  "descriptionShortFr": "Une référence sport intégrée raffinée avec cadran bleu gaufré et boîtier Nautilus emblématique.",
+  "keyPointsFr": [
+    "Un design sport intégré marquant de l'horlogerie moderne",
+    "Boîtier en forme de hublot — le second chef-d'œuvre de Gerald Genta",
+    "Cadran bleu 'Clous de Paris' gaufré horizontalement",
+    "Bracelet intégré d'une parfaite harmonie",
+    "Une référence associée à une disponibilité souvent mesurée",
+    "Préparée pour une expédition immédiate depuis Artemis"
+  ]
 }

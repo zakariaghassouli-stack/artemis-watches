@@ -1,10 +1,11 @@
 import { PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
+import { getEnv } from '@/lib/env';
 
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
 function createClient(): PrismaClient | null {
-  const connectionString = process.env.DATABASE_URL;
+  const connectionString = getEnv('DATABASE_URL');
   // Skip if DB not yet configured (placeholder values in .env.local)
   if (!connectionString || connectionString.includes('[PASSWORD]')) return null;
 

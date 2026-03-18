@@ -7,15 +7,15 @@
   "collectionSlug": "datejust",
   "name": "Datejust 41",
   "variant": "Silver Dial",
-  "description": "The Rolex Datejust is the definition of timeless elegance. Introduced in 1945, it was the first self-winding wristwatch to display the date in a window on the dial. Decades later, it remains one of the most elegant dress watches ever made.\n\nThe 41mm silver dial variant strikes the perfect balance between classic and contemporary. The Jubilee bracelet adds a level of refinement rarely seen at any price point. This is the watch you wear to close deals, celebrate milestones, and mark the moments that matter.",
-  "descriptionShort": "Timeless Rolex elegance. Silver dial, Jubilee bracelet — the quintessential dress watch.",
+  "description": "Introduced in 1945, the Datejust established many of the codes that still define Rolex today. The 41mm silver-dial version keeps that familiar layout while giving the watch a slightly broader, more contemporary stance.\n\nIn this Artemis selection, the focus is on the silver dial, smooth bezel, and Jubilee bracelet working together in a clean, well-proportioned composition. It is a versatile piece with an easy transition between formal and everyday wear.",
+  "descriptionShort": "Datejust 41 with silver dial and Jubilee bracelet in a versatile, balanced configuration.",
   "keyPoints": [
-    "Rolex's most enduring and elegant design",
+    "Long-running Datejust design language",
     "Silver dial with applied Roman numerals",
-    "Jubilee bracelet — Rolex's most refined",
+    "Jubilee bracelet with a lighter, dressier feel",
     "Date display with Cyclops lens",
-    "Versatile from boardroom to formal dinner",
-    "41mm — commanding yet refined presence"
+    "Balanced from everyday wear to formal settings",
+    "41mm case with a broader contemporary stance"
   ],
   "range": "premium",
   "price": 950,
@@ -25,7 +25,7 @@
   "stockCount": 8,
   "badge": "best-seller",
   "images": [
-    "/images/IMG_3284.webp"
+    "/images/rolex-datejust-41-silver.webp"
   ],
   "specs": {
     "caseDiameter": "41mm",
@@ -57,5 +57,15 @@
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Rolex Datejust 41 Silver Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Rolex Datejust 41 (Silver Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $950 CAD."
+  "seoDescription": "Shop the Rolex Datejust 41 (Silver Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $950 CAD.",
+  "descriptionFr": "Introduite en 1945, la Datejust a établi plusieurs codes qui définissent encore Rolex aujourd'hui. La version 41 mm à cadran argent conserve cette lecture familière tout en donnant à la montre une présence légèrement plus contemporaine.\n\nDans cette sélection Artemis, l'attention se porte sur l'accord entre cadran argent, lunette lisse et bracelet Jubilé. L'ensemble reste propre, bien proportionné et facile à faire passer d'un cadre formel à un usage quotidien.",
+  "descriptionShortFr": "Datejust 41 à cadran argent et bracelet Jubilé dans une configuration polyvalente et équilibrée.",
+  "keyPointsFr": [
+    "Un langage Datejust installé dans le temps",
+    "Cadran argent avec chiffres romains appliqués",
+    "Bracelet Jubilé au ressenti plus habillé et léger",
+    "Affichage de la date avec loupe Cyclops",
+    "À l'aise du quotidien aux contextes plus formels",
+    "Boîtier 41 mm à la présence plus contemporaine"
+  ]
 }

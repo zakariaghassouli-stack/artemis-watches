@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { Link } from '@/i18n/navigation';
+import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
-import { getScarcityState, formatPrice } from '@/lib/products';
+import { useLocale, useTranslations } from 'next-intl';
+import { getScarcityState, formatPrice, getProductImageAlt, localizeProduct } from '@/lib/products';
 import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { convertPrice } from '@/lib/currency';
 import type { Product } from '@/types/product';
@@ -31,15 +33,26 @@ interface Props {
   initialFilter?: FilterOption;
 }
 
-function soldThisWeek(product: Product): number {
-  const seed = product.id.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
-  return product.range === 'premium' ? 2 + (seed % 4) : 5 + (seed % 9);
-}
-
-function ProductCard({ product, index }: { product: Product; index: number }) {
+function ProductCard({
+  product,
+  index,
+  viewDetailsLabel,
+}: {
+  product: Product;
+  index: number;
+  viewDetailsLabel: string;
+}) {
+  const locale = useLocale();
+  const tProduct = useTranslations('product');
+  const tCollections = useTranslations('collections');
+  const localizedProduct = localizeProduct(product, locale);
   const scarcity = getScarcityState(product);
-  const sold = soldThisWeek(product);
   const { currency } = useCurrency();
+  const detailNote = product.hasEssentialVariant
+    ? tCollections('rangeOptions')
+    : product.availableSizes.length > 1
+      ? tCollections('sizeOptions')
+      : tCollections('supportNote');
 
   return (
     <ScrollReveal delay={index * 60}>
@@ -82,7 +95,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           {product.images?.[0] ? (
             <img
               src={product.images[0]}
-              alt={`${product.brand} ${product.name}`}
+              alt={getProductImageAlt(localizedProduct)}
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -130,139 +143,29 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           {/* Scarcity badge */}
           {scarcity && (
             <div style={{ position: 'absolute', top: 10, left: 10 }}>
-              {scarcity.type === 'best-seller' && (
-                <span
-                  style={{
-                    fontSize: '0.58rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: '#0A0A0A',
-                    background: '#C9A96E',
-                    padding: '3px 7px',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: '50%',
-                      background: '#0A0A0A',
-                      animation: 'scarcityPulse 2s ease infinite',
-                      flexShrink: 0,
-                    }}
-                  />
-                  Best Seller
-                </span>
-              )}
-              {scarcity.type === 'low-stock' && (
-                <span
-                  style={{
-                    fontSize: '0.58rem',
-                    fontWeight: 600,
-                    color: '#F5F3EF',
-                    background: 'rgba(220,60,60,0.9)',
-                    padding: '3px 7px',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: '50%',
-                      background: '#FF6B6B',
-                      animation: 'scarcityPulse 2s ease infinite',
-                      flexShrink: 0,
-                    }}
-                  />
-                  Only {scarcity.count} left
-                </span>
-              )}
-              {scarcity.type === 'high-demand' && (
-                <span
-                  style={{
-                    fontSize: '0.58rem',
-                    fontWeight: 600,
-                    color: '#C9A96E',
-                    background: 'rgba(201,169,110,0.12)',
-                    border: '1px solid rgba(201,169,110,0.25)',
-                    padding: '3px 7px',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: '50%',
-                      background: '#C9A96E',
-                      animation: 'scarcityPulse 2s ease infinite',
-                      flexShrink: 0,
-                    }}
-                  />
-                  High Demand
-                </span>
-              )}
-              {scarcity.type === 'new-arrival' && (
-                <span
-                  style={{
-                    fontSize: '0.58rem',
-                    fontWeight: 600,
-                    color: '#F5F3EF',
-                    background: 'rgba(255,255,255,0.1)',
-                    border: '1px solid rgba(255,255,255,0.15)',
-                    padding: '3px 7px',
-                    borderRadius: 2,
-                  }}
-                >
-                  New Arrival
-                </span>
-              )}
+              <ScarcityBadge
+                scarcity={scarcity}
+                labels={{
+                  lowStock: tProduct('lowStock'),
+                  bestSeller: tProduct('bestSeller'),
+                  highDemand: tProduct('highDemand'),
+                  newArrival: tProduct('newArrival'),
+                  justRestocked: tProduct('justRestocked'),
+                }}
+                size="sm"
+                excludeTypes={['best-seller', 'high-demand']}
+              />
             </div>
           )}
 
-          <style>{`
-            @keyframes scarcityPulse {
-              0%, 100% { opacity: 1; transform: scale(1); }
-              50% { opacity: 0.5; transform: scale(0.8); }
-            }
-          `}</style>
-
           {/* Range badge */}
           <div style={{ position: 'absolute', top: 10, right: 10 }}>
-            <span
-              style={{
-                fontSize: '0.55rem',
-                fontWeight: 600,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: product.range === 'premium' ? '#C9A96E' : '#A8A5A0',
-                background:
-                  product.range === 'premium'
-                    ? 'rgba(201,169,110,0.1)'
-                    : 'rgba(255,255,255,0.05)',
-                border: `1px solid ${
-                  product.range === 'premium'
-                    ? 'rgba(201,169,110,0.2)'
-                    : 'rgba(255,255,255,0.08)'
-                }`,
-                padding: '2px 6px',
-                borderRadius: 2,
-              }}
-            >
-              {product.range === 'premium' ? 'Premium' : 'Essential'}
-            </span>
+            <RangeBadge
+              range={product.range}
+              premiumLabel={tProduct('rangePremium')}
+              essentialLabel={tProduct('rangeEssential')}
+              size="xs"
+            />
           </div>
         </div>
 
@@ -278,7 +181,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               marginBottom: 5,
             }}
           >
-            {product.brand}
+          {localizedProduct.brand}
           </p>
           <p
             style={{
@@ -289,7 +192,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               letterSpacing: '-0.01em',
             }}
           >
-            {product.name}
+          {localizedProduct.name}
           </p>
           <p
             style={{
@@ -298,7 +201,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               marginBottom: 10,
             }}
           >
-            {product.variant}
+          {localizedProduct.variant}
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
             <p style={{ fontSize: '0.88rem', fontWeight: 600, color: '#A8A5A0' }}>
@@ -310,9 +213,40 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               </p>
             )}
           </div>
-          <p style={{ fontSize: '0.6rem', color: 'rgba(201,169,110,0.5)', letterSpacing: '0.06em', marginTop: 6 }}>
-            🔥 {sold} sold this week
-          </p>
+
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 12,
+              marginTop: 14,
+              paddingTop: 12,
+              borderTop: '1px solid rgba(255,255,255,0.05)',
+            }}
+          >
+            <span
+              style={{
+                fontSize: '0.62rem',
+                color: 'rgba(255,255,255,0.32)',
+                letterSpacing: '0.04em',
+              }}
+            >
+              {detailNote}
+            </span>
+            <span
+              style={{
+                fontSize: '0.66rem',
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: '#C9A96E',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {viewDetailsLabel}
+            </span>
+          </div>
         </div>
       </Link>
     </ScrollReveal>
@@ -474,7 +408,12 @@ export function ProductGridClient({ products, t, initialFilter }: Props) {
             }
           `}</style>
           {filtered.map((product, i) => (
-            <ProductCard key={product.id} product={product} index={i} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              index={i}
+              viewDetailsLabel={t.viewDetails}
+            />
           ))}
         </div>
       )}

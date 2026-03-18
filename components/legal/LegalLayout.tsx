@@ -1,6 +1,8 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface Section {
   id: string;
@@ -26,6 +28,26 @@ export function LegalLayout({
   sections,
   children,
 }: LegalLayoutProps) {
+  const locale = useLocale();
+  const homeLabel = locale === 'fr' ? 'Accueil' : 'Home';
+  const updatedLabel = locale === 'fr' ? 'Dernière mise à jour' : 'Last updated';
+  const contentsLabel = locale === 'fr' ? 'Sommaire' : 'Contents';
+  const questionsLabel = locale === 'fr' ? 'Des questions ? Nous sommes là.' : "Questions? We're here.";
+  const bottomLinks = locale === 'fr'
+    ? [
+        { label: 'Politique de retour', href: '/returns' },
+        { label: "Politique d'expédition", href: '/shipping' },
+        { label: 'Conditions générales', href: '/terms' },
+        { label: 'Politique de confidentialité', href: '/privacy' },
+      ]
+    : [
+        { label: 'Return Policy', href: '/returns' },
+        { label: 'Shipping Policy', href: '/shipping' },
+        { label: 'Terms & Conditions', href: '/terms' },
+        { label: 'Privacy Policy', href: '/privacy' },
+      ];
+  const legalWhatsAppUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
+
   return (
     <>
       {/* ── Dark top header ── */}
@@ -56,7 +78,7 @@ export function LegalLayout({
               onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A96E')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6965')}
             >
-              Home
+              {homeLabel}
             </Link>
             <span aria-hidden>/</span>
             <span style={{ color: '#A8A5A0' }}>{title}</span>
@@ -95,7 +117,7 @@ export function LegalLayout({
               letterSpacing: '0.04em',
             }}
           >
-            Last updated: {lastUpdated}
+            {updatedLabel}: {lastUpdated}
           </p>
         </div>
       </div>
@@ -142,7 +164,7 @@ export function LegalLayout({
                 marginBottom: 12,
               }}
             >
-              Contents
+              {contentsLabel}
             </p>
             {sections.map((s) => (
               <a
@@ -181,10 +203,10 @@ export function LegalLayout({
                   marginBottom: 12,
                 }}
               >
-                Questions? We&apos;re here.
+                {questionsLabel}
               </p>
               <a
-                href="https://wa.me/15145609765"
+                href={legalWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -292,12 +314,7 @@ export function LegalLayout({
           }}
         >
           <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-            {[
-              { label: 'Return Policy', href: '/returns' },
-              { label: 'Shipping Policy', href: '/shipping' },
-              { label: 'Terms & Conditions', href: '/terms' },
-              { label: 'Privacy Policy', href: '/privacy' },
-            ].map((l) => (
+            {bottomLinks.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}

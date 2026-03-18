@@ -1,9 +1,10 @@
 
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { FAQPageAccordion } from '@/components/faq/FAQPageAccordion';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('faqPage');
@@ -15,6 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function FAQPage() {
   const t = await getTranslations('faqPage');
+  const locale = await getLocale();
+  const faqWhatsAppUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
 
   const FAQ_CATEGORIES = [
     {
@@ -235,7 +238,7 @@ export default async function FAQPage() {
             `}</style>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a
-                href="https://wa.me/15145609765?text=Hello%20ARTEMIS%2C%20I%20have%20a%20question."
+                href={faqWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="faq-btn-whatsapp"

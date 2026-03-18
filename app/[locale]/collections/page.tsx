@@ -1,10 +1,11 @@
 import { Link } from '@/i18n/navigation';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ProductGridClient } from '@/components/collection/ProductGridClient';
 import { getAllBrands, getCollectionsByBrand } from '@/lib/brands';
-import { getProductsByBrand, getProductCountByBrand, formatPrice, getProductsByRange } from '@/lib/products';
+import { getProductCountByBrand, getProductsByRange } from '@/lib/products';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 import type { Metadata } from 'next';
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
@@ -12,7 +13,7 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
 export const metadata: Metadata = {
   title: 'Collections | Artemis Watches — Montreal',
   description:
-    "Shop Rolex, Cartier, Audemars Piguet, and Patek Philippe at Artemis. Montreal's premier luxury watch destination. Essential and Premium ranges. Free shipping across Canada.",
+    'Shop Rolex, Cartier, Audemars Piguet, and Patek Philippe at Artemis. Your Montreal destination for luxury watches. Essential and Premium ranges. Free shipping across Canada.',
   alternates: {
     canonical: `${BASE}/collections`,
     languages: {
@@ -29,19 +30,19 @@ function BrandCard({
   name,
   tagline,
   description,
-  productCount,
   collectionNames,
   index,
   exploreLabel,
+  piecesCountLabel,
 }: {
   slug: string;
   name: string;
   tagline: string;
   description: string;
-  productCount: number;
   collectionNames: string[];
   index: number;
   exploreLabel: string;
+  piecesCountLabel: string;
 }) {
   return (
     <ScrollReveal delay={index * 80}>
@@ -76,7 +77,7 @@ function BrandCard({
               borderRadius: 2,
             }}
           >
-            {productCount} {productCount === 1 ? 'piece' : 'pieces'}
+            {piecesCountLabel}
           </span>
         </div>
 
@@ -186,11 +187,16 @@ export default async function CollectionsPage({
 }: {
   searchParams?: Promise<{ range?: string }>;
 }) {
-  const t = await getTranslations('collections');
+  const [t, tBrands, locale] = await Promise.all([
+    getTranslations('collections'),
+    getTranslations('brands'),
+    getLocale(),
+  ]);
   const brands = getAllBrands();
   const { range } = (await searchParams) ?? {};
   const initialFilter = range === 'essential' || range === 'premium' ? range : undefined;
   const rangeProducts = initialFilter ? getProductsByRange(initialFilter) : [];
+  const collectionsHelpUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
   const gridTranslations = {
     filterAll: t('filterAll'),
     filterEssential: t('filterEssential'),
@@ -222,12 +228,93 @@ export default async function CollectionsPage({
             headline={t('pageHeadline')}
             subheadline={t('pageSubheadline')}
           />
+
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 10,
+              justifyContent: 'center',
+            }}
+          >
+            {[t('trustShipping'), t('trustGuarantee'), t('trustQuality'), t('trustWhatsApp')].map((item) => (
+              <span
+                key={item}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  padding: '9px 12px',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'rgba(255,255,255,0.02)',
+                  borderRadius: 999,
+                  fontSize: '0.66rem',
+                  color: '#A8A5A0',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                <span
+                  aria-hidden
+                  style={{
+                    width: 5,
+                    height: 5,
+                    borderRadius: '50%',
+                    background: '#C9A96E',
+                    flexShrink: 0,
+                  }}
+                />
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Brand cards grid */}
       <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <ScrollReveal delay={0}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: 16,
+                padding: '18px 22px',
+                marginBottom: 28,
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'rgba(255,255,255,0.02)',
+                borderRadius: 4,
+              }}
+            >
+              <div>
+                <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#C9A96E', marginBottom: 6 }}>
+                  {t('adviceLabel')}
+                </p>
+                <p style={{ fontSize: '0.84rem', color: '#A8A5A0', lineHeight: 1.6 }}>
+                  {t('adviceBody')}
+                </p>
+              </div>
+              <a
+                href={collectionsHelpUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#C9A96E',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {t('adviceCta')}
+              </a>
+            </div>
+          </ScrollReveal>
+
           <div className="brands-grid">
             <style>{`
               .brands-grid {
@@ -250,20 +337,21 @@ export default async function CollectionsPage({
             {brands.map((brand, i) => {
               const collections = getCollectionsByBrand(brand.slug);
               const productCount = BRAND_PRODUCT_COUNTS[brand.slug] ?? 0;
-              const products = getProductsByBrand(brand.slug);
-              const lowestPrice = Math.min(...products.map((p) => p.price));
+
+              const brandTagline = tBrands(`${brand.slug}.tagline` as never) as string || brand.tagline;
+              const brandDescription = tBrands(`${brand.slug}.description` as never) as string || brand.description;
 
               return (
                 <BrandCard
                   key={brand.slug}
                   slug={brand.slug}
                   name={brand.name}
-                  tagline={brand.tagline}
-                  description={brand.description}
-                  productCount={productCount}
+                  tagline={brandTagline}
+                  description={brandDescription}
                   collectionNames={collections.map((c) => c.name)}
                   index={i}
                   exploreLabel={t('exploreLabel')}
+                  piecesCountLabel={t('piecesCount', { count: productCount })}
                 />
               );
             })}
@@ -285,7 +373,7 @@ export default async function CollectionsPage({
                 marginBottom: 32,
               }}
             >
-              {initialFilter === 'essential' ? t('filterEssential') : t('filterPremium')} — All Brands
+              {initialFilter === 'essential' ? t('filterEssential') : t('filterPremium')} — {t('allCollections')}
             </p>
             <ProductGridClient products={rangeProducts} t={gridTranslations} initialFilter={initialFilter} />
           </div>

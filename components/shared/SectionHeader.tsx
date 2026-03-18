@@ -5,7 +5,6 @@ interface SectionHeaderProps {
   headline: string;
   subheadline?: string;
   align?: 'left' | 'center';
-  accentHeadline?: boolean; // italic editorial style on last word
 }
 
 export function SectionHeader({
@@ -13,7 +12,6 @@ export function SectionHeader({
   headline,
   subheadline,
   align = 'center',
-  accentHeadline = false,
 }: SectionHeaderProps) {
   const textAlign = align === 'center' ? 'center' : 'left';
   const maxWidth = align === 'center' ? 640 : undefined;

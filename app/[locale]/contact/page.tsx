@@ -1,8 +1,9 @@
 
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { ContactForm } from '@/components/contact/ContactForm';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('contact');
@@ -14,6 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ContactPage() {
   const t = await getTranslations('contact');
+  const locale = await getLocale();
+  const contactWhatsAppUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
 
   const CHANNELS = [
     {
@@ -32,7 +35,7 @@ export default async function ContactPage() {
       label: t('ch1Label'),
       sublabel: t('ch1Sub'),
       value: '514-560-9765',
-      href: 'https://wa.me/15145609765?text=Hello%20ARTEMIS%2C%20I%27d%20like%20to%20inquire.',
+      href: contactWhatsAppUrl,
       cta: t('ch1Cta'),
       accent: true,
     },
@@ -61,7 +64,7 @@ export default async function ContactPage() {
       label: t('ch3Label'),
       sublabel: t('ch3Sub'),
       value: '@artemis.watches',
-      href: 'https://snapchat.com/add/artemis.watches',
+      href: 'https://www.instagram.com/artemis.watches',
       cta: t('ch3Cta'),
       accent: false,
     },

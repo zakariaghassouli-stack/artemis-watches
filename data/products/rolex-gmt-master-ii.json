@@ -7,15 +7,15 @@
   "collectionSlug": "gmt-master-ii",
   "name": "GMT-Master II",
   "variant": "Pepsi — Red/Blue Bezel",
-  "description": "The GMT-Master II 'Pepsi' is arguably the most desirable Rolex in the entire collection. Originally designed for Pan Am pilots in 1955, the dual-timezone complication combined with the legendary red and blue bezel has made this one of the most coveted watches in horological history.\n\nThe Pepsi colorway — red for day, blue for night — is instantly recognizable to watch enthusiasts worldwide. On a Jubilee bracelet, the overall package is nothing short of spectacular. This is the Rolex that collectors obsess over and style icons wear. Limited availability — serious buyers only.",
-  "descriptionShort": "The legendary Pepsi. Red/blue bezel, dual timezone. The most coveted GMT-Master configuration.",
+  "description": "The GMT-Master II 'Pepsi' was originally developed for Pan Am pilots in 1955 and remains one of Rolex's most recognizable travel references. The dual-time complication and red-blue bezel give it a strong identity without losing everyday practicality.\n\nThe Pepsi colour pairing is immediate, and on a Jubilee bracelet the watch feels especially balanced on the wrist. This Artemis selection keeps the focus on what matters most: clear legibility, a distinctive bezel, and a configuration long appreciated by collectors.",
+  "descriptionShort": "A classic GMT-Master II configuration with red-blue bezel and dual-time display.",
   "keyPoints": [
     "Iconic 'Pepsi' red and blue Cerachrom bezel",
     "Dual-timezone display — perfect for travelers",
     "Jubilee bracelet for maximum elegance",
-    "One of the most sought-after Rolex references",
-    "Instantly recognized by watch connoisseurs",
-    "Limited stock — high demand item"
+    "A reference long appreciated by collectors",
+    "An instantly recognizable travel-watch profile",
+    "Prepared for quick dispatch from Artemis"
   ],
   "range": "premium",
   "price": 1400,
@@ -25,7 +25,7 @@
   "stockCount": 2,
   "badge": "best-seller",
   "images": [
-    "/images/IMG_9798.webp",
+    "/images/rolex-gmt-master-ii-pepsi.webp",
     "/images/IMG_3038.webp",
     "/images/IMG_1678.webp",
     "/images/IMG_3816.webp"
@@ -57,5 +57,15 @@
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Rolex GMT-Master II Pepsi | Artemis Watches Montreal",
-  "seoDescription": "Shop the Rolex GMT-Master II 'Pepsi' at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,400 CAD."
+  "seoDescription": "Shop the Rolex GMT-Master II 'Pepsi' at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,400 CAD.",
+  "descriptionFr": "Le GMT-Master II 'Pepsi' a d'abord été développé pour les pilotes de Pan Am en 1955 et reste aujourd'hui l'une des références de voyage les plus reconnaissables chez Rolex. La complication double fuseau horaire et la lunette rouge et bleue lui donnent une identité forte, tout en restant très facile à porter au quotidien.\n\nLe code couleur Pepsi se repère immédiatement et, sur bracelet Jubilé, l'ensemble trouve un bel équilibre au poignet. Cette sélection Artemis met l'accent sur l'essentiel : une lecture claire, une lunette distinctive et une configuration appréciée depuis longtemps par les collectionneurs.",
+  "descriptionShortFr": "Une configuration classique du GMT-Master II avec lunette rouge-bleue et affichage double fuseau.",
+  "keyPointsFr": [
+    "Lunette Cerachrom 'Pepsi' rouge et bleue emblématique",
+    "Affichage double fuseau horaire — idéal pour les voyageurs",
+    "Bracelet Jubilé pour une élégance maximale",
+    "Une référence appréciée de longue date par les collectionneurs",
+    "Un profil de montre de voyage immédiatement identifiable",
+    "Préparée pour une expédition rapide depuis Artemis"
+  ]
 }

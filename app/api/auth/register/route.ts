@@ -74,6 +74,6 @@ export async function POST(request: NextRequest) {
   return NextResponse.json({
     success: true,
     promoCode: user.promoCode,
-    message: `Account created. Your exclusive code: ${user.promoCode}`,
+    message: `Account created. Your welcome code: ${user.promoCode}`,
   });
 }

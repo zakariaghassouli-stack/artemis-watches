@@ -7,15 +7,15 @@
   "collectionSlug": "daytona",
   "name": "Daytona",
   "variant": "Black Dial",
-  "description": "The Rolex Daytona is the ultimate expression of performance and prestige. Born on the racing circuits of Daytona Beach, this chronograph has transcended its sporting origins to become one of the most desirable watches ever created. Paul Newman made it immortal. Collectors obsess over it. And for good reason.\n\nThe black dial configuration is the purest form of the Daytona — three white sub-dials against a black backdrop, tachymeter bezel, and the sophisticated chronograph pushers. There are watches, and then there is the Daytona. This is what makes men stop and stare.",
-  "descriptionShort": "The most desirable chronograph ever made. Black dial Daytona — race-born, legend-status.",
+  "description": "The Rolex Daytona grew out of motorsport and remains one of the house's most recognizable chronographs. Its tachymeter bezel, balanced sub-dial layout, and compact proportions give it a precise, technical character without losing everyday wearability.\n\nThis black-dial configuration pairs white sub-dials with a dark main dial for strong contrast and easy legibility. In this Artemis selection, the appeal is in the clarity of the design and the sense of mechanical purpose it carries on the wrist.",
+  "descriptionShort": "A motorsport-inspired chronograph with black dial, white sub-dials, and tachymeter bezel.",
   "keyPoints": [
     "Iconic racing chronograph heritage",
     "Black dial with white sub-registers",
     "Tachymeter bezel for speed calculation",
     "Oyster bracelet with Oysterclasp",
-    "The most collectible Rolex reference",
-    "Extremely limited availability"
+    "One of Rolex's most recognized chronograph profiles",
+    "Prepared for quick dispatch from Artemis"
   ],
   "range": "premium",
   "price": 1550,
@@ -25,7 +25,7 @@
   "stockCount": 1,
   "badge": "high-demand",
   "images": [
-    "/images/IMG_4323.webp"
+    "/images/rolex-daytona-black-dial.webp"
   ],
   "specs": {
     "caseDiameter": "40mm",
@@ -55,5 +55,15 @@
   "featured": true,
   "bestSeller": false,
   "seoTitle": "Rolex Daytona Black Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Rolex Daytona (Black Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,550 CAD."
+  "seoDescription": "Shop the Rolex Daytona (Black Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,550 CAD.",
+  "descriptionFr": "La Rolex Daytona puise ses origines dans le sport automobile et reste l'un des chronographes les plus reconnaissables de la maison. Sa lunette tachymètre, l'équilibre de ses sous-cadrans et ses proportions contenues lui donnent un caractère précis et technique, tout en restant très portable au quotidien.\n\nCette configuration à cadran noir associe des sous-cadrans blancs à un fond sombre pour offrir un contraste net et une lecture immédiate. Dans cette sélection Artemis, son attrait tient à la clarté de son dessin et à la sensation de mécanique assumée qu'elle apporte au poignet.",
+  "descriptionShortFr": "Un chronographe inspiré du sport automobile avec cadran noir, sous-cadrans blancs et lunette tachymètre.",
+  "keyPointsFr": [
+    "Héritage emblématique du chronographe de course",
+    "Cadran noir avec sous-cadrans blancs",
+    "Lunette tachymètre pour le calcul de vitesse",
+    "Bracelet Oyster avec Oysterclasp",
+    "L'un des profils de chronographe Rolex les plus reconnaissables",
+    "Préparée pour une expédition rapide depuis Artemis"
+  ]
 }

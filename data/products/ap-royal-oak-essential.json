@@ -7,15 +7,15 @@
   "collectionSlug": "royal-oak",
   "name": "Royal Oak",
   "variant": "Black Dial — Essential",
-  "description": "The Royal Oak Essential brings Gerald Genta's revolutionary 1972 design to the most accessible price point in the Artemis collection. The black dial configuration gives the Royal Oak an even more assertive, contemporary character — the octagonal bezel and tapisserie pattern rendered in contrast that demands attention.\n\nFor those who want to wear one of the most influential designs in watchmaking history without the premium price tag, this is the entry. The Royal Oak changed the industry. The Essential version lets you wear that legacy on your wrist from day one.",
-  "descriptionShort": "The Royal Oak's revolutionary DNA at the Essential entry price. Black dial — pure impact.",
+  "description": "The Royal Oak Essential brings the key Royal Oak codes into a lighter entry point within the Artemis selection. The black dial gives the octagonal bezel and tapisserie surface a more restrained, contemporary look.\n\nThis version keeps the focus on the Royal Oak's architecture: integrated bracelet, clear lines, and a case shape that remains immediately identifiable. It is a straightforward way to wear one of watch design's most recognizable silhouettes.",
+  "descriptionShort": "Royal Oak design in a lighter essential configuration with black dial.",
   "keyPoints": [
-    "Iconic octagonal bezel — Gerald Genta's masterpiece",
+    "Iconic octagonal bezel with exposed hexagonal screws",
     "Black tapisserie-pattern dial",
-    "Essential range — accessible entry to AP",
-    "Integrated bracelet for cohesive design",
-    "Most recognizable AP silhouette worldwide",
-    "Revolutionary 1972 design that changed luxury"
+    "Essential range interpretation of the Royal Oak",
+    "Integrated bracelet for a cohesive profile",
+    "Clear, architectural case design",
+    "Balanced everyday presence"
   ],
   "range": "essential",
   "price": 330,
@@ -54,5 +54,15 @@
   "featured": false,
   "bestSeller": false,
   "seoTitle": "Audemars Piguet Royal Oak Black Dial Essential | Artemis Watches Montreal",
-  "seoDescription": "Shop the Audemars Piguet Royal Oak (Black Dial, Essential) at Artemis — Montreal's premier luxury watch destination. Essential range, 30-day guarantee, free shipping. $330 CAD."
+  "seoDescription": "Shop the Audemars Piguet Royal Oak (Black Dial, Essential) at Artemis — your Montreal destination for luxury watches. Essential range, 30-day guarantee, free shipping. $330 CAD.",
+  "descriptionFr": "Le Royal Oak Essentiel reprend les codes centraux du Royal Oak dans une entrée plus légère au sein de la sélection Artemis. Le cadran noir donne à la lunette octogonale et au motif tapisserie une lecture plus retenue et contemporaine.\n\nCette version garde l'attention sur l'architecture du Royal Oak : bracelet intégré, lignes nettes et boîtier immédiatement identifiable. C'est une manière directe de porter l'une des silhouettes les plus reconnues du design horloger.",
+  "descriptionShortFr": "Le design Royal Oak dans une configuration essentielle plus légère à cadran noir.",
+  "keyPointsFr": [
+    "Boîtier octogonal emblématique avec vis hexagonales apparentes",
+    "Cadran noir à motif tapisserie",
+    "Interprétation Essentielle du Royal Oak",
+    "Bracelet intégré pour un profil cohérent",
+    "Design de boîtier net et architectural",
+    "Présence équilibrée au quotidien"
+  ]
 }

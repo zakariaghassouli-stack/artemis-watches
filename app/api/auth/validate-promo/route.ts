@@ -15,16 +15,16 @@ export async function GET(request: NextRequest) {
   const user = await prisma.user.findUnique({ where: { promoCode: code } });
 
   if (!user) {
-    return NextResponse.json({ valid: false, error: 'Invalid promo code' });
+    return NextResponse.json({ valid: false, error: 'Invalid welcome code' });
   }
 
   if (user.promoUsed) {
-    return NextResponse.json({ valid: false, error: 'This promo code has already been used' });
+    return NextResponse.json({ valid: false, error: 'This welcome code has already been used' });
   }
 
   return NextResponse.json({
     valid: true,
     discount: 10, // 10% off
-    label: `${code} — 10% off applied`,
+    label: `${code} — welcome code applied`,
   });
 }

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { redirect } from '@/i18n/navigation';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
+import { getOrderWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface Props {
   params: Promise<{ orderId: string; locale: string }>;
@@ -23,26 +24,6 @@ function formatCAD(amount: number): string {
   }).format(amount);
 }
 
-function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-CA', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).format(new Date(date));
-}
-
-const STATUS_LABEL: Record<string, string> = {
-  PENDING: 'Pending',
-  PAID: 'Paid',
-  PROCESSING: 'Processing',
-  SHIPPED: 'Shipped',
-  DELIVERED: 'Delivered',
-  CANCELLED: 'Cancelled',
-  REFUNDED: 'Refunded',
-};
-
 const STATUS_COLOR: Record<string, string> = {
   PENDING: '#A8A5A0',
   PAID: '#C9A96E',
@@ -53,7 +34,6 @@ const STATUS_COLOR: Record<string, string> = {
   REFUNDED: '#E24B4A',
 };
 
-// Steps for order progress tracker
 const STATUS_STEPS = ['PAID', 'PROCESSING', 'SHIPPED', 'DELIVERED'];
 
 interface OrderItem {
@@ -70,9 +50,102 @@ interface OrderItem {
 
 export default async function OrderDetailPage({ params }: Props) {
   const { orderId, locale } = await params;
-  const session = await auth();
+  const copy = locale === 'fr'
+    ? {
+        backToAccount: '← Retour au compte',
+        overline: 'Détails de la commande',
+        placedOn: 'Commande passée le',
+        statuses: {
+          PENDING: 'En attente',
+          PAID: 'Payée',
+          PROCESSING: 'Préparation',
+          SHIPPED: 'Expédiée',
+          DELIVERED: 'Livrée',
+          CANCELLED: 'Annulée',
+          REFUNDED: 'Remboursée',
+        },
+        orderProgress: 'Suivi de la commande',
+        trackingNumber: 'Numéro de suivi',
+        via: 'via',
+        itemsOrdered: 'Articles commandés',
+        rangeLabel: {
+          essential: 'Gamme Essential',
+          premium: 'Gamme Premium',
+        },
+        boxAndPapers: '+ Boîte et papiers',
+        qty: 'Qté',
+        shippingTo: 'Livraison',
+        orderSummary: 'Résumé',
+        subtotal: 'Sous-total',
+        discount: 'Remise',
+        shipping: 'Livraison',
+        tax: 'Taxes',
+        total: 'Total',
+        orderQuestion: 'Une question sur cette commande ?',
+        whatsappCta: 'Écrire sur WhatsApp →',
+      }
+    : {
+        backToAccount: '← Back to Account',
+        overline: 'Order Details',
+        placedOn: 'Placed on',
+        statuses: {
+          PENDING: 'Pending',
+          PAID: 'Paid',
+          PROCESSING: 'Processing',
+          SHIPPED: 'Shipped',
+          DELIVERED: 'Delivered',
+          CANCELLED: 'Cancelled',
+          REFUNDED: 'Refunded',
+        },
+        orderProgress: 'Order Progress',
+        trackingNumber: 'Tracking number',
+        via: 'via',
+        itemsOrdered: 'Items Ordered',
+        rangeLabel: {
+          essential: 'Essential Range',
+          premium: 'Premium Range',
+        },
+        boxAndPapers: '+ Box & Papers',
+        qty: 'Qty',
+        shippingTo: 'Shipping To',
+        orderSummary: 'Order Summary',
+        subtotal: 'Subtotal',
+        discount: 'Discount',
+        shipping: 'Shipping',
+        tax: 'Tax',
+        total: 'Total',
+        orderQuestion: 'Question about this order?',
+        whatsappCta: 'Contact on WhatsApp →',
+      };
 
-  if (!session?.user?.email) {
+  const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-CA';
+  const STATUS_LABEL: Record<string, string> = {
+    PENDING: copy.statuses.PENDING,
+    PAID: copy.statuses.PAID,
+    PROCESSING: copy.statuses.PROCESSING,
+    SHIPPED: copy.statuses.SHIPPED,
+    DELIVERED: copy.statuses.DELIVERED,
+    CANCELLED: copy.statuses.CANCELLED,
+    REFUNDED: copy.statuses.REFUNDED,
+  };
+
+  function formatDate(date: Date): string {
+    return new Intl.DateTimeFormat(dateLocale, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    }).format(new Date(date));
+  }
+
+  const orderHelpUrl = getWhatsAppUrl(
+    getOrderWhatsAppMessage(locale, orderId.slice(-8).toUpperCase())
+  );
+  const session = await auth();
+  const userEmail = session?.user?.email;
+
+  if (!userEmail) {
     redirect({ href: '/account/login', locale });
   }
 
@@ -83,7 +156,7 @@ export default async function OrderDetailPage({ params }: Props) {
     include: { user: true },
   });
 
-  if (!order || order.user?.email !== session!.user!.email) {
+  if (!order || order.user?.email !== userEmail) {
     notFound();
   }
 
@@ -93,8 +166,6 @@ export default async function OrderDetailPage({ params }: Props) {
   return (
     <div style={{ minHeight: '100vh', background: '#0A0A0A', padding: 'clamp(48px, 8vw, 96px) 24px' }}>
       <div style={{ maxWidth: 860, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 40 }}>
-
-        {/* ── Back + header ── */}
         <div>
           <Link
             href="/account"
@@ -114,13 +185,13 @@ export default async function OrderDetailPage({ params }: Props) {
             onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A96E')}
             onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6965')}
           >
-            ← Back to Account
+            {copy.backToAccount}
           </Link>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12 }}>
             <div>
               <p style={{ fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A96E', marginBottom: 8 }}>
-                Order Details
+                {copy.overline}
               </p>
               <h1
                 style={{
@@ -134,11 +205,10 @@ export default async function OrderDetailPage({ params }: Props) {
                 #{order.id.slice(-8).toUpperCase()}
               </h1>
               <p style={{ fontSize: '0.72rem', color: '#6B6965', marginTop: 6, letterSpacing: '0.04em' }}>
-                Placed on {formatDate(order.createdAt)}
+                {copy.placedOn} {formatDate(order.createdAt)}
               </p>
             </div>
 
-            {/* Status badge */}
             <span
               style={{
                 fontSize: '0.65rem',
@@ -157,7 +227,6 @@ export default async function OrderDetailPage({ params }: Props) {
           </div>
         </div>
 
-        {/* ── Progress tracker (only for active orders) ── */}
         {currentStepIndex >= 0 && (
           <div
             style={{
@@ -168,16 +237,15 @@ export default async function OrderDetailPage({ params }: Props) {
             }}
           >
             <p style={{ fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 24 }}>
-              Order Progress
+              {copy.orderProgress}
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
-              {STATUS_STEPS.map((step, i) => {
-                const done = i <= currentStepIndex;
-                const active = i === currentStepIndex;
+              {STATUS_STEPS.map((step, index) => {
+                const done = index <= currentStepIndex;
+                const active = index === currentStepIndex;
                 return (
                   <div key={step} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
-                    {/* Connector line */}
-                    {i > 0 && (
+                    {index > 0 && (
                       <div
                         style={{
                           position: 'absolute',
@@ -190,7 +258,6 @@ export default async function OrderDetailPage({ params }: Props) {
                         }}
                       />
                     )}
-                    {/* Dot */}
                     <div
                       style={{
                         width: 22,
@@ -210,18 +277,20 @@ export default async function OrderDetailPage({ params }: Props) {
                     >
                       {done && !active && (
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                          <path d="M2 5l2.5 2.5L8 3" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M2 5l2.5 2.5L8 3" stroke="#C9A96E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       )}
                     </div>
-                    <span style={{
-                      fontSize: '0.58rem',
-                      fontWeight: active ? 700 : 500,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      color: done ? '#C9A96E' : '#6B6965',
-                      textAlign: 'center',
-                    }}>
+                    <span
+                      style={{
+                        fontSize: '0.58rem',
+                        fontWeight: active ? 700 : 500,
+                        letterSpacing: '0.1em',
+                        textTransform: 'uppercase',
+                        color: done ? '#C9A96E' : '#6B6965',
+                        textAlign: 'center',
+                      }}
+                    >
                       {STATUS_LABEL[step]}
                     </span>
                   </div>
@@ -229,17 +298,16 @@ export default async function OrderDetailPage({ params }: Props) {
               })}
             </div>
 
-            {/* Tracking info */}
             {order.trackingNumber && (
               <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                 <p style={{ fontSize: '0.68rem', color: '#6B6965', marginBottom: 6 }}>
-                  Tracking number
+                  {copy.trackingNumber}
                 </p>
                 <p style={{ fontSize: '0.88rem', fontWeight: 600, color: '#F5F3EF', letterSpacing: '0.08em', fontFamily: 'monospace' }}>
                   {order.trackingNumber}
                   {order.trackingCarrier && (
                     <span style={{ fontSize: '0.68rem', color: '#6B6965', fontWeight: 400, marginLeft: 10, fontFamily: 'inherit' }}>
-                      via {order.trackingCarrier}
+                      {copy.via} {order.trackingCarrier}
                     </span>
                   )}
                 </p>
@@ -248,15 +316,14 @@ export default async function OrderDetailPage({ params }: Props) {
           </div>
         )}
 
-        {/* ── Items ── */}
         <div>
           <p style={{ fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-            Items Ordered
+            {copy.itemsOrdered}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {items.map((item, i) => (
+            {items.map((item, index) => (
               <div
-                key={i}
+                key={index}
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr auto',
@@ -280,13 +347,15 @@ export default async function OrderDetailPage({ params }: Props) {
                       <p style={{ fontSize: '0.68rem', color: '#6B6965' }}>{item.variant}</p>
                     )}
                     {item.range && (
-                      <p style={{ fontSize: '0.68rem', color: '#6B6965' }}>{item.range} range</p>
+                      <p style={{ fontSize: '0.68rem', color: '#6B6965' }}>
+                        {copy.rangeLabel[item.range as 'essential' | 'premium'] ?? item.range}
+                      </p>
                     )}
                     {item.boxAndPapers && (
-                      <p style={{ fontSize: '0.68rem', color: 'rgba(201,169,110,0.6)' }}>+ Box & Papers</p>
+                      <p style={{ fontSize: '0.68rem', color: 'rgba(201,169,110,0.6)' }}>{copy.boxAndPapers}</p>
                     )}
                     <p style={{ fontSize: '0.68rem', color: '#6B6965' }}>
-                      Qty: {item.qty ?? item.quantity ?? 1}
+                      {copy.qty}: {item.qty ?? item.quantity ?? 1}
                     </p>
                   </div>
                 </div>
@@ -298,7 +367,6 @@ export default async function OrderDetailPage({ params }: Props) {
           </div>
         </div>
 
-        {/* ── Summary + Shipping ── */}
         <div
           style={{
             display: 'grid',
@@ -313,11 +381,10 @@ export default async function OrderDetailPage({ params }: Props) {
             }
           `}</style>
 
-          {/* Shipping address */}
           {order.shippingName && (
             <div style={{ padding: '24px 28px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4 }}>
               <p style={{ fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 16 }}>
-                Shipping To
+                {copy.shippingTo}
               </p>
               <p style={{ fontSize: '0.85rem', fontWeight: 500, color: '#F5F3EF', marginBottom: 4 }}>{order.shippingName}</p>
               {order.shippingEmail && (
@@ -333,46 +400,44 @@ export default async function OrderDetailPage({ params }: Props) {
             </div>
           )}
 
-          {/* Order totals */}
           <div style={{ padding: '24px 28px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 4 }}>
             <p style={{ fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 16 }}>
-              Order Summary
+              {copy.orderSummary}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '0.8rem', color: '#A8A5A0' }}>Subtotal</span>
+                <span style={{ fontSize: '0.8rem', color: '#A8A5A0' }}>{copy.subtotal}</span>
                 <span style={{ fontSize: '0.8rem', color: '#F5F3EF' }}>{formatCAD(order.subtotal)}</span>
               </div>
               {order.discount > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ fontSize: '0.8rem', color: '#A8A5A0' }}>
-                    Discount{order.promoCodeUsed ? ` (${order.promoCodeUsed})` : ''}
+                    {copy.discount}{order.promoCodeUsed ? ` (${order.promoCodeUsed})` : ''}
                   </span>
                   <span style={{ fontSize: '0.8rem', color: '#7EB89A' }}>−{formatCAD(order.discount)}</span>
                 </div>
               )}
               {order.shipping > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#A8A5A0' }}>Shipping</span>
+                  <span style={{ fontSize: '0.8rem', color: '#A8A5A0' }}>{copy.shipping}</span>
                   <span style={{ fontSize: '0.8rem', color: '#F5F3EF' }}>{formatCAD(order.shipping)}</span>
                 </div>
               )}
               {order.tax > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#A8A5A0' }}>Tax</span>
+                  <span style={{ fontSize: '0.8rem', color: '#A8A5A0' }}>{copy.tax}</span>
                   <span style={{ fontSize: '0.8rem', color: '#F5F3EF' }}>{formatCAD(order.tax)}</span>
                 </div>
               )}
               <div style={{ height: 1, background: 'rgba(255,255,255,0.07)', margin: '4px 0' }} />
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F5F3EF' }}>Total</span>
+                <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F5F3EF' }}>{copy.total}</span>
                 <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#C9A96E' }}>{formatCAD(order.total)}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* ── Support ── */}
         <div
           style={{
             padding: '20px 28px',
@@ -387,10 +452,10 @@ export default async function OrderDetailPage({ params }: Props) {
           }}
         >
           <p style={{ fontSize: '0.78rem', color: '#6B6965' }}>
-            Question about this order?
+            {copy.orderQuestion}
           </p>
           <a
-            href={`https://wa.me/15145609765?text=${encodeURIComponent(`Hello ARTEMIS, I have a question about order #${order.id.slice(-8).toUpperCase()}.`)}`}
+            href={orderHelpUrl}
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -402,7 +467,7 @@ export default async function OrderDetailPage({ params }: Props) {
               textDecoration: 'none',
             }}
           >
-            WhatsApp Support →
+            {copy.whatsappCta}
           </a>
         </div>
       </div>

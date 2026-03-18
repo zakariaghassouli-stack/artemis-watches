@@ -38,7 +38,13 @@ export default async function CollectionPage({ params }: Props) {
     notFound();
   }
 
-  const t = await getTranslations('collections');
+  const [t, tBrands] = await Promise.all([
+    getTranslations('collections'),
+    getTranslations('brands'),
+  ]);
+  const collectionDescription =
+    (tBrands(`collections.${collection.slug}.description` as never) as string) ||
+    collection.description;
   const products = getProductsByCollection(collectionSlug);
   const lowestPrice = products.length
     ? Math.min(...products.map((p) => p.price))
@@ -133,7 +139,7 @@ export default async function CollectionPage({ params }: Props) {
                 marginBottom: 28,
               }}
             >
-              {collection.description}
+              {collectionDescription}
             </p>
           </ScrollReveal>
 

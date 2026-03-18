@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { Search, X, ChevronDown } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
 import type { Product } from '@/types/product';
-import { formatPrice } from '@/lib/products';
+import { formatPrice, getProductImageAlt, getScarcityState, localizeProduct } from '@/lib/products';
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -92,18 +93,16 @@ function searchProducts(products: Product[], filters: SearchFilters): Product[] 
 // ─── Product Card ─────────────────────────────────────────────
 
 function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof useTranslations<'search'>> }) {
+  const locale = useLocale();
+  const localizedProduct = localizeProduct(product, locale);
   const href = `/collections/${product.brandSlug}/${product.collectionSlug}/${product.slug}`;
 
-  const scarcityLabel = (() => {
-    if (!product.inStock) return { text: t('outOfStock'), color: '#6B6965' };
-    if (product.stockCount < 5)
-      return { text: t('lowStock', { count: product.stockCount }), color: '#E8B86D' };
-    if (product.badge === 'best-seller') return { text: t('bestSeller'), color: '#C9A96E' };
-    if (product.badge === 'high-demand') return { text: t('highDemand'), color: '#C9A96E' };
-    if (product.badge === 'new-arrival') return { text: t('newArrival'), color: '#A8A5A0' };
-    if (product.badge === 'just-restocked') return { text: t('justRestocked'), color: '#A8A5A0' };
-    return null;
-  })();
+  const scarcity = getScarcityState(product);
+  const detailNote = product.hasEssentialVariant
+    ? t('rangeOptions')
+    : product.availableSizes.length > 1
+      ? t('sizeOptions')
+      : t('supportNote');
 
   return (
     <Link
@@ -134,23 +133,39 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
           top: 12,
           right: 12,
           zIndex: 2,
-          fontSize: '0.55rem',
-          fontWeight: 700,
-          letterSpacing: '0.14em',
-          textTransform: 'uppercase',
-          padding: '3px 8px',
-          borderRadius: 2,
-          background: product.range === 'premium'
-            ? 'rgba(201,169,110,0.12)'
-            : 'rgba(168,165,160,0.1)',
-          border: product.range === 'premium'
-            ? '1px solid rgba(201,169,110,0.25)'
-            : '1px solid rgba(168,165,160,0.2)',
-          color: product.range === 'premium' ? '#C9A96E' : '#A8A5A0',
         }}
       >
-        {product.range === 'premium' ? t('premiumBadge') : t('essentialBadge')}
+        <RangeBadge
+          range={product.range}
+          premiumLabel={t('premiumBadge')}
+          essentialLabel={t('essentialBadge')}
+          size="xs"
+        />
       </div>
+
+      {scarcity && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 12,
+            left: 12,
+            zIndex: 2,
+          }}
+        >
+          <ScarcityBadge
+            scarcity={scarcity}
+            labels={{
+              lowStock: t('lowStock'),
+              bestSeller: t('bestSeller'),
+              highDemand: t('highDemand'),
+              newArrival: t('newArrival'),
+              justRestocked: t('justRestocked'),
+            }}
+            size="xs"
+            excludeTypes={['best-seller', 'high-demand']}
+          />
+        </div>
+      )}
 
       {/* Image placeholder */}
       <div
@@ -165,9 +180,9 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
       >
         {product.images[0] ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img
+            <img
             src={product.images[0]}
-            alt={`${product.brand} ${product.name} ${product.variant}`}
+            alt={getProductImageAlt(localizedProduct)}
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             loading="lazy"
             onError={(e) => {
@@ -207,7 +222,7 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
             marginBottom: 6,
           }}
         >
-          {product.brand}
+          {localizedProduct.brand}
         </p>
 
         {/* Name */}
@@ -221,7 +236,7 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
             letterSpacing: '-0.01em',
           }}
         >
-          {product.name}
+          {localizedProduct.name}
         </h3>
 
         {/* Variant */}
@@ -232,7 +247,7 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
             marginBottom: 16,
           }}
         >
-          {product.variant}
+          {localizedProduct.variant}
         </p>
 
         {/* Price row */}
@@ -248,20 +263,40 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
               </p>
             )}
           </div>
+        </div>
 
-          {scarcityLabel && (
-            <span
-              style={{
-                fontSize: '0.6rem',
-                fontWeight: 600,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: scarcityLabel.color,
-              }}
-            >
-              {scarcityLabel.text}
-            </span>
-          )}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 12,
+            marginTop: 14,
+            paddingTop: 12,
+            borderTop: '1px solid rgba(255,255,255,0.05)',
+          }}
+        >
+          <span
+            style={{
+              fontSize: '0.62rem',
+              color: 'rgba(255,255,255,0.32)',
+              letterSpacing: '0.04em',
+            }}
+          >
+            {detailNote}
+          </span>
+          <span
+            style={{
+              fontSize: '0.66rem',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: '#C9A96E',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {t('viewDetails')}
+          </span>
         </div>
       </div>
     </Link>
@@ -350,7 +385,6 @@ export function SearchClient({
   const t = useTranslations('search');
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [filters, setFilters] = useState<SearchFilters>({

@@ -69,4 +69,8 @@ export interface Product {
   bestSeller: boolean;
   seoTitle?: string;
   seoDescription?: string;
+  /** Localized FR fields — used when locale === 'fr' */
+  descriptionFr?: string;
+  descriptionShortFr?: string;
+  keyPointsFr?: string[];
 }

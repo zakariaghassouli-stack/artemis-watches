@@ -1,11 +1,14 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { getFooterWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
   const year = new Date().getFullYear();
+  const footerWhatsAppUrl = getWhatsAppUrl(getFooterWhatsAppMessage(locale));
 
   return (
     <footer
@@ -65,7 +68,7 @@ export function Footer() {
             {/* Social icons */}
             <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
               <SocialLink
-                href="https://wa.me/15145609765"
+                href={footerWhatsAppUrl}
                 label="WhatsApp"
                 icon={
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -74,11 +77,13 @@ export function Footer() {
                 }
               />
               <SocialLink
-                href="https://www.snapchat.com/add/artemis.watches"
-                label="Snapchat"
+                href="https://www.instagram.com/artemis.watches"
+                label="Instagram"
                 icon={
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.522 1.149.316 3.1.164 4.455l-.002.02c-.046.4-.087.747-.095 1.03.009.102.159.396.848.396.49-.016 1.093-.124 1.659-.267.135-.034.282-.069.44-.069.168 0 .332.03.487.09.44.16.734.558.734.97 0 .617-.528 1.033-1.218 1.21-.023.006-.071.018-.134.033-.38.09-1.099.262-1.422.583a.23.23 0 00-.063.17c.002.043.01.09.026.15.187.652.605 2.098.605 2.985 0 2.64-2.197 4.797-4.906 4.797-.457 0-.877-.064-1.28-.136-.386-.07-.773-.138-1.23-.138-.454 0-.84.067-1.225.137-.401.07-.82.135-1.278.135-2.71 0-4.906-2.16-4.906-4.797 0-.882.417-2.32.603-2.97.018-.062.027-.111.029-.153a.23.23 0 00-.064-.17c-.321-.32-1.04-.492-1.42-.582-.063-.015-.11-.027-.133-.033-.7-.177-1.229-.593-1.229-1.21 0-.413.294-.81.734-.97a1.12 1.12 0 01.487-.09c.158 0 .305.035.44.069.565.143 1.169.25 1.658.267.69 0 .84-.294.849-.396-.008-.283-.049-.63-.095-1.03l-.002-.02c-.152-1.355-.358-3.306.164-4.455C7.857 1.07 11.215.793 12.206.793" />
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
                   </svg>
                 }
               />
@@ -118,7 +123,7 @@ export function Footer() {
             <FooterLink href="/shipping">{t('shippingPolicy')}</FooterLink>
             <FooterLink href="/returns">{t('returnPolicy')}</FooterLink>
             <FooterLink href="/account/orders">{t('trackOrder')}</FooterLink>
-            <FooterLink href="https://wa.me/15145609765" external>
+            <FooterLink href={footerWhatsAppUrl} external>
               {t('whatsapp')}
             </FooterLink>
           </FooterColumn>

@@ -7,7 +7,7 @@
   "collectionSlug": "santos",
   "name": "Santos de Cartier",
   "variant": "Silver Dial",
-  "description": "The Santos de Cartier holds a unique place in horological history — it was the first wristwatch ever created for everyday wear, designed in 1904 for aviation pioneer Alberto Santos-Dumont. Over a century later, its square case, exposed screws, and Roman numeral dial remain as revolutionary as ever.\n\nThe silver dial variant is the most versatile Santos expression. The interplay between the polished square case, the brushed bracelet links, and the silver dial catches light from every angle. This is not just a watch — it is Cartier's founding statement. Worn by athletes, artists, and icons for 120 years.",
+  "description": "The Santos de Cartier holds a singular place in watch history, first designed in 1904 for Alberto Santos-Dumont. More than a century later, its square case, exposed screws, and Roman numeral dial still give it a profile that feels both historical and current.\n\nThe silver-dial variant is often the most balanced expression of the Santos. The polished case, brushed bracelet, and light dial work together to create a watch that wears easily across formal and casual settings.",
   "descriptionShort": "The original wristwatch. Square case, Roman numerals, iconic exposed screws — pure Cartier heritage.",
   "keyPoints": [
     "The world's first everyday wristwatch, born 1904",
@@ -15,7 +15,7 @@
     "Silver sunray-brushed dial with Roman numerals",
     "Integrated steel bracelet with quick-release system",
     "Equally at home with suits and streetwear",
-    "120 years of continuous production — a living legend"
+    "A long-running Santos reference with enduring relevance"
   ],
   "range": "premium",
   "price": 1100,
@@ -25,7 +25,7 @@
   "stockCount": 4,
   "badge": "best-seller",
   "images": [
-    "/images/IMG_7155.webp"
+    "/images/cartier-santos-silver-dial.webp"
   ],
   "specs": {
     "caseDiameter": "39.8mm",
@@ -55,5 +55,15 @@
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Cartier Santos de Cartier Silver Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Cartier Santos de Cartier (Silver Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,100 CAD."
+  "seoDescription": "Shop the Cartier Santos de Cartier (Silver Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,100 CAD.",
+  "descriptionFr": "Le Santos de Cartier occupe une place singulière dans l'histoire horlogère, puisqu'il a d'abord été conçu en 1904 pour Alberto Santos-Dumont. Plus d'un siècle plus tard, son boîtier carré, ses vis apparentes et son cadran à chiffres romains lui donnent toujours un profil à la fois historique et actuel.\n\nLa variante cadran argent est souvent la lecture la plus équilibrée du Santos. Le boîtier poli, le bracelet brossé et le cadran clair composent une montre facile à porter dans des contextes formels comme plus décontractés.",
+  "descriptionShortFr": "La première montre-bracelet. Boîtier carré, chiffres romains, vis apparentes emblématiques — le pur héritage Cartier.",
+  "keyPointsFr": [
+    "La première montre-bracelet du quotidien, née en 1904",
+    "Boîtier carré avec vis apparentes emblématiques",
+    "Cadran argenté soleillé brossé avec chiffres romains",
+    "Bracelet acier intégré avec système de libération rapide",
+    "À l'aise aussi bien avec un costume qu'en tenue décontractée",
+    "Une référence Santos de long cours, toujours actuelle"
+  ]
 }

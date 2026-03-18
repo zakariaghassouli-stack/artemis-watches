@@ -1,10 +1,17 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { SectionHeader } from '@/components/shared/SectionHeader';
+import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
-import { getBestSellers, getScarcityState, formatPrice } from '@/lib/products';
+import {
+  formatPrice,
+  getBestSellers,
+  getProductImageAlt,
+  getScarcityState,
+  localizeProduct,
+} from '@/lib/products';
 import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { convertPrice } from '@/lib/currency';
 import type { Product } from '@/types/product';
@@ -18,8 +25,15 @@ function ProductCard({
   index: number;
   t: ReturnType<typeof useTranslations<'home.bestSellers'>>;
 }) {
+  const locale = useLocale();
+  const localizedProduct = localizeProduct(product, locale);
   const scarcity = getScarcityState(product);
   const { currency } = useCurrency();
+  const detailNote = product.hasEssentialVariant
+    ? t('cardRange')
+    : product.availableSizes.length > 1
+      ? t('cardSize')
+      : t('cardSupport');
 
   return (
     <ScrollReveal delay={index * 80}>
@@ -62,7 +76,7 @@ function ProductCard({
           {product.images?.[0] ? (
             <img
               src={product.images[0]}
-              alt={`${product.brand} ${product.name}`}
+              alt={getProductImageAlt(localizedProduct)}
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -102,7 +116,7 @@ function ProductCard({
                   color: '#3A3A3A',
                 }}
               >
-                {product.brand}
+          {localizedProduct.brand}
               </p>
             </>
           )}
@@ -110,124 +124,29 @@ function ProductCard({
           {/* Scarcity badge */}
           {scarcity && (
             <div style={{ position: 'absolute', top: 10, left: 10 }}>
-              {scarcity.type === 'best-seller' && (
-                <span
-                  style={{
-                    fontSize: '0.58rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: '#0A0A0A',
-                    background: '#C9A96E',
-                    padding: '3px 7px',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: '50%',
-                      background: '#0A0A0A',
-                      animation: 'scarcityPulse 2s ease infinite',
-                      flexShrink: 0,
-                    }}
-                  />
-                  {t('bestSeller')}
-                </span>
-              )}
-              {scarcity.type === 'low-stock' && (
-                <span
-                  style={{
-                    fontSize: '0.58rem',
-                    fontWeight: 600,
-                    color: '#F5F3EF',
-                    background: 'rgba(220,60,60,0.9)',
-                    padding: '3px 7px',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: '50%',
-                      background: '#FF6B6B',
-                      animation: 'scarcityPulse 2s ease infinite',
-                      flexShrink: 0,
-                    }}
-                  />
-                  {t('lowStock', { count: scarcity.count })}
-                </span>
-              )}
-              {scarcity.type === 'high-demand' && (
-                <span
-                  style={{
-                    fontSize: '0.58rem',
-                    fontWeight: 600,
-                    color: '#C9A96E',
-                    background: 'rgba(201,169,110,0.12)',
-                    border: '1px solid rgba(201,169,110,0.25)',
-                    padding: '3px 7px',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 4,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 5,
-                      height: 5,
-                      borderRadius: '50%',
-                      background: '#C9A96E',
-                      animation: 'scarcityPulse 2s ease infinite',
-                      flexShrink: 0,
-                    }}
-                  />
-                  {t('highDemand')}
-                </span>
-              )}
+              <ScarcityBadge
+                scarcity={scarcity}
+                labels={{
+                  lowStock: t('lowStock'),
+                  bestSeller: t('bestSeller'),
+                  highDemand: t('highDemand'),
+                  newArrival: t('newArrival'),
+                  justRestocked: t('justRestocked'),
+                }}
+                size="sm"
+                excludeTypes={['best-seller', 'high-demand']}
+              />
             </div>
           )}
 
-          <style>{`
-            @keyframes scarcityPulse {
-              0%, 100% { opacity: 1; transform: scale(1); }
-              50% { opacity: 0.5; transform: scale(0.8); }
-            }
-          `}</style>
-
           {/* Range badge */}
           <div style={{ position: 'absolute', top: 10, right: 10 }}>
-            <span
-              style={{
-                fontSize: '0.55rem',
-                fontWeight: 600,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: product.range === 'premium' ? '#C9A96E' : '#A8A5A0',
-                background:
-                  product.range === 'premium'
-                    ? 'rgba(201,169,110,0.1)'
-                    : 'rgba(255,255,255,0.05)',
-                border: `1px solid ${
-                  product.range === 'premium'
-                    ? 'rgba(201,169,110,0.2)'
-                    : 'rgba(255,255,255,0.08)'
-                }`,
-                padding: '2px 6px',
-                borderRadius: 2,
-              }}
-            >
-              {product.range === 'premium' ? t('premium') : t('essential')}
-            </span>
+            <RangeBadge
+              range={product.range}
+              premiumLabel={t('premium')}
+              essentialLabel={t('essential')}
+              size="xs"
+            />
           </div>
         </div>
 
@@ -254,7 +173,7 @@ function ProductCard({
               letterSpacing: '-0.01em',
             }}
           >
-            {product.name}
+          {localizedProduct.name}
           </p>
           <p
             style={{
@@ -263,7 +182,7 @@ function ProductCard({
               marginBottom: 10,
             }}
           >
-            {product.variant}
+          {localizedProduct.variant}
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
             <p
@@ -286,6 +205,40 @@ function ProductCard({
                 {formatPrice(convertPrice(product.compareAtPrice, currency), currency)}
               </p>
             )}
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 12,
+              marginTop: 14,
+              paddingTop: 12,
+              borderTop: '1px solid rgba(255,255,255,0.05)',
+            }}
+          >
+            <span
+              style={{
+                fontSize: '0.62rem',
+                color: 'rgba(255,255,255,0.32)',
+                letterSpacing: '0.04em',
+              }}
+            >
+              {detailNote}
+            </span>
+            <span
+              style={{
+                fontSize: '0.66rem',
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: '#C9A96E',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {t('cardCta')}
+            </span>
           </div>
         </div>
       </Link>

@@ -1,12 +1,13 @@
 import { Resend } from 'resend';
+import { getEnv } from '@/lib/env';
 
 // ── Client ──────────────────────────────────────────────────────────────────
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
+const resend = getEnv('RESEND_API_KEY')
+  ? new Resend(getEnv('RESEND_API_KEY') as string)
   : null;
 
-const FROM = process.env.RESEND_FROM_EMAIL ?? 'ARTEMIS Montres <orders@artemis-watches.com>';
-const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+const FROM = getEnv('RESEND_FROM_EMAIL') ?? 'ARTEMIS Montres <orders@artemis-watches.com>';
+const SITE_URL = getEnv('NEXT_PUBLIC_APP_URL') ?? 'https://artemis-watches.com';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 export interface OrderEmailItem {
@@ -271,7 +272,7 @@ function buildWelcomeEmailHtml({ name, promoCode }: { name: string | null; promo
         <tr>
           <td style="padding-bottom:28px;">
             <div style="font-size:26px;font-weight:600;color:#F5F3EF;line-height:1.2;">Welcome to ARTEMIS, ${firstName}.</div>
-            <div style="font-size:14px;color:#A8A5A0;margin-top:12px;line-height:1.7;">You now have access to Montréal's most curated selection of Rolex, Cartier, Audemars Piguet, and Patek Philippe — hand-selected, inspected, and delivered to your door.</div>
+            <div style="font-size:14px;color:#A8A5A0;margin-top:12px;line-height:1.7;">Your account is ready. Below is your welcome code for a first order, along with the details you may want to keep on hand.</div>
           </td>
         </tr>
 
@@ -280,7 +281,7 @@ function buildWelcomeEmailHtml({ name, promoCode }: { name: string | null; promo
           <td style="padding-bottom:28px;">
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#141414;border:1px solid #C9A96E;border-color:rgba(201,169,110,0.3);border-radius:3px;">
               <tr><td style="padding:28px 24px;text-align:center;">
-                <div style="font-size:9px;letter-spacing:0.2em;color:#A8A5A0;text-transform:uppercase;margin-bottom:16px;">Your exclusive 10% discount code</div>
+                <div style="font-size:9px;letter-spacing:0.2em;color:#A8A5A0;text-transform:uppercase;margin-bottom:16px;">Your welcome code</div>
                 <table cellpadding="0" cellspacing="0" align="center">
                   <tr>
                     <td style="background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.25);border-radius:2px;padding:13px 28px;">
@@ -288,7 +289,7 @@ function buildWelcomeEmailHtml({ name, promoCode }: { name: string | null; promo
                     </td>
                   </tr>
                 </table>
-                <div style="font-size:12px;color:#3A3835;margin-top:14px;">Valid on any watch, any range. One-time use.</div>
+                <div style="font-size:12px;color:#3A3835;margin-top:14px;">Available on a first order. One-time use.</div>
               </td></tr>
             </table>
           </td>
@@ -298,7 +299,7 @@ function buildWelcomeEmailHtml({ name, promoCode }: { name: string | null; promo
         <tr>
           <td style="padding-bottom:28px;text-align:center;">
             <a href="${SITE_URL}/en/collections" style="display:inline-block;background:#C9A96E;color:#0A0A0A;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:14px 34px;border-radius:1px;">
-              Shop the Collection &rarr;
+              View the Collection &rarr;
             </a>
           </td>
         </tr>
@@ -310,10 +311,10 @@ function buildWelcomeEmailHtml({ name, promoCode }: { name: string | null; promo
               <tr><td style="padding:20px 24px;">
                 <div style="font-size:9px;letter-spacing:0.16em;color:#3A3835;text-transform:uppercase;margin-bottom:14px;">What to expect</div>
                 <table width="100%" cellpadding="0" cellspacing="0">
-                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; Every watch hand-inspected before shipping</td></tr>
-                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; Free tracked shipping across Canada</td></tr>
-                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; 30-day full refund guarantee, no questions asked</td></tr>
-                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; Real humans on WhatsApp, usually within minutes</td></tr>
+                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; Each piece is reviewed before shipment</td></tr>
+                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; Tracked shipping across Canada</td></tr>
+                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; 30-day return window</td></tr>
+                  <tr><td style="padding:5px 0;font-size:13px;color:#A8A5A0;">→&nbsp; Direct support by WhatsApp or email</td></tr>
                 </table>
               </td></tr>
             </table>
@@ -383,7 +384,7 @@ export async function sendWelcomeEmail(args: SendWelcomeEmailArgs): Promise<void
   const { error } = await resend.emails.send({
     from: FROM,
     to: args.to,
-    subject: 'Welcome to ARTEMIS — Your exclusive 10% code is inside',
+    subject: 'Welcome to ARTEMIS — Your welcome code',
     html: buildWelcomeEmailHtml(args),
   });
 

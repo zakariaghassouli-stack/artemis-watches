@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { getBrandMeta, getCollectionMeta } from '@/lib/brands';
-import { getProductBySlug, getProductsByCollection } from '@/lib/products';
+import { getProductBySlug, getProductsByCollection, localizeProduct } from '@/lib/products';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductInfo } from '@/components/product/ProductInfo';
@@ -39,7 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: product.seoTitle ?? `${product.brand} ${product.name} | Artemis Watches`,
-    description: product.seoDescription ?? product.descriptionShort,
+    description:
+      locale === 'fr'
+        ? product.descriptionShortFr ?? product.descriptionShort
+        : product.seoDescription ?? product.descriptionShort,
     alternates: {
       canonical: canonicalUrl,
       languages: {
@@ -60,10 +63,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProductPage({ params }: Props) {
-  const { brandSlug, collectionSlug, productSlug } = await params;
+  const { brandSlug, collectionSlug, productSlug, locale } = await params;
 
   const product = getProductBySlug(productSlug);
   if (!product) notFound();
+
+  const localizedProduct = localizeProduct(product, locale);
 
   const collectionVariants = getProductsByCollection(product.collectionSlug);
 
@@ -101,6 +106,7 @@ export default async function ProductPage({ params }: Props) {
     rangeSelectorLabel: t('rangeSelectorLabel'),
     variantsLabel: t('variantsLabel'),
     sizeSelectorLabel: t('sizeSelectorLabel'),
+    checkoutNote: t('checkoutNote'),
   };
 
   const productTabsT = {
@@ -254,12 +260,12 @@ export default async function ProductPage({ params }: Props) {
 
             {/* Gallery */}
             <div>
-              <ProductGallery product={product} />
+              <ProductGallery product={localizedProduct} />
             </div>
 
             {/* Sticky info */}
             <div>
-              <ProductInfo product={product} collectionVariants={collectionVariants} t={productInfoT} />
+              <ProductInfo product={localizedProduct} collectionVariants={collectionVariants} t={productInfoT} />
             </div>
           </div>
         </div>
@@ -273,7 +279,7 @@ export default async function ProductPage({ params }: Props) {
         }}
       >
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <ProductTabs product={product} t={productTabsT} />
+          <ProductTabs product={localizedProduct} t={productTabsT} />
         </div>
       </section>
 
@@ -286,7 +292,7 @@ export default async function ProductPage({ params }: Props) {
       >
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <RelatedProducts
-            product={product}
+            product={localizedProduct}
             title={t('relatedTitle')}
             viewAll={t('relatedViewAll')}
           />
@@ -298,9 +304,11 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Mobile sticky bar ───────────────────────────────────────── */}
       <MobileStickyBar
-        product={product}
+        product={localizedProduct}
         addToCartLabel={t('addToCart')}
         orderWhatsAppLabel={t('orderWhatsApp')}
+        selectOptionsLabel={t('selectOptions')}
+        selectionHint={t('selectionHint')}
       />
     </div>
   );

@@ -51,5 +51,5 @@ export default async function SettingsPage() {
     }
   }
 
-  return <SettingsClient user={userData} />;
+  return <SettingsClient user={userData} locale={locale} />;
 }

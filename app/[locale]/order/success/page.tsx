@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { stripe } from '@/lib/stripe';
+import { getStripe } from '@/lib/stripe';
 import { CartClearer } from '@/components/cart/CartClearer';
 import { PurchaseTracker } from '@/components/analytics/PurchaseTracker';
+import { getOrderWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('orderSuccess');
@@ -20,6 +21,7 @@ interface Props {
 
 export default async function OrderSuccessPage({ searchParams }: Props) {
   const t = await getTranslations('orderSuccess');
+  const locale = await getLocale();
   const { session_id } = await searchParams;
 
   let orderNumber = '';
@@ -33,6 +35,7 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
 
   if (session_id) {
     try {
+      const stripe = getStripe();
       const session = await stripe.checkout.sessions.retrieve(session_id, {
         expand: ['line_items'],
       });
@@ -64,6 +67,9 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
   }
 
   const steps = [t('step1'), t('step2'), t('step3')];
+  const supportWhatsAppUrl = getWhatsAppUrl(
+    getOrderWhatsAppMessage(locale, orderNumber || undefined)
+  );
 
   return (
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
@@ -277,7 +283,7 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
               {t('supportQuestion')}
             </p>
             <a
-              href="https://wa.me/15145609765"
+              href={supportWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{

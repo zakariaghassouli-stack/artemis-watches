@@ -4,6 +4,7 @@ import { redirect } from '@/i18n/navigation';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Order } from '@prisma/client';
+import { getOrderWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 import { SignOutButton } from './SignOutButton';
 import { ReferralShare } from './ReferralShare';
 
@@ -22,6 +23,7 @@ export default async function AccountPage() {
     getTranslations('auth.account'),
     getLocale(),
   ]);
+  const accountHelpUrl = getWhatsAppUrl(getOrderWhatsAppMessage(locale));
 
   const dateLocale = locale === 'fr' ? 'fr-CA' : 'en-CA';
   const formatter = new Intl.DateTimeFormat(dateLocale, {
@@ -351,8 +353,8 @@ export default async function AccountPage() {
           <p style={{ fontSize: '0.78rem', color: '#6B6965' }}>
             {t('supportQuestion')}
           </p>
-          <a
-            href={`https://wa.me/15145609765?text=${encodeURIComponent('Hello ARTEMIS, I need help with my order.')}`}
+            <a
+            href={accountHelpUrl}
             target="_blank"
             rel="noopener noreferrer"
             style={{

@@ -1,4 +1,4 @@
-import type { Product, ProductRange } from '@/types/product';
+import type { Product, ProductRange, ProductSpecs } from '@/types/product';
 
 // ─── Static product imports ───────────────────────────────────
 import rolexSubmarinerBlack from '@/data/products/rolex-submariner-date-black.json';
@@ -128,7 +128,7 @@ export type ScarcityState =
 
 export function getScarcityState(product: Product): ScarcityState {
   if (!product.inStock) return null;
-  if (product.stockCount < 5) return { type: 'low-stock', count: product.stockCount };
+  if (product.stockCount <= 2) return { type: 'low-stock', count: product.stockCount };
   if (product.badge === 'best-seller') return { type: 'best-seller' };
   if (product.badge === 'high-demand') return { type: 'high-demand' };
   if (product.badge === 'just-restocked') return { type: 'just-restocked' };
@@ -149,4 +149,99 @@ export function formatPrice(amount: number, currency = 'CAD'): string {
 
 export function getInstallmentPrice(price: number, installments = 4): number {
   return Math.ceil(price / installments);
+}
+
+const FR_VARIANT_MAP: Record<string, string> = {
+  'Black Dial': 'Cadran noir',
+  'Black Dial — Essential': 'Cadran noir',
+  'Blue Dial': 'Cadran bleu',
+  'Blue Dial · 41mm': 'Cadran bleu · 41 mm',
+  'Blue/Black Dial': 'Cadran bleu/noir',
+  'Gold Tone': 'Ton doré',
+  'Pepsi — Red/Blue Bezel': 'Pepsi — lunette rouge/bleu',
+  'Silver Dial': 'Cadran argent',
+};
+
+const FR_SPEC_VALUE_MAP: Record<string, string> = {
+  'Bidirectional rotating, red/blue Cerachrom 24h': 'Tournante bidirectionnelle, Cerachrom rouge/bleu 24 h',
+  'Fixed tachymeter': 'Tachymètre fixe',
+  'Fixed with exposed screws': 'Fixe avec vis apparentes',
+  'Fixed, polished gold tone': 'Fixe, finition ton doré polie',
+  'Fixed, polished with exposed screws': 'Fixe, polie avec vis apparentes',
+  'Octagonal with decorative screws': 'Octogonale avec vis décoratives',
+  'Octagonal with rounded corners': 'Octogonale à angles arrondis',
+  'Octagonal, 8 white gold screws': 'Octogonale, 8 vis en or blanc',
+  'Rounded octagonal, brushed': 'Octogonale arrondie, brossée',
+  'Smooth, polished': 'Lisse, polie',
+  'Unidirectional rotating, 60-min Cerachrom': 'Tournante unidirectionnelle, Cerachrom 60 min',
+  'Unidirectional rotating, 60-min blue Cerachrom': 'Tournante unidirectionnelle, Cerachrom bleu 60 min',
+  'Integrated mesh, gold tone': 'Maille intégrée, ton doré',
+  'Integrated steel': 'Acier intégré',
+  'Integrated steel, alternating polished and brushed links': 'Acier intégré, maillons polis et brossés en alternance',
+  'Integrated, alternating polished and brushed': 'Intégré, finitions polies et brossées en alternance',
+  'Integrated, polished and satin-finished': 'Intégré, finitions polies et satinées',
+  'Jubilee, five-piece links': 'Jubilé, cinq maillons',
+  'Oyster, three-piece solid links': 'Oyster, trois maillons pleins',
+  'Tropical composite strap': 'Bracelet composite tropical',
+  '35mm': '35 mm',
+  '36mm': '36 mm',
+  '38mm': '38 mm',
+  '39.8mm': '39,8 mm',
+  '40mm': '40 mm',
+  '41mm': '41 mm',
+  'AP-signed fold-over clasp': 'Fermoir déployant signé AP',
+  Crownclasp: 'Crownclasp',
+  'Deployant buckle': 'Boucle déployante',
+  'Deployant buckle with double push-button': 'Boucle déployante à double poussoir',
+  'Fold-over clasp': 'Fermoir déployant',
+  'Fold-over clasp with push-button release': 'Fermoir déployant à poussoirs',
+  'Fold-over tang buckle': 'Boucle ardillon déployante',
+  'Folding Oysterlock': 'Oysterlock repliable',
+  'Oysterclasp with Easylink': 'Oysterclasp avec Easylink',
+  'Oysterclasp with safety lock': 'Oysterclasp avec verrou de sécurité',
+  Black: 'Noir',
+  'Black (Tapisserie)': 'Noir (Tapisserie)',
+  Blue: 'Bleu',
+  'Blue (Grande Tapisserie)': 'Bleu (Grande Tapisserie)',
+  'Blue (horizontally embossed)': 'Bleu (gaufrage horizontal)',
+  'Blue/Black (embossed checkerboard)': 'Bleu/noir (damier gaufré)',
+  Silver: 'Argent',
+  'White (guilloche)': 'Blanc (guilloché)',
+  'Applied hour markers': 'Index appliqués',
+  'Applied luminescent hour markers': 'Index appliqués luminescents',
+  'Chromalight (blue luminescence)': 'Chromalight (luminescence bleue)',
+};
+
+export function getLocalizedVariant(variant: string, locale: string): string {
+  if (locale !== 'fr') return variant;
+  return FR_VARIANT_MAP[variant] ?? variant;
+}
+
+export function getLocalizedSpecs(specs: ProductSpecs, locale: string): ProductSpecs {
+  if (locale !== 'fr') return specs;
+
+  return Object.fromEntries(
+    Object.entries(specs).map(([key, value]) => [key, value ? FR_SPEC_VALUE_MAP[value] ?? value : value])
+  ) as ProductSpecs;
+}
+
+export function localizeProduct(product: Product, locale: string): Product {
+  if (locale !== 'fr') return product;
+
+  return {
+    ...product,
+    variant: getLocalizedVariant(product.variant, locale),
+    description: product.descriptionFr ?? product.description,
+    descriptionShort: product.descriptionShortFr ?? product.descriptionShort,
+    keyPoints: product.keyPointsFr ?? product.keyPoints,
+    specs: getLocalizedSpecs(product.specs, locale),
+  };
+}
+
+export function getProductImageAlt(
+  product: Pick<Product, 'brand' | 'name' | 'variant'>,
+  options?: { viewIndex?: number }
+): string {
+  const base = `${product.brand} ${product.name} ${product.variant} — Artemis Watches Montreal`;
+  return options?.viewIndex ? `${base} — view ${options.viewIndex}` : base;
 }

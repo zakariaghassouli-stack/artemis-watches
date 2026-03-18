@@ -22,20 +22,120 @@ const PROVINCES = [
   'AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT',
 ];
 
-export function SettingsClient({ user }: { user: UserData }) {
-  // ── Name ──
+export function SettingsClient({ user, locale }: { user: UserData; locale: string }) {
+  const isFrench = locale === 'fr';
+  const copy = isFrench
+    ? {
+        nameUpdated: 'Nom mis à jour.',
+        nameUpdateFailed: 'Impossible de mettre le nom à jour.',
+        passwordMismatch: 'Les mots de passe ne correspondent pas.',
+        passwordMin: 'Minimum 8 caractères.',
+        passwordUpdated: 'Mot de passe mis à jour.',
+        passwordUpdateFailed: 'Impossible de mettre le mot de passe à jour.',
+        addressSaved: 'Adresse enregistrée.',
+        addressSaveFailed: 'Impossible d’enregistrer l’adresse.',
+        typeDelete: 'Tapez DELETE pour confirmer.',
+        deleteFailed: 'Impossible de supprimer le compte.',
+        backToAccount: '← Retour au compte',
+        overline: 'Paramètres du compte',
+        title: 'Votre profil',
+        currentInfo: 'Informations actuelles',
+        name: 'Nom',
+        email: 'Courriel',
+        updateName: 'Modifier le nom',
+        newDisplayName: 'Nouveau nom affiché',
+        saveName: 'Enregistrer le nom',
+        saving: 'Enregistrement…',
+        changePassword: 'Modifier le mot de passe',
+        currentPassword: 'Mot de passe actuel',
+        newPassword: 'Nouveau mot de passe (minimum 8 caractères)',
+        confirmPassword: 'Confirmer le nouveau mot de passe',
+        updatePassword: 'Mettre à jour le mot de passe',
+        updating: 'Mise à jour…',
+        shippingAddress: 'Adresse de livraison par défaut',
+        shippingHint: 'Pré-remplit votre adresse à la caisse.',
+        firstName: 'Prénom',
+        lastName: 'Nom de famille',
+        streetAddress: 'Adresse',
+        city: 'Ville',
+        province: 'Province',
+        postalCode: 'Code postal (ex. H2X 1Y4)',
+        saveAddress: 'Enregistrer l’adresse',
+        emailPreferences: 'Préférences courriel',
+        emailOptIn: 'Recevoir les nouveautés et notes de collection',
+        emailPrefsHint: 'Les confirmations de commande et suivis de livraison sont toujours envoyés.',
+        dangerZone: 'Zone sensible',
+        deleteBody: 'Supprime définitivement votre compte et les données associées. Cette action est irréversible.',
+        deleteAccount: 'Supprimer mon compte',
+        deleteConfirmBefore:
+          'Cela supprimera définitivement votre compte, votre historique de commandes et votre code de bienvenue. Tapez ',
+        deleteConfirmAfter: ' pour confirmer.',
+        deletePlaceholder: 'Tapez DELETE',
+        deleting: 'Suppression…',
+        confirmDelete: 'Confirmer la suppression',
+        cancel: 'Annuler',
+      }
+    : {
+        nameUpdated: 'Name updated.',
+        nameUpdateFailed: 'Failed to update name.',
+        passwordMismatch: 'Passwords do not match.',
+        passwordMin: 'Minimum 8 characters.',
+        passwordUpdated: 'Password updated.',
+        passwordUpdateFailed: 'Failed to update password.',
+        addressSaved: 'Address saved.',
+        addressSaveFailed: 'Failed to save address.',
+        typeDelete: 'Type DELETE to confirm.',
+        deleteFailed: 'Failed to delete account.',
+        backToAccount: '← Back to Account',
+        overline: 'Account Settings',
+        title: 'Your Profile',
+        currentInfo: 'Current Info',
+        name: 'Name',
+        email: 'Email',
+        updateName: 'Update Name',
+        newDisplayName: 'New display name',
+        saveName: 'Save Name',
+        saving: 'Saving…',
+        changePassword: 'Change Password',
+        currentPassword: 'Current password',
+        newPassword: 'New password (minimum 8 characters)',
+        confirmPassword: 'Confirm new password',
+        updatePassword: 'Update Password',
+        updating: 'Updating…',
+        shippingAddress: 'Default Shipping Address',
+        shippingHint: 'Pre-fills your address at checkout.',
+        firstName: 'First name',
+        lastName: 'Last name',
+        streetAddress: 'Street address',
+        city: 'City',
+        province: 'Province',
+        postalCode: 'Postal code (e.g. H2X 1Y4)',
+        saveAddress: 'Save Address',
+        emailPreferences: 'Email Preferences',
+        emailOptIn: 'Receive collection notes and new arrivals',
+        emailPrefsHint: 'Order confirmations and shipping updates are always sent regardless of this setting.',
+        dangerZone: 'Danger Zone',
+        deleteBody: 'Permanently delete your account and all associated data. This action cannot be undone.',
+        deleteAccount: 'Delete My Account',
+        deleteConfirmBefore:
+          'This will permanently delete your account, order history, and welcome code. Type ',
+        deleteConfirmAfter: ' to confirm.',
+        deletePlaceholder: 'Type DELETE',
+        deleting: 'Deleting…',
+        confirmDelete: 'Confirm Delete',
+        cancel: 'Cancel',
+      };
+
   const [nameValue, setNameValue] = useState('');
   const [nameLoading, setNameLoading] = useState(false);
   const [nameMsg, setNameMsg] = useState<Msg>(null);
 
-  // ── Password ──
   const [currentPwd, setCurrentPwd] = useState('');
   const [newPwd, setNewPwd] = useState('');
   const [confirmPwd, setConfirmPwd] = useState('');
   const [pwdLoading, setPwdLoading] = useState(false);
   const [pwdMsg, setPwdMsg] = useState<Msg>(null);
 
-  // ── Address ──
   const [addr, setAddr] = useState({
     firstName: user.shippingFirstName ?? '',
     lastName: user.shippingLastName ?? '',
@@ -47,11 +147,9 @@ export function SettingsClient({ user }: { user: UserData }) {
   const [addrLoading, setAddrLoading] = useState(false);
   const [addrMsg, setAddrMsg] = useState<Msg>(null);
 
-  // ── Email prefs ──
   const [emailMarketing, setEmailMarketing] = useState(user.emailMarketing);
   const [emailPrefLoading, setEmailPrefLoading] = useState(false);
 
-  // ── Delete ──
   const [deleteConfirm, setDeleteConfirm] = useState('');
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [deleteMsg, setDeleteMsg] = useState<Msg>(null);
@@ -68,8 +166,8 @@ export function SettingsClient({ user }: { user: UserData }) {
       body: JSON.stringify({ name: nameValue.trim() }),
     });
     setNameMsg(res.ok
-      ? { ok: true, text: 'Name updated.' }
-      : { ok: false, text: 'Failed to update name.' }
+      ? { ok: true, text: copy.nameUpdated }
+      : { ok: false, text: copy.nameUpdateFailed }
     );
     if (res.ok) setNameValue('');
     setNameLoading(false);
@@ -77,8 +175,14 @@ export function SettingsClient({ user }: { user: UserData }) {
 
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (newPwd !== confirmPwd) { setPwdMsg({ ok: false, text: 'Passwords do not match.' }); return; }
-    if (newPwd.length < 8) { setPwdMsg({ ok: false, text: 'Min. 8 characters.' }); return; }
+    if (newPwd !== confirmPwd) {
+      setPwdMsg({ ok: false, text: copy.passwordMismatch });
+      return;
+    }
+    if (newPwd.length < 8) {
+      setPwdMsg({ ok: false, text: copy.passwordMin });
+      return;
+    }
     setPwdLoading(true);
     setPwdMsg(null);
     const res = await fetch('/api/account/change-password', {
@@ -88,10 +192,14 @@ export function SettingsClient({ user }: { user: UserData }) {
     });
     const data = await res.json();
     setPwdMsg(res.ok
-      ? { ok: true, text: 'Password updated.' }
-      : { ok: false, text: data.error ?? 'Failed to update password.' }
+      ? { ok: true, text: copy.passwordUpdated }
+      : { ok: false, text: data.error ?? copy.passwordUpdateFailed }
     );
-    if (res.ok) { setCurrentPwd(''); setNewPwd(''); setConfirmPwd(''); }
+    if (res.ok) {
+      setCurrentPwd('');
+      setNewPwd('');
+      setConfirmPwd('');
+    }
     setPwdLoading(false);
   };
 
@@ -105,8 +213,8 @@ export function SettingsClient({ user }: { user: UserData }) {
       body: JSON.stringify(addr),
     });
     setAddrMsg(res.ok
-      ? { ok: true, text: 'Address saved.' }
-      : { ok: false, text: 'Failed to save address.' }
+      ? { ok: true, text: copy.addressSaved }
+      : { ok: false, text: copy.addressSaveFailed }
     );
     setAddrLoading(false);
   };
@@ -125,15 +233,15 @@ export function SettingsClient({ user }: { user: UserData }) {
   const handleDeleteAccount = async (e: React.FormEvent) => {
     e.preventDefault();
     if (deleteConfirm !== 'DELETE') {
-      setDeleteMsg({ ok: false, text: 'Type DELETE to confirm.' });
+      setDeleteMsg({ ok: false, text: copy.typeDelete });
       return;
     }
     setDeleteLoading(true);
     const res = await fetch('/api/account/delete', { method: 'DELETE' });
     if (res.ok) {
-      await signOut({ callbackUrl: '/' });
+      await signOut({ callbackUrl: `/${locale}` });
     } else {
-      setDeleteMsg({ ok: false, text: 'Failed to delete account.' });
+      setDeleteMsg({ ok: false, text: copy.deleteFailed });
       setDeleteLoading(false);
     }
   };
@@ -161,138 +269,151 @@ export function SettingsClient({ user }: { user: UserData }) {
       `}</style>
 
       <div style={{ maxWidth: 640, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 40 }}>
-
-        {/* ── Header ── */}
         <div>
-          <Link href="/account" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6B6965', textDecoration: 'none', marginBottom: 28 }}>
-            ← Back to Account
+          <Link
+            href="/account"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              fontSize: '0.68rem',
+              fontWeight: 600,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#6B6965',
+              textDecoration: 'none',
+              marginBottom: 28,
+            }}
+          >
+            {copy.backToAccount}
           </Link>
           <p style={{ fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#C9A96E', marginBottom: 8 }}>
-            Account Settings
+            {copy.overline}
           </p>
           <h1 style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 600, letterSpacing: '-0.025em', color: '#F5F3EF', margin: 0 }}>
-            Your Profile
+            {copy.title}
           </h1>
         </div>
 
-        {/* ── Current info ── */}
         <div className="s-section">
-          <p className="s-label">Current Info</p>
+          <p className="s-label">{copy.currentInfo}</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={{ display: 'flex', gap: 16 }}>
-              <span style={{ fontSize: '0.75rem', color: '#6B6965', minWidth: 60 }}>Name</span>
+              <span style={{ fontSize: '0.75rem', color: '#6B6965', minWidth: 60 }}>{copy.name}</span>
               <span style={{ fontSize: '0.82rem', color: '#F5F3EF' }}>{user.name || '—'}</span>
             </div>
             <div style={{ display: 'flex', gap: 16 }}>
-              <span style={{ fontSize: '0.75rem', color: '#6B6965', minWidth: 60 }}>Email</span>
+              <span style={{ fontSize: '0.75rem', color: '#6B6965', minWidth: 60 }}>{copy.email}</span>
               <span style={{ fontSize: '0.82rem', color: '#F5F3EF' }}>{user.email}</span>
             </div>
           </div>
         </div>
 
-        {/* ── Update name ── */}
         <form onSubmit={handleNameSave} className="s-section">
-          <p className="s-label">Update Name</p>
-          <input className="s-input" type="text" value={nameValue} onChange={(e) => setNameValue(e.target.value)} placeholder="New display name" />
+          <p className="s-label">{copy.updateName}</p>
+          <input
+            className="s-input"
+            type="text"
+            value={nameValue}
+            onChange={(e) => setNameValue(e.target.value)}
+            placeholder={copy.newDisplayName}
+          />
           {nameMsg && <p style={{ fontSize: '0.75rem', color: nameMsg.ok ? '#7EB89A' : '#E24B4A', margin: 0 }}>{nameMsg.text}</p>}
           <button className="s-btn" type="submit" disabled={nameLoading || !nameValue.trim()}>
-            {nameLoading ? 'Saving…' : 'Save Name'}
+            {nameLoading ? copy.saving : copy.saveName}
           </button>
         </form>
 
-        {/* ── Change password ── */}
         <form onSubmit={handlePasswordChange} className="s-section">
-          <p className="s-label">Change Password</p>
-          <input className="s-input" type="password" value={currentPwd} onChange={(e) => setCurrentPwd(e.target.value)} placeholder="Current password" required />
-          <input className="s-input" type="password" value={newPwd} onChange={(e) => setNewPwd(e.target.value)} placeholder="New password (min. 8 characters)" required minLength={8} />
-          <input className="s-input" type="password" value={confirmPwd} onChange={(e) => setConfirmPwd(e.target.value)} placeholder="Confirm new password" required />
+          <p className="s-label">{copy.changePassword}</p>
+          <input className="s-input" type="password" value={currentPwd} onChange={(e) => setCurrentPwd(e.target.value)} placeholder={copy.currentPassword} required />
+          <input className="s-input" type="password" value={newPwd} onChange={(e) => setNewPwd(e.target.value)} placeholder={copy.newPassword} required minLength={8} />
+          <input className="s-input" type="password" value={confirmPwd} onChange={(e) => setConfirmPwd(e.target.value)} placeholder={copy.confirmPassword} required />
           {pwdMsg && <p style={{ fontSize: '0.75rem', color: pwdMsg.ok ? '#7EB89A' : '#E24B4A', margin: 0 }}>{pwdMsg.text}</p>}
           <button className="s-btn" type="submit" disabled={pwdLoading}>
-            {pwdLoading ? 'Updating…' : 'Update Password'}
+            {pwdLoading ? copy.updating : copy.updatePassword}
           </button>
         </form>
 
-        {/* ── Default shipping address ── */}
         <form onSubmit={handleAddressSave} className="s-section">
           <div>
-            <p className="s-label" style={{ borderBottom: 'none', paddingBottom: 4 }}>Default Shipping Address</p>
-            <p style={{ fontSize: '0.75rem', color: '#6B6965', margin: 0 }}>Pre-fills your address at checkout.</p>
+            <p className="s-label" style={{ borderBottom: 'none', paddingBottom: 4 }}>{copy.shippingAddress}</p>
+            <p style={{ fontSize: '0.75rem', color: '#6B6965', margin: 0 }}>{copy.shippingHint}</p>
           </div>
           <div className="grid-2">
-            <input className="s-input" type="text" value={addr.firstName} onChange={(e) => setAddr({ ...addr, firstName: e.target.value })} placeholder="First name" />
-            <input className="s-input" type="text" value={addr.lastName} onChange={(e) => setAddr({ ...addr, lastName: e.target.value })} placeholder="Last name" />
+            <input className="s-input" type="text" value={addr.firstName} onChange={(e) => setAddr({ ...addr, firstName: e.target.value })} placeholder={copy.firstName} />
+            <input className="s-input" type="text" value={addr.lastName} onChange={(e) => setAddr({ ...addr, lastName: e.target.value })} placeholder={copy.lastName} />
           </div>
-          <input className="s-input" type="text" value={addr.address} onChange={(e) => setAddr({ ...addr, address: e.target.value })} placeholder="Street address" />
+          <input className="s-input" type="text" value={addr.address} onChange={(e) => setAddr({ ...addr, address: e.target.value })} placeholder={copy.streetAddress} />
           <div className="grid-2">
-            <input className="s-input" type="text" value={addr.city} onChange={(e) => setAddr({ ...addr, city: e.target.value })} placeholder="City" />
+            <input className="s-input" type="text" value={addr.city} onChange={(e) => setAddr({ ...addr, city: e.target.value })} placeholder={copy.city} />
             <select className="s-input s-select" value={addr.province} onChange={(e) => setAddr({ ...addr, province: e.target.value })}>
-              <option value="">Province</option>
-              {PROVINCES.map((p) => <option key={p} value={p}>{p}</option>)}
+              <option value="">{copy.province}</option>
+              {PROVINCES.map((province) => <option key={province} value={province}>{province}</option>)}
             </select>
           </div>
-          <input className="s-input" type="text" value={addr.postal} onChange={(e) => setAddr({ ...addr, postal: e.target.value.toUpperCase() })} placeholder="Postal code (e.g. H2X 1Y4)" maxLength={7} style={{ maxWidth: 200 }} />
+          <input className="s-input" type="text" value={addr.postal} onChange={(e) => setAddr({ ...addr, postal: e.target.value.toUpperCase() })} placeholder={copy.postalCode} maxLength={7} style={{ maxWidth: 200 }} />
           {addrMsg && <p style={{ fontSize: '0.75rem', color: addrMsg.ok ? '#7EB89A' : '#E24B4A', margin: 0 }}>{addrMsg.text}</p>}
           <button className="s-btn" type="submit" disabled={addrLoading}>
-            {addrLoading ? 'Saving…' : 'Save Address'}
+            {addrLoading ? copy.saving : copy.saveAddress}
           </button>
         </form>
 
-        {/* ── Email preferences ── */}
         <div className="s-section">
-          <p className="s-label">Email Preferences</p>
+          <p className="s-label">{copy.emailPreferences}</p>
           <label className="s-toggle">
             <input type="checkbox" checked={emailMarketing} onChange={(e) => handleEmailPrefToggle(e.target.checked)} disabled={emailPrefLoading} />
             <div className="s-toggle-track">
               <div className="s-toggle-thumb" />
             </div>
             <span style={{ fontSize: '0.82rem', color: emailMarketing ? '#F5F3EF' : '#6B6965' }}>
-              Receive promo offers & new arrivals
+              {copy.emailOptIn}
             </span>
           </label>
           <p style={{ fontSize: '0.72rem', color: '#3A3835', margin: 0 }}>
-            Order confirmations and shipping updates are always sent regardless of this setting.
+            {copy.emailPrefsHint}
           </p>
         </div>
 
-        {/* ── Danger zone ── */}
         <div className="s-section" style={{ borderColor: 'rgba(255,107,107,0.12)' }}>
-          <p className="s-label" style={{ color: 'rgba(255,107,107,0.6)', borderBottomColor: 'rgba(255,107,107,0.1)' }}>Danger Zone</p>
+          <p className="s-label" style={{ color: 'rgba(255,107,107,0.6)', borderBottomColor: 'rgba(255,107,107,0.1)' }}>{copy.dangerZone}</p>
 
           {!showDeleteForm ? (
             <div>
               <p style={{ fontSize: '0.8rem', color: '#6B6965', marginBottom: 16, lineHeight: 1.6 }}>
-                Permanently delete your account and all associated data. This action cannot be undone.
+                {copy.deleteBody}
               </p>
               <button className="s-btn-danger" onClick={() => setShowDeleteForm(true)}>
-                Delete My Account
+                {copy.deleteAccount}
               </button>
             </div>
           ) : (
             <form onSubmit={handleDeleteAccount} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               <p style={{ fontSize: '0.8rem', color: '#A8A5A0', lineHeight: 1.6, margin: 0 }}>
-                This will permanently delete your account, orders history, and promo code. Type <strong style={{ color: '#FF6B6B' }}>DELETE</strong> to confirm.
+                {copy.deleteConfirmBefore}
+                <strong style={{ color: '#FF6B6B' }}>DELETE</strong>
+                {copy.deleteConfirmAfter}
               </p>
               <input
                 className="s-input"
                 type="text"
                 value={deleteConfirm}
                 onChange={(e) => setDeleteConfirm(e.target.value)}
-                placeholder="Type DELETE"
+                placeholder={copy.deletePlaceholder}
                 style={{ maxWidth: 240 }}
               />
               {deleteMsg && <p style={{ fontSize: '0.75rem', color: '#E24B4A', margin: 0 }}>{deleteMsg.text}</p>}
               <div style={{ display: 'flex', gap: 10 }}>
                 <button className="s-btn-danger" type="submit" disabled={deleteLoading}>
-                  {deleteLoading ? 'Deleting…' : 'Confirm Delete'}
+                  {deleteLoading ? copy.deleting : copy.confirmDelete}
                 </button>
                 <button className="s-btn-ghost" type="button" onClick={() => { setShowDeleteForm(false); setDeleteConfirm(''); setDeleteMsg(null); }}>
-                  Cancel
+                  {copy.cancel}
                 </button>
               </div>
             </form>
           )}
         </div>
-
       </div>
     </div>
   );

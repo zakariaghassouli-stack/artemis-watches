@@ -12,34 +12,38 @@ export interface CollectionMeta {
   description: string;
 }
 
+const COLLECTION_ALIASES: Record<string, string> = {
+  'gmt-master': 'gmt-master-ii',
+};
+
 export const BRAND_META: Record<string, BrandMeta> = {
   rolex: {
     slug: 'rolex',
     name: 'Rolex',
     tagline: 'The Standard of Excellence',
     description:
-      "The world's most recognizable watch brand. Rolex has defined horological excellence since 1905 — from the depths of the ocean to the summit of Everest. Every Rolex at Artemis is a statement of timeless achievement.",
+      'For more than a century, Rolex has defined restraint, precision, and unmistakable wrist presence. At Artemis, Rolex stands for timeless confidence and enduring appeal.',
   },
   cartier: {
     slug: 'cartier',
     name: 'Cartier',
     tagline: 'The Jeweller of Kings',
     description:
-      "Cartier's watches carry the elegance that has adorned royalty for over 175 years. The Santos and Panthère are icons of Parisian refinement — precision engineering clothed in art.",
+      'Cartier balances watchmaking discipline with unmistakable style. The Santos and Panthere embody a Parisian elegance that feels refined without ever forcing it.',
   },
   'audemars-piguet': {
     slug: 'audemars-piguet',
     name: 'Audemars Piguet',
     tagline: 'Break the Rules of Time',
     description:
-      'AP invented the luxury sports watch in 1972 with the Royal Oak. The octagonal bezel and tapisserie dial remain the most copied design in watchmaking — and the most coveted.',
+      'With the Royal Oak, Audemars Piguet turned steel into a luxury statement. The octagonal bezel and tapisserie dial still define one of the sharpest silhouettes in watchmaking.',
   },
   'patek-philippe': {
     slug: 'patek-philippe',
     name: 'Patek Philippe',
     tagline: 'You Never Actually Own a Patek Philippe',
     description:
-      'The pinnacle of horological achievement. The Nautilus and Aquanaut carry decade-long waiting lists at authorized dealers worldwide. At Artemis — immediate availability.',
+      'Patek Philippe sits in a category of its own. The Nautilus and Aquanaut capture a rare mix of prestige, restraint, and long-term desirability.',
   },
 };
 
@@ -49,28 +53,28 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     name: 'Submariner',
     brandSlug: 'rolex',
     description:
-      'The dive watch that transcended diving. Since 1953, the Submariner has been the defining sports watch — robust, legible, and iconic on any wrist.',
+      'The dive watch that moved well beyond diving. Since 1953, the Submariner has remained a reference point for robust proportions, legibility, and everyday versatility.',
   },
   datejust: {
     slug: 'datejust',
     name: 'Datejust',
     brandSlug: 'rolex',
     description:
-      'The most recognized watch in the world. The Datejust has graced boardrooms and red carpets alike since 1945 — the watch that defines classic Rolex.',
+      'A Rolex mainstay since 1945. The Datejust pairs familiar proportions with an easy elegance that feels at home in both formal and everyday settings.',
   },
-  'gmt-master': {
-    slug: 'gmt-master',
+  'gmt-master-ii': {
+    slug: 'gmt-master-ii',
     name: 'GMT-Master II',
     brandSlug: 'rolex',
     description:
-      'Built for pilots and globe-trotters. The bi-colour bezel and dual-timezone display make the GMT-Master II the most versatile — and most distinctive — Rolex ever made.',
+      'Designed for pilots and frequent travellers. The bi-colour bezel and dual-time display give the GMT-Master II a practical function and an immediately recognizable silhouette.',
   },
   daytona: {
     slug: 'daytona',
     name: 'Daytona',
     brandSlug: 'rolex',
     description:
-      "The chronograph of champions. Born on the racing circuit, the Daytona's extreme scarcity and racing heritage make it the most desired Rolex in the world.",
+      "Rolex's racing chronograph, shaped by motorsport heritage and a highly recognizable dial layout. The Daytona remains one of the house's most discussed modern references.",
   },
   santos: {
     slug: 'santos',
@@ -84,21 +88,21 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     name: 'Panthère de Cartier',
     brandSlug: 'cartier',
     description:
-      "The ultimate statement of Parisian elegance. The Panthère's articulated bracelet and square case define Cartier's most refined expression.",
+      "A distinctly Cartier expression of jewellery watch design. The Panthère's articulated bracelet and square case give it a soft, refined presence on the wrist.",
   },
   'royal-oak': {
     slug: 'royal-oak',
     name: 'Royal Oak',
     brandSlug: 'audemars-piguet',
     description:
-      "Gerald Genta's 1972 masterpiece that launched luxury sports watches. The octagonal bezel with exposed screws and tapisserie dial remain the most copied design in watchmaking.",
+      "Gerald Genta's 1972 design that helped define the modern luxury sports watch. The octagonal bezel and tapisserie dial still feel sharp, architectural, and instantly familiar.",
   },
   nautilus: {
     slug: 'nautilus',
     name: 'Nautilus',
     brandSlug: 'patek-philippe',
     description:
-      'The holy grail of modern watches. The porthole-shaped case and horizontally embossed blue dial define the ultimate steel sports watch — with decade-long waiting lists at ADs worldwide.',
+      'A modern reference defined by its porthole-inspired case and horizontally embossed dial. The Nautilus balances restraint, prestige, and a distinctive integrated-sports silhouette.',
   },
   aquanaut: {
     slug: 'aquanaut',
@@ -114,7 +118,7 @@ export function getBrandMeta(slug: string): BrandMeta | undefined {
 }
 
 export function getCollectionMeta(slug: string): CollectionMeta | undefined {
-  return COLLECTION_META[slug];
+  return COLLECTION_META[slug] ?? COLLECTION_META[COLLECTION_ALIASES[slug]];
 }
 
 export function getCollectionsByBrand(brandSlug: string): CollectionMeta[] {

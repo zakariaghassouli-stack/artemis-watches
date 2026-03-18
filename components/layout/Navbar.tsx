@@ -10,6 +10,7 @@ import { useCartStore, selectItemCount } from '@/store/cart';
 import { useSearchStore } from '@/store/search';
 import { useWishlistStore, selectWishlistCount } from '@/store/wishlist';
 import { SearchModal } from '@/components/search/SearchModal';
+import { getNavWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 // ─── Mega-menu data ──────────────────────────────────────────────
 const COLLECTIONS = [
@@ -193,6 +194,7 @@ function LocaleCurrencySelector({ tNav }: { tNav: ReturnType<typeof useTranslati
 // ─── Navbar ──────────────────────────────────────────────────────
 export function Navbar() {
   const t = useTranslations('nav');
+  const mobileMenuWhatsAppHref = getWhatsAppUrl(getNavWhatsAppMessage(useLocale()));
   const openSearch = useSearchStore((s) => s.openSearch);
 
   const [scrolled, setScrolled] = useState(false);
@@ -464,6 +466,7 @@ export function Navbar() {
         t={t}
         collExpanded={mobileCollExpanded}
         onToggleColl={() => setMobileCollExpanded((e) => !e)}
+        whatsappHref={mobileMenuWhatsAppHref}
       />
 
       {/* ── Search modal ── */}
@@ -641,12 +644,14 @@ function MobileMenu({
   t,
   collExpanded,
   onToggleColl,
+  whatsappHref,
 }: {
   open: boolean;
   onClose: () => void;
   t: ReturnType<typeof useTranslations<'nav'>>;
   collExpanded: boolean;
   onToggleColl: () => void;
+  whatsappHref: string;
 }) {
   return (
     <>
@@ -821,34 +826,67 @@ function MobileMenu({
             gap: 12,
           }}
         >
+          <div>
+            <p
+              style={{
+                fontSize: '0.6rem',
+                fontWeight: 700,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: '#C9A96E',
+                marginBottom: 6,
+              }}
+            >
+              {t('mobileHelp')}
+            </p>
+            <p
+              style={{
+                fontSize: '0.78rem',
+                color: '#6B6965',
+                lineHeight: 1.6,
+              }}
+            >
+              {t('mobileSupport')}
+            </p>
+          </div>
           <Link
             href="/account"
             onClick={onClose}
             style={{
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: 10,
-              fontSize: '0.8rem',
+              fontSize: '0.74rem',
               color: '#A8A5A0',
-              letterSpacing: '0.1em',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               textDecoration: 'none',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: 4,
+              padding: '13px 16px',
             }}
           >
             <User size={16} /> {t('account')}
           </Link>
           <a
-            href={`https://wa.me/15145609765?text=${encodeURIComponent('Hello ARTEMIS, I need assistance.')}`}
+            href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             style={{
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: 10,
-              fontSize: '0.75rem',
-              color: '#C9A96E',
+              fontSize: '0.74rem',
+              fontWeight: 600,
+              color: '#0A0A0A',
+              background: '#C9A96E',
+              borderRadius: 4,
+              padding: '13px 16px',
               letterSpacing: '0.08em',
               textDecoration: 'none',
+              textTransform: 'uppercase',
             }}
           >
             {t('whatsappMobile')}

@@ -36,7 +36,13 @@ export default async function BrandPage({ params, searchParams }: Props) {
   const brand = getBrandMeta(brandSlug);
   if (!brand) notFound();
 
-  const t = await getTranslations('collections');
+  const [t, tBrands] = await Promise.all([
+    getTranslations('collections'),
+    getTranslations('brands'),
+  ]);
+
+  const brandTagline = (tBrands(`${brandSlug}.tagline` as never) as string) || brand.tagline;
+  const brandDescription = (tBrands(`${brandSlug}.description` as never) as string) || brand.description;
   const collections = getCollectionsByBrand(brandSlug);
   const allProducts = getProductsByBrand(brandSlug);
   const lowestPrice = allProducts.length
@@ -127,7 +133,7 @@ export default async function BrandPage({ params, searchParams }: Props) {
                 letterSpacing: '0.04em',
               }}
             >
-              {brand.tagline}
+              {brandTagline}
             </p>
           </ScrollReveal>
 
@@ -141,7 +147,7 @@ export default async function BrandPage({ params, searchParams }: Props) {
                 marginBottom: 32,
               }}
             >
-              {brand.description}
+              {brandDescription}
             </p>
           </ScrollReveal>
 

@@ -168,36 +168,16 @@ export function RangeComparison() {
           <ScrollReveal delay={100}>
             <div
               style={{
-                border: '1px solid rgba(201,169,110,0.3)',
+                border: '1px solid rgba(201,169,110,0.18)',
                 borderRadius: 8,
                 padding: '40px 36px',
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
                 position: 'relative',
-                background: 'rgba(201,169,110,0.03)',
-                boxShadow: '0 0 40px rgba(201,169,110,0.05)',
+                background: 'rgba(201,169,110,0.025)',
               }}
             >
-              {/* Premium badge — top right */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: -1,
-                  right: 32,
-                  background: 'linear-gradient(135deg, #D4B882, #C9A96E)',
-                  color: '#0A0A0A',
-                  fontSize: '0.58rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  padding: '5px 12px',
-                  borderRadius: '0 0 6px 6px',
-                }}
-              >
-                {t('recommendedBadge')}
-              </div>
-
               <span
                 style={{
                   display: 'inline-block',
@@ -307,6 +287,20 @@ export function RangeComparison() {
             </div>
           </ScrollReveal>
         </div>
+
+        <ScrollReveal delay={180}>
+          <p
+            style={{
+              textAlign: 'center',
+              marginTop: 24,
+              fontSize: '0.78rem',
+              color: '#6B6965',
+              letterSpacing: '0.02em',
+            }}
+          >
+            {t('sharedNote')}
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   );

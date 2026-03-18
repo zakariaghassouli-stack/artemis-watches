@@ -1,12 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { useLocale } from 'next-intl';
 import { getScarcityState, formatPrice, getInstallmentPrice } from '@/lib/products';
 import { useCartStore } from '@/store/cart';
 import { pixel } from '@/lib/pixel';
 import { WishlistButton } from '@/components/product/WishlistButton';
+import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
 import { Link } from '@/i18n/navigation';
+import { RotateCcw, ShieldCheck, Truck, Wrench } from 'lucide-react';
 import type { Product } from '@/types/product';
+import { getProductWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface Props {
   product: Product;
@@ -37,6 +41,7 @@ interface Props {
     rangeSelectorLabel: string;
     variantsLabel: string;
     sizeSelectorLabel: string;
+    checkoutNote: string;
   };
 }
 
@@ -62,6 +67,7 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
   const [selectedSize, setSelectedSize] = useState<string>(product.availableSizes[0] ?? '');
   const addItem = useCartStore((s) => s.addItem);
   const scarcity = getScarcityState(product);
+  const locale = useLocale();
 
   // Derived active price based on selected range
   const activePrice =
@@ -79,10 +85,14 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
       ? product.reviews.reduce((s, r) => s + r.rating, 0) / product.reviews.length
       : null;
 
-  const whatsappMsg = encodeURIComponent(
-    `Hi, I'm interested in the ${product.brand} ${product.name} (${product.variant}) — ${formatPrice(activePrice)} CAD. Is it still available?`
+  const whatsappUrl = getWhatsAppUrl(
+    getProductWhatsAppMessage({
+      locale,
+      productName: `${product.brand} ${product.name}`,
+      variant: product.variant,
+      price: formatPrice(activePrice),
+    })
   );
-  const whatsappUrl = `https://wa.me/15145609765?text=${whatsappMsg}`;
 
   const handleBuyNow = async () => {
     if (!product.inStock || isBuyingNow) return;
@@ -121,6 +131,7 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
 
   return (
     <div
+      id="product-purchase-panel"
       style={{
         position: 'sticky',
         top: 100,
@@ -316,73 +327,26 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
 
       {/* Range badge */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-        <span
-          style={{
-            fontSize: '0.6rem',
-            fontWeight: 700,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: product.range === 'premium' ? '#C9A96E' : '#A8A5A0',
-            background:
-              product.range === 'premium'
-                ? 'rgba(201,169,110,0.1)'
-                : 'rgba(255,255,255,0.05)',
-            border: `1px solid ${
-              product.range === 'premium'
-                ? 'rgba(201,169,110,0.25)'
-                : 'rgba(255,255,255,0.1)'
-            }`,
-            padding: '4px 10px',
-            borderRadius: 2,
-          }}
-        >
-          {product.range === 'premium' ? t.rangePremium : t.rangeEssential}
-        </span>
+        <RangeBadge
+          range={selectedRange}
+          premiumLabel={t.rangePremium}
+          essentialLabel={t.rangeEssential}
+          size="md"
+        />
 
         {/* Scarcity indicator */}
         {scarcity && (
-          <span
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 5,
-              fontSize: '0.62rem',
-              fontWeight: 600,
-              letterSpacing: '0.08em',
-              color:
-                scarcity.type === 'low-stock'
-                  ? '#FF6B6B'
-                  : scarcity.type === 'best-seller'
-                  ? '#C9A96E'
-                  : 'rgba(255,255,255,0.5)',
+          <ScarcityBadge
+            scarcity={scarcity}
+            labels={{
+              lowStock: t.lowStock,
+              bestSeller: t.bestSeller,
+              highDemand: t.highDemand,
+              newArrival: t.newArrival,
+              justRestocked: t.justRestocked,
             }}
-          >
-            <span
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                background:
-                  scarcity.type === 'low-stock'
-                    ? '#FF6B6B'
-                    : scarcity.type === 'best-seller'
-                    ? '#C9A96E'
-                    : 'rgba(255,255,255,0.4)',
-                animation: 'infoPulse 2s ease infinite',
-                flexShrink: 0,
-              }}
-            />
-            <style>{`@keyframes infoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}`}</style>
-            {scarcity.type === 'low-stock'
-              ? t.lowStock.replace('{count}', String(scarcity.count))
-              : scarcity.type === 'best-seller'
-              ? t.bestSeller
-              : scarcity.type === 'high-demand'
-              ? t.highDemand
-              : scarcity.type === 'new-arrival'
-              ? t.newArrival
-              : t.justRestocked}
-          </span>
+            size="md"
+          />
         )}
       </div>
 
@@ -548,6 +512,42 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
         </div>
       )}
 
+      {/* Purchase reassurance */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+          gap: 8,
+          marginBottom: 18,
+        }}
+      >
+        {[
+          { icon: Truck, label: t.freeShipping },
+          { icon: RotateCcw, label: t.returnPolicy },
+          { icon: ShieldCheck, label: t.authenticityLabel },
+          { icon: Wrench, label: t.braceletTool },
+        ].map(({ icon: Icon, label }) => (
+          <div
+            key={label}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '10px 12px',
+              border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: 4,
+              background: 'rgba(255,255,255,0.02)',
+              fontSize: '0.66rem',
+              color: '#A8A5A0',
+              letterSpacing: '0.04em',
+            }}
+          >
+            <Icon size={13} strokeWidth={1.6} style={{ color: '#C9A96E', flexShrink: 0 }} />
+            {label}
+          </div>
+        ))}
+      </div>
+
       {/* CTAs */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {/* Add to Cart */}
@@ -681,43 +681,21 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
         </a>
       </div>
 
+      <p
+        style={{
+          marginTop: 12,
+          fontSize: '0.72rem',
+          color: 'rgba(255,255,255,0.34)',
+          lineHeight: 1.6,
+          letterSpacing: '0.02em',
+        }}
+      >
+        {t.checkoutNote}
+      </p>
+
       {/* Save to wishlist */}
       <div style={{ marginTop: 12 }}>
         <WishlistButton productId={product.id} label={t.wishlistLabel} />
-      </div>
-
-      {/* Trust pills */}
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: 8,
-          marginTop: 20,
-          paddingTop: 20,
-          borderTop: '1px solid rgba(255,255,255,0.05)',
-        }}
-      >
-        {[
-          { icon: '✈', label: t.freeShipping },
-          { icon: '↩', label: t.returnPolicy },
-          { icon: '✓', label: t.authenticityLabel },
-          { icon: '🔧', label: t.braceletTool },
-        ].map(({ icon, label }) => (
-          <div
-            key={label}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 6,
-              fontSize: '0.65rem',
-              color: 'rgba(255,255,255,0.3)',
-              letterSpacing: '0.06em',
-            }}
-          >
-            <span style={{ color: '#C9A96E', fontSize: '0.7rem' }}>{icon}</span>
-            {label}
-          </div>
-        ))}
       </div>
     </div>
   );

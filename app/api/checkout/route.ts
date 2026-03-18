@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe';
+import { getEnv } from '@/lib/env';
+import { getStripe } from '@/lib/stripe';
 import { prisma } from '@/lib/prisma';
 import type { CartItem } from '@/store/cart';
 
@@ -19,7 +20,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Cart is empty' }, { status: 400 });
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
+  const appUrl =
+    request.nextUrl.origin || getEnv('NEXT_PUBLIC_APP_URL') || 'http://localhost:3000';
 
   // Validate promo code server-side
   let validatedPromo: string | undefined;
@@ -33,6 +35,7 @@ export async function POST(request: NextRequest) {
   const discountMultiplier = validatedPromo ? 0.9 : 1; // 10% off
 
   try {
+    const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',

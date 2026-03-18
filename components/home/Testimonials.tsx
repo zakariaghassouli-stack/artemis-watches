@@ -1,10 +1,12 @@
 'use client';
 
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 
 interface Review {
+  tag?: string;
   text: string;
   author: string;
   location: string;
@@ -46,6 +48,7 @@ export function Testimonials() {
         <SectionHeader
           overline={t('overline')}
           headline={t('headline')}
+          subheadline={t('subheadline')}
         />
 
         {/* Reviews grid */}
@@ -77,6 +80,25 @@ export function Testimonials() {
                   height: '100%',
                 }}
               >
+                {review.tag && (
+                  <p
+                    style={{
+                      display: 'inline-flex',
+                      fontSize: '0.58rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: '#C9A96E',
+                      background: 'rgba(201,169,110,0.08)',
+                      border: '1px solid rgba(201,169,110,0.18)',
+                      padding: '4px 8px',
+                      borderRadius: 999,
+                      marginBottom: 14,
+                    }}
+                  >
+                    {review.tag}
+                  </p>
+                )}
                 <Stars count={review.rating} />
                 <p
                   style={{
@@ -122,10 +144,30 @@ export function Testimonials() {
             fontSize: '0.72rem',
             color: 'rgba(255,255,255,0.2)',
             letterSpacing: '0.08em',
+            marginBottom: 18,
           }}
         >
           {t('ugcCaption')}
         </p>
+
+        <div style={{ textAlign: 'center' }}>
+          <Link
+            href="/reviews"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              fontSize: '0.76rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              color: '#C9A96E',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(201,169,110,0.28)',
+              paddingBottom: 2,
+            }}
+          >
+            {t('cta')}
+          </Link>
+        </div>
       </div>
     </section>
   );

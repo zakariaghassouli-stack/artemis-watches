@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { getProductCountByBrand } from '@/lib/products';
 
 const BRANDS = [
   {
@@ -11,30 +12,32 @@ const BRANDS = [
     slug: 'rolex',
     bgAccent: 'rgba(0,135,81,0.06)',
     priority: true,
-    image: '/images/IMG_9316.webp',
+    image: '/images/rolex-submariner-date-black-dial.webp',
   },
   {
     key: 'cartier' as const,
     slug: 'cartier',
     bgAccent: 'rgba(180,30,30,0.05)',
     priority: false,
-    image: '/images/IMG_7155.webp',
+    image: '/images/cartier-santos-silver-dial.webp',
   },
   {
     key: 'ap' as const,
     slug: 'audemars-piguet',
     bgAccent: 'rgba(0,80,160,0.05)',
     priority: false,
-    image: '/images/IMG_0418.webp',
+    image: '/images/audemars-piguet-royal-oak-blue.webp',
   },
   {
     key: 'patek' as const,
     slug: 'patek-philippe',
     bgAccent: 'rgba(140,100,0,0.05)',
     priority: false,
-    image: '/images/IMG_6709.webp',
+    image: '/images/patek-philippe-nautilus-blue.webp',
   },
 ];
+
+const BRAND_COUNTS = getProductCountByBrand();
 
 export function FeaturedCollections() {
   const t = useTranslations('home.collections');
@@ -57,6 +60,7 @@ export function FeaturedCollections() {
         <SectionHeader
           overline={t('overline')}
           headline={t('headline')}
+          subheadline={t('subheadline')}
         />
 
         <div
@@ -117,7 +121,7 @@ export function FeaturedCollections() {
                 {/* Brand image */}
                 <img
                   src={brand.image}
-                  alt={brandNames[brand.key]}
+                  alt={`${brandNames[brand.key]} collection — Artemis Watches Montreal`}
                   style={{
                     position: 'absolute',
                     inset: 0,
@@ -141,25 +145,23 @@ export function FeaturedCollections() {
                     padding: '40px 20px 24px',
                   }}
                 >
-                  {brand.priority && (
-                    <span
-                      style={{
-                        display: 'inline-block',
-                        fontSize: '0.58rem',
-                        fontWeight: 600,
-                        letterSpacing: '0.2em',
-                        textTransform: 'uppercase',
-                        color: '#C9A96E',
-                        background: 'rgba(201,169,110,0.1)',
-                        border: '1px solid rgba(201,169,110,0.25)',
-                        padding: '3px 8px',
-                        borderRadius: 2,
-                        marginBottom: 10,
-                      }}
-                    >
-                      {t('no1Bestseller')}
-                    </span>
-                  )}
+                  <p
+                    style={{
+                      display: 'inline-flex',
+                      fontSize: '0.56rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.14em',
+                      textTransform: 'uppercase',
+                      color: '#C9A96E',
+                      background: 'rgba(10,10,10,0.45)',
+                      border: '1px solid rgba(201,169,110,0.16)',
+                      padding: '4px 8px',
+                      borderRadius: 999,
+                      marginBottom: 12,
+                    }}
+                  >
+                    {t('piecesCount').replace('{count}', String(BRAND_COUNTS[brand.slug] ?? 0))}
+                  </p>
                   <h3
                     style={{
                       fontSize: '1.2rem',

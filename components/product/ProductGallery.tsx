@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { RangeBadge } from '@/components/shared/ProductBadges';
 import type { Product } from '@/types/product';
+import { getProductImageAlt } from '@/lib/products';
 
 interface Props {
   product: Product;
@@ -147,6 +150,7 @@ function WatchPlaceholder({ brand }: { brand: string }) {
 }
 
 export function ProductGallery({ product }: Props) {
+  const t = useTranslations('product');
   const hasImages = product.images && product.images.length > 0;
   // Use 4 thumbnail slots (real images or placeholder indices)
   const thumbCount = hasImages ? Math.min(product.images.length, 5) : 4;
@@ -172,7 +176,7 @@ export function ProductGallery({ product }: Props) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={product.images[selected]}
-            alt={`${product.brand} ${product.name} — view ${selected + 1}`}
+            alt={getProductImageAlt(product, { viewIndex: selected + 1 })}
             loading="eager"
             decoding="async"
             fetchPriority="high"
@@ -188,28 +192,12 @@ export function ProductGallery({ product }: Props) {
 
         {/* Range badge overlay */}
         <div style={{ position: 'absolute', top: 14, left: 14 }}>
-          <span
-            style={{
-              fontSize: '0.6rem',
-              fontWeight: 700,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: product.range === 'premium' ? '#C9A96E' : '#A8A5A0',
-              background:
-                product.range === 'premium'
-                  ? 'rgba(201,169,110,0.12)'
-                  : 'rgba(255,255,255,0.06)',
-              border: `1px solid ${
-                product.range === 'premium'
-                  ? 'rgba(201,169,110,0.25)'
-                  : 'rgba(255,255,255,0.1)'
-              }`,
-              padding: '4px 8px',
-              borderRadius: 2,
-            }}
-          >
-            {product.range === 'premium' ? 'Premium' : 'Essential'}
-          </span>
+          <RangeBadge
+            range={product.range}
+            premiumLabel={t('rangePremium')}
+            essentialLabel={t('rangeEssential')}
+            size="sm"
+          />
         </div>
 
         {/* Thumbnail indicator */}
@@ -263,7 +251,7 @@ export function ProductGallery({ product }: Props) {
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={product.images[i]}
-                  alt=""
+                  alt={getProductImageAlt(product, { viewIndex: i + 1 })}
                   loading="lazy"
                   decoding="async"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}

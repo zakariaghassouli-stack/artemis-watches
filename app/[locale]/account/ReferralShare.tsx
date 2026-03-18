@@ -1,13 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export function ReferralShare({ code }: { code: string }) {
   const t = useTranslations('auth.account');
+  const locale = useLocale();
   const [copied, setCopied] = useState(false);
 
-  const referralUrl = `https://artemis-watches.com/account/register?gift=${code}`;
+  const origin =
+    typeof window !== 'undefined' ? window.location.origin : 'https://artemis-watches.com';
+  const referralUrl = `${origin}/account/register?gift=${code}`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(referralUrl);
@@ -16,7 +19,9 @@ export function ReferralShare({ code }: { code: string }) {
   };
 
   const whatsappText = encodeURIComponent(
-    `Hey! I found a great watch store — use my code *${code}* at checkout for 10% off your first order 🖤\n${referralUrl}`
+    locale === 'fr'
+      ? `Je regardais la sélection Artemis et j'ai pensé à toi. Si tu commandes, tu peux utiliser mon code *${code}* sur une première commande.\n${referralUrl}`
+      : `I was browsing Artemis and thought of you. If you place a first order, you can use my code *${code}* at checkout.\n${referralUrl}`
   );
 
   return (

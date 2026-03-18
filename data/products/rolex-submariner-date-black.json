@@ -7,15 +7,15 @@
   "collectionSlug": "submariner",
   "name": "Submariner Date",
   "variant": "Black Dial",
-  "description": "The Rolex Submariner Date is more than a watch — it's a statement. Originally designed for professional divers, the Submariner has become the most recognized luxury sports watch in the world. Its clean lines, luminous dial, and rotating bezel are instantly recognizable from boardroom to beach.\n\nThis Artemis edition features a black dial with luminous hour markers, a unidirectional rotating bezel with Cerachrom insert, and the iconic Oyster bracelet with Oysterclasp. Every detail is executed with precision that only Rolex achieves. The weight on your wrist is exactly what you'd expect from a legend.",
-  "descriptionShort": "The world's most iconic dive watch. Black dial, Cerachrom bezel, Oyster bracelet. Pure Rolex DNA.",
+  "description": "The Rolex Submariner Date began as a professional dive watch and grew into one of the most familiar sports-watch designs in modern watchmaking. Its clean dial, luminous markers, and rotating bezel give it a balanced presence that feels just as natural with tailoring as it does off-duty.\n\nThis Artemis selection features a black dial with luminous hour markers, a unidirectional bezel with Cerachrom insert, and the Oyster bracelet with Oysterclasp. The overall impression is precise, solid, and quietly confident on the wrist.",
+  "descriptionShort": "An enduring dive-watch reference with black dial, Cerachrom bezel, and Oyster bracelet.",
   "keyPoints": [
-    "Iconic design recognized worldwide",
+    "A dive-watch design with lasting recognition",
     "Rotating Cerachrom bezel with precision markings",
     "Chromalight luminous indices for low-light visibility",
     "Robust Oyster bracelet with Oysterclasp",
-    "Premium weight and finish on wrist",
-    "Instantly recognizable status symbol"
+    "Solid weight and clean finishing on the wrist",
+    "Balanced presence for daily wear"
   ],
   "range": "premium",
   "price": 1200,
@@ -25,8 +25,7 @@
   "stockCount": 5,
   "badge": "best-seller",
   "images": [
-    "/images/IMG_9316.webp",
-    "/images/IMG_9815.webp"
+    "/images/rolex-submariner-date-black-dial.webp"
   ],
   "specs": {
     "caseDiameter": "41mm",
@@ -55,5 +54,15 @@
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Rolex Submariner Date Black Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Rolex Submariner Date (Black Dial) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,200 CAD."
+  "seoDescription": "Shop the Rolex Submariner Date (Black Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,200 CAD.",
+  "descriptionFr": "La Rolex Submariner Date a d'abord été pensée comme une montre de plongée professionnelle avant de devenir l'une des silhouettes sport les plus familières de l'horlogerie moderne. Son cadran lisible, ses index lumineux et sa lunette tournante lui donnent une présence équilibrée, aussi naturelle avec une tenue formelle qu'au quotidien.\n\nCette sélection Artemis présente un cadran noir avec index lumineux, une lunette unidirectionnelle avec insert Cerachrom, ainsi que le bracelet Oyster avec fermoir Oysterclasp. L'ensemble offre une impression de précision, de solidité et de retenue au poignet.",
+  "descriptionShortFr": "Une référence de plongée durable avec cadran noir, lunette Cerachrom et bracelet Oyster.",
+  "keyPointsFr": [
+    "Une silhouette de plongée reconnue dans le temps",
+    "Lunette Cerachrom tournante avec marquages de précision",
+    "Index Chromalight lumineux pour une lisibilité en faible luminosité",
+    "Robuste bracelet Oyster avec Oysterclasp",
+    "Poids juste et finition nette au poignet",
+    "Une présence équilibrée au quotidien"
+  ]
 }

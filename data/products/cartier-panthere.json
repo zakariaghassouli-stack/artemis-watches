@@ -7,14 +7,14 @@
   "collectionSlug": "panthere",
   "name": "Panthère de Cartier",
   "variant": "Gold Tone",
-  "description": "The Panthère de Cartier is femininity distilled into metal. First launched in 1983, the Panthère became the defining luxury watch of an era — worn by royalty, worn by icons, worn by those who understand that true luxury never shouts.\n\nThe gold tone variant with its supple mesh bracelet flows on the wrist like liquid. The square case with rounded corners, the guilloche-patterned dial, and the sapphire cabochon crown are details that reward close inspection. This is Cartier at its most Cartier — elegant, mysterious, effortless. A watch for those who have arrived.",
-  "descriptionShort": "The Panthère is Cartier's most iconic feminine expression. Supple mesh bracelet, guilloche dial, sapphire crown.",
+  "description": "The Panthère de Cartier, introduced in 1983, is one of Cartier's clearest expressions of jewellery watch design. Its square case, soft bracelet articulation, and cabochon crown give it a fluid presence that feels dressy without becoming rigid.\n\nThis gold-tone variation stands out for the way the mesh bracelet and guilloche dial work together in the light. In this Artemis selection, the appeal is in the suppleness of the bracelet, the balance of the case, and the unmistakably Cartier details.",
+  "descriptionShort": "A jewellery-led Cartier design with supple mesh bracelet, guilloche dial, and cabochon crown.",
   "keyPoints": [
-    "Iconic 1983 design — the ultimate Cartier classic",
+    "A 1983 design central to Cartier's jewellery-watch language",
     "Supple mesh bracelet that flows on the wrist",
     "Guilloche-patterned dial with Roman numerals",
     "Sapphire cabochon crown — the Cartier signature",
-    "Worn by royalty and cultural icons for decades",
+    "A model long associated with Cartier's refined aesthetic",
     "Available in multiple sizes for perfect fit"
   ],
   "range": "premium",
@@ -25,7 +25,7 @@
   "stockCount": 3,
   "badge": null,
   "images": [
-    "/images/IMG_7155.webp"
+    "/images/cartier-santos-silver-dial.webp"
   ],
   "specs": {
     "caseDiameter": "35mm",
@@ -57,5 +57,15 @@
   "featured": false,
   "bestSeller": false,
   "seoTitle": "Cartier Panthère de Cartier Gold Tone | Artemis Watches Montreal",
-  "seoDescription": "Shop the Cartier Panthère de Cartier (Gold Tone) at Artemis — Montreal's premier luxury watch destination. Premium range, 30-day guarantee, free shipping. $1,250 CAD."
+  "seoDescription": "Shop the Cartier Panthère de Cartier (Gold Tone) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,250 CAD.",
+  "descriptionFr": "La Panthère de Cartier, introduite en 1983, compte parmi les expressions les plus lisibles de la montre-bijou chez Cartier. Son boîtier carré, son bracelet souple et sa couronne cabochon lui donnent une présence fluide, habillée sans devenir rigide.\n\nCette version ton doré se distingue par la manière dont le bracelet maille et le cadran guilloché captent la lumière. Dans cette sélection Artemis, l'intérêt réside dans la souplesse du bracelet, l'équilibre du boîtier et les détails immédiatement cartieriens.",
+  "descriptionShortFr": "Un design Cartier orienté bijou avec bracelet maille souple, cadran guilloché et couronne cabochon.",
+  "keyPointsFr": [
+    "Un design de 1983 au cœur du langage montre-bijou de Cartier",
+    "Bracelet maille souple qui s'écoule sur le poignet",
+    "Cadran guilloché avec chiffres romains",
+    "Couronne cabochon saphir — la signature Cartier",
+    "Un modèle associé de longue date à l'esthétique raffinée de Cartier",
+    "Disponible en plusieurs tailles pour un ajustement parfait"
+  ]
 }

@@ -1,9 +1,17 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { getRelatedProducts, getScarcityState, formatPrice } from '@/lib/products';
+import { useLocale, useTranslations } from 'next-intl';
+import {
+  formatPrice,
+  getProductImageAlt,
+  getRelatedProducts,
+  getScarcityState,
+  localizeProduct,
+} from '@/lib/products';
 import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { convertPrice } from '@/lib/currency';
+import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
 import type { Product } from '@/types/product';
 
 interface Props {
@@ -13,6 +21,9 @@ interface Props {
 }
 
 function RelatedCard({ product }: { product: Product }) {
+  const locale = useLocale();
+  const tProduct = useTranslations('product');
+  const localizedProduct = localizeProduct(product, locale);
   const scarcity = getScarcityState(product);
   const { currency } = useCurrency();
 
@@ -51,9 +62,9 @@ function RelatedCard({ product }: { product: Product }) {
         }}
       >
         {product.images?.[0] ? (
-          <img
-            src={product.images[0]}
-            alt={`${product.brand} ${product.name}`}
+            <img
+              src={product.images[0]}
+            alt={getProductImageAlt(localizedProduct)}
             style={{
               position: 'absolute',
               inset: 0,
@@ -115,61 +126,29 @@ function RelatedCard({ product }: { product: Product }) {
         {/* Scarcity badge */}
         {scarcity && (
           <div style={{ position: 'absolute', top: 10, left: 10 }}>
-            {scarcity.type === 'low-stock' && (
-              <span
-                style={{
-                  fontSize: '0.56rem',
-                  fontWeight: 600,
-                  color: '#F5F3EF',
-                  background: 'rgba(220,60,60,0.85)',
-                  padding: '2px 6px',
-                  borderRadius: 2,
-                }}
-              >
-                {scarcity.count} left
-              </span>
-            )}
-            {scarcity.type === 'best-seller' && (
-              <span
-                style={{
-                  fontSize: '0.56rem',
-                  fontWeight: 700,
-                  color: '#0A0A0A',
-                  background: '#C9A96E',
-                  padding: '2px 6px',
-                  borderRadius: 2,
-                }}
-              >
-                Best Seller
-              </span>
-            )}
+            <ScarcityBadge
+              scarcity={scarcity}
+              labels={{
+                lowStock: tProduct('lowStock'),
+                bestSeller: tProduct('bestSeller'),
+                highDemand: tProduct('highDemand'),
+                newArrival: tProduct('newArrival'),
+                justRestocked: tProduct('justRestocked'),
+              }}
+              size="xs"
+              excludeTypes={['best-seller', 'high-demand']}
+            />
           </div>
         )}
 
         {/* Range badge */}
         <div style={{ position: 'absolute', top: 10, right: 10 }}>
-          <span
-            style={{
-              fontSize: '0.52rem',
-              fontWeight: 600,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: product.range === 'premium' ? '#C9A96E' : '#A8A5A0',
-              background:
-                product.range === 'premium'
-                  ? 'rgba(201,169,110,0.1)'
-                  : 'rgba(255,255,255,0.05)',
-              border: `1px solid ${
-                product.range === 'premium'
-                  ? 'rgba(201,169,110,0.2)'
-                  : 'rgba(255,255,255,0.08)'
-              }`,
-              padding: '2px 5px',
-              borderRadius: 2,
-            }}
-          >
-            {product.range === 'premium' ? 'Premium' : 'Essential'}
-          </span>
+          <RangeBadge
+            range={product.range}
+            premiumLabel={tProduct('rangePremium')}
+            essentialLabel={tProduct('rangeEssential')}
+            size="xs"
+          />
         </div>
       </div>
 
@@ -185,7 +164,7 @@ function RelatedCard({ product }: { product: Product }) {
             marginBottom: 4,
           }}
         >
-          {product.brand}
+          {localizedProduct.brand}
         </p>
         <p
           style={{
@@ -196,7 +175,7 @@ function RelatedCard({ product }: { product: Product }) {
             letterSpacing: '-0.01em',
           }}
         >
-          {product.name}
+          {localizedProduct.name}
         </p>
         <p
           style={{
@@ -205,7 +184,7 @@ function RelatedCard({ product }: { product: Product }) {
             marginBottom: 8,
           }}
         >
-          {product.variant}
+          {localizedProduct.variant}
         </p>
         <p
           style={{

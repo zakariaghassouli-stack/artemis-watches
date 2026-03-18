@@ -32,23 +32,8 @@ function GuaranteeIcon() {
     </svg>
   );
 }
-function PersonIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" />
-    </svg>
-  );
-}
-function PackageIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="16.5" y1="9.4" x2="7.5" y2="4.21" /><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" />
-    </svg>
-  );
-}
-
-const ICONS = [CuratedIcon, InspectIcon, LocationIcon, GuaranteeIcon, PersonIcon, PackageIcon];
-const PILLAR_KEYS = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'] as const;
+const ICONS = [CuratedIcon, InspectIcon, LocationIcon, GuaranteeIcon];
+const PILLAR_KEYS = ['p1', 'p2', 'p3', 'p4'] as const;
 
 export function WhyArtemis() {
   const t = useTranslations('home.why');
@@ -85,16 +70,15 @@ export function WhyArtemis() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 20,
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: 24,
+            maxWidth: 980,
+            margin: '0 auto',
           }}
           className="why-grid"
         >
           <style>{`
             @media (max-width: 900px) {
-              .why-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            }
-            @media (max-width: 540px) {
               .why-grid { grid-template-columns: 1fr !important; }
             }
           `}</style>
@@ -105,10 +89,10 @@ export function WhyArtemis() {
               <ScrollReveal key={key} delay={i * 80}>
                 <div
                   style={{
-                    padding: '32px 28px',
+                    padding: '36px 32px',
                     background: 'rgba(255,255,255,0.025)',
                     border: '1px solid rgba(255,255,255,0.06)',
-                    borderRadius: 4,
+                    borderRadius: 6,
                     transition: 'border-color 0.3s, background 0.3s',
                     height: '100%',
                   }}

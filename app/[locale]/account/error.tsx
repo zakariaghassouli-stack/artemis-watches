@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
+import { Link } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 
 export default function AccountError({
   error,
@@ -9,6 +11,9 @@ export default function AccountError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const locale = useLocale();
+  const isFr = locale === 'fr';
+
   useEffect(() => {
     console.error('[account/error]', error);
   }, [error]);
@@ -44,7 +49,7 @@ export default function AccountError({
             marginBottom: 12,
           }}
         >
-          Account Error
+          {isFr ? 'Erreur de compte' : 'Account Error'}
         </p>
         <p
           style={{
@@ -54,7 +59,9 @@ export default function AccountError({
             marginBottom: 16,
           }}
         >
-          Something went wrong loading your account.
+          {isFr
+            ? 'Une erreur est survenue lors du chargement de votre compte.'
+            : 'Something went wrong loading your account.'}
         </p>
 
         {/* Show real error in dev or with digest */}
@@ -92,9 +99,9 @@ export default function AccountError({
               cursor: 'pointer',
             }}
           >
-            Try again
+            {isFr ? 'Reessayer' : 'Try again'}
           </button>
-          <a
+          <Link
             href="/account/login"
             style={{
               padding: '10px 20px',
@@ -111,8 +118,8 @@ export default function AccountError({
               alignItems: 'center',
             }}
           >
-            Back to login
-          </a>
+            {isFr ? 'Retour a la connexion' : 'Back to login'}
+          </Link>
         </div>
       </div>
     </div>
