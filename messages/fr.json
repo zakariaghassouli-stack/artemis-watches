@@ -46,26 +46,26 @@
   "home": {
     "hero": {
       "overline": "MONTRÉAL, CANADA",
-      "headline": "Une sélection réfléchie de montres iconiques.",
-      "subheadline": "Des références Rolex, Cartier, Audemars Piguet et Patek Philippe préparées à Montréal, avec livraison suivie, retours 30 jours et un accompagnement direct pour choisir la bonne pièce.",
-      "ctaPrimary": "Voir les pièces",
+      "headline": "Quatre maisons. Une seule adresse.",
+      "subheadline": "Sélection rigoureuse. Inspection complète. Livraison suivie. Garantie 30 jours satisfait ou remboursé. Directement depuis notre atelier montréalais.",
+      "ctaPrimary": "Découvrir les pièces",
       "ctaSecondary": "Échanger sur WhatsApp",
       "scrollLabel": "Découvrir",
-      "headlinePart1": "Une sélection réfléchie de",
-      "headlineAccent": "montres iconiques.",
+      "headlinePart1": "Quatre maisons.",
+      "headlineAccent": "Une seule adresse.",
       "point1": "Retours sous 30 jours",
       "point2": "Conseil direct sur WhatsApp",
       "point3": "Livraison gratuite au Canada"
     },
     "trust": {
-      "item1Title": "Livraison suivie",
-      "item1Body": "Canada et international",
-      "item2Title": "Retours 30 jours",
-      "item2Body": "Simples si la pièce ne convient pas",
-      "item3Title": "Caisse sécurisée",
-      "item3Body": "Stripe, principales cartes, Apple Pay",
-      "item4Title": "Service direct",
-      "item4Body": "Équipe Artemis, WhatsApp et e-mail"
+      "item1Title": "Satisfait ou remboursé",
+      "item1Body": "Garantie 30 jours. Retour simple, remboursement complet.",
+      "item2Title": "Chaque pièce inspectée",
+      "item2Body": "Contrôle visuel et mécanique avant chaque expédition.",
+      "item3Title": "Réponse en quelques minutes",
+      "item3Body": "Équipe disponible sur WhatsApp. Pas de robot, pas d'attente.",
+      "item4Title": "Livré partout, suivi inclus",
+      "item4Body": "Canada : 3-7 jours. International disponible. Emballage discret et sécurisé."
     },
     "collections": {
       "overline": "LES COLLECTIONS",
@@ -101,7 +101,7 @@
     },
     "range": {
       "overline": "TROUVEZ VOTRE GAMME",
-      "headline": "Deux gammes, un standard réfléchi.",
+      "headline": "Deux gammes. La même exigence.",
       "subheadline": "Choisissez la gamme qui correspond à votre budget et au niveau de finition recherché.",
       "essentialBadge": "ESSENTIELLE",
       "essentialPrice": "300 $ – 350 $ CAD",
@@ -131,9 +131,9 @@
     },
     "bestSellers": {
       "overline": "SÉLECTION ARTEMIS",
-      "headline": "Commencez par nos pièces les plus demandées",
+      "headline": "Les plus demandées ce mois-ci.",
       "subheadline": "Une manière simple de comparer la présence, la taille et la gamme avant de choisir votre pièce.",
-      "viewAll": "Voir toutes les pièces →",
+      "viewAll": "Voir toute la sélection →",
       "from": "À partir de",
       "essential": "Essentielle",
       "premium": "Premium",
@@ -148,16 +148,25 @@
     },
     "testimonials": {
       "overline": "CE QUE DISENT NOS CLIENTS",
-      "headline": "Une expérience simple, claire et bien menée.",
+      "headline": "Ils ont commandé. Voici leur expérience.",
       "subheadline": "Ces retours reviennent sur les mêmes points: descriptions fidèles, échanges directs et livraison suivie jusqu'à la réception.",
       "ugcCaption": "Des retours qui aident à commander avec plus de confiance.",
       "cta": "Voir tous les avis →",
+      "whatsappText": "Vous hésitez encore ? Posez vos questions directement à notre équipe.",
+      "whatsappButton": "Écrire sur WhatsApp →",
       "reviews": [
         {
           "tag": "Achat en ligne rassurant",
           "text": "J'hésitais à commander en ligne, mais tout a été très clair avec Artemis. La Submariner est arrivée conforme, bien emballée, et le suivi sur WhatsApp était rapide et utile.",
           "author": "François B.",
           "location": "Montréal, QC",
+          "rating": 5
+        },
+        {
+          "tag": "Description fidèle",
+          "text": "Collectionneur exigeant, j'ai apprécié le sérieux d'Artemis. Les descriptions sont honnêtes et le Santos reçu était conforme en tout point.",
+          "author": "David M.",
+          "location": "Longueuil, QC",
           "rating": 5
         },
         {
@@ -173,28 +182,21 @@
           "author": "Alexandre P.",
           "location": "Laval, QC",
           "rating": 5
-        },
-        {
-          "tag": "Description fidèle",
-          "text": "Collectionneur exigeant, j'ai apprécié le sérieux d'Artemis. Les descriptions sont honnêtes et le Santos reçu était conforme en tout point.",
-          "author": "David M.",
-          "location": "Longueuil, QC",
-          "rating": 5
         }
       ]
     },
     "signup": {
       "overline": "AVANTAGE DE BIENVENUE",
       "headline": "Ouvrez votre espace Artemis et activez votre code de bienvenue",
-      "subheadline": "Votre compte réunit vos pièces sauvegardées, vos commandes et un avantage réservé à votre première commande.",
+      "subheadline": "Créez votre compte Artemis et recevez un code de 10 % applicable sur toute la collection. Accédez aussi au suivi de vos commandes et aux alertes de restocks.",
       "placeholder": "Votre e-mail pour commencer",
-      "cta": "Activer mon code de bienvenue",
+      "cta": "Créer mon compte",
       "benefits": [
         "Code de bienvenue sur une première commande",
         "Pièces sauvegardées et historique réuni",
         "Accès plus direct à l'équipe Artemis"
       ],
-      "microcopy": "Entrez votre e-mail pour démarrer. L'inscription prend moins d'une minute.",
+      "microcopy": "Code envoyé instantanément. Aucun spam, jamais.",
       "trust": "Vous préférez d'abord poser une question ? WhatsApp reste ouvert.",
       "accountHint": "Vous avez déjà un compte ?",
       "accountCta": "Se connecter →",
@@ -208,7 +210,7 @@
       "overline": "FAQ",
       "headline": "Les réponses qui comptent avant de commander",
       "subheadline": "Livraison, retours, sécurité et accompagnement: l'essentiel pour décider sans hésiter.",
-      "viewAll": "Voir la FAQ complète →",
+      "viewAll": "D'autres questions ? Consultez notre FAQ complète →",
       "q1": "Combien de temps prend la livraison ?",
       "a1": "Au Canada, comptez généralement 3 à 7 jours ouvrables. À l'international, 7 à 14 jours. Toutes les commandes partent avec suivi.",
       "q2": "Livrez-vous à l'international ?",

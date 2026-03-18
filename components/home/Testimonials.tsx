@@ -1,9 +1,10 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface Review {
   tag?: string;
@@ -34,6 +35,8 @@ function Stars({ count }: { count: number }) {
 
 export function Testimonials() {
   const t = useTranslations('home.testimonials');
+  const locale = useLocale();
+  const waUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
   const reviews = t.raw('reviews') as Review[];
 
   return (
@@ -137,6 +140,49 @@ export function Testimonials() {
           ))}
         </div>
 
+        {/* WhatsApp CTA — capture hésitants */}
+        <ScrollReveal delay={0}>
+          <div
+            style={{
+              margin: '48px auto 0',
+              padding: '24px 32px',
+              background: 'rgba(255,255,255,0.02)',
+              border: '1px solid rgba(255,255,255,0.06)',
+              borderRadius: 4,
+              textAlign: 'center',
+              maxWidth: 540,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 14,
+            }}
+          >
+            <p style={{ fontSize: '0.88rem', color: '#A8A5A0', lineHeight: 1.6, margin: 0 }}>
+              {t('whatsappText')}
+            </p>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#C9A96E',
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(201,169,110,0.28)',
+                paddingBottom: 2,
+              }}
+            >
+              {t('whatsappButton')}
+            </a>
+          </div>
+        </ScrollReveal>
+
         {/* UGC caption */}
         <p
           style={{
@@ -145,6 +191,7 @@ export function Testimonials() {
             color: 'rgba(255,255,255,0.2)',
             letterSpacing: '0.08em',
             marginBottom: 18,
+            marginTop: 48,
           }}
         >
           {t('ugcCaption')}
