@@ -1,8 +1,17 @@
 import NextAuth from 'next-auth';
+import createMiddleware from 'next-intl/middleware';
 import { NextResponse, type NextRequest } from 'next/server';
 import { authConfig } from '@/auth.config';
+import { routing } from '@/i18n/routing';
 
 const { auth } = NextAuth(authConfig);
+
+// Pass localeDetection: false directly to createMiddleware (not via defineRouting)
+// so next-intl never redirects based on Accept-Language headers.
+const intlMiddleware = createMiddleware({
+  ...routing,
+  localeDetection: false,
+});
 
 function isProtectedRoute(pathname: string): boolean {
   return /\/(fr\/)?account(?!\/(login|register))(\/|$)/.test(pathname);
@@ -17,7 +26,7 @@ export default auth(function proxy(req) {
   const isLoggedIn = !!session?.user?.email;
   const { pathname } = (req as NextRequest).nextUrl;
 
-  // ── Auth guards (must run before locale routing) ──────────────
+  // ── Auth guards ───────────────────────────────────────────────
   if (isProtectedRoute(pathname) && !isLoggedIn) {
     const loginUrl = new URL('/account/login', req.url);
     loginUrl.searchParams.set('callbackUrl', pathname);
@@ -28,30 +37,27 @@ export default auth(function proxy(req) {
     return NextResponse.redirect(new URL('/account', req.url));
   }
 
-  // ── Locale routing (manual — no next-intl middleware loops) ───
-  //
-  // Strategy (localePrefix: 'as-needed'):
-  //   /fr/*        → FR locale, App Router handles [locale]=fr natively
-  //   /en/*        → redirect to /* (canonical EN URL has no prefix)
-  //   /* (no pfx)  → internal rewrite to /en/* so [locale] param = 'en'
+  // ── Locale middleware ─────────────────────────────────────────
+  const response = intlMiddleware(req as NextRequest);
 
-  const isFr = pathname === '/fr' || pathname.startsWith('/fr/');
-  if (isFr) {
-    return NextResponse.next();
+  // Guard: if intlMiddleware returns any redirect that targets the same
+  // pathname (self-redirect), break the loop by passing through instead.
+  // We compare by pathname only to handle host/protocol differences on Vercel edge.
+  if (response.status >= 300 && response.status < 400) {
+    const location = response.headers.get('location');
+    if (location) {
+      try {
+        const target = new URL(location, 'http://n'); // neutral base to parse relative URLs
+        if (target.pathname === pathname) {
+          return NextResponse.next();
+        }
+      } catch {
+        // ignore malformed location headers
+      }
+    }
   }
 
-  const isEnPrefixed = pathname === '/en' || pathname.startsWith('/en/');
-  if (isEnPrefixed) {
-    const url = (req as NextRequest).nextUrl.clone();
-    url.pathname = pathname.slice(3) || '/';
-    return NextResponse.redirect(url);
-  }
-
-  // Default: EN (no prefix in browser URL) — rewrite internally so
-  // Next.js App Router resolves app/[locale]/... with locale='en'
-  const url = (req as NextRequest).nextUrl.clone();
-  url.pathname = '/en' + pathname;
-  return NextResponse.rewrite(url);
+  return response;
 });
 
 export const config = {
