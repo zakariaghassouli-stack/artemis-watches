@@ -12,7 +12,7 @@ export function getNavWhatsAppMessage(locale: string): string {
 
 export function getGeneralWhatsAppMessage(locale: string): string {
   return locale === 'fr'
-    ? 'Bonjour ARTEMIS ! Je souhaite en savoir plus sur vos montres.'
+    ? "Bonjour ARTEMIS ! J'aimerais en savoir plus sur votre sélection."
     : "Hello ARTEMIS! I'd like to learn more about your watches.";
 }
 

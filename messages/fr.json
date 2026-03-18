@@ -70,7 +70,7 @@
     "collections": {
       "overline": "LES COLLECTIONS",
       "headline": "Choisissez la maison qui vous attire d'abord.",
-      "subheadline": "Commencez par la maison qui vous parle le plus, puis comparez les références qui structurent la sélection Artemis.",
+      "subheadline": "Quatre maisons. Aucune concession.",
       "rolexSub": "Submariner · Datejust · GMT · Daytona",
       "rolexCta": "Voir la sélection →",
       "cartierSub": "Santos · Panthère",
@@ -187,7 +187,7 @@
     },
     "signup": {
       "overline": "AVANTAGE DE BIENVENUE",
-      "headline": "Ouvrez votre espace Artemis et activez votre code de bienvenue",
+      "headline": "Un privilège pour commencer",
       "subheadline": "Créez votre compte Artemis et recevez un code de 10 % applicable sur toute la collection. Accédez aussi au suivi de vos commandes et aux alertes de restocks.",
       "placeholder": "Votre e-mail pour commencer",
       "cta": "Créer mon compte",
