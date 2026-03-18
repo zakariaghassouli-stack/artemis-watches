@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
+import { useSession } from 'next-auth/react';
 import { getScarcityState, formatPrice, getInstallmentPrice } from '@/lib/products';
 import { useCartStore } from '@/store/cart';
 import { pixel } from '@/lib/pixel';
@@ -42,7 +43,19 @@ interface Props {
     variantsLabel: string;
     sizeSelectorLabel: string;
     checkoutNote: string;
+    newClientDiscount: string;
   };
+}
+
+function NewClientDiscount({ price, registerLabel }: { price: number; registerLabel: string }) {
+  const { data: session } = useSession();
+  if (session?.user) return null;
+  const discountedPrice = formatPrice(Math.round(price * 0.9));
+  return (
+    <p style={{ fontSize: '0.72rem', color: '#C9A96E', marginTop: 6, letterSpacing: '0.02em' }}>
+      {registerLabel.replace('{price}', `${discountedPrice} CAD`)}
+    </p>
+  );
 }
 
 function Stars({ rating }: { rating: number }) {
@@ -386,6 +399,9 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
         >
           {t.installmentLine.replace('{amount}', installmentAmt)}
         </p>
+
+        {/* 10% welcome offer for non-logged-in */}
+        <NewClientDiscount price={activePrice} registerLabel={t.newClientDiscount} />
       </div>
 
       {/* Box & Papers toggle (premium only) */}

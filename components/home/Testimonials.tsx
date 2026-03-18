@@ -140,6 +140,30 @@ export function Testimonials() {
           ))}
         </div>
 
+        {/* CTA post-reviews — push toward products */}
+        <ScrollReveal delay={0}>
+          <div style={{ textAlign: 'center', marginBottom: 32 }}>
+            <Link
+              href="/collections"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                background: '#C9A96E',
+                color: '#0A0A0A',
+                padding: '15px 36px',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+              }}
+            >
+              {t('shopCta')}
+            </Link>
+          </div>
+        </ScrollReveal>
+
         {/* WhatsApp CTA — capture hésitants */}
         <ScrollReveal delay={0}>
           <div

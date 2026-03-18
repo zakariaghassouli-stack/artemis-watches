@@ -5,6 +5,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { SiteHeader } from '@/components/layout/SiteHeader';
+import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { WhatsAppFAB } from '@/components/shared/WhatsAppFAB';
@@ -172,6 +173,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
           <CurrencyProvider initial={initialCurrency}>
+          <AnnouncementBar />
           <SiteHeader />
           <main>{children}</main>
           <Footer />

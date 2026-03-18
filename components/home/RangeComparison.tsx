@@ -5,9 +5,11 @@ import { useTranslations } from 'next-intl';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Check } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '@/lib/whatsapp';
 
 export function RangeComparison() {
   const t = useTranslations('home.range');
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
 
   const essentialIncludes = t.raw('essentialIncludes') as string[];
   const premiumIncludes = t.raw('premiumIncludes') as string[];
@@ -108,6 +110,18 @@ export function RangeComparison() {
                 }}
               >
                 {t('essentialBody')}
+              </p>
+
+              <p
+                style={{
+                  fontSize: '0.78rem',
+                  color: '#6B6965',
+                  lineHeight: 1.6,
+                  marginBottom: 24,
+                  fontStyle: 'italic',
+                }}
+              >
+                {t('essentialBestFor')}
               </p>
 
               <p
@@ -237,6 +251,18 @@ export function RangeComparison() {
 
               <p
                 style={{
+                  fontSize: '0.78rem',
+                  color: '#6B6965',
+                  lineHeight: 1.6,
+                  marginBottom: 24,
+                  fontStyle: 'italic',
+                }}
+              >
+                {t('premiumBestFor')}
+              </p>
+
+              <p
+                style={{
                   fontSize: '0.62rem',
                   fontWeight: 700,
                   letterSpacing: '0.2em',
@@ -292,7 +318,26 @@ export function RangeComparison() {
           <p
             style={{
               textAlign: 'center',
-              marginTop: 24,
+              marginTop: 32,
+              fontSize: '0.82rem',
+              color: '#6B6965',
+              letterSpacing: '0.02em',
+            }}
+          >
+            {t('whatsappNote')}{' '}
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#C9A96E', textDecoration: 'none', borderBottom: '1px solid rgba(201,169,110,0.28)' }}
+            >
+              {t('whatsappCta')}
+            </a>
+          </p>
+          <p
+            style={{
+              textAlign: 'center',
+              marginTop: 12,
               fontSize: '0.78rem',
               color: '#6B6965',
               letterSpacing: '0.02em',

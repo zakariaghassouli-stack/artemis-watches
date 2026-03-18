@@ -107,6 +107,7 @@ export default async function ProductPage({ params }: Props) {
     variantsLabel: t('variantsLabel'),
     sizeSelectorLabel: t('sizeSelectorLabel'),
     checkoutNote: t('checkoutNote'),
+    newClientDiscount: t('newClientDiscount'),
   };
 
   const productTabsT = {

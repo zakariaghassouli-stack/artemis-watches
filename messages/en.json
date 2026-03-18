@@ -1,7 +1,7 @@
 {
   "announcement": {
-    "message": "Create your Artemis account for a first-order welcome code — Free shipping across Canada",
-    "cta": "Create Account →",
+    "message": "New here? Get 10% off your first order — join Artemis today.",
+    "cta": "Claim 10% Off →",
     "closeLabel": "Close announcement"
   },
   "nav": {
@@ -53,8 +53,8 @@
       "scrollLabel": "Discover",
       "headlinePart1": "A considered selection of",
       "headlineAccent": "iconic watches.",
-      "point1": "30-day returns",
-      "point2": "Direct WhatsApp guidance",
+      "point1": "From $300 CAD",
+      "point2": "30-day returns",
       "point3": "Free Canada shipping"
     },
     "trust": {
@@ -127,7 +127,11 @@
       "premiumCta": "VIEW PREMIUM RANGE",
       "includesLabel": "INCLUDES",
       "recommendedBadge": "Featured",
-      "sharedNote": "Both ranges include the same inspection process, direct support, and tracked delivery."
+      "sharedNote": "Both ranges include the same inspection process, direct support, and tracked delivery.",
+      "essentialBestFor": "Best for: first piece, daily wear, clean everyday presence",
+      "premiumBestFor": "Best for: collectors, milestone gifts, stronger finish and materials",
+      "whatsappNote": "Not sure which range? Our team can help you compare.",
+      "whatsappCta": "Ask on WhatsApp →"
     },
     "bestSellers": {
       "overline": "ARTEMIS EDIT",
@@ -137,14 +141,16 @@
       "from": "From",
       "essential": "Essential",
       "premium": "Premium",
-      "bestSeller": "Featured",
+      "bestSeller": "Client favourite",
       "lowStock": "{count} available",
-      "highDemand": "Limited",
+      "highDemand": "Versatile pick",
       "cardNote": "30-day returns",
       "cardRange": "Two ranges available",
       "cardSize": "Multiple sizes available",
       "cardSupport": "Tracked shipping and 30-day returns",
-      "cardCta": "View Piece"
+      "cardCta": "View Piece",
+      "newArrival": "Popular gift",
+      "justRestocked": "Just in"
     },
     "testimonials": {
       "overline": "WHAT OUR CLIENTS SAY",
@@ -181,16 +187,19 @@
           "location": "Ottawa, ON",
           "rating": 5
         }
-      ]
+      ],
+      "whatsappText": "Have a question about a specific piece? Our team responds directly.",
+      "whatsappButton": "Ask on WhatsApp →",
+      "shopCta": "Shop the Collection →"
     },
     "signup": {
       "overline": "WELCOME ADVANTAGE",
-      "headline": "Open your Artemis account and unlock your welcome code",
+      "headline": "Create your account. Get 10% off your first order.",
       "subheadline": "Your account keeps saved pieces and orders together, while opening a first-order advantage reserved for new clients.",
       "placeholder": "Your email to get started",
-      "cta": "Unlock My Welcome Code",
+      "cta": "Get My 10% Code",
       "benefits": [
-        "Welcome code on a first order",
+        "10% off your first order — applied at checkout",
         "Saved pieces and order history together",
         "More direct access to the Artemis team"
       ],
@@ -305,7 +314,7 @@
     "rangeEssential": "Essential",
     "rangePremium": "Premium",
     "lowStock": "{count} available",
-    "bestSeller": "Featured",
+    "bestSeller": "Client favourite",
     "highDemand": "Limited",
     "newArrival": "New Arrival",
     "justRestocked": "Just Restocked",
@@ -365,7 +374,8 @@
     "returnsNote": "To initiate a return, contact us via WhatsApp — we'll handle everything.",
     "helpTitle": "Need help choosing?",
     "helpBody": "Our team can help you compare models, dial colours, and sizing before you place an order. Message us on WhatsApp for direct guidance.",
-    "helpCta": "Chat on WhatsApp →"
+    "helpCta": "Chat on WhatsApp →",
+    "newClientDiscount": "New here? Create an account for 10% off → {price}"
   },
   "wishlist": {
     "pageOverline": "YOUR SELECTION",
@@ -725,12 +735,12 @@
   },
   "popup": {
     "overline": "WELCOME CODE",
-    "headline": "Create your account to unlock your welcome code",
-    "subheadline": "Enter your email and continue to account setup. Your welcome code is sent after registration.",
+    "headline": "Your 10% welcome code is waiting.",
+    "subheadline": "Join the Artemis list and get an instant 10% off your first order. No minimum. No expiration.",
     "emailPlaceholder": "your@email.com",
-    "cta": "Continue",
+    "cta": "Get My 10% Code",
     "loading": "Continuing...",
-    "dismissText": "Continue without it",
+    "dismissText": "No thanks, I'll pay full price",
     "successOverline": "Account ready",
     "successHeadline": "Welcome to ARTEMIS.",
     "successCodeLabel": "Welcome code",

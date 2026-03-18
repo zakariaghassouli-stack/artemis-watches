@@ -134,7 +134,6 @@ function ProductCard({
                   justRestocked: t('justRestocked'),
                 }}
                 size="sm"
-                excludeTypes={['best-seller', 'high-demand']}
               />
             </div>
           )}

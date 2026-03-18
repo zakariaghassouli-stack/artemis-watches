@@ -1,7 +1,7 @@
 {
   "announcement": {
-    "message": "Créez votre compte Artemis pour recevoir un code de bienvenue sur une première commande — Livraison gratuite au Canada",
-    "cta": "Créer un compte →",
+    "message": "Nouveau ? Obtenez 10% sur votre première commande — rejoignez Artemis.",
+    "cta": "Obtenir 10% →",
     "closeLabel": "Fermer l'annonce"
   },
   "nav": {
@@ -53,9 +53,9 @@
       "scrollLabel": "Découvrir",
       "headlinePart1": "Quatre maisons.",
       "headlineAccent": "Une seule adresse.",
-      "point1": "Retours sous 30 jours",
-      "point2": "Conseil direct sur WhatsApp",
-      "point3": "Livraison gratuite au Canada"
+      "point1": "À partir de 300 $ CAD",
+      "point2": "Retours 30 jours",
+      "point3": "Livraison Canada gratuite"
     },
     "trust": {
       "item1Title": "Satisfait ou remboursé",
@@ -127,7 +127,11 @@
       "premiumCta": "VOIR LA GAMME PREMIUM",
       "includesLabel": "INCLUS",
       "recommendedBadge": "En vedette",
-      "sharedNote": "Les deux gammes profitent de la même inspection, du même support direct et de la même livraison suivie."
+      "sharedNote": "Les deux gammes profitent de la même inspection, du même support direct et de la même livraison suivie.",
+      "essentialBestFor": "Idéal pour : première pièce, usage quotidien, présence sobre au poignet",
+      "premiumBestFor": "Idéal pour : collectionneurs, cadeaux marquants, finition et matériaux supérieurs",
+      "whatsappNote": "Pas sûr de la gamme ? Notre équipe peut vous aider à comparer.",
+      "whatsappCta": "Poser la question sur WhatsApp →"
     },
     "bestSellers": {
       "overline": "SÉLECTION ARTEMIS",
@@ -137,14 +141,16 @@
       "from": "À partir de",
       "essential": "Essentielle",
       "premium": "Premium",
-      "bestSeller": "En vedette",
+      "bestSeller": "Favori clients",
       "lowStock": "{count} disponibles",
-      "highDemand": "Disponibilité limitée",
+      "highDemand": "Polyvalent",
       "cardNote": "Retours sous 30 jours",
       "cardRange": "Deux gammes disponibles",
       "cardSize": "Plusieurs tailles disponibles",
       "cardSupport": "Livraison suivie et retours 30 jours",
-      "cardCta": "Voir la pièce"
+      "cardCta": "Voir la pièce",
+      "newArrival": "Idée cadeau",
+      "justRestocked": "Vient d'arriver"
     },
     "testimonials": {
       "overline": "CE QUE DISENT NOS CLIENTS",
@@ -183,16 +189,17 @@
           "location": "Laval, QC",
           "rating": 5
         }
-      ]
+      ],
+      "shopCta": "Voir la sélection →"
     },
     "signup": {
       "overline": "AVANTAGE DE BIENVENUE",
-      "headline": "Un privilège pour commencer",
+      "headline": "Créez votre compte. Obtenez 10% sur votre première commande.",
       "subheadline": "Créez votre compte Artemis et recevez un code de 10 % applicable sur toute la collection. Accédez aussi au suivi de vos commandes et aux alertes de restocks.",
       "placeholder": "Votre e-mail pour commencer",
-      "cta": "Créer mon compte",
+      "cta": "Obtenir mon code 10%",
       "benefits": [
-        "Code de bienvenue sur une première commande",
+        "10% sur votre première commande — appliqué au paiement",
         "Pièces sauvegardées et historique réuni",
         "Accès plus direct à l'équipe Artemis"
       ],
@@ -307,7 +314,7 @@
     "rangeEssential": "Essentielle",
     "rangePremium": "Premium",
     "lowStock": "{count} disponibles",
-    "bestSeller": "En vedette",
+    "bestSeller": "Favori clients",
     "highDemand": "Disponibilité limitée",
     "newArrival": "Nouveau",
     "justRestocked": "Réapprovisionné",
@@ -367,7 +374,8 @@
     "returnsNote": "Pour initier un retour, contactez-nous via WhatsApp — on s'occupe de tout.",
     "helpTitle": "Besoin d'aide pour choisir ?",
     "helpBody": "Notre équipe peut vous aider à comparer les modèles, les cadrans et les tailles avant commande. Écrivez-nous sur WhatsApp pour un échange direct.",
-    "helpCta": "Discuter sur WhatsApp →"
+    "helpCta": "Discuter sur WhatsApp →",
+    "newClientDiscount": "Nouveau client ? Créez un compte pour 10% de réduction → {price}"
   },
   "wishlist": {
     "pageOverline": "VOTRE SÉLECTION",
@@ -727,12 +735,12 @@
   },
   "popup": {
     "overline": "CODE DE BIENVENUE",
-    "headline": "Créez votre compte pour débloquer votre code de bienvenue",
-    "subheadline": "Entrez votre e-mail et poursuivez vers l'inscription. Votre code est envoyé après la création du compte.",
+    "headline": "Votre code 10% vous attend.",
+    "subheadline": "Rejoignez la liste Artemis et obtenez 10% de réduction instantanée sur votre première commande. Sans minimum. Sans expiration.",
     "emailPlaceholder": "votre@email.com",
-    "cta": "Continuer",
+    "cta": "Obtenir mon code 10%",
     "loading": "Ouverture...",
-    "dismissText": "Continuer sans cela",
+    "dismissText": "Non merci, je paie le prix plein",
     "successOverline": "Compte prêt",
     "successHeadline": "Bienvenue chez ARTEMIS.",
     "successCodeLabel": "Code de bienvenue",
