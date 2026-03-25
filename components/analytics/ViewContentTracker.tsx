@@ -1,15 +1,24 @@
 'use client';
 
 import { useEffect } from 'react';
+import { analytics } from '@/lib/analytics';
 import { pixel } from '@/lib/pixel';
 
 interface Props {
   productId: string;
   productName: string;
+  brand: string;
   price: number;
+  range: string;
 }
 
-export function ViewContentTracker({ productId, productName, price }: Props) {
+export function ViewContentTracker({
+  productId,
+  productName,
+  brand,
+  price,
+  range,
+}: Props) {
   useEffect(() => {
     pixel.viewContent({
       content_ids: [productId],
@@ -18,7 +27,14 @@ export function ViewContentTracker({ productId, productName, price }: Props) {
       value: price,
       currency: 'CAD',
     });
-  }, [productId]); // fires once per product page — productId is stable
+    analytics.viewItem({
+      id: productId,
+      name: productName,
+      brand,
+      price,
+      range,
+    });
+  }, [brand, price, productId, productName, range]);
 
   return null;
 }
