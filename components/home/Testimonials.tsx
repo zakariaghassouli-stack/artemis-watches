@@ -67,7 +67,7 @@ export function Testimonials() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
             gap: 20,
             marginBottom: 64,
           }}
@@ -106,7 +106,7 @@ export function Testimonials() {
                       src={review.image}
                       alt={`${review.author} review`}
                       fill
-                      sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                   </div>

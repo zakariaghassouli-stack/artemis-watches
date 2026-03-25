@@ -205,6 +205,22 @@
           "location": "Montreal, QC",
           "rating": 4.5,
           "image": "/images/review/review-06.png"
+        },
+        {
+          "title": "Exactly as shown",
+          "text": "The GMT Pepsi looked sharp online and even better once it arrived. Tracking updates were clear the whole way.",
+          "author": "Leo S.",
+          "location": "Edmonton, AB",
+          "rating": 5,
+          "image": "/images/review/review-07.png"
+        },
+        {
+          "title": "Clean service",
+          "text": "Bought the Santos after comparing a few options on WhatsApp. Straight answers, solid fit, no wasted time.",
+          "author": "Karim T.",
+          "location": "Quebec City, QC",
+          "rating": 4.5,
+          "image": "/images/review/review-08.png"
         }
       ],
       "whatsappText": "Have a question about a specific piece? Our team responds directly.",

@@ -207,6 +207,22 @@
           "location": "Montréal, QC",
           "rating": 4.5,
           "image": "/images/review/review-06.png"
+        },
+        {
+          "title": "Exactement comme montré",
+          "text": "La GMT Pepsi était déjà forte en photo, encore mieux une fois reçue. Les mises à jour de suivi étaient claires du début à la fin.",
+          "author": "Leo S.",
+          "location": "Edmonton, AB",
+          "rating": 5,
+          "image": "/images/review/review-07.png"
+        },
+        {
+          "title": "Service net",
+          "text": "J’ai pris le Santos après avoir comparé quelques options sur WhatsApp. Réponses directes, bon fit, aucune perte de temps.",
+          "author": "Karim T.",
+          "location": "Québec, QC",
+          "rating": 4.5,
+          "image": "/images/review/review-08.png"
         }
       ],
       "shopCta": "Voir ce qu'ils ont commandé → Explorer la collection"
