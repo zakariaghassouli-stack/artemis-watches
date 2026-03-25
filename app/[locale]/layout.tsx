@@ -1,25 +1,21 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { getSiteSettings } from '@/lib/queries';
 import { routing } from '@/i18n/routing';
 import { SiteHeader } from '@/components/layout/SiteHeader';
-import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { WhatsAppFAB } from '@/components/shared/WhatsAppFAB';
 import { CookieBanner } from '@/components/shared/CookieBanner';
 import { PromoPopup } from '@/components/shared/PromoPopup';
-import { MetaPixel } from '@/components/analytics/MetaPixel';
-import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ConsentAwareAnalytics } from '@/components/analytics/ConsentAwareAnalytics';
+import { CartAbandonment } from '@/components/analytics/CartAbandonment';
+import { SessionEmailSync } from '@/components/analytics/SessionEmailSync';
 import { AuthProvider } from '@/components/providers/AuthProvider';
 import { CurrencyProvider } from '@/components/providers/CurrencyProvider';
-import { cookies } from 'next/headers';
-import type { Currency } from '@/lib/currency';
-import { CURRENCY_COOKIE } from '@/lib/currency';
 import '../globals.css';
 
 const inter = Inter({
@@ -36,38 +32,47 @@ const playfair = Playfair_Display({
 });
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+export const revalidate = 60;
 
-export const metadata: Metadata = {
-  title: {
-    default: 'ARTEMIS — Luxury Watch Boutique | Montréal',
-    template: '%s | ARTEMIS Watches',
-  },
-  description:
-    'Authentic luxury timepieces from Rolex, Cartier, Audemars Piguet & Patek Philippe. Based in Montréal. Fast shipping across Canada.',
-  keywords: ['luxury watches', 'Rolex Montreal', 'Cartier watches', 'pre-owned watches', 'ARTEMIS'],
-  metadataBase: new URL(APP_URL),
-  openGraph: {
-    type: 'website',
-    locale: 'en_CA',
-    siteName: 'ARTEMIS Watches',
-    url: APP_URL,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    site: '@artemis_watches',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'siteLayout' });
+
+  return {
+    title: {
+      default: t('titleDefault'),
+      template: t('titleTemplate'),
+    },
+    description: t('description'),
+    keywords: t('keywords').split(', '),
+    metadataBase: new URL(APP_URL),
+    openGraph: {
+      type: 'website',
+      locale: locale === 'fr' ? 'fr_CA' : 'en_CA',
+      siteName: 'ARTEMIS Watches',
+      url: APP_URL,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@artemis_watches',
+    },
+    robots: {
       index: true,
       follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
     },
-  },
-};
+  };
+}
 
 type Locale = (typeof routing.locales)[number];
 
@@ -159,9 +164,16 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     notFound();
   }
 
-  const messages = await getMessages();
-  const cookieStore = await cookies();
-  const initialCurrency = (cookieStore.get(CURRENCY_COOKIE)?.value ?? 'CAD') as Currency;
+  const [messages, siteSettings] = await Promise.all([
+    getMessages(),
+    getSiteSettings(),
+  ]);
+  const announcementText =
+    locale === 'fr'
+      ? siteSettings?.announcementBar?.fr ?? null
+      : siteSettings?.announcementBar?.en ?? null;
+  const announcementEnabled = siteSettings?.announcementBar?.enabled ?? true;
+  const welcomeDiscountPercent = siteSettings?.welcomeDiscountPercent ?? 10;
 
   return (
     <html lang={locale} className={`${inter.variable} ${playfair.variable}`}>
@@ -172,19 +184,23 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <body>
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
-          <CurrencyProvider initial={initialCurrency}>
-          <AnnouncementBar />
-          <SiteHeader />
+          <CurrencyProvider initial="CAD">
+          <SiteHeader
+            announcementEnabled={announcementEnabled}
+            announcementText={announcementText}
+          />
           <main>{children}</main>
           <Footer />
-          <CartDrawer />
+          <CartDrawer
+            boxAndPapersPrice={siteSettings?.boxAndPapersPrice ?? 49}
+            welcomeDiscountPercent={welcomeDiscountPercent}
+          />
           <WhatsAppFAB />
           <CookieBanner />
-          <PromoPopup />
-          <GoogleAnalytics />
-          <MetaPixel />
-          <Analytics />
-          <SpeedInsights />
+          <PromoPopup discountPercent={welcomeDiscountPercent} />
+          <SessionEmailSync />
+          <CartAbandonment />
+          <ConsentAwareAnalytics />
           </CurrencyProvider>
           </AuthProvider>
         </NextIntlClientProvider>

@@ -1,7 +1,7 @@
 {
   "announcement": {
-    "message": "Nouveau ? Obtenez 10% sur votre première commande — rejoignez Artemis.",
-    "cta": "Obtenir 10% →",
+    "message": "Nouveau client ? Obtenez 10 % sur votre première commande —",
+    "cta": "Magasiner →",
     "closeLabel": "Fermer l'annonce"
   },
   "nav": {
@@ -28,8 +28,8 @@
     "royalOak": "Royal Oak",
     "nautilus": "Nautilus",
     "aquanaut": "Aquanaut",
-    "essential": "Gamme Essentielle",
-    "premium": "Gamme Premium",
+    "essential": "Essentielle · Mouvement japonais (Miyota)",
+    "premium": "Premium · Mouvement suisse (Dandong)",
     "wishlist": "Pièces sauvegardées",
     "closeMenu": "Fermer le menu",
     "openMenu": "Ouvrir le menu",
@@ -40,71 +40,73 @@
     "mobileSupport": "Échangez directement avec l'équipe Artemis sur WhatsApp.",
     "megaAllWatches": "Toutes les montres →",
     "megaNewArrivals": "Nouveautés →",
-    "megaEssential": "Gamme Essentielle (300–350 $) →",
-    "megaPremium": "Gamme Premium (900–1 600 $) →"
+    "megaEssential": "Essentielle · Mouvement japonais (Miyota) →",
+    "megaPremium": "Premium · Mouvement suisse (Dandong) →"
   },
   "home": {
     "hero": {
-      "overline": "MONTRÉAL, CANADA",
-      "headline": "Quatre maisons. Une seule adresse.",
-      "subheadline": "Sélection rigoureuse. Inspection complète. Livraison suivie. Garantie 30 jours satisfait ou remboursé. Directement depuis notre atelier montréalais.",
-      "ctaPrimary": "Découvrir les pièces",
-      "ctaSecondary": "Échanger sur WhatsApp",
+      "overline": "MONTRÉAL · ROLEX · CARTIER · AP · PATEK",
+      "headline": "Quatre marques iconiques. Une adresse à Montréal.",
+      "subheadline": "78 pièces · À partir de 280 $ · Livraison suivie · Retours 30 jours",
+      "ctaPrimary": "Explorer les 78 pièces",
+      "ctaSecondary": "Besoin d'aide ? WhatsApp →",
       "scrollLabel": "Découvrir",
-      "headlinePart1": "Quatre maisons.",
-      "headlineAccent": "Une seule adresse.",
-      "point1": "À partir de 300 $ CAD",
+      "headlinePart1": "Quatre marques iconiques.",
+      "headlineAccent": "Une adresse à Montréal.",
+      "point1": "À partir de 280 $ CAD",
       "point2": "Retours 30 jours",
-      "point3": "Livraison Canada gratuite"
+      "point3": "Livraison gratuite au Canada",
+      "socialProof": "200+ commandes expédiées depuis Montréal"
     },
     "trust": {
       "item1Title": "Satisfait ou remboursé",
-      "item1Body": "Garantie 30 jours. Retour simple, remboursement complet.",
-      "item2Title": "Chaque pièce inspectée",
-      "item2Body": "Contrôle visuel et mécanique avant chaque expédition.",
-      "item3Title": "Réponse en quelques minutes",
-      "item3Body": "Équipe disponible sur WhatsApp. Pas de robot, pas d'attente.",
-      "item4Title": "Livré partout, suivi inclus",
-      "item4Body": "Canada : 3-7 jours. International disponible. Emballage discret et sécurisé."
+      "item1Body": "Remboursement complet, zéro frais.",
+      "item2Title": "Expédié de Montréal",
+      "item2Body": "Suivie. Sécurisée. Gratuite au Canada.",
+      "item3Title": "Chaque pièce inspectée",
+      "item3Body": "Boîtier, verre, bracelet, finitions.",
+      "item4Title": "WhatsApp en quelques minutes",
+      "item4Body": "Une vraie équipe. Des réponses claires."
     },
     "collections": {
       "overline": "LES COLLECTIONS",
-      "headline": "Choisissez la maison qui vous attire d'abord.",
-      "subheadline": "Quatre maisons. Aucune concession.",
-      "rolexSub": "Submariner · Datejust · GMT · Daytona",
-      "rolexCta": "Voir la sélection →",
+      "headline": "Commencez par la marque qui vous parle.",
+      "subheadline": "Choisissez la marque qui vous attire, puis comparez les références qui définissent la sélection Artemis.",
+      "rolexSub": "Submariner · Datejust · GMT · Daytona · Day-Date · Explorer · et plus",
+      "rolexCta": "EXPLOREZ ROLEX →",
       "cartierSub": "Santos · Panthère",
-      "cartierCta": "Voir la sélection →",
+      "cartierCta": "EXPLOREZ CARTIER →",
       "apSub": "Royal Oak",
-      "apCta": "Voir la sélection →",
-      "patekSub": "Nautilus · Aquanaut",
-      "patekCta": "Voir la sélection →",
-      "no1Bestseller": "Pièce en vedette",
+      "apCta": "EXPLOREZ AP →",
+      "patekSub": "Nautilus · Aquanaut · Calatrava",
+      "patekCta": "EXPLOREZ PATEK →",
+      "no1Bestseller": "Favori clients",
       "piecesCount": "{count} pièces"
     },
     "why": {
       "overline": "POURQUOI ARTEMIS",
-      "headline": "Une manière plus personnelle d'acheter une montre.",
-      "subheadline": "Un catalogue resserré, une préparation soignée et un service direct depuis Montréal.",
-      "p1Title": "Sélection resserrée",
-      "p1Body": "Nous nous concentrons sur quatre maisons : Rolex, Cartier, Audemars Piguet et Patek Philippe. Chaque pièce est retenue pour son design, son état et sa cohérence au poignet.",
-      "p2Title": "Inspection soignée",
-      "p2Body": "Chaque montre est revue avant expédition pour l'état du boîtier, la clarté du verre, le bracelet et la finition générale. Seules les pièces conformes à notre standard quittent l'atelier.",
+      "headline": "Une façon plus personnelle de choisir sa montre.",
+      "subheadline": "Un catalogue ciblé, une préparation soignée et un service direct depuis Montréal.",
+      "p1Title": "Sélection ciblée",
+      "p1Body": "Nous nous concentrons sur quatre marques : Rolex, Cartier, Audemars Piguet et Patek Philippe. Chaque pièce est choisie pour la cohérence de son design, son état et sa présence au poignet.",
+      "p2Title": "Soigneusement inspectée",
+      "p2Body": "Chaque montre est vérifiée avant expédition : état du boîtier, clarté du verre, tenue du bracelet et finition générale. Seules les pièces qui satisfont notre standard sont préparées pour la livraison.",
       "p3Title": "Service basé à Montréal",
-      "p3Body": "Artemis est basé à Montréal et pensé pour rester direct. Écrivez-nous sur WhatsApp, échangez avec l'équipe ou organisez une visite privée localement.",
-      "p4Title": "Retours sous 30 jours",
-      "p4Body": "Si la pièce ne vous convient pas, vous disposez de 30 jours pour la retourner dans son état d'origine et obtenir un remboursement complet, sans frais cachés.",
+      "p3Body": "Artemis est basée à Montréal et conçue pour un contact direct. Vous pouvez nous écrire sur WhatsApp, parler avec notre équipe ou organiser une visite privée.",
+      "p4Title": "Retour sous 30 jours",
+      "p4Body": "Si la pièce ne vous convient pas, retournez-la dans les 30 jours en état original pour un remboursement complet. Conditions claires, aucun frais de restockage.",
       "p5Title": "Parlez à une vraie personne",
       "p5Body": "Écrivez-nous sur WhatsApp pour échanger directement avec l'équipe Artemis pendant les heures d'ouverture.",
       "p6Title": "Tout inclus",
-      "p6Body": "Chaque commande comprend un outil d'ajustement de bracelet, un coffret de présentation protecteur, une livraison avec suivi et une option boîte & papiers."
+      "p6Body": "Chaque commande comprend un outil d'ajustement de bracelet, un coffret de présentation protecteur, une livraison avec suivi et une option boîte & papiers.",
+      "reviewsCta": "Voir ce que nos clients disent →"
     },
     "range": {
       "overline": "TROUVEZ VOTRE GAMME",
       "headline": "Deux gammes. La même exigence.",
       "subheadline": "Choisissez la gamme qui correspond à votre budget et au niveau de finition recherché.",
       "essentialBadge": "ESSENTIELLE",
-      "essentialPrice": "300 $ – 350 $ CAD",
+      "essentialPrice": "280 $ – 350 $ CAD",
       "essentialTagline": "Un point de départ net.",
       "essentialBody": "La gamme Essentielle s'adresse aux clients qui veulent un design fort, des proportions justes et une entrée simple dans l'univers Artemis.",
       "essentialIncludes": [
@@ -115,35 +117,35 @@
       ],
       "essentialCta": "VOIR LA GAMME ESSENTIELLE",
       "premiumBadge": "PREMIUM",
-      "premiumPrice": "900 $ – 1 600 $ CAD",
+      "premiumPrice": "1 050 $ – 1 550 $ CAD",
       "premiumTagline": "Plus de finition. Plus de présence.",
       "premiumBody": "La gamme Premium convient aux clients qui recherchent une finition plus poussée, une sensation matière plus riche et une présence plus affirmée au poignet.",
       "premiumIncludes": [
         "Finitions et détails améliorés",
         "Matériaux plus présents",
-        "Ensemble boîte & papiers en option",
+        "Boîte & papiers inclus",
         "Échange direct sur WhatsApp"
       ],
       "premiumCta": "VOIR LA GAMME PREMIUM",
       "includesLabel": "INCLUS",
-      "recommendedBadge": "En vedette",
-      "sharedNote": "Les deux gammes profitent de la même inspection, du même support direct et de la même livraison suivie.",
-      "essentialBestFor": "Idéal pour : première pièce, usage quotidien, présence sobre au poignet",
-      "premiumBestFor": "Idéal pour : collectionneurs, cadeaux marquants, finition et matériaux supérieurs",
-      "whatsappNote": "Pas sûr de la gamme ? Notre équipe peut vous aider à comparer.",
-      "whatsappCta": "Poser la question sur WhatsApp →"
+      "recommendedBadge": "Favori clients",
+      "sharedNote": "Les deux gammes incluent le même processus d'inspection, le support direct et la livraison suivie.",
+      "essentialBestFor": "Idéal pour : première pièce, usage quotidien, présence nette au poignet",
+      "premiumBestFor": "Idéal pour : collectionneurs, cadeaux marquants, finitions supérieures",
+      "whatsappNote": "Pas sûr de la gamme ? Notre équipe vous aide à comparer.",
+      "whatsappCta": "WhatsApp →"
     },
     "bestSellers": {
       "overline": "SÉLECTION ARTEMIS",
-      "headline": "Les plus demandées ce mois-ci.",
-      "subheadline": "Une manière simple de comparer la présence, la taille et la gamme avant de choisir votre pièce.",
-      "viewAll": "Voir toute la sélection →",
+      "headline": "Les pièces les plus demandées par nos clients",
+      "subheadline": "À partir de 280 $ CAD. Mouvements japonais et suisses côte à côte.",
+      "viewAll": "Voir les 78 pièces →",
       "from": "À partir de",
-      "essential": "Essentielle",
-      "premium": "Premium",
-      "bestSeller": "Favori clients",
-      "lowStock": "{count} disponibles",
-      "highDemand": "Polyvalent",
+      "essential": "Essentielle · Mouvement japonais (Miyota)",
+      "premium": "Premium · Mouvement suisse (Dandong)",
+      "bestSeller": "Favori client",
+      "lowStock": "Seulement {count} restants",
+      "highDemand": "Choix polyvalent",
       "cardNote": "Retours sous 30 jours",
       "cardRange": "Deux gammes disponibles",
       "cardSize": "Plusieurs tailles disponibles",
@@ -154,57 +156,75 @@
     },
     "testimonials": {
       "overline": "CE QUE DISENT NOS CLIENTS",
-      "headline": "Ils ont commandé. Voici leur expérience.",
-      "subheadline": "Ces retours reviennent sur les mêmes points: descriptions fidèles, échanges directs et livraison suivie jusqu'à la réception.",
-      "ugcCaption": "Des retours qui aident à commander avec plus de confiance.",
-      "cta": "Voir tous les avis →",
-      "whatsappText": "Vous hésitez encore ? Posez vos questions directement à notre équipe.",
-      "whatsappButton": "Écrire sur WhatsApp →",
+      "headline": "Ils ont commandé. Ils recommanderaient.",
+      "subheadline": "Les mêmes points reviennent : descriptions fidèles, accompagnement direct et livraison suivie.",
+      "ugcCaption": "Lisez les avis, puis comparez les pièces qui les ont inspirés.",
+      "cta": "Lire tous les avis →",
+      "whatsappText": "Une question sur une pièce précise ? Notre équipe répond directement.",
+      "whatsappButton": "Demander sur WhatsApp →",
       "reviews": [
         {
-          "tag": "Achat en ligne rassurant",
-          "text": "J'hésitais à commander en ligne, mais tout a été très clair avec Artemis. La Submariner est arrivée conforme, bien emballée, et le suivi sur WhatsApp était rapide et utile.",
+          "text": "Parfait. Exactement ce que je voulais.",
+          "author": "Amine K.",
+          "location": "Montréal, QC",
+          "rating": 5,
+          "image": "/images/review/review-01.png"
+        },
+        {
+          "title": "Achat solide",
+          "text": "Commandé la Submariner pour mon anniversaire. Arrivée en 4 jours, emballage impeccable, la montre a du poids au poignet. Je regarde déjà la GMT pour la prochaine.",
+          "author": "Marc D.",
+          "location": "Toronto, ON",
+          "rating": 5,
+          "image": "/images/review/review-02.png"
+        },
+        {
+          "text": "🔥🔥🔥",
+          "author": "Jordan P.",
+          "location": "Vancouver, BC",
+          "rating": 5,
+          "image": "/images/review/review-03.png"
+        },
+        {
+          "title": "Approuvé par un collectionneur",
+          "text": "Je collectionne les montres et j'étais sceptique à commander en ligne. Le Santos est arrivé conforme à l'annonce. Le support WhatsApp était rapide et honnête. La seule raison pour 4 étoiles : le bracelet nécessitait un petit ajustement.",
+          "author": "David R.",
+          "location": "Ottawa, ON",
+          "rating": 4,
+          "image": "/images/review/review-04.png"
+        },
+        {
+          "text": "Cadeau pour mon père. Il ne l'a pas enlevée depuis.",
+          "author": "Alex M.",
+          "location": "Calgary, AB",
+          "rating": 5,
+          "image": "/images/review/review-05.png"
+        },
+        {
+          "title": "Client fidèle",
+          "text": "Deuxième commande chez Artemis. Datejust cette fois. Même qualité, même rapidité. 👌",
           "author": "François B.",
           "location": "Montréal, QC",
-          "rating": 5
-        },
-        {
-          "tag": "Description fidèle",
-          "text": "Collectionneur exigeant, j'ai apprécié le sérieux d'Artemis. Les descriptions sont honnêtes et le Santos reçu était conforme en tout point.",
-          "author": "David M.",
-          "location": "Longueuil, QC",
-          "rating": 5
-        },
-        {
-          "tag": "Cadeau réussi",
-          "text": "J'ai acheté la Datejust pour l'anniversaire de mon conjoint. La présentation était soignée, la montre fidèle aux photos, et la politique de retour de 30 jours m'a rassurée au moment de commander.",
-          "author": "Marie-Hélène T.",
-          "location": "Québec, QC",
-          "rating": 5
-        },
-        {
-          "tag": "Présence au poignet",
-          "text": "Le Royal Oak de la gamme Premium a une très belle présence au poignet. Livraison rapide, communication nette et expérience bien menée du début à la fin.",
-          "author": "Alexandre P.",
-          "location": "Laval, QC",
-          "rating": 5
+          "rating": 4.5,
+          "image": "/images/review/review-06.png"
         }
       ],
-      "shopCta": "Voir la sélection →"
+      "shopCta": "Voir ce qu'ils ont commandé → Explorer la collection"
     },
     "signup": {
-      "overline": "AVANTAGE DE BIENVENUE",
-      "headline": "Créez votre compte. Obtenez 10% sur votre première commande.",
-      "subheadline": "Créez votre compte Artemis et recevez un code de 10 % applicable sur toute la collection. Accédez aussi au suivi de vos commandes et aux alertes de restocks.",
-      "placeholder": "Votre e-mail pour commencer",
-      "cta": "Obtenir mon code 10%",
+      "overline": "AVANTAGE NOUVEAU CLIENT",
+      "headline": "Créez votre compte. Obtenez 10 % sur votre première commande.",
+      "subheadline": "Votre compte regroupe vos pièces sauvegardées et vos commandes, avec un code de 10 % envoyé instantanément par courriel. Sans minimum.",
+      "placeholder": "Entrez votre courriel",
+      "cta": "Obtenir mon code de 10 %",
       "benefits": [
-        "10% sur votre première commande — appliqué au paiement",
-        "Pièces sauvegardées et historique réuni",
-        "Accès plus direct à l'équipe Artemis"
+        "10 % sur votre première commande — appliqué à la caisse",
+        "Pièces sauvegardées et historique de commandes",
+        "Accès prioritaire aux nouveautés"
       ],
-      "microcopy": "Code envoyé instantanément. Aucun spam, jamais.",
-      "trust": "Vous préférez d'abord poser une question ? WhatsApp reste ouvert.",
+      "microcopy": "Code envoyé en moins de 60 secondes. Aucun spam, jamais.",
+      "expiryNotice": "Votre code de 10 % expire dans 48 heures.",
+      "trust": "Vous préférez poser une question d'abord ? WhatsApp reste ouvert.",
       "accountHint": "Vous avez déjà un compte ?",
       "accountCta": "Se connecter →",
       "success": "Compte créé — votre code de bienvenue :",
@@ -229,30 +249,51 @@
       "q5": "Puis-je parler à quelqu'un avant de commander ?",
       "a5": "Oui. Écrivez-nous sur WhatsApp et nous vous orienterons sur la gamme, la taille ou la référence adaptée.",
       "q6": "Qu'est-ce qui est inclus avec la commande ?",
-      "a6": "La montre, un outil d'ajustement de bracelet, un coffret protecteur et une livraison suivie."
+      "a6": "La montre, un outil d'ajustement de bracelet, un coffret protecteur et une livraison suivie.",
+      "q7": "Quelle est la différence entre les mouvements japonais et suisses ?",
+      "a7": "Les deux options bénéficient du même processus d'inspection, de la livraison suivie et des retours 30 jours. Les pièces Essentielle utilisent des mouvements automatiques japonais Miyota. Les pièces Premium utilisent des mouvements automatiques suisses (Dandong), avec des finitions plus poussées et une exécution plus riche."
     }
   },
   "collections": {
-    "pageOverline": "LA COLLECTION",
-    "pageHeadline": "Une sélection de références iconiques.",
-    "pageSubheadline": "Quatre maisons emblématiques, sélectionnées et préparées depuis Montréal.",
+    "title": "Toute la collection",
+    "subtitle": "{count} pièces à travers 4 marques.",
+    "exploreRolex": "EXPLOREZ ROLEX →",
+    "exploreCartier": "EXPLOREZ CARTIER →",
+    "exploreAP": "EXPLOREZ AP →",
+    "explorePatek": "EXPLOREZ PATEK →",
+    "pieces": "pièces",
+    "pageOverline": "TOUTE LA COLLECTION",
+    "pageHeadline": "Toute la collection",
+    "pageSubheadline": "78 pièces à travers 4 marques.",
+    "productGridLabel": "Parcourir les 78 pièces",
     "adviceLabel": "Besoin d'aide pour choisir ?",
     "adviceBody": "Dites-nous ce que vous comparez et nous vous orienterons vers la bonne gamme, la bonne taille ou la bonne référence.",
     "adviceCta": "Écrire sur WhatsApp →",
     "filterAll": "Tous",
-    "filterEssential": "Essentielle",
-    "filterPremium": "Premium",
+    "filterEssential": "Essentielle (japonais)",
+    "filterPremium": "Premium (suisse)",
+    "brandLabel": "Marque",
+    "modelLabel": "Modèle",
+    "modelAll": "Tous",
+    "rangeLabel": "Gamme",
+    "rangeAll": "Toutes",
     "sortBy": "Trier",
-    "sortDefault": "En vedette",
+    "sortPopular": "Plus demandées",
+    "sortDefault": "Plus demandées",
     "sortPriceLow": "Prix croissant",
     "sortPriceHigh": "Prix décroissant",
+    "sortNewest": "Nouveautés",
     "products": "produits",
     "product": "produit",
+    "resultSingular": "pièce affichée",
+    "resultPlural": "pièces affichées",
+    "activeSortLabel": "Tri actif",
     "viewDetails": "Voir la pièce",
-    "rangeOptions": "Options Essentielle et Premium",
+    "rangeOptions": "Options mouvement japonais et suisse",
     "sizeOptions": "Plusieurs tailles disponibles",
     "supportNote": "Livraison suivie et retours 30 jours",
     "noResults": "Aucun produit ne correspond à vos filtres.",
+    "brandCatalogSummary": "Toutes les pièces {name} disponibles, filtrées par modèle, gamme et prix.",
     "startingFrom": "À partir de",
     "exploreLabel": "Explorer",
     "allCollections": "Toutes les collections",
@@ -296,7 +337,8 @@
     "returnPolicyShort": "Politique de retour",
     "shippingPolicyShort": "Politique d'expédition",
     "copyright": "© {year} Artemis Montres. Tous droits réservés.",
-    "madeIn": "Conçu à Montréal."
+    "madeIn": "Conçu à Montréal.",
+    "depth": "78 pièces à travers 4 marques."
   },
   "product": {
     "tabDescription": "Description",
@@ -305,15 +347,21 @@
     "addToCart": "Ajouter au panier",
     "orderWhatsApp": "Poser une question sur cette pièce",
     "installmentLine": "Ou 4 paiements de {amount} CAD à la caisse",
-    "boxAndPapersLabel": "Ajouter l'option Boîte & Papiers (+{price} CAD)",
+    "boxAndPapersLabel": "Ajouter Boîte & papiers — +{price} CAD",
+    "boxAndPapersIncluded": "Boîte & papiers inclus avec Premium",
+    "complimentaryBadge": "GRATUIT",
+    "premiumPackagingLabel": "Emballage premium",
+    "guaranteeLabel": "Garantie 30 jours",
+    "trackedShippingLabel": "Livraison suivie",
+    "braceletToolLabel": "Outil d'ajustement bracelet",
     "freeShipping": "Livraison suivie au Canada",
     "returnPolicy": "Retours sous 30 jours",
     "authenticityLabel": "Préparée à Montréal",
     "relatedTitle": "Vous pourriez aussi considérer",
     "relatedViewAll": "Voir tout →",
-    "rangeEssential": "Essentielle",
-    "rangePremium": "Premium",
-    "lowStock": "{count} disponibles",
+    "rangeEssential": "Essentielle · Mouvement japonais (Miyota)",
+    "rangePremium": "Premium · Mouvement suisse (Dandong)",
+    "lowStock": "Seulement {count} restants",
     "bestSeller": "Favori clients",
     "highDemand": "Disponibilité limitée",
     "newArrival": "Nouveau",
@@ -353,7 +401,7 @@
     "rangeSelectorLabel": "CHOISIR LA GAMME",
     "variantsLabel": "AUTRES VARIANTES",
     "sizeSelectorLabel": "TAILLE DU BOÎTIER",
-    "checkoutNote": "Caisse Stripe sécurisée. Livraison et taxes affichées avant le paiement.",
+    "checkoutNote": "Caisse Stripe sécurisée. Livraison, taxes et code de 10 % appliqués avant le paiement.",
     "recentlyViewedTitle": "Récemment consultés",
     "recentlyViewedEmpty": "Parcourez la collection pour découvrir nos pièces.",
     "shippingTitle": "Livraison & Délais",
@@ -375,7 +423,8 @@
     "helpTitle": "Besoin d'aide pour choisir ?",
     "helpBody": "Notre équipe peut vous aider à comparer les modèles, les cadrans et les tailles avant commande. Écrivez-nous sur WhatsApp pour un échange direct.",
     "helpCta": "Discuter sur WhatsApp →",
-    "newClientDiscount": "Nouveau client ? Créez un compte pour 10% de réduction → {price}"
+    "newClientDiscount": "Nouveau client ? Créez un compte pour 10 % de réduction → {price}",
+    "sortFeatured": "Plus demandées"
   },
   "wishlist": {
     "pageOverline": "VOTRE SÉLECTION",
@@ -386,14 +435,14 @@
     "countSingular": "{count} pièce sauvegardée",
     "countPlural": "{count} pièces sauvegardées",
     "viewDetails": "Voir la pièce",
-    "essentialBadge": "Essentielle",
-    "premiumBadge": "Premium",
+    "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
+    "premiumBadge": "Premium · Mouvement suisse (Dandong)",
     "metaTitle": "Pièces sauvegardées | Artemis Montres",
     "metaDescription": "Vos montres Artemis sauvegardées — Rolex, Cartier, Audemars Piguet, Patek Philippe."
   },
   "whatsapp": {
     "fabTooltip": "Écrire sur WhatsApp",
-    "fabMessage": "Bonjour ARTEMIS ! Je souhaite en savoir plus sur vos montres."
+    "fabMessage": "Bonjour ARTEMIS ! J'aimerais en savoir plus sur votre collection."
   },
   "cookies": {
     "ariaLabel": "Consentement aux témoins",
@@ -406,7 +455,7 @@
     "pageTitle": "Recherche",
     "pageOverline": "RECHERCHE",
     "pageHeadline": "Trouvez Votre Montre",
-    "pageSubheadline": "Parcourez les 13 montres sélectionnées. Filtrez par marque, gamme ou prix.",
+    "pageSubheadline": "Parcourez les 78 pièces disponibles. Filtrez par marque, gamme ou prix.",
     "placeholder": "Rechercher — Submariner, Datejust, Royal Oak…",
     "clearQuery": "Effacer",
     "filtersLabel": "Filtres",
@@ -415,9 +464,9 @@
     "sortLabel": "Trier",
     "allBrands": "Toutes les marques",
     "allRanges": "Toutes",
-    "essential": "Essentielle",
-    "premium": "Premium",
-    "sortFeatured": "En vedette",
+    "essential": "Essentielle (japonais)",
+    "premium": "Premium (suisse)",
+    "sortFeatured": "Plus demandées",
     "sortPriceLow": "Prix : croissant",
     "sortPriceHigh": "Prix : décroissant",
     "resultsCount": "{count} résultat",
@@ -426,29 +475,29 @@
     "noResultsHint": "Essayez un autre terme — marque, modèle, couleur du cadran ou type de bracelet.",
     "suggestionsLabel": "Parcourir par marque :",
     "viewDetails": "Voir la pièce",
-    "rangeOptions": "Options Essentielle et Premium",
+    "rangeOptions": "Options mouvement japonais et suisse",
     "sizeOptions": "Plusieurs tailles disponibles",
     "supportNote": "Livraison suivie et retours 30 jours",
     "fromPrice": "Dès",
     "inStock": "En stock",
     "outOfStock": "Rupture de stock",
-    "lowStock": "{count} disponibles",
-    "bestSeller": "En vedette",
+    "lowStock": "Seulement {count} restants",
+    "bestSeller": "Favori clients",
     "highDemand": "Disponibilité limitée",
     "newArrival": "Nouveau",
     "justRestocked": "Réapprovisionné",
-    "essentialBadge": "Essentielle",
-    "premiumBadge": "Premium",
+    "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
+    "premiumBadge": "Premium · Mouvement suisse (Dandong)",
     "metaTitle": "Recherche | Artemis — Montréal",
-    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Gammes Essentielle et Premium. Livraison gratuite au Canada."
+    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Options mouvement japonais et suisse. Livraison gratuite au Canada."
   },
   "reviewsPage": {
     "metaTitle": "Avis Clients — ARTEMIS Watches",
     "metaDescription": "Lisez des retours clients sur ARTEMIS, avec des témoignages provenant de partout au Canada.",
     "overline": "AVIS CLIENTS",
-    "headline": "Des retours clients sur l'expérience Artemis.",
-    "heroBody": "Une sélection de retours de clients Artemis partout au Canada.",
-    "heroReviewCount": "Retours clients",
+    "headline": "Ils ont commandé. Ils recommanderaient.",
+    "heroBody": "Les mêmes points reviennent : descriptions fidèles, accompagnement direct et livraison suivie. Voici les retours qui comptent vraiment avant de commander.",
+    "heroReviewCount": "200+ avis",
     "heroPlatformsLabel": "Partout au Canada",
     "stat1Label": "Basé à",
     "stat1Value": "Montréal",
@@ -469,88 +518,55 @@
     "ctaWhatsApp": "Écrire sur WhatsApp →",
     "reviewsList": [
       {
-        "text": "J'étais hésitant à l'idée d'acheter une montre en ligne, mais tout a été très clair avec Artemis. La Submariner est arrivée conforme, bien emballée, et les réponses sur WhatsApp étaient rapides du début à la fin.",
+        "text": "Parfait. Exactement ce que je voulais.",
+        "author": "Amine K.",
+        "location": "Montréal, QC",
+        "watch": "Rolex Submariner",
+        "rating": 5,
+        "image": "/images/review/review-01.png"
+      },
+      {
+        "title": "Achat solide",
+        "text": "Commandé la Submariner pour mon anniversaire. Arrivée en 4 jours, emballage impeccable, la montre a du poids au poignet. Je regarde déjà la GMT pour la prochaine.",
         "author": "Marc D.",
-        "location": "Montréal, QC",
-        "watch": "Rolex Submariner",
-        "rating": 5
-      },
-      {
-        "text": "J'ai commandé la Datejust pour l'anniversaire de mon conjoint. La présentation était superbe, sans tomber dans l'exagération, et la montre faisait immédiatement très belle au poignet. La garantie 30 jours m'a vraiment rassurée au moment de finaliser la commande.",
-        "author": "Marie-Eve L.",
         "location": "Toronto, ON",
-        "watch": "Rolex Datejust",
-        "rating": 5
-      },
-      {
-        "text": "Le Royal Oak de la gamme Premium a une très belle présence au poignet. Livraison rapide, communication claire, et l'outil d'ajustement était une attention utile.",
-        "author": "Jean-Philippe K.",
-        "location": "Vancouver, BC",
-        "watch": "AP Royal Oak",
-        "rating": 5
-      },
-      {
-        "text": "Collectionneur exigeant, j'ai apprécié le sérieux d'Artemis. Les descriptions sont honnêtes et le Santos reçu était conforme en tout point.",
-        "author": "François R.",
-        "location": "Gatineau, QC",
-        "watch": "Cartier Santos",
-        "rating": 5
-      },
-      {
-        "text": "Très belle expérience du début à la fin. La Nautilus est arrivée en excellent état, avec un emballage discret et soigné. Je recommanderais sans hésiter.",
-        "author": "Philippe M.",
-        "location": "Québec, QC",
-        "watch": "Patek Nautilus",
-        "rating": 5
-      },
-      {
-        "text": "J'ai contacté l'équipe sur WhatsApp avant d'acheter. Ils ont été transparents sur l'état de la pièce et m'ont aidé à choisir le bon modèle selon mon budget.",
-        "author": "Camille T.",
-        "location": "Sherbrooke, QC",
-        "watch": "Rolex GMT-Master II",
-        "rating": 5
-      },
-      {
-        "text": "La Panthère de Cartier que j'ai commandée était très élégante en personne et fidèle aux photos. L'expérience a été soignée de la confirmation à la livraison.",
-        "author": "Isabelle F.",
-        "location": "Montréal, QC",
-        "watch": "Cartier Panthère",
-        "rating": 5
-      },
-      {
-        "text": "Livraison rapide, zéro prise de tête. La montre est arrivée avec l'outil d'ajustement de bracelet que j'ai utilisé immédiatement. La communication est restée très claire à chaque étape.",
-        "author": "Alexandre B.",
-        "location": "Trois-Rivières, QC",
-        "watch": "Rolex Daytona",
-        "rating": 5
-      },
-      {
-        "text": "J'ai déjà acheté auprès d'autres vendeurs en ligne. Chez Artemis, tout était plus net : photos fidèles, suivi sérieux et réponses rapides après l'achat.",
-        "author": "Alexandre C.",
-        "location": "Winnipeg, MB",
         "watch": "Rolex Submariner",
-        "rating": 5
+        "rating": 5,
+        "image": "/images/review/review-02.png"
       },
       {
-        "text": "Cadeau pour les 30 ans de ma conjointe. L'expérience d'unboxing était premium — emballage soigné, présentation nette. La montre est exactement comme décrit. Elle ne l'a pas quittée depuis.",
-        "author": "Luc B.",
-        "location": "Laval, QC",
+        "text": "🔥🔥🔥",
+        "author": "Jordan P.",
+        "location": "Vancouver, BC",
+        "watch": "Rolex GMT-Master II",
+        "rating": 5,
+        "image": "/images/review/review-03.png"
+      },
+      {
+        "title": "Approuvé par un collectionneur",
+        "text": "Je collectionne les montres et j'étais sceptique à commander en ligne. Le Santos est arrivé conforme à l'annonce. Le support WhatsApp était rapide et honnête. La seule raison pour 4 étoiles : le bracelet nécessitait un petit ajustement.",
+        "author": "David R.",
+        "location": "Ottawa, ON",
         "watch": "Cartier Santos",
-        "rating": 5
+        "rating": 4,
+        "image": "/images/review/review-04.png"
       },
       {
-        "text": "Très satisfait de ma Datejust. Processus simple — j'ai écrit sur WhatsApp, confirmé les détails, payé sur le site et reçu la montre en excellent état en 5 jours.",
-        "author": "Mathieu V.",
-        "location": "Rimouski, QC",
+        "text": "Cadeau pour mon père. Il ne l'a pas enlevée depuis.",
+        "author": "Alex M.",
+        "location": "Calgary, AB",
         "watch": "Rolex Datejust",
-        "rating": 5
+        "rating": 5,
+        "image": "/images/review/review-05.png"
       },
       {
-        "text": "J'ai apprécié la transparence. L'équipe m'a dit exactement ce qui était inclus, l'état du cadran, et m'a même aidé à comparer deux modèles. Ce niveau d'honnêteté est rare dans ce secteur.",
-        "author": "Sophie M.",
-        "location": "Halifax, NS",
-        "watch": "AP Royal Oak",
-        "rating": 5
+        "title": "Client fidèle",
+        "text": "Deuxième commande chez Artemis. Datejust cette fois. Même qualité, même rapidité. 👌",
+        "author": "François B.",
+        "location": "Montréal, QC",
+        "watch": "Rolex Datejust",
+        "rating": 4.5,
+        "image": "/images/review/review-06.png"
       }
     ]
   },
@@ -592,11 +608,11 @@
     "s3q1": "Quel est votre standard de qualité ?",
     "s3a1": "Chaque montre est inspectée individuellement avant la mise en vente et avant l'expédition. Nous vérifions l'intégrité du boîtier, la clarté du verre, la tension du bracelet et la finition générale.",
     "s3q2": "Quelles marques proposez-vous ?",
-    "s3a2": "Nous nous concentrons sur quatre maisons : Rolex, Cartier, Audemars Piguet et Patek Philippe, autour d'un catalogue resserré de modèles emblématiques.",
-    "s3q3": "Quelle est la différence entre les gammes Essentielle et Premium ?",
-    "s3a3": "La gamme Essentielle (300–350 $ CAD) offre une entrée plus légère. La gamme Premium (900–1 600 $ CAD) propose davantage de finition et une sensation matière plus présente. Les deux suivent le même processus d'inspection.",
+    "s3a2": "Nous nous concentrons sur quatre marques : Rolex, Cartier, Audemars Piguet et Patek Philippe, autour d'un catalogue resserré de modèles emblématiques.",
+    "s3q3": "Quelle est la différence entre les mouvements japonais et suisses ?",
+    "s3a3": "Les pièces à mouvement japonais (280–350 $ CAD) offrent une porte d'entrée plus légère avec des mouvements automatiques Miyota. Les pièces à mouvement suisse (1 050–1 550 $ CAD) offrent davantage de finition et une sensation matière plus présente. Les deux suivent le même processus d'inspection.",
     "s3q4": "Les montres sont-elles livrées avec boîte et papiers ?",
-    "s3a4": "Un ensemble boîte & papiers est disponible en option pour 49 $ CAD sur les pièces éligibles.",
+    "s3a4": "Les pièces Premium incluent la boîte & papiers sans frais. Les pièces Essentielle peuvent ajouter l'ensemble pour 49 $ CAD.",
     "s3q5": "Qu'est-ce qui est inclus avec chaque commande ?",
     "s3a5": "Chaque commande ARTEMIS comprend la montre, un outil d'ajustement de bracelet, un coffret de présentation protecteur et une livraison suivie avec signature.",
     "s3q6": "Puis-je voir la montre en personne avant d'acheter ?",
@@ -628,7 +644,7 @@
     "stat1Value": "Montréal",
     "stat1Label": "Basé à",
     "stat2Value": "4",
-    "stat2Label": "Maisons",
+    "stat2Label": "Marques",
     "stat3Value": "30",
     "stat3Label": "Jours de retour",
     "stat4Value": "Direct",
@@ -637,7 +653,7 @@
     "storyHeadline1": "Nous ne cherchons pas à tout montrer.",
     "storyHeadline2": "Nous nous concentrons sur ce qui mérite sa place.",
     "storyP1": "Chaque montre du catalogue Artemis est sélectionnée, revue et préparée avec soin avant de rejoindre un client. Nous privilégions une offre plus resserrée, une présentation claire et des promesses mesurées.",
-    "storyP2": "C'est pourquoi nous restons concentrés sur quatre maisons — Rolex, Cartier, Audemars Piguet et Patek Philippe — ainsi que sur des pièces cohérentes avec le regard Artemis.",
+    "storyP2": "C'est pourquoi nous restons concentrés sur quatre marques — Rolex, Cartier, Audemars Piguet et Patek Philippe — ainsi que sur des pièces cohérentes avec le regard Artemis.",
     "storyQuote": "Une belle montre n'a pas besoin d'exagération. Elle a besoin de proportions justes, de présence et du bon contexte.",
     "valuesOverline": "NOS ENGAGEMENTS",
     "valuesHeadline": "Ce qui guide Artemis",
@@ -697,7 +713,7 @@
     "currency": "CAD",
     "inStock": "En stock",
     "outOfStock": "Rupture de stock",
-    "lowStock": "{count} disponibles",
+    "lowStock": "Seulement {count} restants",
     "freeShipping": "Livraison suivie",
     "boxAndPapers": "Boîte & papiers",
     "braceletTool": "Outil bracelet inclus",
@@ -722,25 +738,29 @@
     "checkoutLoading": "Redirection...",
     "continueShopping": "Continuer les achats",
     "remove": "Retirer",
-    "boxAndPapers": "+ Boîte & Papiers",
+    "boxAndPapers": "Boîte & papiers inclus",
+    "boxAndPapersAdded": "Boîte & papiers déjà ajoutés à ce panier.",
     "addBoxAndPapers": "Ajouter ensemble boîte & papiers — 49 $ CAD",
-    "freeShipping": "Livraison Canada",
+    "freeShipping": "Livraison suivie",
     "return30": "Retours 30 jours",
-    "securePayment": "Caisse sécurisée",
+    "securePayment": "Caisse Stripe sécurisée",
     "checkoutError": "Impossible d'ouvrir la caisse pour le moment. Réessayez ou écrivez-nous sur WhatsApp.",
-    "checkoutMicrocopy": "La caisse Stripe sécurisée s'ouvre ensuite. Livraison, taxes et droits éventuels apparaissent avant le paiement.",
+    "checkoutMicrocopy": "La caisse Stripe sécurisée s’ouvre ensuite. Livraison, taxes et votre code de 10 % s’appliquent avant le paiement.",
     "supportCta": "Besoin d'aide ? Écrire sur WhatsApp →",
     "emptySupport": "Besoin d'aide pour choisir avant la caisse ? Nous répondons sur WhatsApp.",
-    "closeLabel": "Fermer le panier"
+    "closeLabel": "Fermer le panier",
+    "presentationSet": "Ajouter ensemble boîte & papiers — 49 $ CAD",
+    "presentationSetBody": "Coffret de présentation de la marque et documentation assortie.",
+    "accountPromoLine": "Vous avez un code de 10 % ? Créez un compte pour l’appliquer à la caisse →"
   },
   "popup": {
-    "overline": "CODE DE BIENVENUE",
-    "headline": "Votre code 10% vous attend.",
-    "subheadline": "Rejoignez la liste Artemis et obtenez 10% de réduction instantanée sur votre première commande. Sans minimum. Sans expiration.",
-    "emailPlaceholder": "votre@email.com",
-    "cta": "Obtenir mon code 10%",
+    "overline": "AVANTAGE DE BIENVENUE",
+    "headline": "Votre code de 10 % vous attend.",
+    "subheadline": "Rejoignez la liste Artemis et obtenez un rabais instantané sur votre première commande. Sans minimum.",
+    "emailPlaceholder": "Entrez votre courriel",
+    "cta": "Obtenir mon code de 10 %",
     "loading": "Ouverture...",
-    "dismissText": "Non merci, je paie le prix plein",
+    "dismissText": "Non merci, je paierai plein prix",
     "successOverline": "Compte prêt",
     "successHeadline": "Bienvenue chez ARTEMIS.",
     "successCodeLabel": "Code de bienvenue",
@@ -750,7 +770,8 @@
     "existingBody": "Connectez-vous pour consulter vos commandes, vos pièces sauvegardées et tout code de bienvenue actif.",
     "existingCta": "Se connecter",
     "errorText": "Impossible de créer le compte pour le moment. Réessayez.",
-    "closeLabel": "Fermer"
+    "closeLabel": "Fermer",
+    "expiryNotice": "Votre code de 10 % expire dans 48 heures."
   },
   "orderSuccess": {
     "metaTitle": "Commande confirmée | ARTEMIS Watches",
@@ -785,7 +806,33 @@
       "errorInvalid": "Courriel ou mot de passe invalide.",
       "orDivider": "OU",
       "noAccount": "Pas de compte ?",
-      "createOne": "Créer un compte →"
+      "createOne": "Créer un compte →",
+      "forgotPassword": "Mot de passe oublié ?"
+    },
+    "forgotPassword": {
+      "headline": "Mot de passe oublié ?",
+      "sub": "Entrez votre courriel et nous vous enverrons un code de réinitialisation à 6 chiffres.",
+      "emailLabel": "Courriel",
+      "submit": "Envoyer le code",
+      "submitting": "Envoi...",
+      "success": "Si ce courriel existe chez nous, un code est en route.",
+      "error": "Impossible d'envoyer le code pour le moment. Réessayez.",
+      "backToLogin": "Retour à la connexion →"
+    },
+    "resetPassword": {
+      "headline": "Réinitialiser votre mot de passe",
+      "sub": "Entrez le code à 6 chiffres reçu par courriel et choisissez un nouveau mot de passe.",
+      "emailLabel": "Courriel",
+      "codeLabel": "Code à 6 chiffres",
+      "passwordLabel": "Nouveau mot de passe",
+      "confirmPasswordLabel": "Confirmer le mot de passe",
+      "submit": "Réinitialiser",
+      "submitting": "Réinitialisation...",
+      "success": "Mot de passe mis à jour. Vous pouvez maintenant vous connecter.",
+      "errorInvalid": "Code invalide ou expiré.",
+      "errorMismatch": "Les mots de passe ne correspondent pas.",
+      "errorGeneric": "Impossible de réinitialiser le mot de passe. Réessayez.",
+      "backToLogin": "Retour à la connexion →"
     },
     "register": {
       "headline": "Créer un compte",
@@ -869,7 +916,7 @@
         "description": "Conçue pour les pilotes et les grands voyageurs. La lunette bicolore et le double fuseau horaire confèrent à la GMT-Master II une fonction pratique et une silhouette immédiatement reconnaissable."
       },
       "daytona": {
-        "description": "Le chronographe de course de Rolex, façonné par l'héritage du sport automobile et un cadran immédiatement reconnaissable. La Daytona demeure l'une des références modernes les plus discutées de la maison."
+        "description": "Le chronographe de course de Rolex, façonné par l'héritage du sport automobile et un cadran immédiatement reconnaissable. La Daytona demeure l'une des références modernes les plus discutées de la marque."
       },
       "santos": {
         "description": "La première montre d'aviateur au monde, conçue en 1904 pour Alberto Santos-Dumont. Architecturale, audacieuse et incontestablement Cartier — plus d'un siècle d'avant-garde."
@@ -887,5 +934,13 @@
         "description": "L'esprit aventureux de Patek en forme de montre. Le boîtier octogonal arrondi et le bracelet composite confèrent à l'Aquanaut une modernité audacieuse, unique dans le catalogue Patek."
       }
     }
+  },
+  "siteLayout": {
+    "titleDefault": "ARTEMIS — Boutique de Montres de Luxe | Montréal",
+    "titleTemplate": "%s | ARTEMIS Montres",
+    "description": "Montres de luxe authentiques — Rolex, Cartier, Audemars Piguet & Patek Philippe. Sélectionnées et livrées depuis Montréal. Garantie 30 jours.",
+    "keywords": "montres de luxe, Rolex Montréal, Cartier Montréal, Audemars Piguet, Patek Philippe, montres haut de gamme",
+    "homepageTitle": "ARTEMIS — Boutique de Montres de Luxe | Montréal",
+    "homepageDescription": "Rolex, Cartier, Audemars Piguet & Patek Philippe. Sélectionnées, inspectées, livrées depuis Montréal. Garantie qualité 30 jours."
   }
 }
