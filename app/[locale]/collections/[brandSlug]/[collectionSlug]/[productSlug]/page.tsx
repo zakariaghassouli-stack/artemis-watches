@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
   const productPath = `/collections/${brandSlug}/${collectionSlug}/${productSlug}`;
-  const canonicalUrl = `${base}${productPath}`;        // EN — no locale prefix
-  const frUrl        = `${base}/fr${productPath}`;     // FR
+  const frUrl = `${base}${productPath}`;               // FR — no locale prefix (default)
+  const enUrl = `${base}/en${productPath}`;             // EN
 
   // Resolve og:image — handles both absolute Supabase URLs and relative /public paths
   const rawImage = product.images[0];
@@ -57,9 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: canonicalUrl,
+      canonical: isFr ? frUrl : enUrl,
       languages: {
-        'en-CA': canonicalUrl,
+        'en-CA': enUrl,
         'fr-CA': frUrl,
       },
     },
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: 'website',
       locale: isFr ? 'fr_CA' : 'en_CA',
-      url: isFr ? frUrl : canonicalUrl,
+      url: isFr ? frUrl : enUrl,
       ...(ogImage && {
         images: [{ url: ogImage, width: 800, height: 800, alt: `${product.brand} ${product.name}` }],
       }),

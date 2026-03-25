@@ -1,20 +1,21 @@
 import type { MetadataRoute } from 'next';
-import { ALL_PRODUCTS } from '@/lib/products';
+import { getAllProducts } from '@/lib/queries';
 import { BRAND_META, COLLECTION_META } from '@/lib/brands';
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
 
-// With localePrefix: 'as-needed', English has no prefix; French uses /fr
-const LOCALES = ['', 'fr'] as const;
+// With localePrefix: 'as-needed', French has no prefix (default); English uses /en
+const LOCALES = ['', 'en'] as const;
 
 function buildUrl(path: string, locale: string): string {
   const prefix = locale ? `/${locale}` : '';
   return `${BASE}${prefix}${path}`;
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
+  const products = await getAllProducts();
 
   // ── Static pages ────────────────────────────────────────────────
   const staticPages = [
@@ -58,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Product pages ────────────────────────────────────────────────
   for (const locale of LOCALES) {
-    for (const product of ALL_PRODUCTS) {
+    for (const product of products) {
       entries.push({
         url: buildUrl(
           `/collections/${product.brandSlug}/${product.collectionSlug}/${product.slug}`,

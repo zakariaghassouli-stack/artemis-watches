@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `Shop the ${brand.name} ${collection.name} at Artemis. ${collection.description}`,
     alternates: {
       canonical: `${base}${path}`,
-      languages: { 'en-CA': `${base}${path}`, 'fr-CA': `${base}/fr${path}` },
+      languages: { 'en-CA': `${base}/en${path}`, 'fr-CA': `${base}${path}` },
     },
   };
 }

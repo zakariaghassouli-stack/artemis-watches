@@ -11,9 +11,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/account/',
-          '/fr/account/',
+          '/en/account/',
           '/order/',
-          '/fr/order/',
+          '/en/order/',
         ],
       },
     ],

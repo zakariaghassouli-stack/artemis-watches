@@ -31,8 +31,8 @@ export async function generateMetadata({
     alternates: {
       canonical: BASE,
       languages: {
-        'en-CA': BASE,
-        'fr-CA': `${BASE}/fr`,
+        'en-CA': `${BASE}/en`,
+        'fr-CA': BASE,
       },
     },
   };
