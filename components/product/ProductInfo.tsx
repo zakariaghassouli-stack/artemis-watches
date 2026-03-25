@@ -3,8 +3,16 @@
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { useSession } from 'next-auth/react';
-import { getScarcityState, formatPrice, getInstallmentPrice } from '@/lib/products';
+import {
+  formatPrice,
+  getInstallmentPrice,
+  getProductDisplayTitle,
+  getRetailReference,
+  getScarcityState,
+  getVariantOptionLabel,
+} from '@/lib/products';
 import { useCartStore } from '@/store/cart';
+import { analytics } from '@/lib/analytics';
 import { pixel } from '@/lib/pixel';
 import { WishlistButton } from '@/components/product/WishlistButton';
 import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
@@ -16,6 +24,7 @@ import { getProductWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 interface Props {
   product: Product;
   collectionVariants: Product[];
+  welcomeDiscountPercent?: number;
   t: {
     addToCart: string;
     buyNow: string;
@@ -23,11 +32,17 @@ interface Props {
     wishlistLabel: string;
     installmentLine: string;
     boxAndPapersLabel: string;
+    boxAndPapersIncluded: string;
     freeShipping: string;
     returnPolicy: string;
     authenticityLabel: string;
     braceletTool: string;
     keyPoints: string;
+    complimentaryBadge: string;
+    premiumPackagingLabel: string;
+    guaranteeLabel: string;
+    trackedShippingLabel: string;
+    braceletToolLabel: string;
     lowStock: string;
     bestSeller: string;
     highDemand: string;
@@ -47,14 +62,36 @@ interface Props {
   };
 }
 
-function NewClientDiscount({ price, registerLabel }: { price: number; registerLabel: string }) {
+function NewClientDiscount({
+  price,
+  registerLabel,
+  discountPercent,
+}: {
+  price: number;
+  registerLabel: string;
+  discountPercent: number;
+}) {
   const { data: session } = useSession();
   if (session?.user) return null;
-  const discountedPrice = formatPrice(Math.round(price * 0.9));
+  const discountedPrice = formatPrice(
+    Math.round(price * (1 - discountPercent / 100))
+  );
   return (
-    <p style={{ fontSize: '0.72rem', color: '#C9A96E', marginTop: 6, letterSpacing: '0.02em' }}>
-      {registerLabel.replace('{price}', `${discountedPrice} CAD`)}
-    </p>
+    <Link
+      href="/account/register"
+      style={{
+        display: 'inline-flex',
+        fontSize: '0.72rem',
+        color: '#C9A96E',
+        marginTop: 6,
+        letterSpacing: '0.02em',
+        textDecoration: 'none',
+      }}
+    >
+      {registerLabel
+        .replace(/10 ?%/g, `${discountPercent}%`)
+        .replace('{price}', `${discountedPrice} CAD`)}
+    </Link>
   );
 }
 
@@ -73,7 +110,12 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export function ProductInfo({ product, collectionVariants, t }: Props) {
+export function ProductInfo({
+  product,
+  collectionVariants,
+  welcomeDiscountPercent = 10,
+  t,
+}: Props) {
   const [boxAndPapers, setBoxAndPapers] = useState(false);
   const [isBuyingNow, setIsBuyingNow] = useState(false);
   const [selectedRange, setSelectedRange] = useState<'essential' | 'premium'>(product.range);
@@ -81,17 +123,45 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
   const addItem = useCartStore((s) => s.addItem);
   const scarcity = getScarcityState(product);
   const locale = useLocale();
-
-  // Derived active price based on selected range
+  const rangeSelectorEssentialLabel =
+    locale === 'fr' ? 'Mouvement japonais' : 'Japanese Movement';
+  const rangeSelectorPremiumLabel =
+    locale === 'fr' ? 'Mouvement suisse' : 'Swiss Movement';
+  const familyVariants = collectionVariants.filter(
+    (variant) => variant.name === product.name
+  );
+  const essentialVariantProduct =
+    familyVariants.find((variant) => variant.range === 'essential') ??
+    (product.range === 'essential' ? product : null);
+  const premiumVariantProduct =
+    familyVariants.find((variant) => variant.range === 'premium') ??
+    (product.range === 'premium' ? product : null);
+  const activeVariantProduct =
+    selectedRange === 'premium'
+      ? (premiumVariantProduct ?? product)
+      : (essentialVariantProduct ?? product);
+  const essentialVariantPrice = essentialVariantProduct?.price ?? product.essentialPrice ?? null;
+  const premiumVariantPrice = premiumVariantProduct?.price ?? (product.range === 'premium' ? product.price : null);
   const activePrice =
-    selectedRange === 'essential' && product.essentialPrice
-      ? product.essentialPrice
-      : product.price;
+    selectedRange === 'premium'
+      ? (premiumVariantPrice ?? product.price)
+      : (essentialVariantPrice ?? product.price);
+  const premiumIncludesBoxAndPapers = selectedRange === 'premium';
+  const essentialBoxAndPapersPrice = essentialVariantProduct?.boxAndPapersPrice ?? 49;
+  const resolvedBoxAndPapers = premiumIncludesBoxAndPapers || boxAndPapers;
+  const boxAndPapersPrice = premiumIncludesBoxAndPapers ? 0 : essentialBoxAndPapersPrice;
+  const showRangeSelector =
+    essentialVariantPrice !== null && premiumVariantPrice !== null;
+  const displayTitle = getProductDisplayTitle({
+    name: product.name,
+    variant: product.variant,
+  });
+  const retailReference = getRetailReference(activeVariantProduct);
 
   // viewers counter removed — replaced with stock/scarcity indicator
 
   const installmentAmt = formatPrice(getInstallmentPrice(activePrice, 4));
-  const totalPrice = activePrice + (boxAndPapers ? product.boxAndPapersPrice : 0);
+  const totalPrice = activePrice + (resolvedBoxAndPapers ? boxAndPapersPrice : 0);
 
   const avgRating =
     product.reviews.length > 0
@@ -101,8 +171,8 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
   const whatsappUrl = getWhatsAppUrl(
     getProductWhatsAppMessage({
       locale,
-      productName: `${product.brand} ${product.name}`,
-      variant: product.variant,
+      productName: `${activeVariantProduct.brand} ${activeVariantProduct.name}`,
+      variant: activeVariantProduct.variant,
       price: formatPrice(activePrice),
     })
   );
@@ -110,32 +180,46 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
   const handleBuyNow = async () => {
     if (!product.inStock || isBuyingNow) return;
     setIsBuyingNow(true);
-    const finalPrice = activePrice + (boxAndPapers ? product.boxAndPapersPrice : 0);
+    const finalPrice = activePrice + (resolvedBoxAndPapers ? boxAndPapersPrice : 0);
+    analytics.beginCheckout(
+      [
+        {
+          id: activeVariantProduct.id,
+          name: `${activeVariantProduct.brand} ${activeVariantProduct.name}`,
+          brand: activeVariantProduct.brand,
+          range: selectedRange,
+          price: finalPrice,
+          quantity: 1,
+        },
+      ],
+      finalPrice
+    );
     try {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          locale,
           items: [{
-            id: product.id,
-            slug: product.slug,
-            brandSlug: product.brandSlug,
-            collectionSlug: product.collectionSlug,
-            brand: product.brand,
-            name: product.name,
-            variant: product.variant,
+            id: activeVariantProduct.id,
+            slug: activeVariantProduct.slug,
+            brandSlug: activeVariantProduct.brandSlug,
+            collectionSlug: activeVariantProduct.collectionSlug,
+            brand: activeVariantProduct.brand,
+            name: activeVariantProduct.name,
+            variant: activeVariantProduct.variant,
             size: selectedSize || undefined,
             range: selectedRange,
             price: finalPrice,
-            boxAndPapers,
+            boxAndPapers: resolvedBoxAndPapers,
             quantity: 1,
-            cartKey: product.id,
+            cartKey: activeVariantProduct.id,
           }],
         }),
       });
       const data = await res.json();
       if (data.url) {
-        window.location.href = data.url;
+        window.location.assign(data.url);
       }
     } catch {
       setIsBuyingNow(false);
@@ -175,23 +259,11 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
           color: '#F5F3EF',
           letterSpacing: '-0.025em',
           lineHeight: 1.08,
-          marginBottom: 8,
-        }}
-      >
-        {product.name}
-      </h1>
-
-      {/* Variant */}
-      <p
-        style={{
-          fontSize: '0.85rem',
-          color: '#6B6965',
           marginBottom: 12,
-          letterSpacing: '0.02em',
         }}
       >
-        {product.variant}
-      </p>
+        {displayTitle}
+      </h1>
 
       {/* Star rating */}
       {avgRating !== null && (
@@ -238,12 +310,12 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
                     fontWeight: active ? 600 : 400,
                     color: active ? '#C9A96E' : 'rgba(255,255,255,0.45)',
                     textDecoration: 'none',
-                    transition: 'all 0.2s',
-                    letterSpacing: '0.04em',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {v.variant}
+                  transition: 'all 0.2s',
+                  letterSpacing: '0.04em',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                  {getVariantOptionLabel(v, locale)}
                 </Link>
               );
             })}
@@ -289,7 +361,7 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
       )}
 
       {/* Range Selector — only if product has essential variant */}
-      {product.hasEssentialVariant && product.essentialPrice && (
+      {showRangeSelector && (
         <div style={{ marginBottom: 24 }}>
           <p style={{
             fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em',
@@ -299,19 +371,21 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
           </p>
           <div style={{ display: 'flex', gap: 8 }}>
             {(['essential', 'premium'] as const).map((r) => {
-              const price = r === 'essential' ? product.essentialPrice! : product.price;
+              const price = r === 'essential' ? essentialVariantPrice : premiumVariantPrice;
               const active = selectedRange === r;
               return (
                 <button
                   key={r}
                   onClick={() => setSelectedRange(r)}
+                  disabled={price === null}
                   style={{
                     flex: 1,
                     padding: '10px 12px',
                     border: `1px solid ${active ? '#C9A96E' : 'rgba(255,255,255,0.1)'}`,
                     borderRadius: 3,
                     background: active ? 'rgba(201,169,110,0.08)' : 'transparent',
-                    cursor: 'pointer',
+                    cursor: price === null ? 'not-allowed' : 'pointer',
+                    opacity: price === null ? 0.4 : 1,
                     transition: 'all 0.2s',
                     textAlign: 'left',
                   }}
@@ -322,14 +396,16 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
                     color: active ? '#C9A96E' : 'rgba(255,255,255,0.3)',
                     marginBottom: 2,
                   }}>
-                    {r === 'essential' ? t.rangeEssential : t.rangePremium}
+                    {r === 'essential'
+                      ? rangeSelectorEssentialLabel
+                      : rangeSelectorPremiumLabel}
                   </p>
                   <p style={{
                     fontSize: '0.82rem', fontWeight: 600,
                     color: active ? '#F5F3EF' : 'rgba(255,255,255,0.4)',
                     letterSpacing: '-0.01em',
                   }}>
-                    {formatPrice(price)} CAD
+                    {price !== null ? `${formatPrice(price)} CAD` : '—'}
                   </p>
                 </button>
               );
@@ -365,6 +441,20 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
 
       {/* Price block */}
       <div style={{ marginBottom: 20 }}>
+        {retailReference ? (
+          <p
+            style={{
+              fontSize: '0.72rem',
+              color: 'rgba(255,255,255,0.34)',
+              letterSpacing: '0.05em',
+              marginBottom: 6,
+            }}
+          >
+            {locale === 'fr'
+              ? `Référence au détail : ${formatPrice(retailReference)} CAD`
+              : `Retail reference: ${formatPrice(retailReference)} CAD`}
+          </p>
+        ) : null}
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 4 }}>
           <span
             style={{
@@ -401,11 +491,61 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
         </p>
 
         {/* 10% welcome offer for non-logged-in */}
-        <NewClientDiscount price={activePrice} registerLabel={t.newClientDiscount} />
+        <NewClientDiscount
+          price={activePrice}
+          registerLabel={t.newClientDiscount}
+          discountPercent={welcomeDiscountPercent}
+        />
       </div>
 
-      {/* Box & Papers toggle (premium only) */}
-      {product.range === 'premium' && (
+      {/* Box & Papers state */}
+      {premiumIncludesBoxAndPapers ? (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            marginBottom: 24,
+            padding: '12px 14px',
+            border: '1px solid rgba(201,169,110,0.3)',
+            borderRadius: 3,
+            background: 'rgba(201,169,110,0.05)',
+          }}
+        >
+          <div
+            style={{
+              width: 16,
+              height: 16,
+              border: '1px solid #C9A96E',
+              borderRadius: 2,
+              background: '#C9A96E',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+            }}
+          >
+            <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+              <path
+                d="M1 4l3 3 5-6"
+                stroke="#0A0A0A"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <span
+            style={{
+              fontSize: '0.75rem',
+              color: '#C9A96E',
+              letterSpacing: '0.04em',
+            }}
+          >
+            {t.boxAndPapersIncluded}
+          </span>
+        </div>
+      ) : boxAndPapersPrice > 0 ? (
         <label
           style={{
             display: 'flex',
@@ -464,10 +604,10 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
               letterSpacing: '0.04em',
             }}
           >
-            {t.boxAndPapersLabel.replace('{price}', String(product.boxAndPapersPrice))}
+            {t.boxAndPapersLabel.replace('{price}', String(boxAndPapersPrice))}
           </span>
         </label>
-      )}
+      ) : null}
 
       {/* Key points */}
       {product.keyPoints && product.keyPoints.length > 0 && (
@@ -538,28 +678,50 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
         }}
       >
         {[
-          { icon: Truck, label: t.freeShipping },
-          { icon: RotateCcw, label: t.returnPolicy },
-          { icon: ShieldCheck, label: t.authenticityLabel },
-          { icon: Wrench, label: t.braceletTool },
-        ].map(({ icon: Icon, label }) => (
+          { icon: Wrench, label: t.braceletToolLabel, complimentary: true },
+          { icon: Truck, label: t.trackedShippingLabel, complimentary: true },
+          { icon: ShieldCheck, label: t.premiumPackagingLabel, complimentary: true },
+          { icon: RotateCcw, label: t.guaranteeLabel, complimentary: false },
+        ].map(({ icon: Icon, label, complimentary }) => (
           <div
             key={label}
             style={{
               display: 'flex',
-              alignItems: 'center',
-              gap: 8,
-              padding: '10px 12px',
+              alignItems: 'flex-start',
+              gap: 10,
+              padding: '12px 14px',
               border: '1px solid rgba(255,255,255,0.06)',
               borderRadius: 4,
-              background: 'rgba(255,255,255,0.02)',
-              fontSize: '0.66rem',
-              color: '#A8A5A0',
-              letterSpacing: '0.04em',
+              background: 'rgba(255,255,255,0.04)',
             }}
           >
-            <Icon size={13} strokeWidth={1.6} style={{ color: '#C9A96E', flexShrink: 0 }} />
-            {label}
+            <Icon size={14} strokeWidth={1.8} style={{ color: '#C9A96E', flexShrink: 0, marginTop: 1 }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {complimentary ? (
+                <span
+                  style={{
+                    fontSize: '0.58rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                    color: '#C9A96E',
+                    lineHeight: 1,
+                  }}
+                >
+                  {t.complimentaryBadge}
+                </span>
+              ) : null}
+              <span
+                style={{
+                  fontSize: '0.68rem',
+                  color: '#A8A5A0',
+                  letterSpacing: '0.04em',
+                  lineHeight: 1.35,
+                }}
+              >
+                {label}
+              </span>
+            </div>
           </div>
         ))}
       </div>
@@ -571,26 +733,34 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
           disabled={!product.inStock}
           onClick={() => {
             if (!product.inStock) return;
-            const finalPrice = activePrice + (boxAndPapers ? product.boxAndPapersPrice : 0);
+            const finalPrice = activePrice + (resolvedBoxAndPapers ? boxAndPapersPrice : 0);
             addItem({
-              id: product.id,
-              slug: product.slug,
-              brandSlug: product.brandSlug,
-              collectionSlug: product.collectionSlug,
-              brand: product.brand,
-              name: product.name,
-              variant: product.variant,
+              id: activeVariantProduct.id,
+              slug: activeVariantProduct.slug,
+              brandSlug: activeVariantProduct.brandSlug,
+              collectionSlug: activeVariantProduct.collectionSlug,
+              brand: activeVariantProduct.brand,
+              name: activeVariantProduct.name,
+              variant: activeVariantProduct.variant,
               size: selectedSize || undefined,
               range: selectedRange,
               price: finalPrice,
-              boxAndPapers,
+              boxAndPapers: resolvedBoxAndPapers,
             });
             pixel.addToCart({
-              content_ids: [product.id],
-              content_name: `${product.brand} ${product.name}`,
+              content_ids: [activeVariantProduct.id],
+              content_name: `${activeVariantProduct.brand} ${activeVariantProduct.name}`,
               content_type: 'product',
               value: finalPrice,
               currency: 'CAD',
+            });
+            analytics.addToCart({
+              id: activeVariantProduct.id,
+              name: `${activeVariantProduct.brand} ${activeVariantProduct.name}`,
+              brand: activeVariantProduct.brand,
+              price: finalPrice,
+              range: selectedRange,
+              quantity: 1,
             });
           }}
           style={{
@@ -657,6 +827,7 @@ export function ProductInfo({ product, collectionVariants, t }: Props) {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => analytics.whatsappClick('product_page', product.id)}
           style={{
             width: '100%',
             padding: '14px 24px',
