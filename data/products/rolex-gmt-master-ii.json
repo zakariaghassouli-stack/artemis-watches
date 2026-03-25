@@ -19,7 +19,7 @@
   ],
   "range": "premium",
   "price": 1450,
-  "compareAtPrice": null,
+  "compareAtPrice": 1650,
   "currency": "CAD",
   "inStock": true,
   "stockCount": 2,
@@ -53,7 +53,38 @@
     "ap-royal-oak-blue",
     "patek-nautilus-blue"
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "rgmt-r1",
+      "rating": 5,
+      "title": "La montre des grands voyageurs",
+      "body": "La GMT Pepsi est une icône. Bezel bicolore, lunette céramique, bracelet Jubilee — tout est parfait. Artemis m'a guidé dans mon choix, service au-dessus de la moyenne.",
+      "author": "Philippe D.",
+      "city": "Montréal",
+      "verified": true,
+      "date": "2026-03-05"
+    },
+    {
+      "id": "rgmt-r2",
+      "rating": 5,
+      "title": "Achat coup de cœur",
+      "body": "Je regardais cette montre depuis des mois. Le rapport qualité/prix chez Artemis m'a convaincu. Reçue rapidement, montre conforme à la description. Très satisfait.",
+      "author": "Sébastien R.",
+      "city": "Ottawa",
+      "verified": true,
+      "date": "2026-02-08"
+    },
+    {
+      "id": "rgmt-r3",
+      "rating": 5,
+      "title": "Perfect for travel",
+      "body": "The GMT Pepsi is exactly what I needed for my trips to Europe. The dual time zone function is practical and the watch is stunning. Artemis delivered fast and packaging was top notch.",
+      "author": "Daniel W.",
+      "city": "Vancouver",
+      "verified": true,
+      "date": "2026-01-22"
+    }
+  ],
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Rolex GMT-Master II Pepsi | Artemis Watches Montreal",

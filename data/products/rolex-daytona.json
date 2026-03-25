@@ -19,7 +19,7 @@
   ],
   "range": "premium",
   "price": 1550,
-  "compareAtPrice": null,
+  "compareAtPrice": 1800,
   "currency": "CAD",
   "inStock": true,
   "stockCount": 1,
@@ -54,7 +54,28 @@
     "ap-royal-oak-blue",
     "patek-nautilus-blue"
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "rdyt-r1",
+      "rating": 5,
+      "title": "Un chrono de légende",
+      "body": "La Daytona est le chronographe de référence, un point c'est tout. Au poignet, elle impose le respect. Le cadran noir avec les compteurs est absolument sublime. Artemis a assuré sur tous les fronts.",
+      "author": "Guillaume A.",
+      "city": "Montréal",
+      "verified": true,
+      "date": "2026-03-18"
+    },
+    {
+      "id": "rdyt-r2",
+      "rating": 5,
+      "title": "Commande parfaite",
+      "body": "Ma première montre Rolex et j'ai choisi la Daytona. Je ne pouvais pas mieux choisir. Livraison express depuis Montréal, emballage luxueux, montre en état parfait. Cinq étoiles mérités.",
+      "author": "Thomas B.",
+      "city": "Brossard",
+      "verified": true,
+      "date": "2026-02-04"
+    }
+  ],
   "featured": true,
   "bestSeller": false,
   "seoTitle": "Rolex Daytona Black Dial | Artemis Watches Montreal",

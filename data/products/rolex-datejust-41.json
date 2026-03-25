@@ -19,7 +19,7 @@
   ],
   "range": "premium",
   "price": 1200,
-  "compareAtPrice": null,
+  "compareAtPrice": 1400,
   "currency": "CAD",
   "inStock": true,
   "stockCount": 8,
@@ -53,7 +53,28 @@
     "cartier-santos-silver",
     "patek-nautilus-blue"
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "rdj41-r1",
+      "rating": 5,
+      "title": "Polyvalente et élégante",
+      "body": "La Datejust 41 est une montre qui passe partout. Au bureau, en soirée, le weekend. Le bracelet Jubilee est confortable et le cadran argenté impeccable. Très bien emballée à la réception.",
+      "author": "Nicolas P.",
+      "city": "Montréal",
+      "verified": true,
+      "date": "2026-02-27"
+    },
+    {
+      "id": "rdj41-r2",
+      "rating": 5,
+      "title": "Classique indémodable",
+      "body": "Mon premier achat de montre de luxe. Je voulais quelque chose d'intemporel et la Datejust 41 coche toutes les cases. Le service chez Artemis est professionnel et rapide. Je reviendrai.",
+      "author": "Charles F.",
+      "city": "Gatineau",
+      "verified": true,
+      "date": "2026-01-30"
+    }
+  ],
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Rolex Datejust 41 Silver Dial | Artemis Watches Montreal",

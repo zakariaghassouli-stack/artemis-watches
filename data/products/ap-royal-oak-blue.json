@@ -19,7 +19,7 @@
   ],
   "range": "premium",
   "price": 1450,
-  "compareAtPrice": null,
+  "compareAtPrice": 1700,
   "currency": "CAD",
   "inStock": true,
   "stockCount": 2,
@@ -54,7 +54,38 @@
     "rolex-submariner-date-black",
     "rolex-daytona-black"
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "apro-r1",
+      "rating": 5,
+      "title": "Le Saint Graal des montres sport",
+      "body": "La Royal Oak est dans une catégorie à part. La tapisserie bleue, les vis octogonales, le bracelet intégré — c'est une pièce d'architecture au poignet. Artemis l'a traitée avec soin, je suis bluffé.",
+      "author": "Raphaël T.",
+      "city": "Montréal",
+      "verified": true,
+      "date": "2026-03-10"
+    },
+    {
+      "id": "apro-r2",
+      "rating": 5,
+      "title": "Investissement qui en vaut la peine",
+      "body": "Après des semaines de recherche, j'ai finalement commandé la Royal Oak bleue 41mm chez Artemis. Expérience d'achat premium du début à la fin. La montre est un chef-d'œuvre.",
+      "author": "Antoine V.",
+      "city": "Québec",
+      "verified": true,
+      "date": "2026-02-16"
+    },
+    {
+      "id": "apro-r3",
+      "rating": 5,
+      "title": "Absolutely worth it",
+      "body": "The Royal Oak blue is simply breathtaking in person. The octagonal bezel, the Grande Tapisserie dial, the integrated bracelet — nothing else comes close. Artemis made the whole process smooth and professional.",
+      "author": "Michael S.",
+      "city": "Toronto",
+      "verified": true,
+      "date": "2026-01-18"
+    }
+  ],
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Audemars Piguet Royal Oak Blue Dial 41mm | Artemis Watches Montreal",

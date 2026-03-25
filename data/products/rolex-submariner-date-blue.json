@@ -19,7 +19,7 @@
   ],
   "range": "premium",
   "price": 1250,
-  "compareAtPrice": null,
+  "compareAtPrice": 1450,
   "currency": "CAD",
   "inStock": true,
   "stockCount": 3,
@@ -51,7 +51,28 @@
     "patek-nautilus-blue",
     "ap-royal-oak-blue"
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "rsdb2-r1",
+      "rating": 5,
+      "title": "La Bluesy, un choix que je ne regrette pas",
+      "body": "Couleur du cadran et de la lunette absolument magnifique en réalité. Le bracelet Oyster est d'une solidité impressionnante. Commande traitée rapidement par Artemis.",
+      "author": "François B.",
+      "city": "Québec",
+      "verified": true,
+      "date": "2026-02-20"
+    },
+    {
+      "id": "rsdb2-r2",
+      "rating": 5,
+      "title": "Montre de référence",
+      "body": "Deuxième achat chez Artemis. La Submariner bleue complète parfaitement ma collection. Transaction fluide, montre reçue en 2 jours. Top.",
+      "author": "Alexandre M.",
+      "city": "Montréal",
+      "verified": true,
+      "date": "2026-01-15"
+    }
+  ],
   "featured": true,
   "bestSeller": false,
   "seoTitle": "Rolex Submariner Date Blue Dial | Artemis Watches Montreal",

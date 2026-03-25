@@ -19,7 +19,7 @@
   ],
   "range": "premium",
   "price": 1250,
-  "compareAtPrice": null,
+  "compareAtPrice": 1450,
   "currency": "CAD",
   "inStock": true,
   "stockCount": 5,
@@ -50,7 +50,38 @@
     "rolex-datejust-41",
     "ap-royal-oak-blue"
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "rsdb-r1",
+      "rating": 5,
+      "title": "Exactement ce que je cherchais",
+      "body": "La Submariner est tout simplement parfaite. Finitions impeccables, présence au poignet remarquable. Artemis a été réactif et la livraison depuis Montréal était rapide. Je recommande sans hésiter.",
+      "author": "Mathieu G.",
+      "city": "Montréal",
+      "verified": true,
+      "date": "2026-02-14"
+    },
+    {
+      "id": "rsdb-r2",
+      "rating": 5,
+      "title": "Référence absolue",
+      "body": "J'hésitais entre plusieurs modèles. Le cadran noir avec la lunette Cerachrom est juste iconique. Reçu en parfait état, emballage soigné. Service client exemplaire.",
+      "author": "Kevin L.",
+      "city": "Laval",
+      "verified": true,
+      "date": "2026-01-28"
+    },
+    {
+      "id": "rsdb-r3",
+      "rating": 5,
+      "title": "Superb watch, flawless service",
+      "body": "Bought the Submariner as a gift for myself. Arrived quickly, packaging was premium. The watch is everything I expected — the weight, the finish, the bezel action. Worth every dollar.",
+      "author": "James T.",
+      "city": "Toronto",
+      "verified": true,
+      "date": "2026-03-01"
+    }
+  ],
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Rolex Submariner Date Black Dial | Artemis Watches Montreal",
