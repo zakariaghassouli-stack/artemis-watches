@@ -1,4 +1,5 @@
 export type ProductRange = 'essential' | 'premium';
+export type ShippingSpeed = 'ready-to-ship' | 'made-to-order';
 
 export type ProductBadge =
   | 'best-seller'
@@ -54,9 +55,11 @@ export interface Product {
   inStock: boolean;
   stockCount: number;
   badge: ProductBadge;
-  /** 6 image paths relative to /public */
+  /** Product gallery assets. Prefer 3 photos plus 1 optional video. */
   images: string[];
   video?: string | null;
+  shippingSpeed?: ShippingSpeed;
+  shippingEstimate?: string;
   specs: ProductSpecs;
   availableSizes: string[];
   availableColors: string[];

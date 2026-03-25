@@ -59,6 +59,10 @@ interface Props {
     sizeSelectorLabel: string;
     checkoutNote: string;
     newClientDiscount: string;
+    shippingAvailabilityLabel: string;
+    shippingStatusReady: string;
+    shippingStatusMadeToOrder: string;
+    shippingTrackingNote: string;
   };
 }
 
@@ -157,6 +161,18 @@ export function ProductInfo({
     variant: product.variant,
   });
   const retailReference = getRetailReference(activeVariantProduct);
+  const shippingStatusLabel =
+    activeVariantProduct.shippingSpeed === 'ready-to-ship'
+      ? t.shippingStatusReady
+      : t.shippingStatusMadeToOrder;
+  const shippingStatusTone =
+    activeVariantProduct.shippingSpeed === 'ready-to-ship'
+      ? '#C9A96E'
+      : 'rgba(255,255,255,0.78)';
+  const shippingStatusBackground =
+    activeVariantProduct.shippingSpeed === 'ready-to-ship'
+      ? 'rgba(201,169,110,0.06)'
+      : 'rgba(255,255,255,0.035)';
 
   // viewers counter removed — replaced with stock/scarcity indicator
 
@@ -437,6 +453,49 @@ export function ProductInfo({
             size="md"
           />
         )}
+      </div>
+
+      <div
+        style={{
+          marginBottom: 24,
+          padding: '14px 16px',
+          border: '1px solid rgba(255,255,255,0.08)',
+          borderRadius: 4,
+          background: shippingStatusBackground,
+        }}
+      >
+        <p
+          style={{
+            fontSize: '0.58rem',
+            fontWeight: 700,
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.24)',
+            marginBottom: 6,
+          }}
+        >
+          {t.shippingAvailabilityLabel}
+        </p>
+        <p
+          style={{
+            fontSize: '0.84rem',
+            fontWeight: 600,
+            color: shippingStatusTone,
+            marginBottom: 6,
+            letterSpacing: '0.02em',
+          }}
+        >
+          {shippingStatusLabel}
+        </p>
+        <p
+          style={{
+            fontSize: '0.72rem',
+            color: 'rgba(255,255,255,0.4)',
+            lineHeight: 1.55,
+          }}
+        >
+          {t.shippingTrackingNote}
+        </p>
       </div>
 
       {/* Price block */}

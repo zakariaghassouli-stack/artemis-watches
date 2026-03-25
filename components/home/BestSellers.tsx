@@ -19,7 +19,7 @@ import type { Product } from '@/types/product';
 
 const HOME_IMAGE_OVERRIDES: Record<string, string> = {
   'rolex-submariner-date-black': '/images/rolex-submariner-blackdate-face.webp',
-  'rolex-submariner-hulk-essential': '/images/rolex-submariner-hulk-face.webp',
+  'rolex-submariner-black-nodate-essential': '/images/rolex-submariner-black-nodate-face.webp',
   'cartier-santos-silver-essential': '/images/cartier-santos-silver-face.webp',
   'rolex-gmt-master-ii-pepsi-essential': '/images/rolex-gmt-master-ii-pepsi-face.webp',
 };

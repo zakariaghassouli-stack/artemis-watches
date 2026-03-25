@@ -239,7 +239,7 @@
       "subheadline": "Shipping, returns, secure payment, and direct guidance: the essentials for deciding with confidence.",
       "viewAll": "View the full FAQ →",
       "q1": "How long does shipping take?",
-      "a1": "Canadian orders typically arrive in 3 to 7 business days. International orders usually take 7 to 14 days. All orders ship with tracking.",
+      "a1": "Ready-to-ship pieces usually arrive in 2 to 3 days. Made-to-order pieces take 2 to 3 weeks. Your tracking number is sent by email or WhatsApp and can be followed on 17track.net.",
       "q3": "What is your return policy?",
       "a3": "You have 30 days to return the piece in its original condition if it is not right for you.",
       "q4": "Is payment secure?",
@@ -400,12 +400,12 @@
     "recentlyViewedEmpty": "Browse the collection to discover our timepieces.",
     "shippingTitle": "Shipping & Delivery",
     "shippingLine1Label": "Canada (Standard)",
-    "shippingLine1Value": "3-7 business days - Free",
+    "shippingLine1Value": "Tracked delivery. Rates calculated at checkout",
     "shippingLine2Label": "Canada (Express)",
-    "shippingLine2Value": "1-2 business days - available at checkout",
+    "shippingLine2Value": "Available at checkout when eligible",
     "shippingLine3Label": "International",
-    "shippingLine3Value": "7-14 business days",
-    "shippingNote": "All orders include tracked shipping with signature confirmation.",
+    "shippingLine3Value": "Calculated at checkout by destination",
+    "shippingNote": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net.",
     "returnsTitle": "30-Day Return Policy",
     "returnsPoints": [
       "30-day return window from delivery",
@@ -418,7 +418,11 @@
     "helpBody": "Our team can help you compare models, dial colours, and sizing before you place an order. Message us on WhatsApp for direct guidance.",
     "helpCta": "Chat on WhatsApp →",
     "newClientDiscount": "New here? Create an account for 10% off → {price}",
-    "sortFeatured": "Most Wanted"
+    "sortFeatured": "Most Wanted",
+    "shippingAvailabilityLabel": "Availability",
+    "shippingStatusReady": "Ready to ship. 2-3 days",
+    "shippingStatusMadeToOrder": "Made to order. 2-3 weeks",
+    "shippingTrackingNote": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net."
   },
   "wishlist": {
     "pageOverline": "YOUR SELECTION",
@@ -936,5 +940,8 @@
     "keywords": "luxury watches, Rolex Montreal, Cartier watches, Audemars Piguet, Patek Philippe, pre-owned watches",
     "homepageTitle": "ARTEMIS - Luxury Watch Boutique | Montréal",
     "homepageDescription": "Rolex, Cartier, Audemars Piguet & Patek Philippe inspired timepieces. Curated, inspected and delivered from Montréal. 30-day quality guarantee."
+  },
+  "shipping": {
+    "trackingInfo": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net."
   }
 }

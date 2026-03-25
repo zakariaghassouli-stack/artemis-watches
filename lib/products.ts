@@ -1,4 +1,4 @@
-import type { Product, ProductRange, ProductSpecs } from '@/types/product';
+import type { Product, ProductRange, ProductSpecs, ShippingSpeed } from '@/types/product';
 
 // ─── Static product imports ───────────────────────────────────
 // Legacy products (non-essential)
@@ -207,6 +207,70 @@ function getProductFamilyKey(product: Pick<Product, 'brandSlug' | 'collectionSlu
   return `${product.brandSlug}:${product.collectionSlug}:${product.name.trim().toLowerCase()}`;
 }
 
+const PREMIUM_READY_TO_SHIP_RULES: Array<{
+  collectionSlug: string;
+  matcher: (haystack: string) => boolean;
+}> = [
+  {
+    collectionSlug: 'submariner',
+    matcher: (haystack) => /no date/.test(haystack),
+  },
+  {
+    collectionSlug: 'daytona',
+    matcher: (haystack) => /panda/.test(haystack),
+  },
+  {
+    collectionSlug: 'yacht-master',
+    matcher: (haystack) => /gold/.test(haystack),
+  },
+];
+
+function hasOriginalOwnerPhotos(product: Pick<Product, 'images' | 'video'>): boolean {
+  const media = [...(product.images ?? []), product.video].filter(Boolean) as string[];
+  return media.some((asset) => /\/images\/IMG_\d+\.webp$/i.test(asset));
+}
+
+function resolveShippingAvailability(
+  product: Product,
+  canonicalSource?: Pick<Product, 'images' | 'video'>
+): { shippingSpeed: ShippingSpeed; shippingEstimate: string } {
+  if (product.shippingSpeed && product.shippingEstimate) {
+    return {
+      shippingSpeed: product.shippingSpeed,
+      shippingEstimate: product.shippingEstimate,
+    };
+  }
+
+  const haystack = [
+    product.name,
+    product.variant,
+    product.slug,
+    product.collection,
+    product.collectionSlug,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+
+  if (product.range === 'premium') {
+    const isReadyToShipPremium = PREMIUM_READY_TO_SHIP_RULES.some(
+      (rule) => product.collectionSlug === rule.collectionSlug && rule.matcher(haystack)
+    );
+
+    return isReadyToShipPremium
+      ? { shippingSpeed: 'ready-to-ship', shippingEstimate: '2-3 days' }
+      : { shippingSpeed: 'made-to-order', shippingEstimate: '2-3 weeks' };
+  }
+
+  const hasOriginalPhotos =
+    hasOriginalOwnerPhotos(product) ||
+    (canonicalSource ? hasOriginalOwnerPhotos(canonicalSource) : false);
+
+  return hasOriginalPhotos
+    ? { shippingSpeed: 'ready-to-ship', shippingEstimate: '2-3 days' }
+    : { shippingSpeed: 'made-to-order', shippingEstimate: '2-3 weeks' };
+}
+
 export function isGenericMovementVariant(variant: string): boolean {
   return /^(japanese movement|swiss movement|mouvement japonais|mouvement suisse)$/i.test(
     variant.trim()
@@ -312,6 +376,9 @@ export function enrichProductCatalog(products: Product[]): Product[] {
 
   return products.map((product) => {
     const family = groups.get(getProductFamilyKey(product)) ?? [product];
+    const localCanonical =
+      RAW_PRODUCTS.find((item) => item.id === product.id) ??
+      RAW_PRODUCTS.find((item) => item.slug === product.slug);
     const essentialPrices = family
       .filter((item) => item.range === 'essential')
       .map((item) => item.price);
@@ -327,6 +394,7 @@ export function enrichProductCatalog(products: Product[]): Product[] {
       premiumPrice: premiumPrices.length > 0 ? Math.min(...premiumPrices) : null,
       boxAndPapersPrice:
         product.range === 'premium' ? 0 : product.boxAndPapersPrice ?? 49,
+      ...resolveShippingAvailability(product, localCanonical),
     };
   });
 }
@@ -366,7 +434,7 @@ export function getBestSellers(limit = 4): Product[] {
 export function getHomepageEditProducts(): Product[] {
   const preferredIds = [
     'rolex-submariner-date-black',
-    'rolex-submariner-hulk-essential',
+    'rolex-submariner-black-nodate-essential',
     'cartier-santos-silver-essential',
     'rolex-gmt-master-ii-pepsi-essential',
   ];

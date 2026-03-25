@@ -5,10 +5,10 @@
   "brandSlug": "rolex",
   "collection": "Submariner",
   "collectionSlug": "submariner",
-  "name": "Submariner (No Date)",
-  "variant": "Black Dial - Essential",
+  "name": "Submariner No Date",
+  "variant": "Black Dial",
   "description": "The Submariner No Date presents the cleanest version of the design - a black dial, luminous markers, and a unidirectional rotating bezel with no date window breaking the symmetry. Introduced in 1953 as a professional dive tool, the Submariner has since become one of the most recognized sports watch profiles in the world.\n\nThis Artemis Essential selection pairs the Submariner silhouette with a Miyota Japanese automatic movement and a full stainless steel Oyster bracelet. The result is a watch that carries the same commanding presence on the wrist at a fraction of the barrier to entry.",
-  "descriptionShort": "The cleanest Submariner profile - black dial, no date, with a unidirectional bezel and Oyster bracelet.",
+  "descriptionShort": "A clean black-dial Submariner without a date window, paired with a Miyota automatic movement and Oyster bracelet.",
   "keyPoints": [
     "No date window for a clean, symmetrical dial",
     "Unidirectional rotating 60-minute bezel",
@@ -23,7 +23,7 @@
   "currency": "CAD",
   "inStock": true,
   "stockCount": 6,
-  "badge": null,
+  "badge": "high-demand",
   "images": [
     "/images/rolex-submariner-black-nodate-face.webp",
     "/images/rolex-submariner-black-nodate-side.webp",
@@ -54,12 +54,12 @@
     "rolex-daytona-black-essential"
   ],
   "reviews": [],
-  "featured": false,
-  "bestSeller": false,
+  "featured": true,
+  "bestSeller": true,
   "seoTitle": "Rolex Submariner No Date Black | Artemis Watches Montreal",
   "seoDescription": "Shop the Submariner No Date (Black) at Artemis - Miyota movement, 40mm, from $350 CAD. 30-day returns, tracked Canada shipping.",
   "descriptionFr": "La Submariner sans date présente la version la plus épurée du design - cadran noir, index lumineux et lunette tournante unidirectionnelle sans fenêtre de date venant rompre la symétrie. Introduite en 1953 comme outil de plongée professionnel, la Submariner est devenue l'une des silhouettes sportives les plus reconnues au monde.\n\nCette sélection Artemis Essential associe le profil Submariner à un mouvement automatique japonais Miyota et à un bracelet Oyster en acier inoxydable plein. Le résultat est une montre qui impose la même présence au poignet à un prix bien plus accessible.",
-  "descriptionShortFr": "La version la plus épurée de la Submariner - cadran noir, sans date, avec lunette unidirectionnelle et bracelet Oyster.",
+  "descriptionShortFr": "Une Submariner cadran noir sans date, avec mouvement Miyota automatique et bracelet Oyster.",
   "keyPointsFr": [
     "Sans fenêtre de date pour un cadran propre et symétrique",
     "Lunette tournante unidirectionnelle 60 minutes",
@@ -68,5 +68,7 @@
     "Bracelet Oyster en acier inoxydable plein",
     "Gamme Essential - à partir de 340 $ CAD"
   ],
-  "seoDescriptionFr": ""
+  "seoDescriptionFr": "",
+  "shippingSpeed": "made-to-order",
+  "shippingEstimate": "2-3 weeks"
 }

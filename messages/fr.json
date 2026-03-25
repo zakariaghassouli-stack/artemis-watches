@@ -239,7 +239,7 @@
       "subheadline": "Livraison, retours, sécurité et accompagnement: l'essentiel pour décider sans hésiter.",
       "viewAll": "D'autres questions ? Consultez notre FAQ complète →",
       "q1": "Combien de temps prend la livraison ?",
-      "a1": "Au Canada, comptez généralement 3 à 7 jours ouvrables. À l'international, 7 à 14 jours. Toutes les commandes partent avec suivi.",
+      "a1": "Les pièces prêtes à expédier arrivent généralement en 2 à 3 jours. Les pièces sur commande prennent 2 à 3 semaines. Votre numéro de suivi est envoyé par email ou WhatsApp et peut être suivi sur 17track.net.",
       "q2": "Livrez-vous à l'international ?",
       "a2": "Oui. Nous livrons au Canada et dans la plupart des destinations internationales. Les frais apparaissent avant le paiement.",
       "q3": "Quelle est votre politique de retour ?",
@@ -406,12 +406,12 @@
     "recentlyViewedEmpty": "Parcourez la collection pour découvrir nos pièces.",
     "shippingTitle": "Livraison & Délais",
     "shippingLine1Label": "Canada (Standard)",
-    "shippingLine1Value": "3-7 jours ouvrables - Gratuit",
+    "shippingLine1Value": "Livraison suivie. Frais calculés à la caisse",
     "shippingLine2Label": "Canada (Express)",
-    "shippingLine2Value": "1-2 jours ouvrables - disponible à la caisse",
+    "shippingLine2Value": "Disponible à la caisse selon l'adresse",
     "shippingLine3Label": "International",
-    "shippingLine3Value": "7-14 jours ouvrables",
-    "shippingNote": "Toutes les commandes incluent un suivi avec confirmation de signature.",
+    "shippingLine3Value": "Calculée à la caisse selon la destination",
+    "shippingNote": "Votre numéro de suivi sera envoyé par email ou WhatsApp. Suivez votre commande sur 17track.net.",
     "returnsTitle": "Politique de retour 30 jours",
     "returnsPoints": [
       "Fenêtre de retour de 30 jours après livraison",
@@ -424,7 +424,11 @@
     "helpBody": "Notre équipe peut vous aider à comparer les modèles, les cadrans et les tailles avant commande. Écrivez-nous sur WhatsApp pour un échange direct.",
     "helpCta": "Discuter sur WhatsApp →",
     "newClientDiscount": "Nouveau client ? Créez un compte pour 10 % de réduction → {price}",
-    "sortFeatured": "Plus demandées"
+    "sortFeatured": "Plus demandées",
+    "shippingAvailabilityLabel": "Disponibilité",
+    "shippingStatusReady": "Prêt à expédier. 2 à 3 jours",
+    "shippingStatusMadeToOrder": "Sur commande. 2 à 3 semaines",
+    "shippingTrackingNote": "Votre numéro de suivi sera envoyé par email ou WhatsApp. Suivez votre commande sur 17track.net."
   },
   "wishlist": {
     "pageOverline": "VOTRE SÉLECTION",
@@ -942,5 +946,8 @@
     "keywords": "montres de luxe, Rolex Montréal, Cartier Montréal, Audemars Piguet, Patek Philippe, montres haut de gamme",
     "homepageTitle": "ARTEMIS - Boutique de Montres de Luxe | Montréal",
     "homepageDescription": "Rolex, Cartier, Audemars Piguet & Patek Philippe. Sélectionnées, inspectées, livrées depuis Montréal. Garantie qualité 30 jours."
+  },
+  "shipping": {
+    "trackingInfo": "Votre numéro de suivi sera envoyé par email ou WhatsApp. Suivez votre commande sur 17track.net."
   }
 }

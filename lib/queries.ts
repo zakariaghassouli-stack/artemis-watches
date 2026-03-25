@@ -69,6 +69,8 @@ type SanityProductDocument = {
   bestSeller?: boolean;
   essentialPrice?: number | null;
   boxAndPapersPrice?: number | null;
+  shippingSpeed?: Product['shippingSpeed'];
+  shippingEstimate?: string;
   seoTitle?: string;
   seoTitleFr?: string;
   seoDescription?: string;
@@ -124,6 +126,8 @@ const PRODUCT_QUERY = `*[_type == "product"] | order(brand asc, price asc, name 
   bestSeller,
   essentialPrice,
   boxAndPapersPrice,
+  shippingSpeed,
+  shippingEstimate,
   seoTitle,
   seoTitleFr,
   seoDescription,
@@ -261,6 +265,8 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       essentialPrice: doc.essentialPrice ?? null,
       premiumPrice: doc.range === 'premium' ? doc.price : null,
       boxAndPapersPrice: doc.boxAndPapersPrice ?? (doc.range === 'premium' ? 0 : 49),
+      shippingSpeed: doc.shippingSpeed,
+      shippingEstimate: doc.shippingEstimate,
       relatedProducts: (doc.relatedProducts ?? []).map((item) => item._id),
       reviews: doc.reviews ?? [],
       featured: doc.featured ?? Boolean(doc.badge),
@@ -435,7 +441,7 @@ export async function getHomepageEditProducts(): Promise<Product[]> {
 
   const preferredSlugs = [
     'submariner-date-black-dial',
-    'submariner-hulk-essential',
+    'submariner-black-no-date-essential',
     'santos-silver-essential',
     'gmt-master-ii-pepsi-essential',
   ];

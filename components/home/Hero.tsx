@@ -324,8 +324,8 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
               }}
             />
             <Image
-              src="/images/rolex-submariner-hulk-face.webp"
-              alt="Rolex Submariner Hulk — Artemis Watches Montreal"
+              src="/images/rolex-submariner-black-nodate-face.webp"
+              alt="Rolex Submariner No Date, Artemis Watches Montreal"
               fill
               sizes="(max-width: 768px) 100vw, 42vw"
               style={{

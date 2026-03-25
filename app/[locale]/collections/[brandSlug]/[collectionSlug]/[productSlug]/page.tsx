@@ -138,6 +138,10 @@ export default async function ProductPage({ params }: Props) {
     sizeSelectorLabel: t('sizeSelectorLabel'),
     checkoutNote: t('checkoutNote'),
     newClientDiscount: t.raw('newClientDiscount') as string,
+    shippingAvailabilityLabel: t('shippingAvailabilityLabel'),
+    shippingStatusReady: t('shippingStatusReady'),
+    shippingStatusMadeToOrder: t('shippingStatusMadeToOrder'),
+    shippingTrackingNote: t('shippingTrackingNote'),
   };
 
   const productTabsT = {

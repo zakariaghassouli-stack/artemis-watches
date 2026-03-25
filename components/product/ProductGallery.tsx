@@ -153,15 +153,18 @@ function WatchPlaceholder({ brand }: { brand: string }) {
 export function ProductGallery({ product }: Props) {
   const t = useTranslations('product');
   const locale = useLocale();
-  const uniqueImages = Array.from(
-    new Set((product.images ?? []).filter(Boolean))
-  );
-  const videoThumb = uniqueImages[1] ?? uniqueImages[0] ?? null;
-  const media = [
-    ...(product.video ? [{ type: 'video' as const, src: product.video }] : []),
-    ...uniqueImages.map((src) => ({ type: 'image' as const, src })),
-  ];
-  const thumbCount = media.length > 0 ? Math.min(media.length, 5) : 4;
+  const rawMedia = [...(product.images ?? []), product.video]
+    .filter((src): src is string => Boolean(src));
+  const uniqueMedia = Array.from(new Set(rawMedia));
+  const imageMedia = uniqueMedia
+    .filter((src) => !/\.(mp4|webm)(\?.*)?$/i.test(src))
+    .map((src) => ({ type: 'image' as const, src }));
+  const videoMedia = uniqueMedia
+    .filter((src) => /\.(mp4|webm)(\?.*)?$/i.test(src))
+    .map((src) => ({ type: 'video' as const, src }));
+  const media = [...imageMedia, ...videoMedia];
+  const videoThumb = imageMedia[0]?.src ?? null;
+  const thumbCount = media.length > 0 ? Math.min(media.length, 5) : 0;
   const [selected, setSelected] = useState(0);
   const activeMedia = media[selected];
 
@@ -203,12 +206,10 @@ export function ProductGallery({ product }: Props) {
           activeMedia.type === 'video' ? (
             <video
               src={activeMedia.src}
-              poster={uniqueImages[0]}
-              autoPlay
-              muted
-              loop
+              poster={videoThumb ?? undefined}
               playsInline
-              controls={false}
+              controls
+              preload="metadata"
               style={{
                 display: 'block',
                 width: '100%',
