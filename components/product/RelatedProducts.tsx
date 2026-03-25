@@ -1,11 +1,12 @@
 'use client';
 
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import {
+  ALL_PRODUCTS,
   formatPrice,
   getProductImageAlt,
-  getRelatedProducts,
   getScarcityState,
   localizeProduct,
 } from '@/lib/products';
@@ -18,6 +19,36 @@ interface Props {
   product: Product;
   title: string;
   viewAll: string;
+  allProducts?: Product[];
+}
+
+function resolveRelatedProducts(product: Product, catalog: Product[], limit = 4): Product[] {
+  const explicitIds = new Set(product.relatedProducts);
+  const results: Product[] = [];
+  const exclude = new Set([product.id]);
+
+  const add = (candidates: Product[]) => {
+    for (const candidate of candidates) {
+      if (!exclude.has(candidate.id) && results.length < limit) {
+        results.push(candidate);
+        exclude.add(candidate.id);
+      }
+    }
+  };
+
+  if (explicitIds.size > 0) {
+    add(
+      catalog.filter((candidate) => explicitIds.has(candidate.id))
+    );
+    if (results.length >= limit) return results.slice(0, limit);
+  }
+
+  add(catalog.filter((candidate) => candidate.collectionSlug === product.collectionSlug));
+  add(catalog.filter((candidate) => candidate.brandSlug === product.brandSlug));
+  add(catalog.filter((candidate) => candidate.range === product.range));
+  add(catalog.filter((candidate) => candidate.bestSeller || candidate.featured));
+
+  return results.slice(0, limit);
 }
 
 function RelatedCard({ product }: { product: Product }) {
@@ -62,17 +93,16 @@ function RelatedCard({ product }: { product: Product }) {
         }}
       >
         {product.images?.[0] ? (
-            <img
+            <Image
               src={product.images[0]}
-            alt={getProductImageAlt(localizedProduct)}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-            loading="lazy"
+              alt={getProductImageAlt(localizedProduct, { locale })}
+              fill
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                objectFit: 'cover',
+              }}
           />
         ) : (
           <>
@@ -129,7 +159,7 @@ function RelatedCard({ product }: { product: Product }) {
             <ScarcityBadge
               scarcity={scarcity}
               labels={{
-                lowStock: tProduct('lowStock'),
+                lowStock: tProduct.raw('lowStock') as string,
                 bestSeller: tProduct('bestSeller'),
                 highDemand: tProduct('highDemand'),
                 newArrival: tProduct('newArrival'),
@@ -200,8 +230,8 @@ function RelatedCard({ product }: { product: Product }) {
   );
 }
 
-export function RelatedProducts({ product, title, viewAll }: Props) {
-  const related = getRelatedProducts(product, 4);
+export function RelatedProducts({ product, title, viewAll, allProducts }: Props) {
+  const related = resolveRelatedProducts(product, allProducts ?? ALL_PRODUCTS, 4);
   if (related.length === 0) return null;
 
   return (

@@ -1,13 +1,20 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { Search, X, ChevronDown } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
 import type { Product } from '@/types/product';
-import { formatPrice, getProductImageAlt, getScarcityState, localizeProduct } from '@/lib/products';
+import {
+  formatPrice,
+  getMovementComparisonLabel,
+  getProductImageAlt,
+  getScarcityState,
+  localizeProduct,
+} from '@/lib/products';
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -98,8 +105,9 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
   const href = `/collections/${product.brandSlug}/${product.collectionSlug}/${product.slug}`;
 
   const scarcity = getScarcityState(product);
-  const detailNote = product.hasEssentialVariant
-    ? t('rangeOptions')
+  const movementComparison = getMovementComparisonLabel(product, locale);
+  const detailNote = product.hasEssentialVariant && product.hasPremiumVariant
+    ? movementComparison ?? t('rangeOptions')
     : product.availableSizes.length > 1
       ? t('sizeOptions')
       : t('supportNote');
@@ -154,11 +162,11 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
         >
           <ScarcityBadge
             scarcity={scarcity}
-            labels={{
-              lowStock: t('lowStock'),
-              bestSeller: t('bestSeller'),
-              highDemand: t('highDemand'),
-              newArrival: t('newArrival'),
+              labels={{
+                lowStock: t.raw('lowStock') as string,
+                bestSeller: t('bestSeller'),
+                highDemand: t('highDemand'),
+                newArrival: t('newArrival'),
               justRestocked: t('justRestocked'),
             }}
             size="xs"
@@ -179,15 +187,12 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
         }}
       >
         {product.images[0] ? (
-          // eslint-disable-next-line @next/next/no-img-element
-            <img
+          <Image
             src={product.images[0]}
-            alt={getProductImageAlt(localizedProduct)}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            loading="lazy"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).style.display = 'none';
-            }}
+            alt={getProductImageAlt(localizedProduct, { locale })}
+            fill
+            sizes="(max-width: 768px) 50vw, 25vw"
+            style={{ objectFit: 'cover', display: 'block' }}
           />
         ) : (
           <div
@@ -257,9 +262,9 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
               {formatPrice(product.price)}
               <span style={{ fontSize: '0.65rem', color: '#6B6965', marginLeft: 4 }}>CAD</span>
             </p>
-            {product.range === 'premium' && product.hasEssentialVariant && product.essentialPrice && (
+            {movementComparison && (
               <p style={{ fontSize: '0.65rem', color: '#6B6965', marginTop: 2 }}>
-                {t('fromPrice')} {formatPrice(product.essentialPrice)} CAD
+                {movementComparison}
               </p>
             )}
           </div>
@@ -687,9 +692,6 @@ export function SearchClient({
                 }
                 @media (max-width: 700px) {
                   .search-grid { grid-template-columns: repeat(2, 1fr); }
-                }
-                @media (max-width: 480px) {
-                  .search-grid { grid-template-columns: 1fr; }
                 }
               `}</style>
 

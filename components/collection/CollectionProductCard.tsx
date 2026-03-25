@@ -2,13 +2,12 @@
 
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { useLocale, useTranslations } from 'next-intl';
-import { SectionHeader } from '@/components/shared/SectionHeader';
 import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   formatPrice,
-  getHomepageEditProducts,
+  getMovementComparisonLabel,
   getProductImageAlt,
   getScarcityState,
   localizeProduct,
@@ -17,35 +16,28 @@ import { useCurrency } from '@/components/providers/CurrencyProvider';
 import { convertPrice } from '@/lib/currency';
 import type { Product } from '@/types/product';
 
-const HOME_IMAGE_OVERRIDES: Record<string, string> = {
-  'rolex-submariner-date-black': '/images/rolex-submariner-blackdate-face.webp',
-  'rolex-submariner-hulk-essential': '/images/rolex-submariner-hulk-face.webp',
-  'cartier-santos-silver-essential': '/images/cartier-santos-silver-face.webp',
-  'rolex-gmt-master-ii-pepsi-essential': '/images/rolex-gmt-master-ii-pepsi-face.webp',
-};
-
-function ProductCard({
-  product,
-  index,
-  t,
-}: {
+interface Props {
   product: Product;
   index: number;
-  t: ReturnType<typeof useTranslations<'home.bestSellers'>>;
-}) {
+  viewDetailsLabel: string;
+}
+
+export function CollectionProductCard({ product, index, viewDetailsLabel }: Props) {
   const locale = useLocale();
+  const tProduct = useTranslations('product');
+  const tCollections = useTranslations('collections');
   const localizedProduct = localizeProduct(product, locale);
   const scarcity = getScarcityState(product);
   const { currency } = useCurrency();
-  const displayImage = HOME_IMAGE_OVERRIDES[product.id] ?? product.images?.[0];
+  const movementComparison = getMovementComparisonLabel(product, locale);
   const detailNote = product.hasEssentialVariant && product.hasPremiumVariant
-    ? t('cardRange')
+    ? movementComparison ?? tCollections('rangeOptions')
     : product.availableSizes.length > 1
-      ? t('cardSize')
-      : t('cardSupport');
+      ? tCollections('sizeOptions')
+      : tCollections('supportNote');
 
   return (
-    <ScrollReveal delay={index * 80}>
+    <ScrollReveal delay={index * 60}>
       <Link
         href={`/collections/${product.brandSlug}/${product.collectionSlug}/${product.slug}`}
         style={{
@@ -59,17 +51,14 @@ function ProductCard({
           background: '#111111',
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.borderColor =
-            'rgba(201,169,110,0.25)';
+          (e.currentTarget as HTMLElement).style.borderColor = 'rgba(201,169,110,0.25)';
           (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)';
         }}
         onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.borderColor =
-            'rgba(255,255,255,0.06)';
+          (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.06)';
           (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
         }}
       >
-        {/* Image area */}
         <div
           style={{
             aspectRatio: '1/1',
@@ -82,12 +71,12 @@ function ProductCard({
             gap: 8,
           }}
         >
-          {displayImage ? (
+          {product.images?.[0] ? (
             <Image
-              src={displayImage}
+              src={product.images[0]}
               alt={getProductImageAlt(localizedProduct, { locale })}
               fill
-              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              sizes="(max-width: 700px) 50vw, (max-width: 1024px) 33vw, 25vw"
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -124,40 +113,38 @@ function ProductCard({
                   color: '#3A3A3A',
                 }}
               >
-          {localizedProduct.brand}
+                {product.brand}
               </p>
             </>
           )}
 
-          {/* Scarcity badge */}
           {scarcity && (
             <div style={{ position: 'absolute', top: 10, left: 10 }}>
               <ScarcityBadge
                 scarcity={scarcity}
                 labels={{
-                  lowStock: t.raw('lowStock') as string,
-                  bestSeller: t('bestSeller'),
-                  highDemand: t('highDemand'),
-                  newArrival: t('newArrival'),
-                  justRestocked: t('justRestocked'),
+                  lowStock: tProduct.raw('lowStock') as string,
+                  bestSeller: tProduct('bestSeller'),
+                  highDemand: tProduct('highDemand'),
+                  newArrival: tProduct('newArrival'),
+                  justRestocked: tProduct('justRestocked'),
                 }}
                 size="sm"
+                excludeTypes={['best-seller', 'high-demand']}
               />
             </div>
           )}
 
-          {/* Range badge */}
           <div style={{ position: 'absolute', top: 10, right: 10 }}>
             <RangeBadge
               range={product.range}
-              premiumLabel={t('premium')}
-              essentialLabel={t('essential')}
+              premiumLabel={tProduct('rangePremium')}
+              essentialLabel={tProduct('rangeEssential')}
               size="xs"
             />
           </div>
         </div>
 
-        {/* Info */}
         <div style={{ padding: '16px 16px 20px' }}>
           <p
             style={{
@@ -169,7 +156,7 @@ function ProductCard({
               marginBottom: 5,
             }}
           >
-            {product.brand}
+            {localizedProduct.brand}
           </p>
           <p
             style={{
@@ -180,7 +167,7 @@ function ProductCard({
               letterSpacing: '-0.01em',
             }}
           >
-          {localizedProduct.name}
+            {localizedProduct.name}
           </p>
           <p
             style={{
@@ -189,26 +176,14 @@ function ProductCard({
               marginBottom: 10,
             }}
           >
-          {localizedProduct.variant}
+            {localizedProduct.variant}
           </p>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-            <p
-              style={{
-                fontSize: '0.88rem',
-                fontWeight: 600,
-                color: '#A8A5A0',
-              }}
-            >
+            <p style={{ fontSize: '0.88rem', fontWeight: 600, color: '#A8A5A0' }}>
               {formatPrice(convertPrice(product.price, currency), currency)} {currency}
             </p>
             {product.compareAtPrice && (
-              <p
-                style={{
-                  fontSize: '0.78rem',
-                  color: '#6B6965',
-                  textDecoration: 'line-through',
-                }}
-              >
+              <p style={{ fontSize: '0.78rem', color: '#6B6965', textDecoration: 'line-through' }}>
                 {formatPrice(convertPrice(product.compareAtPrice, currency), currency)}
               </p>
             )}
@@ -244,89 +219,11 @@ function ProductCard({
                 whiteSpace: 'nowrap',
               }}
             >
-              {t('cardCta')}
+              {viewDetailsLabel}
             </span>
           </div>
         </div>
       </Link>
     </ScrollReveal>
-  );
-}
-
-interface BestSellersProps {
-  products?: Product[];
-}
-
-export function BestSellers({ products: productsProp }: BestSellersProps) {
-  const t = useTranslations('home.bestSellers');
-  const products = productsProp ?? getHomepageEditProducts();
-
-  return (
-    <section
-      style={{
-        background: '#0A0A0A',
-        padding: 'clamp(72px, 10vw, 120px) 24px',
-      }}
-    >
-      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <SectionHeader
-          overline={t('overline')}
-          headline={t('headline')}
-          subheadline={t('subheadline')}
-        />
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 20,
-            marginBottom: 48,
-          }}
-          className="bs-grid"
-        >
-          <style>{`
-            @media (max-width: 900px) {
-              .bs-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            }
-            @media (max-width: 520px) {
-              .bs-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            }
-          `}</style>
-
-          {products.map((product, i) => (
-            <ProductCard key={product.id} product={product} index={i} t={t} />
-          ))}
-        </div>
-
-        <ScrollReveal delay={0}>
-          <div style={{ textAlign: 'center' }}>
-            <Link
-              href="/collections"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                fontSize: '0.78rem',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                color: '#C9A96E',
-                textDecoration: 'none',
-                borderBottom: '1px solid rgba(201,169,110,0.3)',
-                paddingBottom: 2,
-                transition: 'border-color 0.2s',
-              }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.borderColor = '#C9A96E')
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.borderColor =
-                  'rgba(201,169,110,0.3)')
-              }
-            >
-              {t('viewAll')}
-            </Link>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
   );
 }

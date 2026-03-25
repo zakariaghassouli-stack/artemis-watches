@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 import { RangeBadge } from '@/components/shared/ProductBadges';
 import type { Product } from '@/types/product';
 import { getProductImageAlt } from '@/lib/products';
@@ -151,15 +152,35 @@ function WatchPlaceholder({ brand }: { brand: string }) {
 
 export function ProductGallery({ product }: Props) {
   const t = useTranslations('product');
-  const hasImages = product.images && product.images.length > 0;
-  // Use 4 thumbnail slots (real images or placeholder indices)
-  const thumbCount = hasImages ? Math.min(product.images.length, 5) : 4;
+  const locale = useLocale();
+  const uniqueImages = Array.from(
+    new Set((product.images ?? []).filter(Boolean))
+  );
+  const videoThumb = uniqueImages[1] ?? uniqueImages[0] ?? null;
+  const media = [
+    ...(product.video ? [{ type: 'video' as const, src: product.video }] : []),
+    ...uniqueImages.map((src) => ({ type: 'image' as const, src })),
+  ];
+  const thumbCount = media.length > 0 ? Math.min(media.length, 5) : 4;
   const [selected, setSelected] = useState(0);
+  const activeMedia = media[selected];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 12,
+        position: 'relative',
+        width: '100%',
+        minWidth: 0,
+        isolation: 'isolate',
+        zIndex: 0,
+      }}
+    >
       {/* Main image */}
       <div
+        className="product-gallery"
         style={{
           aspectRatio: '1/1',
           background: 'linear-gradient(155deg, #1C1C1C 0%, #111111 60%, #141414 100%)',
@@ -170,22 +191,48 @@ export function ProductGallery({ product }: Props) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          width: '100%',
+          minWidth: 0,
+          maxWidth: '100%',
+          maxHeight: 'min(80vh, 820px)',
+          isolation: 'isolate',
+          zIndex: 0,
         }}
       >
-        {hasImages ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={product.images[selected]}
-            alt={getProductImageAlt(product, { viewIndex: selected + 1 })}
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-          />
+        {activeMedia ? (
+          activeMedia.type === 'video' ? (
+            <video
+              src={activeMedia.src}
+              poster={uniqueImages[0]}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls={false}
+              style={{
+                display: 'block',
+                width: '100%',
+                height: '100%',
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'cover',
+                position: 'relative',
+                zIndex: 0,
+              }}
+            />
+          ) : (
+            <Image
+              src={activeMedia.src}
+              alt={getProductImageAlt(product, { viewIndex: selected + 1, locale })}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={selected === 0}
+              style={{
+                objectFit: 'cover',
+                zIndex: 0,
+              }}
+            />
+          )
         ) : (
           <WatchPlaceholder brand={product.brand} />
         )}
@@ -219,7 +266,7 @@ export function ProductGallery({ product }: Props) {
 
       {/* Thumbnail strip */}
       {thumbCount > 1 && (
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div style={{ display: 'flex', gap: 8, minWidth: 0 }}>
           {Array.from({ length: thumbCount }).map((_, i) => (
             <button
               key={i}
@@ -245,17 +292,51 @@ export function ProductGallery({ product }: Props) {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
-              aria-label={`View ${product.name} image ${i + 1}`}
+              aria-label={
+                media[i]?.type === 'video'
+                  ? `Play ${product.name} video`
+                  : `View ${product.name} image ${i + 1}`
+              }
             >
-              {hasImages ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={product.images[i]}
-                  alt={getProductImageAlt(product, { viewIndex: i + 1 })}
-                  loading="lazy"
-                  decoding="async"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+              {media[i] ? (
+                media[i].type === 'video' ? (
+                  <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    {videoThumb ? (
+                      <Image
+                        src={videoThumb}
+                        alt={getProductImageAlt(product, { locale })}
+                        fill
+                        sizes="96px"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    ) : null}
+                    <span
+                      aria-hidden
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#F5F3EF',
+                        background: 'linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.24) 100%)',
+                      }}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <circle cx="9" cy="9" r="8" fill="rgba(10,10,10,0.58)" stroke="rgba(245,243,239,0.22)" />
+                        <path d="M7 6.25l5 2.75L7 11.75V6.25z" fill="#F5F3EF" />
+                      </svg>
+                    </span>
+                  </div>
+                ) : (
+                  <Image
+                    src={media[i].src}
+                    alt={getProductImageAlt(product, { viewIndex: i + 1, locale })}
+                    fill
+                    sizes="96px"
+                    style={{ objectFit: 'cover' }}
+                  />
+                )
               ) : (
                 <div
                   style={{

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
@@ -8,16 +9,19 @@ import { ALL_PRODUCTS, formatPrice, getProductImageAlt, localizeProduct } from '
 import type { Product } from '@/types/product';
 
 const STORAGE_KEY = 'artemis_recently_viewed';
-const MAX_ITEMS = 4;
+const STORED_MAX_ITEMS = 10;
+const VISIBLE_MAX_ITEMS = 4;
 
 interface Props {
   currentProductId: string;
+  allProducts?: Product[];
 }
 
-export function RecentlyViewed({ currentProductId }: Props) {
+export function RecentlyViewed({ currentProductId, allProducts }: Props) {
   const t = useTranslations('product');
   const locale = useLocale();
   const [products, setProducts] = useState<Product[]>([]);
+  const catalog = allProducts ?? ALL_PRODUCTS;
 
   useEffect(() => {
     let frame = 0;
@@ -29,14 +33,17 @@ export function RecentlyViewed({ currentProductId }: Props) {
     } catch {}
 
     // Add current product to front, deduplicate
-    const updated = [currentProductId, ...viewed.filter((id) => id !== currentProductId)].slice(0, MAX_ITEMS + 1);
+    const updated = [currentProductId, ...viewed.filter((id) => id !== currentProductId)].slice(
+      0,
+      STORED_MAX_ITEMS
+    );
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(updated)); } catch {}
 
     // Show products that are NOT the current one
     const toShow = updated
       .filter((id) => id !== currentProductId)
-      .slice(0, MAX_ITEMS)
-      .map((id) => ALL_PRODUCTS.find((p) => p.id === id))
+      .slice(0, VISIBLE_MAX_ITEMS)
+      .map((id) => catalog.find((p) => p.id === id))
       .filter(Boolean) as Product[];
 
     frame = window.requestAnimationFrame(() => {
@@ -44,7 +51,7 @@ export function RecentlyViewed({ currentProductId }: Props) {
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, [currentProductId]);
+  }, [catalog, currentProductId]);
 
   if (products.length < 2) return null;
 
@@ -75,7 +82,6 @@ export function RecentlyViewed({ currentProductId }: Props) {
         >
           <style>{`
             @media (max-width: 1024px) { .rv-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-            @media (max-width: 480px) { .rv-grid { grid-template-columns: 1fr !important; } }
           `}</style>
           {products.map((product) => {
             const localizedProduct = localizeProduct(product, locale);
@@ -111,11 +117,12 @@ export function RecentlyViewed({ currentProductId }: Props) {
                   }}
                 >
                   {product.images[0] && (
-                    <img
+                    <Image
                       src={product.images[0]}
-                      alt={getProductImageAlt(localizedProduct)}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      loading="lazy"
+                      alt={getProductImageAlt(localizedProduct, { locale })}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 25vw"
+                      style={{ objectFit: 'cover' }}
                     />
                   )}
 

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useMemo } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Heart } from 'lucide-react';
@@ -128,9 +129,6 @@ export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
           @media (max-width: 700px) {
             .wishlist-grid { grid-template-columns: repeat(2, 1fr); }
           }
-          @media (max-width: 480px) {
-            .wishlist-grid { grid-template-columns: 1fr; }
-          }
         `}</style>
 
         {saved.map((product) => {
@@ -189,16 +187,16 @@ export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     overflow: 'hidden',
+                    position: 'relative',
                   }}
                 >
                   {product.images[0] ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                       src={product.images[0]}
-                      alt={getProductImageAlt(localizedProduct)}
+                      alt={getProductImageAlt(localizedProduct, { locale })}
+                      fill
+                      sizes="(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 25vw"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      loading="lazy"
-                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                     />
                   ) : (
                     <Heart size={32} color="rgba(201,169,110,0.15)" strokeWidth={1} />
