@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .vercel.backup*
+
+# Photos sources (non servies, garder localement)
+public/images/real\ image/
