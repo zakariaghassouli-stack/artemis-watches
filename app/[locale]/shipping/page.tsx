@@ -13,8 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
         : 'Shipping Policy — ARTEMIS Watches',
     description:
       locale === 'fr'
-        ? 'Politique d’expedition ARTEMIS. Livraison gratuite au Canada, expedition internationale, suivi et delais de traitement.'
-        : 'ARTEMIS shipping policy. Free shipping across Canada, international delivery, tracking, and processing times.',
+        ? 'Politique d’expedition ARTEMIS. Livraison suivie au Canada, expedition internationale, suivi et delais de traitement.'
+        : 'ARTEMIS shipping policy. Tracked Canada shipping, international delivery, tracking, and processing times.',
   };
 }
 
@@ -234,7 +234,7 @@ export default async function ShippingPolicyPage() {
             </li>
             <li>
               <strong>Courriel :</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
           </ul>
           <p>
@@ -419,7 +419,7 @@ export default async function ShippingPolicyPage() {
             </li>
             <li>
               <strong>Email:</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
           </ul>
           <p>

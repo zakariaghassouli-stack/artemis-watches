@@ -14,7 +14,7 @@ interface AnnouncementBarProps {
 }
 
 function normalizeMessage(message: string) {
-  return message.split('—')[0]?.trim() ?? message.trim();
+  return message.trim();
 }
 
 export function AnnouncementBar({

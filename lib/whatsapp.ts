@@ -31,8 +31,8 @@ export function getProductWhatsAppMessage(input: {
   const { locale, productName, variant, price } = input;
 
   return locale === 'fr'
-    ? `Bonjour ! Je suis intéressé(e) par ${productName} (${variant}) — ${price} CAD. Est-elle encore disponible ?`
-    : `Hi! I'm interested in the ${productName} (${variant}) — ${price} CAD. Is it still available?`;
+    ? `Bonjour ! Je suis intéressé(e) par ${productName} (${variant}), ${price} CAD. Est-elle encore disponible ?`
+    : `Hi! I'm interested in the ${productName} (${variant}), ${price} CAD. Is it still available?`;
 }
 
 export function getOrderWhatsAppMessage(locale: string, orderId?: string): string {

@@ -89,7 +89,7 @@ export function Footer() {
                 }
               />
               <SocialLink
-                href="https://www.instagram.com/artemis.watches"
+                href="https://www.instagram.com/artemismtl_"
                 label="Instagram"
                 icon={
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -100,7 +100,7 @@ export function Footer() {
                 }
               />
               <SocialLink
-                href="mailto:hello@artemis-watches.com"
+                href="mailto:artemismtl101@gmail.com"
                 label="Email"
                 icon={
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

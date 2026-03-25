@@ -6,9 +6,9 @@ const resend = getEnv('RESEND_API_KEY')
   ? new Resend(getEnv('RESEND_API_KEY') as string)
   : null;
 
-const FROM = getEnv('RESEND_FROM_EMAIL') ?? 'ARTEMIS Montres <orders@artemis-watches.com>';
+const FROM = getEnv('RESEND_FROM_EMAIL') ?? 'ARTEMIS Montres <artemismtl101@gmail.com>';
 const FALLBACK_FROM = 'ARTEMIS Watches <onboarding@resend.dev>';
-const SITE_URL = getEnv('NEXT_PUBLIC_APP_URL') ?? 'https://artemis-watches.com';
+const SITE_URL = getEnv('NEXT_PUBLIC_APP_URL') ?? 'https://artemis-sigma-tan.vercel.app';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 export interface OrderEmailItem {

@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "message": "Nouveau client ? Obtenez 10 % sur votre première commande —",
+    "message": "Nouveau client ? Obtenez 10 % sur votre première commande.",
     "cta": "Magasiner →",
     "closeLabel": "Fermer l'annonce"
   },
@@ -55,14 +55,14 @@
       "headlineAccent": "Une adresse à Montréal.",
       "point1": "À partir de 280 $ CAD",
       "point2": "Retours 30 jours",
-      "point3": "Livraison gratuite au Canada",
+      "point3": "Livraison suivie au Canada",
       "socialProof": "200+ commandes expédiées depuis Montréal"
     },
     "trust": {
       "item1Title": "Satisfait ou remboursé",
       "item1Body": "Remboursement complet, zéro frais.",
       "item2Title": "Expédié de Montréal",
-      "item2Body": "Suivie. Sécurisée. Gratuite au Canada.",
+      "item2Body": "Suivie. Sécurisée. Calculée à la caisse.",
       "item3Title": "Chaque pièce inspectée",
       "item3Body": "Boîtier, verre, bracelet, finitions.",
       "item4Title": "WhatsApp en quelques minutes",
@@ -106,7 +106,7 @@
       "headline": "Deux gammes. La même exigence.",
       "subheadline": "Choisissez la gamme qui correspond à votre budget et au niveau de finition recherché.",
       "essentialBadge": "ESSENTIELLE",
-      "essentialPrice": "280 $ – 350 $ CAD",
+      "essentialPrice": "280 $ - 350 $ CAD",
       "essentialTagline": "Un point de départ net.",
       "essentialBody": "La gamme Essentielle s'adresse aux clients qui veulent un design fort, des proportions justes et une entrée simple dans l'univers Artemis.",
       "essentialIncludes": [
@@ -117,7 +117,7 @@
       ],
       "essentialCta": "VOIR LA GAMME ESSENTIELLE",
       "premiumBadge": "PREMIUM",
-      "premiumPrice": "1 050 $ – 1 550 $ CAD",
+      "premiumPrice": "1 050 $ - 1 550 $ CAD",
       "premiumTagline": "Plus de finition. Plus de présence.",
       "premiumBody": "La gamme Premium convient aux clients qui recherchent une finition plus poussée, une sensation matière plus riche et une présence plus affirmée au poignet.",
       "premiumIncludes": [
@@ -218,16 +218,16 @@
       "placeholder": "Entrez votre courriel",
       "cta": "Obtenir mon code de 10 %",
       "benefits": [
-        "10 % sur votre première commande — appliqué à la caisse",
+        "10 % sur votre première commande - appliqué à la caisse",
         "Pièces sauvegardées et historique de commandes",
         "Accès prioritaire aux nouveautés"
       ],
-      "microcopy": "Code envoyé en moins de 60 secondes. Aucun spam, jamais.",
+      "microcopy": "Code envoyé instantanément. Aucun spam, jamais.",
       "expiryNotice": "Votre code de 10 % expire dans 48 heures.",
       "trust": "Vous préférez poser une question d'abord ? WhatsApp reste ouvert.",
       "accountHint": "Vous avez déjà un compte ?",
       "accountCta": "Se connecter →",
-      "success": "Compte créé — votre code de bienvenue :",
+      "success": "Compte créé - votre code de bienvenue :",
       "existingTitle": "Cette adresse e-mail possède déjà un compte.",
       "existingBody": "Connectez-vous pour retrouver vos commandes, vos pièces sauvegardées et tout code de bienvenue actif.",
       "existingCta": "Se connecter",
@@ -305,7 +305,7 @@
     "newArrivalsLabel": "Nouveautés",
     "newArrivalsOverline": "NOUVEAUTÉS",
     "newArrivalsHeadline": "Nouvelles dans la sélection.",
-    "trustShipping": "Livraison gratuite au Canada",
+    "trustShipping": "Livraison suivie au Canada",
     "trustGuarantee": "Retours sous 30 jours",
     "trustQuality": "Inspection soignée",
     "trustWhatsApp": "WhatsApp : 514-560-9765"
@@ -347,7 +347,7 @@
     "addToCart": "Ajouter au panier",
     "orderWhatsApp": "Poser une question sur cette pièce",
     "installmentLine": "Ou 4 paiements de {amount} CAD à la caisse",
-    "boxAndPapersLabel": "Ajouter Boîte & papiers — +{price} CAD",
+    "boxAndPapersLabel": "Ajouter Boîte & papiers - +{price} CAD",
     "boxAndPapersIncluded": "Boîte & papiers inclus avec Premium",
     "complimentaryBadge": "GRATUIT",
     "premiumPackagingLabel": "Emballage premium",
@@ -406,11 +406,11 @@
     "recentlyViewedEmpty": "Parcourez la collection pour découvrir nos pièces.",
     "shippingTitle": "Livraison & Délais",
     "shippingLine1Label": "Canada (Standard)",
-    "shippingLine1Value": "3–7 jours ouvrables — Gratuit",
+    "shippingLine1Value": "3-7 jours ouvrables - Gratuit",
     "shippingLine2Label": "Canada (Express)",
-    "shippingLine2Value": "1–2 jours ouvrables — disponible à la caisse",
+    "shippingLine2Value": "1-2 jours ouvrables - disponible à la caisse",
     "shippingLine3Label": "International",
-    "shippingLine3Value": "7–14 jours ouvrables",
+    "shippingLine3Value": "7-14 jours ouvrables",
     "shippingNote": "Toutes les commandes incluent un suivi avec confirmation de signature.",
     "returnsTitle": "Politique de retour 30 jours",
     "returnsPoints": [
@@ -419,7 +419,7 @@
       "Aucun frais caché de restockage",
       "Remboursement traité sous 3 à 5 jours ouvrables après inspection"
     ],
-    "returnsNote": "Pour initier un retour, contactez-nous via WhatsApp — on s'occupe de tout.",
+    "returnsNote": "Pour initier un retour, contactez-nous via WhatsApp - on s'occupe de tout.",
     "helpTitle": "Besoin d'aide pour choisir ?",
     "helpBody": "Notre équipe peut vous aider à comparer les modèles, les cadrans et les tailles avant commande. Écrivez-nous sur WhatsApp pour un échange direct.",
     "helpCta": "Discuter sur WhatsApp →",
@@ -438,7 +438,7 @@
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
     "premiumBadge": "Premium · Mouvement suisse (Dandong)",
     "metaTitle": "Pièces sauvegardées | Artemis Montres",
-    "metaDescription": "Vos montres Artemis sauvegardées — Rolex, Cartier, Audemars Piguet, Patek Philippe."
+    "metaDescription": "Vos montres Artemis sauvegardées - Rolex, Cartier, Audemars Piguet, Patek Philippe."
   },
   "whatsapp": {
     "fabTooltip": "Écrire sur WhatsApp",
@@ -456,7 +456,7 @@
     "pageOverline": "RECHERCHE",
     "pageHeadline": "Trouvez Votre Montre",
     "pageSubheadline": "Parcourez les 78 pièces disponibles. Filtrez par marque, gamme ou prix.",
-    "placeholder": "Rechercher — Submariner, Datejust, Royal Oak…",
+    "placeholder": "Rechercher - Submariner, Datejust, Royal Oak…",
     "clearQuery": "Effacer",
     "filtersLabel": "Filtres",
     "brandLabel": "Marque",
@@ -472,7 +472,7 @@
     "resultsCount": "{count} résultat",
     "resultsCountPlural": "{count} résultats",
     "noResults": "Aucune montre trouvée",
-    "noResultsHint": "Essayez un autre terme — marque, modèle, couleur du cadran ou type de bracelet.",
+    "noResultsHint": "Essayez un autre terme - marque, modèle, couleur du cadran ou type de bracelet.",
     "suggestionsLabel": "Parcourir par marque :",
     "viewDetails": "Voir la pièce",
     "rangeOptions": "Options mouvement japonais et suisse",
@@ -488,11 +488,11 @@
     "justRestocked": "Réapprovisionné",
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
     "premiumBadge": "Premium · Mouvement suisse (Dandong)",
-    "metaTitle": "Recherche | Artemis — Montréal",
-    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Options mouvement japonais et suisse. Livraison gratuite au Canada."
+    "metaTitle": "Recherche | Artemis - Montréal",
+    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Options mouvement japonais et suisse. Livraison suivie au Canada."
   },
   "reviewsPage": {
-    "metaTitle": "Avis Clients — ARTEMIS Watches",
+    "metaTitle": "Avis Clients - ARTEMIS Watches",
     "metaDescription": "Lisez des retours clients sur ARTEMIS, avec des témoignages provenant de partout au Canada.",
     "overline": "AVIS CLIENTS",
     "headline": "Ils ont commandé. Ils recommanderaient.",
@@ -571,7 +571,7 @@
     ]
   },
   "faqPage": {
-    "metaTitle": "FAQ — ARTEMIS Watches",
+    "metaTitle": "FAQ - ARTEMIS Watches",
     "metaDescription": "Questions fréquemment posées sur ARTEMIS. Livraison, retours, qualité, paiements et plus.",
     "overline": "FAQ",
     "headline1": "Questions",
@@ -592,7 +592,7 @@
     "s1q2": "Livrez-vous à l'international ?",
     "s1a2": "Oui. Nous livrons dans la plupart des pays. Les frais sont calculés au moment du paiement selon la destination. Contactez-nous sur WhatsApp si vous avez un doute.",
     "s1q3": "La livraison est-elle gratuite ?",
-    "s1a3": "La livraison gratuite est disponible sur toutes les commandes canadiennes. Les frais internationaux varient selon la destination.",
+    "s1a3": "Les frais de livraison sont calculés à la caisse selon la destination. Livraison suivie sur toutes les commandes canadiennes.",
     "s1q4": "Puis-je suivre ma commande ?",
     "s1a4": "Absolument. Une fois expédiée, vous recevrez un numéro de suivi par email pour suivre votre colis en temps réel.",
     "s1q5": "Comment la montre est-elle emballée ?",
@@ -600,9 +600,9 @@
     "s2q1": "En quoi consiste la garantie 30 jours ?",
     "s2a1": "Si la pièce ne vous convient pas, vous pouvez la retourner dans les 30 jours conformément à notre politique de retour. Aucun frais caché de restockage.",
     "s2q2": "Comment initier un retour ?",
-    "s2a2": "Contactez-nous sur WhatsApp ou par email à hello@artemis-watches.com dans les 30 jours. Nous vous enverrons une étiquette prépayée et traiterons le remboursement sous 5 à 7 jours ouvrables.",
+    "s2a2": "Contactez-nous sur WhatsApp ou par email à artemismtl101@gmail.com dans les 30 jours. Nous vous enverrons une étiquette prépayée et traiterons le remboursement sous 5 à 7 jours ouvrables.",
     "s2q3": "Dans quel état retourner la montre ?",
-    "s2a3": "La montre doit être retournée dans le même état que reçu — non portée ou portée uniquement pour inspection — avec tout l'emballage d'origine.",
+    "s2a3": "La montre doit être retournée dans le même état que reçu - non portée ou portée uniquement pour inspection - avec tout l'emballage d'origine.",
     "s2q4": "Combien de temps prend un remboursement ?",
     "s2a4": "Une fois la montre reçue et inspectée, le remboursement est traité sous 5 à 7 jours ouvrables sur votre moyen de paiement d'origine.",
     "s3q1": "Quel est votre standard de qualité ?",
@@ -610,7 +610,7 @@
     "s3q2": "Quelles marques proposez-vous ?",
     "s3a2": "Nous nous concentrons sur quatre marques : Rolex, Cartier, Audemars Piguet et Patek Philippe, autour d'un catalogue resserré de modèles emblématiques.",
     "s3q3": "Quelle est la différence entre les mouvements japonais et suisses ?",
-    "s3a3": "Les pièces à mouvement japonais (280–350 $ CAD) offrent une porte d'entrée plus légère avec des mouvements automatiques Miyota. Les pièces à mouvement suisse (1 050–1 550 $ CAD) offrent davantage de finition et une sensation matière plus présente. Les deux suivent le même processus d'inspection.",
+    "s3a3": "Les pièces à mouvement japonais (280-350 $ CAD) offrent une porte d'entrée plus légère avec des mouvements automatiques Miyota. Les pièces à mouvement suisse (1 050-1 550 $ CAD) offrent davantage de finition et une sensation matière plus présente. Les deux suivent le même processus d'inspection.",
     "s3q4": "Les montres sont-elles livrées avec boîte et papiers ?",
     "s3a4": "Les pièces Premium incluent la boîte & papiers sans frais. Les pièces Essentielle peuvent ajouter l'ensemble pour 49 $ CAD.",
     "s3q5": "Qu'est-ce qui est inclus avec chaque commande ?",
@@ -629,13 +629,13 @@
     "s5a1": "Créez un compte et votre code de bienvenue de 10 % à usage unique est envoyé par e-mail. Il peut être appliqué sur une première commande.",
     "s5q2": "Puis-je utiliser mon code de bienvenue plus d'une fois ?",
     "s5a2": "Non. Chaque code de bienvenue est unique et valable pour une seule commande. Il expire automatiquement après utilisation.",
-    "s5q3": "Je n'ai pas reçu mon code de bienvenue — que faire ?",
-    "s5a3": "Vérifiez votre dossier spam. Si le code n'y est pas, contactez-nous à hello@artemis-watches.com ou sur WhatsApp.",
+    "s5q3": "Je n'ai pas reçu mon code de bienvenue - que faire ?",
+    "s5a3": "Vérifiez votre dossier spam. Si le code n'y est pas, contactez-nous à artemismtl101@gmail.com ou sur WhatsApp.",
     "s5q4": "Puis-je combiner mon code avec d'autres offres ?",
     "s5a4": "Les codes de bienvenue ne peuvent pas être combinés avec d'autres offres actives. Ils s'appliquent au prix du produit avant livraison."
   },
   "about": {
-    "metaTitle": "À propos d'ARTEMIS — Notre histoire",
+    "metaTitle": "À propos d'ARTEMIS - Notre histoire",
     "metaDescription": "Découvrez ARTEMIS, une boutique horlogère montréalaise fondée autour d'un catalogue resserré, d'une préparation soignée et d'un service direct.",
     "overline": "NOTRE HISTOIRE",
     "headline1": "Né à Montréal.",
@@ -653,7 +653,7 @@
     "storyHeadline1": "Nous ne cherchons pas à tout montrer.",
     "storyHeadline2": "Nous nous concentrons sur ce qui mérite sa place.",
     "storyP1": "Chaque montre du catalogue Artemis est sélectionnée, revue et préparée avec soin avant de rejoindre un client. Nous privilégions une offre plus resserrée, une présentation claire et des promesses mesurées.",
-    "storyP2": "C'est pourquoi nous restons concentrés sur quatre marques — Rolex, Cartier, Audemars Piguet et Patek Philippe — ainsi que sur des pièces cohérentes avec le regard Artemis.",
+    "storyP2": "C'est pourquoi nous restons concentrés sur quatre marques - Rolex, Cartier, Audemars Piguet et Patek Philippe - ainsi que sur des pièces cohérentes avec le regard Artemis.",
     "storyQuote": "Une belle montre n'a pas besoin d'exagération. Elle a besoin de proportions justes, de présence et du bon contexte.",
     "valuesOverline": "NOS ENGAGEMENTS",
     "valuesHeadline": "Ce qui guide Artemis",
@@ -674,7 +674,7 @@
     "ctaShop": "Voir la Collection"
   },
   "contact": {
-    "metaTitle": "Contact — ARTEMIS Watches",
+    "metaTitle": "Contact - ARTEMIS Watches",
     "metaDescription": "Contactez ARTEMIS par WhatsApp, par e-mail, ou pour une visite privée à Montréal.",
     "overline": "NOUS CONTACTER",
     "headline1": "Parlez avec",
@@ -697,7 +697,7 @@
     "infoLocation": "Adresse",
     "infoLocationValue": "Montréal, QC, Canada",
     "infoHours": "Horaires",
-    "infoHoursValue": "Lun–Sam · 9h–20h EST",
+    "infoHoursValue": "Lun-Sam · 9h-20h EST",
     "basedInOverline": "BASÉ À",
     "basedInValue": "Montréal, Québec, Canada · Livraison au Canada & international"
   },
@@ -740,7 +740,7 @@
     "remove": "Retirer",
     "boxAndPapers": "Boîte & papiers inclus",
     "boxAndPapersAdded": "Boîte & papiers déjà ajoutés à ce panier.",
-    "addBoxAndPapers": "Ajouter ensemble boîte & papiers — 49 $ CAD",
+    "addBoxAndPapers": "Ajouter ensemble boîte & papiers - 49 $ CAD",
     "freeShipping": "Livraison suivie",
     "return30": "Retours 30 jours",
     "securePayment": "Caisse Stripe sécurisée",
@@ -749,7 +749,7 @@
     "supportCta": "Besoin d'aide ? Écrire sur WhatsApp →",
     "emptySupport": "Besoin d'aide pour choisir avant la caisse ? Nous répondons sur WhatsApp.",
     "closeLabel": "Fermer le panier",
-    "presentationSet": "Ajouter ensemble boîte & papiers — 49 $ CAD",
+    "presentationSet": "Ajouter ensemble boîte & papiers - 49 $ CAD",
     "presentationSetBody": "Coffret de présentation de la marque et documentation assortie.",
     "accountPromoLine": "Vous avez un code de 10 % ? Créez un compte pour l’appliquer à la caisse →"
   },
@@ -785,7 +785,7 @@
     "totalPaid": "Total payé",
     "nextStepsTitle": "La suite",
     "step1": "Nous examinons votre commande et préparons votre pièce pour l'expédition.",
-    "step2": "Vous recevez un numéro de suivi par courriel sous 24–48 heures.",
+    "step2": "Vous recevez un numéro de suivi par courriel sous 24-48 heures.",
     "step3": "Votre montre arrive dans un emballage protecteur avec les accessoires inclus.",
     "supportQuestion": "Des questions sur votre commande ?",
     "contactWhatsApp": "Contacter sur WhatsApp",
@@ -919,7 +919,7 @@
         "description": "Le chronographe de course de Rolex, façonné par l'héritage du sport automobile et un cadran immédiatement reconnaissable. La Daytona demeure l'une des références modernes les plus discutées de la marque."
       },
       "santos": {
-        "description": "La première montre d'aviateur au monde, conçue en 1904 pour Alberto Santos-Dumont. Architecturale, audacieuse et incontestablement Cartier — plus d'un siècle d'avant-garde."
+        "description": "La première montre d'aviateur au monde, conçue en 1904 pour Alberto Santos-Dumont. Architecturale, audacieuse et incontestablement Cartier - plus d'un siècle d'avant-garde."
       },
       "panthere": {
         "description": "Une expression distinctement Cartier de la montre-bijou. Le bracelet articulé et le boîtier carré de la Panthère lui confèrent une présence douce et raffinée au poignet."
@@ -936,11 +936,11 @@
     }
   },
   "siteLayout": {
-    "titleDefault": "ARTEMIS — Boutique de Montres de Luxe | Montréal",
+    "titleDefault": "ARTEMIS - Boutique de Montres de Luxe | Montréal",
     "titleTemplate": "%s | ARTEMIS Montres",
-    "description": "Montres de luxe authentiques — Rolex, Cartier, Audemars Piguet & Patek Philippe. Sélectionnées et livrées depuis Montréal. Garantie 30 jours.",
+    "description": "Montres de luxe authentiques - Rolex, Cartier, Audemars Piguet & Patek Philippe. Sélectionnées et livrées depuis Montréal. Garantie 30 jours.",
     "keywords": "montres de luxe, Rolex Montréal, Cartier Montréal, Audemars Piguet, Patek Philippe, montres haut de gamme",
-    "homepageTitle": "ARTEMIS — Boutique de Montres de Luxe | Montréal",
+    "homepageTitle": "ARTEMIS - Boutique de Montres de Luxe | Montréal",
     "homepageDescription": "Rolex, Cartier, Audemars Piguet & Patek Philippe. Sélectionnées, inspectées, livrées depuis Montréal. Garantie qualité 30 jours."
   }
 }

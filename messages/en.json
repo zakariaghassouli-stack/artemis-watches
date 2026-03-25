@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "message": "New here? Get 10% off your first order —",
+    "message": "New here? Get 10% off your first order.",
     "cta": "Shop Now →",
     "closeLabel": "Close announcement"
   },
@@ -55,14 +55,14 @@
       "headlineAccent": "One Montreal address.",
       "point1": "From $280 CAD",
       "point2": "30-day returns",
-      "point3": "Free Canada shipping",
+      "point3": "Tracked Canada shipping",
       "socialProof": "200+ orders shipped from Montreal"
     },
     "trust": {
       "item1Title": "Satisfied or Refunded",
       "item1Body": "Full refund, zero fees.",
       "item2Title": "Shipped from Montreal",
-      "item2Body": "Tracked. Secure. Free in Canada.",
+      "item2Body": "Tracked. Secure. Calculated at checkout.",
       "item3Title": "Every Piece Inspected",
       "item3Body": "Case, crystal, bracelet, finish.",
       "item4Title": "WhatsApp in Minutes",
@@ -106,7 +106,7 @@
       "headline": "Two ranges, one considered standard.",
       "subheadline": "Choose the range that fits your budget and the level of finish you want on the wrist.",
       "essentialBadge": "ESSENTIAL",
-      "essentialPrice": "$280 – $350 CAD",
+      "essentialPrice": "$280 - $350 CAD",
       "essentialTagline": "A clean starting point.",
       "essentialBody": "The Essential Range is built for clients who want strong design, balanced proportions, and an easy way into the Artemis catalogue.",
       "essentialIncludes": [
@@ -117,7 +117,7 @@
       ],
       "essentialCta": "VIEW ESSENTIAL RANGE",
       "premiumBadge": "PREMIUM",
-      "premiumPrice": "$1,050 – $1,550 CAD",
+      "premiumPrice": "$1,050 - $1,550 CAD",
       "premiumTagline": "More finish. More presence.",
       "premiumBody": "The Premium Range is suited to clients who want a more detailed finish, a richer material feel, and a stronger presence on the wrist.",
       "premiumIncludes": [
@@ -218,16 +218,16 @@
       "placeholder": "Enter your email",
       "cta": "Get My 10% Code",
       "benefits": [
-        "10% off your first order — applied at checkout",
+        "10% off your first order - applied at checkout",
         "Saved pieces and order history",
         "Priority access to new arrivals"
       ],
-      "microcopy": "Code delivered in under 60 seconds. No spam, ever.",
+      "microcopy": "Code delivered instantly. No spam, ever.",
       "expiryNotice": "Your 10% code expires in 48 hours.",
       "trust": "Questions first? WhatsApp stays open.",
       "accountHint": "Already have an account?",
       "accountCta": "Sign in →",
-      "success": "Account created — your welcome code:",
+      "success": "Account created - your welcome code:",
       "existingTitle": "This email already has an account.",
       "existingBody": "Sign in to review your orders, saved pieces, and any active welcome code.",
       "existingCta": "Sign in",
@@ -299,7 +299,7 @@
     "newArrivalsLabel": "New Arrivals",
     "newArrivalsOverline": "NEW ARRIVALS",
     "newArrivalsHeadline": "New to the selection.",
-    "trustShipping": "Free shipping across Canada",
+    "trustShipping": "Tracked shipping across Canada",
     "trustGuarantee": "30-day returns",
     "trustQuality": "Carefully inspected",
     "trustWhatsApp": "WhatsApp: 514-560-9765"
@@ -341,7 +341,7 @@
     "addToCart": "Add to Cart",
     "orderWhatsApp": "Ask About This Piece",
     "installmentLine": "Or 4 payments of {amount} CAD at checkout",
-    "boxAndPapersLabel": "Add Box & Papers — +{price} CAD",
+    "boxAndPapersLabel": "Add Box & Papers - +{price} CAD",
     "boxAndPapersIncluded": "Box & Papers included with Premium",
     "complimentaryBadge": "FREE",
     "premiumPackagingLabel": "Premium Packaging",
@@ -400,20 +400,20 @@
     "recentlyViewedEmpty": "Browse the collection to discover our timepieces.",
     "shippingTitle": "Shipping & Delivery",
     "shippingLine1Label": "Canada (Standard)",
-    "shippingLine1Value": "3–7 business days — Free",
+    "shippingLine1Value": "3-7 business days - Free",
     "shippingLine2Label": "Canada (Express)",
-    "shippingLine2Value": "1–2 business days — available at checkout",
+    "shippingLine2Value": "1-2 business days - available at checkout",
     "shippingLine3Label": "International",
-    "shippingLine3Value": "7–14 business days",
+    "shippingLine3Value": "7-14 business days",
     "shippingNote": "All orders include tracked shipping with signature confirmation.",
     "returnsTitle": "30-Day Return Policy",
     "returnsPoints": [
       "30-day return window from delivery",
       "Return the piece in its original, unworn condition",
       "No hidden restocking fees",
-      "Refunds processed within 3–5 business days after inspection"
+      "Refunds processed within 3-5 business days after inspection"
     ],
-    "returnsNote": "To initiate a return, contact us via WhatsApp — we'll handle everything.",
+    "returnsNote": "To initiate a return, contact us via WhatsApp - we'll handle everything.",
     "helpTitle": "Need help choosing?",
     "helpBody": "Our team can help you compare models, dial colours, and sizing before you place an order. Message us on WhatsApp for direct guidance.",
     "helpCta": "Chat on WhatsApp →",
@@ -432,7 +432,7 @@
     "essentialBadge": "Essential · Japanese Movement (Miyota)",
     "premiumBadge": "Premium · Swiss Movement (Dandong)",
     "metaTitle": "Saved Pieces | Artemis Watches",
-    "metaDescription": "Your saved Artemis timepieces — Rolex, Cartier, Audemars Piguet, Patek Philippe."
+    "metaDescription": "Your saved Artemis timepieces - Rolex, Cartier, Audemars Piguet, Patek Philippe."
   },
   "whatsapp": {
     "fabTooltip": "Contact on WhatsApp",
@@ -450,7 +450,7 @@
     "pageOverline": "SEARCH",
     "pageHeadline": "Find Your Timepiece",
     "pageSubheadline": "Search across all 78 pieces. Filter by brand, range, or price.",
-    "placeholder": "Search watches — Submariner, Datejust, Royal Oak…",
+    "placeholder": "Search watches - Submariner, Datejust, Royal Oak…",
     "clearQuery": "Clear",
     "filtersLabel": "Filters",
     "brandLabel": "Brand",
@@ -466,7 +466,7 @@
     "resultsCount": "{count} result",
     "resultsCountPlural": "{count} results",
     "noResults": "No watches found",
-    "noResultsHint": "Try a different search — brand name, model, dial color, or bracelet type.",
+    "noResultsHint": "Try a different search - brand name, model, dial color, or bracelet type.",
     "suggestionsLabel": "Browse by brand:",
     "viewDetails": "View Piece",
     "rangeOptions": "Japanese & Swiss movement options",
@@ -482,11 +482,11 @@
     "justRestocked": "Just Restocked",
     "essentialBadge": "Essential · Japanese Movement (Miyota)",
     "premiumBadge": "Premium · Swiss Movement (Dandong)",
-    "metaTitle": "Search Watches | Artemis — Montreal",
-    "metaDescription": "Search our full catalog of Rolex, Cartier, Audemars Piguet, and Patek Philippe watches. Japanese and Swiss movement options. Free shipping across Canada."
+    "metaTitle": "Search Watches | Artemis - Montreal",
+    "metaDescription": "Search our full catalog of Rolex, Cartier, Audemars Piguet, and Patek Philippe watches. Japanese and Swiss movement options. Tracked shipping across Canada."
   },
   "reviewsPage": {
-    "metaTitle": "Client Reviews — ARTEMIS Watches",
+    "metaTitle": "Client Reviews - ARTEMIS Watches",
     "metaDescription": "Read client feedback on ARTEMIS, with notes from clients across Canada.",
     "overline": "CLIENT REVIEWS",
     "headline": "They ordered. They'd order again.",
@@ -565,7 +565,7 @@
     ]
   },
   "faqPage": {
-    "metaTitle": "FAQ — ARTEMIS Watches",
+    "metaTitle": "FAQ - ARTEMIS Watches",
     "metaDescription": "Frequently asked questions about ARTEMIS. Shipping, returns, product quality, payments, and more.",
     "overline": "FAQ",
     "headline1": "Frequently Asked",
@@ -582,11 +582,11 @@
     "cat4Label": "Payments",
     "cat5Label": "Account & Welcome Code",
     "s1q1": "How long does shipping take?",
-    "s1a1": "Canadian orders typically arrive in 3–7 business days via tracked courier. International orders take 7–14 business days. All orders include a tracking number sent to your email upon dispatch.",
+    "s1a1": "Canadian orders typically arrive in 3-7 business days via tracked courier. International orders take 7-14 business days. All orders include a tracking number sent to your email upon dispatch.",
     "s1q2": "Do you ship internationally?",
-    "s1a2": "Yes. We ship to most countries worldwide. International shipping rates are calculated at checkout based on destination. Some restrictions may apply — contact us on WhatsApp if you are unsure.",
+    "s1a2": "Yes. We ship to most countries worldwide. International shipping rates are calculated at checkout based on destination. Some restrictions may apply - contact us on WhatsApp if you are unsure.",
     "s1q3": "Is shipping free?",
-    "s1a3": "Free shipping is available on all Canadian orders. International shipping costs vary by destination and are shown at checkout.",
+    "s1a3": "Shipping costs are calculated at checkout based on destination. All Canadian orders include tracked delivery.",
     "s1q4": "Can I track my order?",
     "s1a4": "Absolutely. Once your order is dispatched, you will receive a tracking number by email. You can track your shipment in real-time through the courier's website.",
     "s1q5": "How is the watch packaged?",
@@ -594,17 +594,17 @@
     "s2q1": "What is the 30-day guarantee?",
     "s2a1": "If the piece is not right for you, you may return it within 30 days according to our return policy. No hidden restocking fees.",
     "s2q2": "How do I initiate a return?",
-    "s2a2": "Simply contact us on WhatsApp or by email at hello@artemis-watches.com within 30 days of receiving your order. We will send you a prepaid return label and process your refund within 5–7 business days.",
+    "s2a2": "Simply contact us on WhatsApp or by email at artemismtl101@gmail.com within 30 days of receiving your order. We will send you a prepaid return label and process your refund within 5-7 business days.",
     "s2q3": "In what condition should I return the watch?",
-    "s2a3": "The watch should be returned in the same condition as received — unworn or worn only for inspection — with all original packaging included.",
+    "s2a3": "The watch should be returned in the same condition as received - unworn or worn only for inspection - with all original packaging included.",
     "s2q4": "How long does a refund take?",
-    "s2a4": "Once we receive and inspect the returned watch, refunds are processed within 5–7 business days. The amount will appear on your original payment method.",
+    "s2a4": "Once we receive and inspect the returned watch, refunds are processed within 5-7 business days. The amount will appear on your original payment method.",
     "s3q1": "What is your quality standard?",
     "s3a1": "Every watch is individually inspected by our team before listing and again before shipment. We check case integrity, crystal clarity, bracelet tension, crown function, and overall cosmetic finish. Only pieces that meet our standard are offered for sale.",
     "s3q2": "What brands do you carry?",
     "s3a2": "We focus on four brands: Rolex, Cartier, Audemars Piguet, and Patek Philippe, with a catalogue built around a concise set of emblematic models.",
     "s3q3": "What is the difference between Japanese and Swiss movements?",
-    "s3a3": "Japanese movement pieces ($280–$350 CAD) offer a lighter entry point with Miyota automatic movements. Swiss movement pieces ($1,050–$1,550 CAD) offer more detailed finishing and a stronger material feel. Both follow the same inspection process.",
+    "s3a3": "Japanese movement pieces ($280-$350 CAD) offer a lighter entry point with Miyota automatic movements. Swiss movement pieces ($1,050-$1,550 CAD) offer more detailed finishing and a stronger material feel. Both follow the same inspection process.",
     "s3q4": "Do the watches come with box and papers?",
     "s3a4": "Premium pieces include box & papers at no extra cost. Essential pieces can add the set for $49 CAD.",
     "s3q5": "What is included with every order?",
@@ -623,13 +623,13 @@
     "s5a1": "Create an account and your one-time 10% welcome code is sent by email. It can be applied on a first order.",
     "s5q2": "Can I use my welcome code more than once?",
     "s5a2": "No. Each welcome code is unique and valid for one order only. Once used, it expires automatically.",
-    "s5q3": "I created an account but did not receive my welcome code — what do I do?",
-    "s5a3": "Check your spam or junk folder first. If the code is not there within a few minutes, contact us at hello@artemis-watches.com or on WhatsApp.",
+    "s5q3": "I created an account but did not receive my welcome code - what do I do?",
+    "s5a3": "Check your spam or junk folder first. If the code is not there within a few minutes, contact us at artemismtl101@gmail.com or on WhatsApp.",
     "s5q4": "Can I combine my welcome code with other offers?",
     "s5a4": "Welcome codes cannot be combined with other active offers. They apply to the product price before shipping."
   },
   "about": {
-    "metaTitle": "About ARTEMIS — Our Story",
+    "metaTitle": "About ARTEMIS - Our Story",
     "metaDescription": "Learn about ARTEMIS, a Montreal-based watch boutique focused on a curated catalogue, careful preparation, and direct service.",
     "overline": "OUR STORY",
     "headline1": "Born in Montreal.",
@@ -647,7 +647,7 @@
     "storyHeadline1": "We do not try to show everything.",
     "storyHeadline2": "We focus on what deserves space.",
     "storyP1": "Every watch in the Artemis catalogue is selected, reviewed, and prepared with care before it reaches a client. We favour a tighter selection over volume and clear presentation over exaggerated promises.",
-    "storyP2": "That is why we stay focused on four brands — Rolex, Cartier, Audemars Piguet, and Patek Philippe — and on pieces that feel coherent within the Artemis point of view.",
+    "storyP2": "That is why we stay focused on four brands - Rolex, Cartier, Audemars Piguet, and Patek Philippe - and on pieces that feel coherent within the Artemis point of view.",
     "storyQuote": "A good watch does not need exaggeration. It needs proportion, presence, and the right context.",
     "valuesOverline": "OUR COMMITMENTS",
     "valuesHeadline": "What guides Artemis",
@@ -668,7 +668,7 @@
     "ctaShop": "Shop the Collection"
   },
   "contact": {
-    "metaTitle": "Contact — ARTEMIS Watches",
+    "metaTitle": "Contact - ARTEMIS Watches",
     "metaDescription": "Contact ARTEMIS by WhatsApp, email, or for a private viewing in Montreal.",
     "overline": "GET IN TOUCH",
     "headline1": "Speak with",
@@ -691,7 +691,7 @@
     "infoLocation": "Location",
     "infoLocationValue": "Montréal, QC, Canada",
     "infoHours": "Hours",
-    "infoHoursValue": "Mon–Sat · 9am–8pm EST",
+    "infoHoursValue": "Mon-Sat · 9am-8pm EST",
     "basedInOverline": "BASED IN",
     "basedInValue": "Montréal, Québec, Canada · Shipping across Canada & worldwide"
   },
@@ -734,7 +734,7 @@
     "remove": "Remove",
     "boxAndPapers": "Box & Papers included",
     "boxAndPapersAdded": "Box & Papers has already been added to this cart.",
-    "addBoxAndPapers": "Add Box & Papers — $49 CAD",
+    "addBoxAndPapers": "Add Box & Papers - $49 CAD",
     "freeShipping": "Tracked shipping",
     "return30": "30-day returns",
     "securePayment": "Secure Stripe checkout",
@@ -743,7 +743,7 @@
     "supportCta": "Need a hand? Ask on WhatsApp →",
     "emptySupport": "Need help choosing before checkout? We're available on WhatsApp.",
     "closeLabel": "Close cart",
-    "presentationSet": "Add Box & Papers set — $49 CAD",
+    "presentationSet": "Add Box & Papers set - $49 CAD",
     "presentationSetBody": "Branded presentation box and matching documentation.",
     "accountPromoLine": "Have a 10% code? Create an account to apply it at checkout →"
   },
@@ -779,7 +779,7 @@
     "totalPaid": "Total Paid",
     "nextStepsTitle": "What Happens Next",
     "step1": "We review your order and prepare your timepiece for shipment.",
-    "step2": "You receive a tracking number via email within 24–48 hours.",
+    "step2": "You receive a tracking number via email within 24-48 hours.",
     "step3": "Your watch arrives in protective packaging with all included accessories.",
     "supportQuestion": "Have questions about your order?",
     "contactWhatsApp": "Contact on WhatsApp",
@@ -913,7 +913,7 @@
         "description": "Rolex's racing chronograph, shaped by motorsport heritage and a highly recognizable dial layout. The Daytona remains one of the brand's most discussed modern references."
       },
       "santos": {
-        "description": "The world's first aviator's watch, designed in 1904 for Alberto Santos-Dumont. Architectural, bold, and unmistakably Cartier — over a century of pioneering spirit."
+        "description": "The world's first aviator's watch, designed in 1904 for Alberto Santos-Dumont. Architectural, bold, and unmistakably Cartier - over a century of pioneering spirit."
       },
       "panthere": {
         "description": "A distinctly Cartier expression of jewellery watch design. The Panthère's articulated bracelet and square case give it a soft, refined presence on the wrist."
@@ -930,11 +930,11 @@
     }
   },
   "siteLayout": {
-    "titleDefault": "ARTEMIS — Luxury Watch Boutique | Montréal",
+    "titleDefault": "ARTEMIS - Luxury Watch Boutique | Montréal",
     "titleTemplate": "%s | ARTEMIS Watches",
-    "description": "Authentic luxury timepieces from Rolex, Cartier, Audemars Piguet & Patek Philippe. Based in Montréal. Free shipping across Canada.",
+    "description": "Authentic luxury timepieces from Rolex, Cartier, Audemars Piguet & Patek Philippe. Based in Montréal. Tracked shipping across Canada.",
     "keywords": "luxury watches, Rolex Montreal, Cartier watches, Audemars Piguet, Patek Philippe, pre-owned watches",
-    "homepageTitle": "ARTEMIS — Luxury Watch Boutique | Montréal",
+    "homepageTitle": "ARTEMIS - Luxury Watch Boutique | Montréal",
     "homepageDescription": "Rolex, Cartier, Audemars Piguet & Patek Philippe inspired timepieces. Curated, inspected and delivered from Montréal. 30-day quality guarantee."
   }
 }

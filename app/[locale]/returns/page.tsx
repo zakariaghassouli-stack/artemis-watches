@@ -98,7 +98,7 @@ export default async function ReturnPolicyPage() {
             </li>
             <li>
               <strong>Courriel :</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
           </ul>
           <p>
@@ -206,7 +206,7 @@ export default async function ReturnPolicyPage() {
             </li>
             <li>
               <strong>Courriel :</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
             <li>
               <strong>Emplacement :</strong> Montreal, QC, Canada
@@ -261,7 +261,7 @@ export default async function ReturnPolicyPage() {
             </li>
             <li>
               <strong>Email:</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
           </ul>
           <p>
@@ -365,7 +365,7 @@ export default async function ReturnPolicyPage() {
             </li>
             <li>
               <strong>Email:</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
             <li>
               <strong>Location:</strong> Montreal, QC, Canada

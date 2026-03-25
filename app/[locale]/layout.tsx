@@ -31,7 +31,7 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-sigma-tan.vercel.app';
 export const revalidate = 60;
 
 export async function generateMetadata({
@@ -58,7 +58,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@artemis_watches',
+      site: '@artemismtl_',
     },
     robots: {
       index: true,
@@ -85,7 +85,7 @@ interface LocaleLayoutProps {
 // Organization + LocalBusiness: signals Montréal presence to Google
 // WebSite + SearchAction: enables Google Sitelinks search box
 function GlobalJsonLd({ locale }: { locale: string }) {
-  const url = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+  const url = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-sigma-tan.vercel.app';
   const isFr = locale === 'fr';
 
   const organization = {
@@ -100,8 +100,8 @@ function GlobalJsonLd({ locale }: { locale: string }) {
       url: `${url}/logo.png`,
     },
     description: isFr
-      ? 'Montres de luxe authentiques — Rolex, Cartier, Audemars Piguet & Patek Philippe. Sélectionnées, inspectées et livrées depuis Montréal.'
-      : 'Authentic luxury timepieces — Rolex, Cartier, Audemars Piguet & Patek Philippe. Curated, inspected and delivered from Montréal.',
+      ? 'Montres de luxe authentiques, Rolex, Cartier, Audemars Piguet et Patek Philippe. Sélectionnées, inspectées et livrées depuis Montréal.'
+      : 'Authentic luxury timepieces, Rolex, Cartier, Audemars Piguet, and Patek Philippe. Curated, inspected, and delivered from Montréal.',
     telephone: '+15145609765',
     priceRange: '$$$',
     address: {
@@ -115,7 +115,7 @@ function GlobalJsonLd({ locale }: { locale: string }) {
       { '@type': 'Country', name: 'United States' },
     ],
     sameAs: [
-      'https://www.instagram.com/artemis_watches',
+      'https://www.instagram.com/artemismtl_',
     ],
     contactPoint: {
       '@type': 'ContactPoint',

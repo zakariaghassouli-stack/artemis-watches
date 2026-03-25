@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(resendKey);
-  const from = getEnv('RESEND_FROM_EMAIL') ?? 'Artemis Watches <hello@artemis-watches.com>';
+  const from = getEnv('RESEND_FROM_EMAIL') ?? 'Artemis Watches <artemismtl101@gmail.com>';
 
   await resend.emails.send({
     from,

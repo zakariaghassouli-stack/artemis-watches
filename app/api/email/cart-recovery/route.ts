@@ -17,7 +17,7 @@ export async function POST(request: Request) {
   }
 
   const resend = new Resend(resendKey);
-  const from = getEnv('RESEND_FROM_EMAIL') ?? 'Artemis Watches <hello@artemis-watches.com>';
+  const from = getEnv('RESEND_FROM_EMAIL') ?? 'Artemis Watches <artemismtl101@gmail.com>';
   const appUrl = getEnv('NEXT_PUBLIC_APP_URL') ?? 'https://artemis-sigma-tan.vercel.app';
 
   await resend.emails.send({

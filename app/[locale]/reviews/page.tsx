@@ -462,7 +462,7 @@ export default async function ReviewsPage() {
             {ugcImages.map((img: string, i: number) => (
               <ScrollReveal key={i} delay={i * 35}>
                 <a
-                  href="https://www.instagram.com/artemis.watches"
+                  href="https://www.instagram.com/artemismtl_"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View on Instagram"
@@ -508,7 +508,7 @@ export default async function ReviewsPage() {
                 .ugc-ig-btn:hover { background: rgba(201,169,110,0.06); }
               `}</style>
               <a
-                href="https://www.instagram.com/artemis.watches"
+                href="https://www.instagram.com/artemismtl_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ugc-ig-btn"
@@ -518,7 +518,7 @@ export default async function ReviewsPage() {
                   <circle cx="12" cy="12" r="4"/>
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
                 </svg>
-                @artemis.watches
+                @artemismtl_
               </a>
             </div>
           </ScrollReveal>

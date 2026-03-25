@@ -263,7 +263,7 @@ export default async function PrivacyPolicyPage() {
           </ul>
           <p>
             Pour exercer ces droits, ecrivez-nous a{' '}
-            <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>. Nous
+            <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>. Nous
             repondrons dans un delai de 30 jours suivant la reception de votre demande et
             pourrons verifier votre identite avant d&apos;y donner suite.
           </p>
@@ -313,7 +313,7 @@ export default async function PrivacyPolicyPage() {
           <ul>
             <li>
               <strong>Courriel :</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
             <li>
               <strong>WhatsApp :</strong>{' '}
@@ -530,7 +530,7 @@ export default async function PrivacyPolicyPage() {
           </ul>
           <p>
             To exercise any of these rights, contact us at{' '}
-            <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>. We
+            <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>. We
             will respond within 30 days of receiving your request and may need to verify
             your identity before acting on it.
           </p>
@@ -576,7 +576,7 @@ export default async function PrivacyPolicyPage() {
           <ul>
             <li>
               <strong>Email:</strong>{' '}
-              <a href="mailto:hello@artemis-watches.com">hello@artemis-watches.com</a>
+              <a href="mailto:artemismtl101@gmail.com">artemismtl101@gmail.com</a>
             </li>
             <li>
               <strong>WhatsApp:</strong>{' '}

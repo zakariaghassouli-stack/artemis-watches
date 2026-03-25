@@ -15,7 +15,7 @@ export function ContactForm() {
     const body = encodeURIComponent(
       `Name: ${values.name}\nEmail: ${values.email}\nSubject: ${values.subject}\n\n${values.message}`
     );
-    window.location.href = `mailto:hello@artemis-watches.com?subject=${encodeURIComponent(values.subject || 'Message from artemis-watches.com')}&body=${body}`;
+    window.location.href = `mailto:artemismtl101@gmail.com?subject=${encodeURIComponent(values.subject || 'Message from artemis-watches.com')}&body=${body}`;
     setSent(true);
   };
 
