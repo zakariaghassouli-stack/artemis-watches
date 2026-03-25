@@ -37,7 +37,17 @@ export function GoogleAnalytics() {
             function gtag(){dataLayer.push(arguments);}
             window.gtag = gtag;
             gtag('js', new Date());
-            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+            gtag('config', '${GA_ID}', {
+              page_title: document.title,
+              page_path: window.location.pathname,
+              send_page_view: true
+            });
+            if (Array.isArray(window.__artemisPendingAnalytics) && window.__artemisPendingAnalytics.length) {
+              window.__artemisPendingAnalytics.forEach(function(entry) {
+                gtag('event', entry.eventName, entry.params || {});
+              });
+              window.__artemisPendingAnalytics = [];
+            }
           `,
         }}
       />
@@ -46,11 +56,4 @@ export function GoogleAnalytics() {
       </Suspense>
     </>
   );
-}
-
-// Type augmentation for window.gtag
-declare global {
-  interface Window {
-    gtag: (...args: unknown[]) => void;
-  }
 }

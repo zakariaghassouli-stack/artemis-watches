@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from '@/i18n/navigation';
 import { useLocale, useTranslations } from 'next-intl';
+import { useSession } from 'next-auth/react';
+import { analytics } from '@/lib/analytics';
 import { useCartStore, selectItemCount, selectCartTotal } from '@/store/cart';
 import type { CartItem } from '@/store/cart';
 import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
@@ -16,14 +18,24 @@ function formatCAD(amount: number): string {
   }).format(amount);
 }
 
-function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabel, onUpgradeBP }: {
+function replaceDiscountCopy(text: string, discountPercent: number) {
+  return text.replace(/10 ?%/g, `${discountPercent}%`);
+}
+
+function replaceBoxPriceCopy(text: string, boxAndPapersPrice: number) {
+  return text.replace(/49/g, String(boxAndPapersPrice));
+}
+
+function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabel, onUpgradeBP, onRemove }: {
   item: CartItem;
   removeLabel: string;
   boxAndPapersLabel: string;
   addBoxAndPapersLabel: string;
   onUpgradeBP?: (item: CartItem) => void;
+  onRemove?: (item: CartItem) => void;
 }) {
   const { removeItem, updateQuantity } = useCartStore();
+  const hasIncludedBoxAndPapers = item.boxAndPapers || item.range === 'premium';
 
   return (
     <div
@@ -72,7 +84,7 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
           </p>
         )}
         {/* Box & papers indicator */}
-        {item.boxAndPapers && (
+        {hasIncludedBoxAndPapers && (
           <p
             style={{
               fontSize: '0.6rem',
@@ -84,8 +96,8 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
             {boxAndPapersLabel}
           </p>
         )}
-        {/* Upsell: add box & papers for premium items */}
-        {item.range === 'premium' && !item.boxAndPapers && onUpgradeBP && (
+        {/* Upsell: add box & papers for any item */}
+        {!hasIncludedBoxAndPapers && onUpgradeBP && (
           <button
             onClick={() => onUpgradeBP(item)}
             style={{
@@ -215,7 +227,10 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
           {formatCAD(item.price * item.quantity)}
         </p>
         <button
-          onClick={() => removeItem(item.cartKey)}
+          onClick={() => {
+            onRemove?.(item);
+            removeItem(item.cartKey);
+          }}
           style={{
             background: 'none',
             border: 'none',
@@ -241,10 +256,19 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
   );
 }
 
-export function CartDrawer() {
+interface CartDrawerProps {
+  boxAndPapersPrice?: number | null;
+  welcomeDiscountPercent?: number | null;
+}
+
+export function CartDrawer({
+  boxAndPapersPrice = 49,
+  welcomeDiscountPercent = 10,
+}: CartDrawerProps) {
   const t = useTranslations('cart');
   const locale = useLocale();
-  const { items, isOpen, closeCart, removeItem, addItem } = useCartStore();
+  const { data: session } = useSession();
+  const { items, isOpen, closeCart, enableBoxAndPapers } = useCartStore();
   const itemCount = useCartStore(selectItemCount);
   const total = useCartStore(selectCartTotal);
   const supportUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
@@ -258,6 +282,14 @@ export function CartDrawer() {
   const [promoDiscount, setPromoDiscount] = useState(0);
   const [promoError, setPromoError] = useState('');
   const [promoLoading, setPromoLoading] = useState(false);
+  const [presentationSet, setPresentationSet] = useState(false);
+
+  const resolvedBoxAndPapersPrice = boxAndPapersPrice ?? 49;
+  const resolvedWelcomeDiscountPercent = welcomeDiscountPercent ?? 10;
+  const hasAnyBoxAndPapers = items.some((item) => item.boxAndPapers || item.range === 'premium');
+  const effectivePresentationSet = presentationSet && !hasAnyBoxAndPapers;
+  const displaySubtotal = total + (effectivePresentationSet ? resolvedBoxAndPapersPrice : 0);
+  const promoDiscountAmount = promoDiscount > 0 ? displaySubtotal * promoDiscount / 100 : 0;
 
   // Close on Escape key
   useEffect(() => {
@@ -279,15 +311,25 @@ export function CartDrawer() {
     if (!code) return;
     setPromoLoading(true);
     setPromoError('');
+    const promoEmail =
+      session?.user?.email ??
+      (typeof window !== 'undefined'
+        ? window.localStorage.getItem('artemis_user_email') ?? ''
+        : '');
 
     try {
-      const res = await fetch(`/api/auth/validate-promo?code=${encodeURIComponent(code)}`);
+      const query = new URLSearchParams({ code });
+      if (promoEmail) {
+        query.set('email', promoEmail);
+      }
+      const res = await fetch(`/api/auth/validate-promo?${query.toString()}`);
       const data = await res.json();
 
       if (data.valid) {
         setPromoCode(code);
         setPromoDiscount(data.discount as number);
         setPromoError('');
+        analytics.applyPromo(code, displaySubtotal * ((data.discount as number) / 100));
       } else {
         setPromoCode('');
         setPromoDiscount(0);
@@ -298,24 +340,17 @@ export function CartDrawer() {
     } finally {
       setPromoLoading(false);
     }
-  }, [promoInput, t]);
+  }, [displaySubtotal, promoInput, session?.user?.email, t]);
+
+  useEffect(() => {
+    if (hasAnyBoxAndPapers && presentationSet) {
+      setPresentationSet(false);
+    }
+  }, [hasAnyBoxAndPapers, presentationSet]);
 
   const upgradeItemBP = useCallback((item: CartItem) => {
-    removeItem(item.cartKey);
-    addItem({
-      id: item.id,
-      slug: item.slug,
-      brandSlug: item.brandSlug,
-      collectionSlug: item.collectionSlug,
-      brand: item.brand,
-      name: item.name,
-      variant: item.variant,
-      size: item.size,
-      range: item.range,
-      price: item.price + 49,
-      boxAndPapers: true,
-    });
-  }, [removeItem, addItem]);
+    enableBoxAndPapers(item.cartKey, resolvedBoxAndPapersPrice);
+  }, [enableBoxAndPapers, resolvedBoxAndPapersPrice]);
 
   const removePromo = useCallback(() => {
     setPromoCode('');
@@ -328,12 +363,37 @@ export function CartDrawer() {
     if (items.length === 0) return;
     setIsCheckingOut(true);
     setError(null);
+    const checkoutItems = items.map((item) =>
+      item.range === 'premium' ? { ...item, boxAndPapers: true } : item
+    );
+    analytics.beginCheckout(
+      checkoutItems.map((item) => ({
+        id: item.id,
+        name: `${item.brand} ${item.name}`,
+        brand: item.brand,
+        range: item.range,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      Math.max(displaySubtotal - promoDiscountAmount, 0)
+    );
 
     try {
+      const promoEmail =
+        session?.user?.email ??
+        (typeof window !== 'undefined'
+          ? window.localStorage.getItem('artemis_user_email') ?? ''
+          : '');
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items, promoCode: promoCode || undefined }),
+        body: JSON.stringify({
+          locale,
+          items: checkoutItems,
+          promoCode: promoCode || undefined,
+          promoEmail: promoEmail || undefined,
+          presentationSet: effectivePresentationSet,
+        }),
       });
 
       const data = await res.json();
@@ -347,7 +407,16 @@ export function CartDrawer() {
       setError(t('checkoutError'));
       setIsCheckingOut(false);
     }
-  }, [items, promoCode, t]);
+  }, [
+    displaySubtotal,
+    items,
+    locale,
+    effectivePresentationSet,
+    promoCode,
+    promoDiscountAmount,
+    session?.user?.email,
+    t,
+  ]);
 
   return (
     <>
@@ -550,7 +619,10 @@ export function CartDrawer() {
                 href={supportUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={closeCart}
+                onClick={() => {
+                  analytics.whatsappClick('cart_drawer_empty');
+                  closeCart();
+                }}
                 style={{
                   fontSize: '0.68rem',
                   fontWeight: 600,
@@ -570,8 +642,15 @@ export function CartDrawer() {
                 item={item}
                 removeLabel={t('remove')}
                 boxAndPapersLabel={t('boxAndPapers')}
-                addBoxAndPapersLabel={t('addBoxAndPapers')}
+                addBoxAndPapersLabel={replaceBoxPriceCopy(t('addBoxAndPapers'), resolvedBoxAndPapersPrice)}
                 onUpgradeBP={upgradeItemBP}
+                onRemove={(cartItem) =>
+                  analytics.removeFromCart({
+                    id: cartItem.id,
+                    name: `${cartItem.brand} ${cartItem.name}`,
+                    price: cartItem.price * cartItem.quantity,
+                  })
+                }
               />
             ))
           )}
@@ -586,6 +665,60 @@ export function CartDrawer() {
               flexShrink: 0,
             }}
           >
+            {hasAnyBoxAndPapers ? (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 10,
+                  padding: '12px 14px',
+                  border: '1px solid rgba(201,169,110,0.18)',
+                  borderRadius: 4,
+                  background: 'rgba(201,169,110,0.06)',
+                  marginBottom: 16,
+                }}
+              >
+                <span style={{ color: '#C9A96E', fontSize: '0.82rem', lineHeight: 1 }}>✓</span>
+                <span style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <span style={{ fontSize: '0.74rem', color: '#C9A96E', letterSpacing: '0.04em' }}>
+                    {t('boxAndPapers')}
+                  </span>
+                  <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.34)', lineHeight: 1.5 }}>
+                    {t('boxAndPapersAdded')}
+                  </span>
+                </span>
+              </div>
+            ) : (
+              <label
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 10,
+                  padding: '12px 14px',
+                  border: '1px solid rgba(201,169,110,0.18)',
+                  borderRadius: 4,
+                  background: presentationSet ? 'rgba(201,169,110,0.06)' : 'rgba(255,255,255,0.02)',
+                  marginBottom: 16,
+                  cursor: 'pointer',
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={presentationSet}
+                  onChange={(e) => setPresentationSet(e.target.checked)}
+                  style={{ marginTop: 2 }}
+                />
+                <span style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <span style={{ fontSize: '0.74rem', color: '#C9A96E', letterSpacing: '0.04em' }}>
+                    {replaceBoxPriceCopy(t('presentationSet'), resolvedBoxAndPapersPrice)}
+                  </span>
+                  <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.34)', lineHeight: 1.5 }}>
+                    {t('presentationSetBody')}
+                  </span>
+                </span>
+              </label>
+            )}
+
             {/* Subtotal row */}
             <div
               style={{
@@ -599,7 +732,7 @@ export function CartDrawer() {
                 {t('subtotal')} ({itemCount} {itemCount === 1 ? t('item') : t('items')})
               </span>
               <span style={{ fontSize: '1rem', fontWeight: 700, color: '#A8A5A0', letterSpacing: '-0.01em' }}>
-                {formatCAD(total)} CAD
+                {formatCAD(displaySubtotal)} CAD
               </span>
             </div>
             {/* Discount row */}
@@ -611,15 +744,15 @@ export function CartDrawer() {
                   alignItems: 'center',
                   marginBottom: 6,
                 }}
-              >
-                <span style={{ fontSize: '0.72rem', color: '#C9A96E', letterSpacing: '0.06em' }}>
-                  {t('promoApplied').replace('{code}', promoCode)} −{promoDiscount}%
-                </span>
-                <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#C9A96E' }}>
-                  −{formatCAD(total * promoDiscount / 100)} CAD
-                </span>
-              </div>
-            )}
+                >
+                  <span style={{ fontSize: '0.72rem', color: '#C9A96E', letterSpacing: '0.06em' }}>
+                    {t('promoApplied').replace('{code}', promoCode)} −{promoDiscount}%
+                  </span>
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#C9A96E' }}>
+                  −{formatCAD(promoDiscountAmount)} CAD
+                  </span>
+                </div>
+              )}
 
             <p
               style={{
@@ -629,7 +762,7 @@ export function CartDrawer() {
                 letterSpacing: '0.04em',
               }}
             >
-              {t('shippingNote')}
+                {t('shippingNote')}
             </p>
 
             {/* Promo code input */}
@@ -695,7 +828,7 @@ export function CartDrawer() {
                     transition: 'color 0.2s',
                   }}
                 >
-                  {promoLoading ? t('promoLoading') : t('promoApply')}
+                {promoLoading ? t('promoLoading') : t('promoApply')}
                 </button>
               </div>
             )}
@@ -718,6 +851,24 @@ export function CartDrawer() {
               >
                 {error}
               </p>
+            )}
+
+            {!session?.user && (
+              <Link
+                href="/account/register"
+                onClick={closeCart}
+                style={{
+                  display: 'block',
+                  marginBottom: 12,
+                  textAlign: 'center',
+                  fontSize: '0.68rem',
+                  color: '#C9A96E',
+                  lineHeight: 1.5,
+                  textDecoration: 'none',
+                }}
+              >
+                {replaceDiscountCopy(t('accountPromoLine'), resolvedWelcomeDiscountPercent)}
+              </Link>
             )}
 
             {/* Checkout button */}
@@ -752,7 +903,7 @@ export function CartDrawer() {
                 lineHeight: 1.6,
               }}
             >
-              {t('checkoutMicrocopy')}
+              {replaceDiscountCopy(t('checkoutMicrocopy'), resolvedWelcomeDiscountPercent)}
             </p>
 
             {/* Continue shopping */}
@@ -788,6 +939,7 @@ export function CartDrawer() {
               href={supportUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => analytics.whatsappClick('cart_drawer')}
               style={{
                 display: 'block',
                 textAlign: 'center',

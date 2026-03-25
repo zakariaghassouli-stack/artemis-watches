@@ -5,17 +5,36 @@ import { useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 
-export function SignupPromo() {
+function replaceDiscountCopy(text: string, discountPercent: number) {
+  return text.replace(/10 ?%/g, `${discountPercent}%`);
+}
+
+interface SignupPromoProps {
+  discountPercent?: number | null;
+}
+
+export function SignupPromo({ discountPercent = 10 }: SignupPromoProps) {
   const t = useTranslations('home.signup');
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const benefits = t.raw('benefits') as string[];
+  const resolvedDiscountPercent = discountPercent ?? 10;
+  const benefits = (t.raw('benefits') as string[]).map((benefit) =>
+    replaceDiscountCopy(benefit, resolvedDiscountPercent)
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email.trim()) return;
     setLoading(true);
+    try {
+      localStorage.setItem('artemis_user_email', email.trim());
+    } catch {}
+    fetch('/api/crm/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email.trim(), source: 'signup_10_percent_home' }),
+    }).catch(() => undefined);
     router.push(`/account/register?email=${encodeURIComponent(email.trim())}`);
   };
 
@@ -69,7 +88,7 @@ export function SignupPromo() {
               marginBottom: 20,
             }}
           >
-            {t('headline')}
+            {replaceDiscountCopy(t('headline'), resolvedDiscountPercent)}
           </h2>
         </ScrollReveal>
 
@@ -82,7 +101,7 @@ export function SignupPromo() {
               marginBottom: 32,
             }}
           >
-            {t('subheadline')}
+            {replaceDiscountCopy(t('subheadline'), resolvedDiscountPercent)}
           </p>
         </ScrollReveal>
 
@@ -137,7 +156,7 @@ export function SignupPromo() {
                 whiteSpace: 'nowrap',
               }}
             >
-              {loading ? '...' : t('cta')}
+              {loading ? '...' : replaceDiscountCopy(t('cta'), resolvedDiscountPercent)}
             </button>
           </form>
 
@@ -209,6 +228,17 @@ export function SignupPromo() {
             }}
           >
             {t('microcopy')}
+          </p>
+          <p
+            style={{
+              fontSize: '0.72rem',
+              color: '#C9A96E',
+              lineHeight: 1.7,
+              marginBottom: 8,
+              letterSpacing: '0.03em',
+            }}
+          >
+            {t('expiryNotice')}
           </p>
           <p
             style={{

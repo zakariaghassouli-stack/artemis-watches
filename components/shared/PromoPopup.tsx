@@ -5,9 +5,14 @@ import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { X } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
-const COOKIE_KEY = 'artemis_promo_popup_dismissed';
+const COOKIE_KEY = 'artemis_popup_dismissed';
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
+
+function replaceDiscountCopy(text: string, discountPercent: number) {
+  return text.replace(/10 ?%/g, `${discountPercent}%`);
+}
 
 function hasDismissCookie(): boolean {
   return document.cookie.split('; ').some((cookie) => cookie.startsWith(`${COOKIE_KEY}=`));
@@ -17,23 +22,29 @@ function setDismissCookie() {
   document.cookie = `${COOKIE_KEY}=1; Max-Age=${COOKIE_MAX_AGE}; Path=/; SameSite=Lax`;
 }
 
-export function PromoPopup() {
+interface PromoPopupProps {
+  discountPercent?: number | null;
+}
+
+export function PromoPopup({ discountPercent = 10 }: PromoPopupProps) {
   const t = useTranslations('popup');
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [visible, setVisible] = useState(false);
   const [entered, setEntered] = useState(false);
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  const resolvedDiscountPercent = discountPercent ?? 10;
 
   const dismiss = useCallback(() => {
     setDismissCookie();
     setEntered(false);
     setVisible(false);
+    analytics.popupDismissed();
   }, []);
 
   useEffect(() => {
-    if (status === 'loading' || session?.user) return;
+    if (session?.user) return;
     if (hasDismissCookie()) return;
 
     let triggered = false;
@@ -43,21 +54,43 @@ export function PromoPopup() {
       setVisible(true);
     };
 
-    const timer = window.setTimeout(trigger, 8000);
-    const onMouseLeave = (event: MouseEvent) => {
-      if (window.innerWidth < 1024) return;
-      if (event.clientY <= 0) trigger();
+    let lastMouseY = window.innerHeight;
+
+    const isExitIntent = (event: MouseEvent) => {
+      if (window.innerWidth < 1024) return false;
+      if (event.clientY > 12) return false;
+      return !event.relatedTarget;
     };
 
+    const onMouseMove = (event: MouseEvent) => {
+      if (window.innerWidth >= 1024 && lastMouseY > 80 && event.clientY <= 4) {
+        trigger();
+      }
+      lastMouseY = event.clientY;
+    };
+
+    const timer = window.setTimeout(trigger, 8000);
+    const onMouseLeave = (event: MouseEvent) => {
+      if (isExitIntent(event)) trigger();
+    };
+    const onMouseOut = (event: MouseEvent) => {
+      if (isExitIntent(event)) trigger();
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseleave', onMouseLeave);
+    document.addEventListener('mouseout', onMouseOut);
     return () => {
       window.clearTimeout(timer);
+      document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('mouseout', onMouseOut);
     };
-  }, [session?.user, status]);
+  }, [session?.user]);
 
   useEffect(() => {
     if (!visible) return;
+    analytics.popupShown();
     const frame = window.requestAnimationFrame(() => setEntered(true));
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') dismiss();
@@ -73,11 +106,24 @@ export function PromoPopup() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
+    analytics.popupConverted();
+    try {
+      if (email.trim()) {
+        localStorage.setItem('artemis_user_email', email.trim());
+      }
+    } catch {}
+    fetch('/api/crm/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email.trim(), source: 'signup_10_percent_popup' }),
+    }).catch(() => undefined);
     setDismissCookie();
-    router.push(`/account/register${email.trim() ? `?email=${encodeURIComponent(email.trim())}` : ''}`);
+    router.push(
+      `/account/register${email.trim() ? `?email=${encodeURIComponent(email.trim())}` : ''}`
+    );
   };
 
-  if (!visible || status === 'loading' || session?.user) return null;
+  if (!visible || session?.user) return null;
 
   return (
     <>
@@ -98,7 +144,7 @@ export function PromoPopup() {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={t('headline')}
+        aria-label={replaceDiscountCopy(t('headline'), resolvedDiscountPercent)}
         style={{
           position: 'fixed',
           top: '50%',
@@ -172,7 +218,7 @@ export function PromoPopup() {
               marginBottom: 14,
             }}
           >
-            {t('headline')}
+            {replaceDiscountCopy(t('headline'), resolvedDiscountPercent)}
           </h2>
 
           <p
@@ -183,7 +229,18 @@ export function PromoPopup() {
               marginBottom: 26,
             }}
           >
-            {t('subheadline')}
+            {replaceDiscountCopy(t('subheadline'), resolvedDiscountPercent)}
+          </p>
+          <p
+            style={{
+              fontSize: '0.76rem',
+              lineHeight: 1.6,
+              color: '#C9A96E',
+              marginBottom: 22,
+              letterSpacing: '0.03em',
+            }}
+          >
+            {replaceDiscountCopy(t('expiryNotice'), resolvedDiscountPercent)}
           </p>
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
@@ -222,7 +279,7 @@ export function PromoPopup() {
                 cursor: loading ? 'wait' : 'pointer',
               }}
             >
-              {loading ? t('loading') : t('cta')}
+              {loading ? t('loading') : replaceDiscountCopy(t('cta'), resolvedDiscountPercent)}
             </button>
           </form>
 

@@ -1,15 +1,45 @@
 'use client';
 
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
-export function Hero() {
+interface HeroProps {
+  headlineOverride?: string | null;
+  subheadlineOverride?: string | null;
+}
+
+export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
   const t = useTranslations('home.hero');
   const locale = useLocale();
   const heroWhatsAppUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
+  const rawHeadline = headlineOverride?.trim() || '';
+
+  let headlinePrimary = t('headlinePart1');
+  let headlineAccent = t('headlineAccent');
+
+  if (rawHeadline) {
+    const lineBreakParts = rawHeadline
+      .split(/\n+/)
+      .map((part) => part.trim())
+      .filter(Boolean);
+
+    if (lineBreakParts.length >= 2) {
+      headlinePrimary = lineBreakParts[0];
+      headlineAccent = lineBreakParts.slice(1).join(' ');
+    } else {
+      const sentenceParts = rawHeadline
+        .split(/(?<=\.)\s+/)
+        .map((part) => part.trim())
+        .filter(Boolean);
+      headlinePrimary = sentenceParts[0] ?? rawHeadline;
+      headlineAccent = sentenceParts.slice(1).join(' ') || t('headlineAccent');
+    }
+  }
 
   return (
     <section
@@ -96,21 +126,23 @@ export function Hero() {
           <ScrollReveal delay={80}>
             <h1
               style={{
-                fontSize: 'clamp(2.8rem, 6vw, 5.5rem)',
+                fontSize: 'clamp(2.9rem, 6vw, 5.5rem)',
                 fontWeight: 600,
-                lineHeight: 1.05,
+                lineHeight: 0.98,
                 letterSpacing: '-0.03em',
                 color: '#F5F3EF',
                 marginBottom: 28,
               }}
             >
-              {t('headlinePart1')}{' '}
+              <span style={{ display: 'block', color: '#F5F3EF' }}>{headlinePrimary}</span>
               <span
                 style={{
                   display: 'block',
-                  fontFamily: '"Playfair Display", Georgia, serif',
+                  marginTop: 6,
+                  fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
                   fontStyle: 'italic',
                   fontWeight: 400,
+                  fontSize: 'clamp(3.15rem, 6.4vw, 6rem)',
                   background:
                     'linear-gradient(135deg, #D4B882 0%, #C9A96E 50%, #B8924A 100%)',
                   WebkitBackgroundClip: 'text',
@@ -118,7 +150,7 @@ export function Hero() {
                   backgroundClip: 'text',
                 }}
               >
-                {t('headlineAccent')}
+                {headlineAccent}
               </span>
             </h1>
           </ScrollReveal>
@@ -126,14 +158,15 @@ export function Hero() {
           <ScrollReveal delay={160}>
             <p
               style={{
-                fontSize: 'clamp(0.95rem, 1.2vw, 1.1rem)',
+                fontSize: 'clamp(1rem, 1.3vw, 1.08rem)',
                 color: '#A8A5A0',
-                lineHeight: 1.75,
+                lineHeight: 1.45,
                 marginBottom: 44,
-                maxWidth: 500,
+                maxWidth: 680,
+                letterSpacing: '0.03em',
               }}
             >
-              {t('subheadline')}
+              {subheadlineOverride ?? t('subheadline')}
             </p>
           </ScrollReveal>
 
@@ -168,6 +201,7 @@ export function Hero() {
                 href={heroWhatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.whatsappClick('home_hero')}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -210,13 +244,13 @@ export function Hero() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={300}>
+          <ScrollReveal delay={280}>
             <div
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: 10,
-                maxWidth: 560,
+                marginBottom: 12,
               }}
             >
               {[t('point1'), t('point2'), t('point3')].map((point) => (
@@ -227,12 +261,12 @@ export function Hero() {
                     alignItems: 'center',
                     gap: 8,
                     padding: '8px 12px',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    background: 'rgba(255,255,255,0.02)',
                     borderRadius: 999,
-                    fontSize: '0.66rem',
-                    letterSpacing: '0.06em',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    background: 'rgba(255,255,255,0.03)',
                     color: '#A8A5A0',
+                    fontSize: '0.68rem',
+                    letterSpacing: '0.04em',
                   }}
                 >
                   <span
@@ -249,7 +283,18 @@ export function Hero() {
                 </span>
               ))}
             </div>
+            <p
+              style={{
+                fontSize: '0.78rem',
+                color: 'rgba(255,255,255,0.42)',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+              }}
+            >
+              {t('socialProof')}
+            </p>
           </ScrollReveal>
+
         </div>
 
         {/* Right — Hero watch image */}
@@ -278,17 +323,14 @@ export function Hero() {
                 pointerEvents: 'none',
               }}
             />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/rolex-submariner-date-black-dial.webp"
-              alt="Rolex Submariner Date — Artemis Watches Montreal"
+            <Image
+              src="/images/rolex-submariner-hulk-face.webp"
+              alt="Rolex Submariner Hulk — Artemis Watches Montreal"
+              fill
+              sizes="(max-width: 768px) 100vw, 42vw"
               style={{
-                width: '88%',
-                height: '88%',
-                objectFit: 'contain',
-                position: 'relative',
-                zIndex: 1,
-                filter: 'drop-shadow(0 24px 48px rgba(0,0,0,0.6))',
+                objectFit: 'cover',
+                objectPosition: 'center',
               }}
             />
           </div>

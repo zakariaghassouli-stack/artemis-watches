@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { SectionHeader } from '@/components/shared/SectionHeader';
@@ -11,36 +12,55 @@ const BRANDS = [
     key: 'rolex' as const,
     slug: 'rolex',
     bgAccent: 'rgba(0,135,81,0.06)',
-    priority: true,
-    image: '/images/rolex-submariner-date-black-dial.webp',
+    image: '/images/rolex-gmt-master-ii-pepsi-face.webp',
+    models: [
+      { label: 'Submariner', slug: 'submariner' },
+      { label: 'Datejust', slug: 'datejust' },
+      { label: 'GMT-Master II', slug: 'gmt-master-ii' },
+      { label: 'Daytona', slug: 'daytona' },
+      { label: 'Day-Date', slug: 'day-date' },
+      { label: 'Explorer', slug: 'explorer' },
+    ],
   },
   {
     key: 'cartier' as const,
     slug: 'cartier',
     bgAccent: 'rgba(180,30,30,0.05)',
-    priority: false,
-    image: '/images/cartier-santos-silver-dial.webp',
+    image: '/images/cartier-santos-silver-face.webp',
+    models: [
+      { label: 'Santos', slug: 'santos' },
+      { label: 'Panthère', slug: 'panthere' },
+    ],
   },
   {
     key: 'ap' as const,
     slug: 'audemars-piguet',
     bgAccent: 'rgba(0,80,160,0.05)',
-    priority: false,
-    image: '/images/audemars-piguet-royal-oak-blue.webp',
+    image: '/images/audemars-piguet-royal-oak-skeleton-silver-face.webp',
+    models: [{ label: 'Royal Oak', slug: 'royal-oak' }],
   },
   {
     key: 'patek' as const,
     slug: 'patek-philippe',
     bgAccent: 'rgba(140,100,0,0.05)',
-    priority: false,
-    image: '/images/patek-philippe-nautilus-blue.webp',
+    image: '/images/patek-philippe-nautilus-blue-face.webp',
+    models: [
+      { label: 'Nautilus', slug: 'nautilus' },
+      { label: 'Aquanaut', slug: 'aquanaut' },
+      { label: 'Calatrava', slug: 'calatrava' },
+    ],
   },
 ];
 
 const BRAND_COUNTS = getProductCountByBrand();
 
-export function FeaturedCollections() {
+interface FeaturedCollectionsProps {
+  counts?: Record<string, number>;
+}
+
+export function FeaturedCollections({ counts }: FeaturedCollectionsProps) {
   const t = useTranslations('home.collections');
+  const brandCounts = counts ?? BRAND_COUNTS;
 
   const brandNames: Record<string, string> = {
     rolex: 'Rolex',
@@ -82,19 +102,16 @@ export function FeaturedCollections() {
 
           {BRANDS.map((brand, i) => (
             <ScrollReveal key={brand.slug} delay={i * 80}>
-              <Link
-                href={`/collections/${brand.slug}`}
+              <div
                 style={{
                   display: 'block',
                   position: 'relative',
-                  aspectRatio: brand.priority ? '3/4' : '3/4',
+                  aspectRatio: '3/4',
                   background: `linear-gradient(160deg, #161616 0%, #111111 100%)`,
                   border: '1px solid rgba(255,255,255,0.06)',
                   borderRadius: 4,
                   overflow: 'hidden',
-                  textDecoration: 'none',
                   transition: 'border-color 0.3s, transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94)',
-                  cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor =
@@ -119,18 +136,17 @@ export function FeaturedCollections() {
                 />
 
                 {/* Brand image */}
-                <img
+                <Image
                   src={brand.image}
                   alt={`${brandNames[brand.key]} collection — Artemis Watches Montreal`}
+                  fill
+                  sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 25vw"
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    width: '100%',
-                    height: '100%',
                     objectFit: 'cover',
                     objectPosition: 'center',
                   }}
-                  loading={brand.priority ? 'eager' : 'lazy'}
                 />
 
                 {/* Bottom overlay */}
@@ -160,7 +176,7 @@ export function FeaturedCollections() {
                       marginBottom: 12,
                     }}
                   >
-                    {t('piecesCount').replace('{count}', String(BRAND_COUNTS[brand.slug] ?? 0))}
+                    {t('piecesCount', { count: brandCounts[brand.slug] ?? 0 })}
                   </p>
                   <h3
                     style={{
@@ -173,28 +189,50 @@ export function FeaturedCollections() {
                   >
                     {brandNames[brand.key]}
                   </h3>
-                  <p
+                  <div
                     style={{
-                      fontSize: '0.72rem',
-                      color: '#A8A5A0',
-                      marginBottom: 14,
-                      letterSpacing: '0.02em',
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: 8,
+                      marginBottom: 16,
                     }}
                   >
-                    {t(`${brand.key}Sub` as Parameters<typeof t>[0])}
-                  </p>
-                  <p
+                    {brand.models.map((model) => (
+                      <Link
+                        key={model.slug}
+                        href={`/collections/${brand.slug}/${model.slug}`}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          padding: '5px 8px',
+                          borderRadius: 999,
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          background: 'rgba(10,10,10,0.38)',
+                          color: '#A8A5A0',
+                          fontSize: '0.63rem',
+                          letterSpacing: '0.03em',
+                          textDecoration: 'none',
+                        }}
+                      >
+                        {model.label}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link
+                    href={`/collections/${brand.slug}`}
                     style={{
+                      display: 'inline-flex',
                       fontSize: '0.72rem',
-                      fontWeight: 500,
+                      fontWeight: 700,
                       color: '#C9A96E',
                       letterSpacing: '0.08em',
+                      textDecoration: 'none',
                     }}
                   >
                     {t(`${brand.key}Cta` as Parameters<typeof t>[0])}
-                  </p>
+                  </Link>
                 </div>
-              </Link>
+              </div>
             </ScrollReveal>
           ))}
         </div>

@@ -4,7 +4,15 @@ import { useEffect, useRef } from 'react';
 import { AnnouncementBar } from './AnnouncementBar';
 import { Navbar } from './Navbar';
 
-export function SiteHeader() {
+interface SiteHeaderProps {
+  announcementEnabled?: boolean;
+  announcementText?: string | null;
+}
+
+export function SiteHeader({
+  announcementEnabled = true,
+  announcementText,
+}: SiteHeaderProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,7 +41,10 @@ export function SiteHeader() {
         zIndex: 100,
       }}
     >
-      <AnnouncementBar />
+      <AnnouncementBar
+        enabled={announcementEnabled}
+        messageOverride={announcementText}
+      />
       <Navbar />
     </div>
   );
