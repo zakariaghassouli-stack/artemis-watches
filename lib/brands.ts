@@ -74,7 +74,7 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     name: 'Daytona',
     brandSlug: 'rolex',
     description:
-      "Rolex's racing chronograph, shaped by motorsport heritage and a highly recognizable dial layout. The Daytona remains one of the house's most discussed modern references.",
+      "Rolex's racing chronograph, shaped by motorsport heritage and a highly recognizable dial layout. The Daytona remains one of the brand's most discussed modern references.",
   },
   santos: {
     slug: 'santos',
@@ -110,6 +110,55 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     brandSlug: 'patek-philippe',
     description:
       "Patek's adventurous spirit in watch form. The rounded octagonal case and composite strap give the Aquanaut a bold modernity unique in the Patek catalogue.",
+  },
+  'day-date': {
+    slug: 'day-date',
+    name: 'Day-Date',
+    brandSlug: 'rolex',
+    description:
+      "Rolex's flagship dress watch since 1956. Reserved for precious metals only, the Day-Date was the first watch to display both the day and date — and remains the definitive prestige Rolex.",
+  },
+  explorer: {
+    slug: 'explorer',
+    name: 'Explorer',
+    brandSlug: 'rolex',
+    description:
+      'Born from the 1953 Everest expedition. The Explorer trades ornament for pure legibility and robustness — a purposeful tool watch that holds its own in any context.',
+  },
+  'yacht-master': {
+    slug: 'yacht-master',
+    name: 'Yacht-Master',
+    brandSlug: 'rolex',
+    description:
+      'A nautical identity translated into refined proportions. The Yacht-Master blends sport functionality with a polished character rarely found in purpose-built tool watches.',
+  },
+  'oyster-perpetual': {
+    slug: 'oyster-perpetual',
+    name: 'Oyster Perpetual',
+    brandSlug: 'rolex',
+    description:
+      'The purist Rolex — no date, no complications, no distraction. The Oyster Perpetual is the direct descendant of the original 1926 Rolex Oyster, reduced to its core.',
+  },
+  'sky-dweller': {
+    slug: 'sky-dweller',
+    name: 'Sky-Dweller',
+    brandSlug: 'rolex',
+    description:
+      "Rolex's most mechanically complex watch for the traveller. The Sky-Dweller displays home and local time simultaneously, with an annual calendar that requires adjustment only once a year.",
+  },
+  'land-dweller': {
+    slug: 'land-dweller',
+    name: 'Land-Dweller',
+    brandSlug: 'rolex',
+    description:
+      "Rolex's newest reference, blending refined proportions with modern movement architecture. The Land-Dweller sits at the intersection of dressy versatility and contemporary watchmaking.",
+  },
+  calatrava: {
+    slug: 'calatrava',
+    name: 'Calatrava',
+    brandSlug: 'patek-philippe',
+    description:
+      "Patek Philippe's purist dress collection, defined by the Calatrava cross and an unwavering commitment to classical proportions. The skeleton variants reveal a centuries-old craft.",
   },
 };
 

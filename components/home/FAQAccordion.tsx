@@ -7,7 +7,7 @@ import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Plus, Minus } from 'lucide-react';
 
-const FAQ_KEYS = ['1', '2', '3', '4', '5', '6'] as const;
+const FAQ_KEYS = ['1', '3', '4', '7'] as const;
 
 export function FAQAccordion() {
   const t = useTranslations('home.faq');

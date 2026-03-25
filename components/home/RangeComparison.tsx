@@ -2,6 +2,7 @@
 
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
+import { analytics } from '@/lib/analytics';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Check } from 'lucide-react';
@@ -329,6 +330,7 @@ export function RangeComparison() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => analytics.whatsappClick('home_range')}
               style={{ color: '#C9A96E', textDecoration: 'none', borderBottom: '1px solid rgba(201,169,110,0.28)' }}
             >
               {t('whatsappCta')}

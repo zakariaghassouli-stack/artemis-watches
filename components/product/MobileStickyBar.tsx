@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { formatPrice } from '@/lib/products';
+import { analytics } from '@/lib/analytics';
 import { useCartStore } from '@/store/cart';
 import { pixel } from '@/lib/pixel';
 import type { Product } from '@/types/product';
@@ -29,6 +30,7 @@ export function MobileStickyBar({
   const defaultSize = product.availableSizes[0] ?? undefined;
   const locale = useLocale();
   const needsSelection = product.availableSizes.length > 1 || product.hasEssentialVariant;
+  const includesBoxAndPapers = product.range === 'premium';
 
   // Show bar only after user has scrolled past the hero info panel (~600px)
   useEffect(() => {
@@ -57,7 +59,7 @@ export function MobileStickyBar({
       size: defaultSize,
       range: product.range,
       price: product.price,
-      boxAndPapers: false,
+      boxAndPapers: includesBoxAndPapers,
     });
     pixel.addToCart({
       content_ids: [product.id],
@@ -65,6 +67,14 @@ export function MobileStickyBar({
       content_type: 'product',
       value: product.price,
       currency: 'CAD',
+    });
+    analytics.addToCart({
+      id: product.id,
+      name: `${product.brand} ${product.name}`,
+      brand: product.brand,
+      price: product.price,
+      range: product.range,
+      quantity: 1,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
@@ -194,6 +204,7 @@ export function MobileStickyBar({
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => analytics.whatsappClick('product_sticky', product.id)}
             style={{
               flex: 1,
               padding: '13px 0',

@@ -14,17 +14,21 @@ const intlMiddleware = createMiddleware({
 });
 
 function isProtectedRoute(pathname: string): boolean {
-  return /\/(fr\/)?account(?!\/(login|register))(\/|$)/.test(pathname);
+  return /\/(fr\/)?account(?!\/(login|register|forgot-password|reset-password))(\/|$)/.test(pathname);
 }
 
 function isAuthPage(pathname: string): boolean {
-  return /\/(fr\/)?account\/(login|register)/.test(pathname);
+  return /\/(fr\/)?account\/(login|register|forgot-password|reset-password)/.test(pathname);
 }
 
 export default auth(function proxy(req) {
   const session = (req as NextRequest & { auth: { user?: { email?: string | null } } | null }).auth;
   const isLoggedIn = !!session?.user?.email;
   const { pathname } = (req as NextRequest).nextUrl;
+
+  if (pathname === '/studio' || pathname.startsWith('/studio/')) {
+    return NextResponse.next();
+  }
 
   // ── Auth guards ───────────────────────────────────────────────
   if (isProtectedRoute(pathname) && !isLoggedIn) {
@@ -62,6 +66,6 @@ export default auth(function proxy(req) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon\\.ico|sitemap\\.xml|robots\\.txt|images|fonts).*)',
+    '/((?!api|studio(?:/.*)?$|_next/static|_next/image|favicon\\.ico|sitemap\\.xml|robots\\.txt|images|fonts).*)',
   ],
 };

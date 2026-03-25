@@ -5,6 +5,7 @@ import { Link, useRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
+import { analytics } from '@/lib/analytics';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -40,6 +41,15 @@ export default function RegisterPage() {
 
       // Store promo code for the success screen
       setPromoCode(data.promoCode ?? '');
+      try {
+        localStorage.setItem('artemis_user_email', email);
+      } catch {}
+      analytics.signUp('email');
+      fetch('/api/crm/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name }),
+      }).catch(() => undefined);
 
       // Auto sign-in after registration
       await signIn('credentials', { email, password, redirect: false });

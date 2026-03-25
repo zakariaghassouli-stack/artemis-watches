@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
-import { ALL_PRODUCTS } from '@/lib/products';
+import { getAllProducts } from '@/lib/queries';
 import { SearchClient } from '@/components/search/SearchClient';
 import type { Metadata } from 'next';
 
@@ -28,6 +28,7 @@ interface SearchPageProps {
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const params = await searchParams;
+  const products = await getAllProducts();
 
   const initialQuery = typeof params.q === 'string' ? params.q : '';
   const initialBrand = (['rolex', 'cartier', 'audemars-piguet', 'patek-philippe'] as const).includes(
@@ -44,7 +45,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <Suspense fallback={<div style={{ minHeight: '100vh', background: '#0A0A0A' }} />}>
       <SearchClient
-        products={ALL_PRODUCTS}
+        products={products}
         initialQuery={initialQuery}
         initialBrand={initialBrand}
         initialRange={initialRange}

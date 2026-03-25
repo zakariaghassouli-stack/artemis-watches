@@ -38,9 +38,9 @@ export async function TrustBar() {
 
   const items = [
     { icon: <ShieldIcon />, title: t('item1Title'), body: t('item1Body') },
-    { icon: <LockIcon />, title: t('item2Title'), body: t('item2Body') },
-    { icon: <ChatIcon />, title: t('item3Title'), body: t('item3Body') },
-    { icon: <TruckIcon />, title: t('item4Title'), body: t('item4Body') },
+    { icon: <TruckIcon />, title: t('item2Title'), body: t('item2Body') },
+    { icon: <LockIcon />, title: t('item3Title'), body: t('item3Body') },
+    { icon: <ChatIcon />, title: t('item4Title'), body: t('item4Body') },
   ];
 
   return (

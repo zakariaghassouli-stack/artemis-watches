@@ -4,6 +4,8 @@ import { getEnv } from '@/lib/env';
 import { getStripe } from '@/lib/stripe';
 import { prisma } from '@/lib/prisma';
 import { sendOrderConfirmation, type OrderEmailItem } from '@/lib/email';
+import { createDeal, updateContactProperty, upsertContact } from '@/lib/hubspot';
+import { markSanityPromoCodeUsed } from '@/lib/promo';
 
 // Next.js App Router — read raw body for Stripe signature verification
 export async function POST(request: NextRequest) {
@@ -45,6 +47,26 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
   }
 
   const usedPromoCode = session.metadata?.promoCode || null;
+  const presentationSet = session.metadata?.presentationSet === 'true';
+  const presentationSetPrice = Number(session.metadata?.presentationSetPrice ?? '49') || 49;
+  const metadataItems = (() => {
+    try {
+      const parsed = JSON.parse(session.metadata?.items ?? '[]') as Array<Record<string, unknown>>;
+      if (presentationSet) {
+        parsed.push({
+          name: 'Artemis Box & Papers Set',
+          variant: 'Branded presentation box and matching documentation.',
+          brand: 'ARTEMIS',
+          price: presentationSetPrice,
+          qty: 1,
+          boxAndPapers: false,
+        });
+      }
+      return JSON.stringify(parsed);
+    } catch {
+      return session.metadata?.items ?? '[]';
+    }
+  })();
 
   // Find the user by email to link the order to their account
   let userId: string | undefined;
@@ -66,7 +88,7 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
         userId: userId ?? null,
         stripeSessionId: session.id,
         status: 'PAID',
-        items: session.metadata?.items ?? '[]',
+        items: metadataItems,
         subtotal,
         total,
         shipping: shippingCost,
@@ -87,6 +109,9 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
         where: { promoCode: usedPromoCode },
         data: { promoUsed: true },
       });
+      await markSanityPromoCodeUsed(usedPromoCode).catch((err) =>
+        console.error('Sanity promo usage update failed for session', session.id, err)
+      );
     }
   } catch (err) {
     // Log but don't fail the webhook — Stripe will retry on 5xx errors
@@ -98,6 +123,16 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
     let parsedItems: OrderEmailItem[] = [];
     try {
       parsedItems = JSON.parse(session.metadata?.items ?? '[]') as OrderEmailItem[];
+      if (presentationSet) {
+        parsedItems.push({
+          name: 'Artemis Box & Papers Set',
+          variant: 'Branded presentation box and matching documentation.',
+          brand: 'ARTEMIS',
+          price: presentationSetPrice,
+          qty: 1,
+          boxAndPapers: false,
+        });
+      }
     } catch {
       // malformed metadata — send email with empty items rather than skip
     }
@@ -119,6 +154,28 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
         postal: shipping?.address.postal_code ?? null,
         country: shipping?.address.country ?? null,
       },
+    });
+
+    await upsertContact({
+      email: customer.email,
+      firstname: (customer.name ?? shipping?.name ?? '').split(' ')[0],
+      lastname: (customer.name ?? shipping?.name ?? '').split(' ').slice(1).join(' '),
+      source: 'purchase',
+    });
+
+    await updateContactProperty(customer.email, {
+      artemis_cart_status: 'purchased',
+      artemis_total_spent: String(total),
+      artemis_last_purchase: new Date().toISOString(),
+      hs_lead_status: 'CUSTOMER',
+    });
+
+    await createDeal({
+      contactEmail: customer.email,
+      dealName: `Order ${session.id}`,
+      amount: total,
+      stage: 'payment_completed',
+      products: parsedItems.map((item) => `${item.brand} ${item.name}`),
     });
   }
 }

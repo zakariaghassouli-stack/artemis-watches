@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
-import { ALL_PRODUCTS } from '@/lib/products';
+import { getAllProducts } from '@/lib/queries';
 import { WishlistClient } from '@/components/wishlist/WishlistClient';
 import type { Metadata } from 'next';
 
@@ -15,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function WishlistPage() {
   const t = await getTranslations('wishlist');
+  const products = await getAllProducts();
 
   return (
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
@@ -58,7 +59,7 @@ export default async function WishlistPage() {
       <section style={{ padding: 'clamp(40px, 6vw, 72px) 24px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <Suspense fallback={<div style={{ minHeight: 400 }} />}>
-            <WishlistClient allProducts={ALL_PRODUCTS} />
+            <WishlistClient allProducts={products} />
           </Suspense>
         </div>
       </section>

@@ -46,3 +46,5 @@ public/images/real\ image/
 
 # Tests / scripts temporaires
 /tmp/
+/test-results/
+/sanity/node_modules/

@@ -150,6 +150,27 @@ export function WhyArtemis() {
             );
           })}
         </div>
+
+        <ScrollReveal delay={200}>
+          <div style={{ textAlign: 'center', marginTop: 36 }}>
+            <a
+              href="#reviews"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                fontSize: '0.78rem',
+                fontWeight: 500,
+                letterSpacing: '0.1em',
+                color: '#C9A96E',
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(201,169,110,0.3)',
+                paddingBottom: 2,
+              }}
+            >
+              {t('reviewsCta')}
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Gold divider bottom */}

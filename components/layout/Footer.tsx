@@ -2,6 +2,7 @@
 
 import { Link } from '@/i18n/navigation';
 import { useLocale, useTranslations } from 'next-intl';
+import { analytics } from '@/lib/analytics';
 import { getFooterWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export function Footer() {
@@ -58,11 +59,22 @@ export function Footer() {
                 fontSize: '0.8rem',
                 color: '#6B6965',
                 lineHeight: 1.7,
-                marginBottom: 20,
+                marginBottom: 10,
                 maxWidth: 200,
               }}
             >
               {t('tagline')}
+            </p>
+            <p
+              style={{
+                fontSize: '0.72rem',
+                color: 'rgba(255,255,255,0.34)',
+                lineHeight: 1.6,
+                marginBottom: 20,
+                maxWidth: 220,
+              }}
+            >
+              {t('depth')}
             </p>
 
             {/* Social icons */}
@@ -217,7 +229,14 @@ function FooterLink({
   if (external) {
     return (
       <li>
-        <a href={href} target="_blank" rel="noopener noreferrer" style={style} {...hover}>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={style}
+          onClick={href.includes('wa.me') ? () => analytics.whatsappClick('footer') : undefined}
+          {...hover}
+        >
           {children}
         </a>
       </li>
@@ -248,6 +267,7 @@ function SocialLink({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
+      onClick={href.includes('wa.me') ? () => analytics.whatsappClick('footer_social') : undefined}
       style={{
         width: 32,
         height: 32,

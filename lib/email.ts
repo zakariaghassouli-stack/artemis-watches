@@ -7,6 +7,7 @@ const resend = getEnv('RESEND_API_KEY')
   : null;
 
 const FROM = getEnv('RESEND_FROM_EMAIL') ?? 'ARTEMIS Montres <orders@artemis-watches.com>';
+const FALLBACK_FROM = 'ARTEMIS Watches <onboarding@resend.dev>';
 const SITE_URL = getEnv('NEXT_PUBLIC_APP_URL') ?? 'https://artemis-watches.com';
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -44,6 +45,11 @@ export interface SendWelcomeEmailArgs {
   promoCode: string;
 }
 
+export interface SendPasswordResetCodeArgs {
+  to: string;
+  code: string;
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function fmt(amount: number): string {
   return `$${amount.toFixed(0)} CAD`;
@@ -51,6 +57,43 @@ function fmt(amount: number): string {
 
 function year(): number {
   return new Date().getFullYear();
+}
+
+async function sendWithFallback(params: {
+  to: string;
+  subject: string;
+  html: string;
+}): Promise<boolean> {
+  if (!resend) {
+    return false;
+  }
+
+  const primary = await resend.emails.send({
+    from: FROM,
+    to: params.to,
+    subject: params.subject,
+    html: params.html,
+  });
+
+  if (!primary.error) {
+    return true;
+  }
+
+  console.error('[email] Primary sender failed, retrying with fallback sender:', primary.error);
+
+  const fallback = await resend.emails.send({
+    from: FALLBACK_FROM,
+    to: params.to,
+    subject: params.subject,
+    html: params.html,
+  });
+
+  if (fallback.error) {
+    console.error('[email] Fallback sender also failed:', fallback.error);
+    return false;
+  }
+
+  return true;
 }
 
 // ── HTML Templates ───────────────────────────────────────────────────────────
@@ -289,7 +332,7 @@ function buildWelcomeEmailHtml({ name, promoCode }: { name: string | null; promo
                     </td>
                   </tr>
                 </table>
-                <div style="font-size:12px;color:#3A3835;margin-top:14px;">Available on a first order. One-time use.</div>
+                <div style="font-size:12px;color:#3A3835;margin-top:14px;">Available on a first order. One-time use. Expires in 48 hours.</div>
               </td></tr>
             </table>
           </td>
@@ -354,6 +397,57 @@ function buildWelcomeEmailHtml({ name, promoCode }: { name: string | null; promo
 </html>`;
 }
 
+function buildPasswordResetEmailHtml({ code }: { code: string }): string {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Password reset — ARTEMIS</title>
+</head>
+<body style="margin:0;padding:0;background:#0A0A0A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0A0A0A;padding:48px 20px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+        <tr>
+          <td style="padding-bottom:28px;text-align:center;">
+            <div style="font-size:20px;font-weight:700;letter-spacing:0.22em;color:#C9A96E;text-transform:uppercase;">ARTEMIS</div>
+            <div style="font-size:9px;letter-spacing:0.32em;color:#3A3835;text-transform:uppercase;margin-top:5px;">Luxury Watches · Montréal</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom:28px;">
+            <div style="font-size:26px;font-weight:600;color:#F5F3EF;line-height:1.2;">Your Artemis password reset code</div>
+            <div style="font-size:14px;color:#A8A5A0;margin-top:12px;line-height:1.7;">Use the 6-digit code below to reset your password. This code expires in 15 minutes.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom:28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#141414;border:1px solid rgba(201,169,110,0.3);border-radius:3px;">
+              <tr><td style="padding:28px 24px;text-align:center;">
+                <div style="font-size:9px;letter-spacing:0.2em;color:#A8A5A0;text-transform:uppercase;margin-bottom:16px;">Reset code</div>
+                <span style="font-size:28px;font-weight:700;letter-spacing:0.35em;color:#C9A96E;">${code}</span>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom:20px;text-align:center;">
+            <div style="font-size:13px;color:#6B6965;">If you didn't request this, you can ignore this email.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:center;">
+            <div style="font-size:11px;color:#2A2825;">© ${year()} Artemis Montres · Montréal, Québec</div>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
+
 // ── Public send functions ────────────────────────────────────────────────────
 export async function sendOrderConfirmation(args: SendOrderConfirmationArgs): Promise<void> {
   if (!resend) {
@@ -363,15 +457,14 @@ export async function sendOrderConfirmation(args: SendOrderConfirmationArgs): Pr
 
   const shortId = args.orderId.slice(-8).toUpperCase();
 
-  const { error } = await resend.emails.send({
-    from: FROM,
+  const sent = await sendWithFallback({
     to: args.to,
     subject: `Order confirmed — ARTEMIS #${shortId}`,
     html: buildOrderConfirmationHtml(args),
   });
 
-  if (error) {
-    console.error('[email] Failed to send order confirmation:', error);
+  if (!sent) {
+    console.error('[email] Failed to send order confirmation.');
   }
 }
 
@@ -381,14 +474,28 @@ export async function sendWelcomeEmail(args: SendWelcomeEmailArgs): Promise<void
     return;
   }
 
-  const { error } = await resend.emails.send({
-    from: FROM,
+  const sent = await sendWithFallback({
     to: args.to,
     subject: 'Welcome to ARTEMIS — Your welcome code',
     html: buildWelcomeEmailHtml(args),
   });
 
-  if (error) {
-    console.error('[email] Failed to send welcome email:', error);
+  if (!sent) {
+    console.error('[email] Failed to send welcome email.');
   }
+}
+
+export async function sendPasswordResetCodeEmail(
+  args: SendPasswordResetCodeArgs
+): Promise<boolean> {
+  if (!resend) {
+    console.warn('[email] RESEND_API_KEY not set — skipping password reset email');
+    return false;
+  }
+
+  return sendWithFallback({
+    to: args.to,
+    subject: 'Your Artemis password reset code',
+    html: buildPasswordResetEmailHtml(args),
+  });
 }

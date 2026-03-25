@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import type { Product, ProductSpecs } from '@/types/product';
+import { analytics } from '@/lib/analytics';
 import { formatPrice } from '@/lib/products';
 import { getProductWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
@@ -53,8 +54,23 @@ function Stars({ rating, size = 12 }: { rating: number; size?: number }) {
   );
 }
 
-function SpecsTab({ specs, specLabels }: { specs: ProductSpecs; specLabels: Record<string, string> }) {
-  const entries = Object.entries(specs).filter(([, v]) => v) as [string, string][];
+function SpecsTab({
+  specs,
+  specLabels,
+  range,
+}: {
+  specs: ProductSpecs;
+  specLabels: Record<string, string>;
+  range: Product['range'];
+}) {
+  const normalizedSpecs: ProductSpecs = {
+    ...specs,
+    movement:
+      range === 'essential'
+        ? 'Miyota Japanese automatic'
+        : 'Swiss automatic (Dandong)',
+  };
+  const entries = Object.entries(normalizedSpecs).filter(([, v]) => v) as [string, string][];
 
   return (
     <div>
@@ -210,7 +226,7 @@ export function ProductTabs({ product, t }: Props) {
 
       {activeTab === 'specs' && (
         <div style={{ maxWidth: 600 }}>
-          <SpecsTab specs={product.specs} specLabels={specLabels} />
+          <SpecsTab specs={product.specs} specLabels={specLabels} range={product.range} />
         </div>
       )}
 
@@ -359,6 +375,7 @@ export function ProductTabs({ product, t }: Props) {
             href={helpWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => analytics.whatsappClick('product_help', product.id)}
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '14px 24px',

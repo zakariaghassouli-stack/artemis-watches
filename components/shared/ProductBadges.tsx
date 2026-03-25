@@ -98,15 +98,27 @@ export function ScarcityBadge({
       : labels.justRestocked;
 
   const highlighted = scarcity.type === 'low-stock';
+  const criticalLowStock =
+    scarcity.type === 'low-stock' && scarcity.count <= 2;
 
   return (
     <span
       style={{
         ...BADGE_BASE,
         ...SIZE_STYLES[size],
-        color: highlighted ? '#D7B77E' : '#D6D1C9',
-        background: highlighted ? 'rgba(201,169,110,0.1)' : 'rgba(255,255,255,0.05)',
-        border: `1px solid ${highlighted ? 'rgba(201,169,110,0.18)' : 'rgba(255,255,255,0.08)'}`,
+        color: highlighted ? '#F5E2BC' : '#D6D1C9',
+        background: criticalLowStock
+          ? 'rgba(179,72,43,0.28)'
+          : highlighted
+          ? 'rgba(201,169,110,0.14)'
+          : 'rgba(255,255,255,0.05)',
+        border: `1px solid ${
+          criticalLowStock
+            ? 'rgba(215,141,114,0.45)'
+            : highlighted
+            ? 'rgba(201,169,110,0.24)'
+            : 'rgba(255,255,255,0.08)'
+        }`,
       }}
     >
       {label}

@@ -31,6 +31,9 @@ export default function LoginPage() {
       setError(t('errorInvalid'));
       setLoading(false);
     } else {
+      try {
+        localStorage.setItem('artemis_user_email', email);
+      } catch {}
       router.push('/account');
       router.refresh();
     }
@@ -92,6 +95,15 @@ export default function LoginPage() {
 
           <p style={noteStyle}>{t('note')}</p>
         </form>
+
+        <p style={{ textAlign: 'center', fontSize: '0.76rem', marginTop: -2 }}>
+          <Link
+            href="/account/forgot-password"
+            style={{ color: '#C9A96E', textDecoration: 'none', fontWeight: 500 }}
+          >
+            {t('forgotPassword')}
+          </Link>
+        </p>
 
         <div style={dividerStyle}>
           <span style={dividerLineStyle} />

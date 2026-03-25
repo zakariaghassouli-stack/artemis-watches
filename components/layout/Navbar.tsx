@@ -3,9 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname, Link } from '@/i18n/navigation';
-import { useCurrency } from '@/components/providers/CurrencyProvider';
-import type { Currency } from '@/lib/currency';
 import { Search, ShoppingBag, User, Menu, X, ChevronDown, Heart } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 import { useCartStore, selectItemCount } from '@/store/cart';
 import { useSearchStore } from '@/store/search';
 import { useWishlistStore, selectWishlistCount } from '@/store/wishlist';
@@ -49,12 +48,11 @@ const COLLECTIONS = [
   },
 ];
 
-// ─── LocaleCurrencySelector ───────────────────────────────────────
-function LocaleCurrencySelector({ tNav }: { tNav: ReturnType<typeof useTranslations<'nav'>> }) {
+// ─── LocaleSelector ──────────────────────────────────────────────
+function LocaleSelector({ tNav }: { tNav: ReturnType<typeof useTranslations<'nav'>> }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const { currency, setCurrency } = useCurrency();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -68,21 +66,19 @@ function LocaleCurrencySelector({ tNav }: { tNav: ReturnType<typeof useTranslati
   }, []);
 
   const switchLocale = (next: string) => {
+    if (next === locale) {
+      setOpen(false);
+      return;
+    }
     router.replace(pathname, { locale: next });
-    setOpen(false);
-  };
-
-  const switchCurrency = (c: Currency) => {
-    setCurrency(c);
     setOpen(false);
   };
 
   return (
     <div ref={ref} style={{ position: 'relative' }}>
-      {/* Pill button */}
       <button
         onClick={() => setOpen((o) => !o)}
-        aria-label="Language and currency"
+        aria-label="Language"
         style={{
           background: open ? 'rgba(201,169,110,0.08)' : 'none',
           border: `1px solid ${open ? 'rgba(201,169,110,0.35)' : 'rgba(255,255,255,0.12)'}`,
@@ -101,11 +97,8 @@ function LocaleCurrencySelector({ tNav }: { tNav: ReturnType<typeof useTranslati
         }}
       >
         {locale.toUpperCase()}
-        <span style={{ color: 'rgba(255,255,255,0.2)', fontWeight: 300 }}>·</span>
-        {currency}
       </button>
 
-      {/* Dropdown */}
       {open && (
         <div
           style={{
@@ -125,7 +118,6 @@ function LocaleCurrencySelector({ tNav }: { tNav: ReturnType<typeof useTranslati
             boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
           }}
         >
-          {/* Language row */}
           <div>
             <p style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 8 }}>
               {tNav('languageLabel')}
@@ -153,38 +145,6 @@ function LocaleCurrencySelector({ tNav }: { tNav: ReturnType<typeof useTranslati
               ))}
             </div>
           </div>
-
-          {/* Divider */}
-          <div style={{ height: 1, background: 'rgba(255,255,255,0.05)' }} />
-
-          {/* Currency row */}
-          <div>
-            <p style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#6B6965', marginBottom: 8 }}>
-              {tNav('currencyLabel')}
-            </p>
-            <div style={{ display: 'flex', gap: 6 }}>
-              {(['CAD', 'USD'] as const).map((c) => (
-                <button
-                  key={c}
-                  onClick={() => switchCurrency(c)}
-                  style={{
-                    flex: 1,
-                    padding: '7px 0',
-                    background: currency === c ? 'rgba(201,169,110,0.12)' : 'rgba(255,255,255,0.03)',
-                    border: `1px solid ${currency === c ? 'rgba(201,169,110,0.35)' : 'rgba(255,255,255,0.08)'}`,
-                    borderRadius: 3,
-                    color: currency === c ? '#C9A96E' : '#6B6965',
-                    fontSize: '0.65rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    cursor: 'pointer',
-                  }}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       )}
     </div>
@@ -203,7 +163,7 @@ export function Navbar() {
   const [mobileCollExpanded, setMobileCollExpanded] = useState(false);
 
   const megaRef = useRef<HTMLDivElement>(null);
-  const megaTriggerRef = useRef<HTMLButtonElement>(null);
+  const megaTriggerRef = useRef<HTMLDivElement>(null);
 
   // Scroll detection for glass effect
   useEffect(() => {
@@ -285,18 +245,16 @@ export function Navbar() {
             style={{ alignItems: 'center', gap: 32 }}
           >
             {/* Collections trigger */}
-            <div style={{ position: 'relative' }}>
-              <button
-                ref={megaTriggerRef}
-                onClick={() => setMegaOpen((o) => !o)}
-                onMouseEnter={() => setMegaOpen(true)}
+            <div
+              ref={megaTriggerRef}
+              style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: 6 }}
+              onMouseEnter={() => setMegaOpen(true)}
+            >
+              <Link
+                href="/collections"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 4,
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
                   fontSize: '0.8rem',
                   fontWeight: 500,
                   letterSpacing: '0.12em',
@@ -304,9 +262,26 @@ export function Navbar() {
                   color: megaOpen ? '#C9A96E' : '#A8A5A0',
                   transition: 'color 0.2s ease',
                   padding: '4px 0',
+                  textDecoration: 'none',
                 }}
               >
                 {t('collections')}
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMegaOpen((o) => !o)}
+                aria-label={t('collections')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: megaOpen ? '#C9A96E' : '#A8A5A0',
+                  padding: 0,
+                }}
+              >
                 <ChevronDown
                   size={13}
                   style={{
@@ -318,10 +293,10 @@ export function Navbar() {
             </div>
 
             {[
-              { key: 'about', href: '/about' },
               { key: 'reviews', href: '/reviews' },
               { key: 'faq', href: '/faq' },
               { key: 'contact', href: '/contact' },
+              { key: 'about', href: '/about' },
             ].map(({ key, href }) => (
               <Link
                 key={key}
@@ -344,7 +319,7 @@ export function Navbar() {
 
           {/* ── Right icons ── */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-            <LocaleCurrencySelector tNav={t} />
+            <LocaleSelector tNav={t} />
             <SearchBtn label={t('search')} onClick={openSearch} />
             <IconBtn href="/account" label={t('account')} icon={<User size={18} />} />
             <WishlistIcon label={t('wishlist')} />
@@ -721,33 +696,50 @@ function MobileMenu({
         {/* Links */}
         <nav style={{ padding: '16px 0', flex: 1 }}>
           {/* Collections accordion */}
-          <button
-            onClick={onToggleColl}
+          <div
             style={{
-              width: '100%',
               display: 'flex',
-              justifyContent: 'space-between',
               alignItems: 'center',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
+              justifyContent: 'space-between',
               padding: '14px 24px',
-              fontSize: '0.8rem',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: '#F5F3EF',
             }}
           >
-            {t('collections')}
-            <ChevronDown
-              size={14}
+            <Link
+              href="/collections"
+              onClick={onClose}
               style={{
-                color: '#C9A96E',
-                transition: 'transform 0.2s',
-                transform: collExpanded ? 'rotate(180deg)' : 'none',
+                fontSize: '0.8rem',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#F5F3EF',
+                textDecoration: 'none',
               }}
-            />
-          </button>
+            >
+              {t('collections')}
+            </Link>
+            <button
+              onClick={onToggleColl}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#C9A96E',
+                padding: 0,
+              }}
+              aria-label={t('collections')}
+            >
+              <ChevronDown
+                size={14}
+                style={{
+                  transition: 'transform 0.2s',
+                  transform: collExpanded ? 'rotate(180deg)' : 'none',
+                }}
+              />
+            </button>
+          </div>
 
           {collExpanded && (
             <div style={{ background: 'rgba(255,255,255,0.02)', paddingBottom: 8 }}>
@@ -791,10 +783,10 @@ function MobileMenu({
 
           {/* Static links */}
           {[
-            { label: t('about'), href: '/about' },
             { label: t('reviews'), href: '/reviews' },
             { label: t('faq'), href: '/faq' },
             { label: t('contact'), href: '/contact' },
+            { label: t('about'), href: '/about' },
           ].map(({ label, href }) => (
             <Link
               key={href}
@@ -873,6 +865,7 @@ function MobileMenu({
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => analytics.whatsappClick('mobile_nav')}
             style={{
               display: 'flex',
               alignItems: 'center',

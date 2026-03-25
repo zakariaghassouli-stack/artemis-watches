@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
@@ -14,21 +15,27 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 interface ReviewItem {
+  title?: string;
   text: string;
   author: string;
   location: string;
   watch: string;
   rating: number;
+  image?: string;
 }
 
 function Stars({ count }: { count: number }) {
   return (
     <div style={{ display: 'flex', gap: 3, marginBottom: 16 }}>
-      {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#C9A96E" aria-hidden>
+      {Array.from({ length: 5 }).map((_, i) => {
+        const value = count - i;
+        const opacity = value >= 1 ? 1 : value >= 0.5 ? 0.5 : 0.16;
+        return (
+        <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#C9A96E" style={{ opacity }} aria-hidden>
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -254,13 +261,13 @@ export default async function ReviewsPage() {
                 .reviews-page-grid { grid-template-columns: 1fr !important; }
               }
               .review-card {
-                padding: 28px 24px;
                 background: rgba(255,255,255,0.02);
                 border: 1px solid rgba(255,255,255,0.06);
                 border-radius: 4px;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
+                overflow: hidden;
                 transition: border-color 0.3s ease;
               }
               .review-card:hover {
@@ -271,21 +278,47 @@ export default async function ReviewsPage() {
             {REVIEWS.map((review, i) => (
               <ScrollReveal key={i} delay={Math.min(i * 50, 300)}>
                 <div className="review-card">
+                  {review.image ? (
+                    <div
+                      style={{
+                        aspectRatio: '4 / 3',
+                        overflow: 'hidden',
+                        position: 'relative',
+                        borderBottom: '1px solid rgba(255,255,255,0.06)',
+                      }}
+                    >
+                      <Image
+                        src={review.image}
+                        alt={review.author}
+                        fill
+                        sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                  ) : null}
+
+                  <div style={{ padding: '28px 24px' }}>
                   <Stars count={review.rating} />
 
-                  <span
-                    style={{
-                      fontSize: '2.5rem',
-                      lineHeight: 0.8,
-                      color: 'rgba(201,169,110,0.15)',
-                      fontFamily: 'Georgia, serif',
-                      marginBottom: 12,
-                      display: 'block',
-                    }}
-                    aria-hidden
-                  >
-                    &ldquo;
-                  </span>
+                  {review.title ? (
+                    <p
+                      style={{
+                        display: 'inline-flex',
+                        fontSize: '0.58rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
+                        color: '#C9A96E',
+                        background: 'rgba(201,169,110,0.08)',
+                        border: '1px solid rgba(201,169,110,0.18)',
+                        padding: '4px 8px',
+                        borderRadius: 999,
+                        marginBottom: 14,
+                      }}
+                    >
+                      {review.title}
+                    </p>
+                  ) : null}
 
                   <p
                     style={{
@@ -332,6 +365,7 @@ export default async function ReviewsPage() {
                     >
                       {review.watch}
                     </p>
+                  </div>
                   </div>
                 </div>
               </ScrollReveal>
@@ -434,17 +468,16 @@ export default async function ReviewsPage() {
                   aria-label="View on Instagram"
                   className="ugc-card-link"
                 >
-                  <img
+                  <Image
                     src={img}
                     alt="ARTEMIS client wrist shot — luxury watch Montreal"
+                    fill
+                    sizes="(max-width: 560px) 33vw, (max-width: 900px) 25vw, 16vw"
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      width: '100%',
-                      height: '100%',
                       objectFit: 'cover',
                     }}
-                    loading="lazy"
                   />
                   {/* Instagram overlay on hover */}
                   <div className="ugc-overlay">

@@ -1,34 +1,42 @@
 'use client';
 
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
+import { analytics } from '@/lib/analytics';
 import { SectionHeader } from '@/components/shared/SectionHeader';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 interface Review {
-  tag?: string;
+  title?: string;
   text: string;
   author: string;
   location: string;
   rating: number;
+  image?: string;
 }
 
 function Stars({ count }: { count: number }) {
   return (
     <div style={{ display: 'flex', gap: 2, marginBottom: 16 }}>
-      {Array.from({ length: count }).map((_, i) => (
+      {Array.from({ length: 5 }).map((_, i) => {
+        const value = count - i;
+        const opacity = value >= 1 ? 1 : value >= 0.5 ? 0.5 : 0.16;
+        return (
         <svg
           key={i}
           width="13"
           height="13"
           viewBox="0 0 24 24"
           fill="#C9A96E"
+          style={{ opacity }}
           aria-hidden
         >
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -41,6 +49,7 @@ export function Testimonials() {
 
   return (
     <section
+      id="reviews"
       style={{
         background: '#0D0D0D',
         padding: 'clamp(72px, 10vw, 120px) 24px',
@@ -58,7 +67,7 @@ export function Testimonials() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gap: 20,
             marginBottom: 64,
           }}
@@ -76,45 +85,63 @@ export function Testimonials() {
             <ScrollReveal key={i} delay={i * 80}>
               <div
                 style={{
-                  padding: '28px 24px',
+                  padding: 0,
                   background: 'rgba(255,255,255,0.02)',
                   border: '1px solid rgba(255,255,255,0.06)',
                   borderRadius: 4,
                   height: '100%',
+                  overflow: 'hidden',
                 }}
               >
-                {review.tag && (
-                  <p
+                {review.image ? (
+                  <div
                     style={{
-                      display: 'inline-flex',
-                      fontSize: '0.58rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.12em',
-                      textTransform: 'uppercase',
-                      color: '#C9A96E',
-                      background: 'rgba(201,169,110,0.08)',
-                      border: '1px solid rgba(201,169,110,0.18)',
-                      padding: '4px 8px',
-                      borderRadius: 999,
-                      marginBottom: 14,
+                      aspectRatio: '4 / 3',
+                      overflow: 'hidden',
+                      position: 'relative',
+                      borderBottom: '1px solid rgba(255,255,255,0.06)',
                     }}
                   >
-                    {review.tag}
+                    <Image
+                      src={review.image}
+                      alt={`${review.author} review`}
+                      fill
+                      sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                ) : null}
+                <div style={{ padding: '24px 24px 28px' }}>
+                  <Stars count={review.rating} />
+                  {review.title ? (
+                    <p
+                      style={{
+                        display: 'inline-flex',
+                        fontSize: '0.58rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.12em',
+                        textTransform: 'uppercase',
+                        color: '#C9A96E',
+                        background: 'rgba(201,169,110,0.08)',
+                        border: '1px solid rgba(201,169,110,0.18)',
+                        padding: '4px 8px',
+                        borderRadius: 999,
+                        marginBottom: 14,
+                      }}
+                    >
+                      {review.title}
+                    </p>
+                  ) : null}
+                  <p
+                    style={{
+                      fontSize: '0.85rem',
+                      color: '#6B6965',
+                      lineHeight: 1.75,
+                      marginBottom: 20,
+                    }}
+                  >
+                    {review.text}
                   </p>
-                )}
-                <Stars count={review.rating} />
-                <p
-                  style={{
-                    fontSize: '0.85rem',
-                    color: '#6B6965',
-                    lineHeight: 1.75,
-                    marginBottom: 20,
-                    fontStyle: 'italic',
-                  }}
-                >
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <div>
                   <p
                     style={{
                       fontSize: '0.78rem',
@@ -149,6 +176,7 @@ export function Testimonials() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
+                justifyContent: 'center',
                 background: '#C9A96E',
                 color: '#0A0A0A',
                 padding: '15px 36px',
@@ -157,6 +185,9 @@ export function Testimonials() {
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
                 textDecoration: 'none',
+                lineHeight: 1.5,
+                textAlign: 'center',
+                maxWidth: '100%',
               }}
             >
               {t('shopCta')}
@@ -188,6 +219,7 @@ export function Testimonials() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => analytics.whatsappClick('home_testimonials')}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

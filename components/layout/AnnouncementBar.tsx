@@ -6,15 +6,28 @@ import { useSession } from 'next-auth/react';
 import { Link } from '@/i18n/navigation';
 import { X } from 'lucide-react';
 
-const STORAGE_KEY = 'artemis_announcement_dismissed';
+const STORAGE_KEY = 'artemis_bar_dismissed';
 
-export function AnnouncementBar() {
+interface AnnouncementBarProps {
+  enabled?: boolean;
+  messageOverride?: string | null;
+}
+
+function normalizeMessage(message: string) {
+  return message.split('—')[0]?.trim() ?? message.trim();
+}
+
+export function AnnouncementBar({
+  enabled = true,
+  messageOverride,
+}: AnnouncementBarProps) {
   const t = useTranslations('announcement');
   const { data: session, status } = useSession();
   const [visible, setVisible] = useState(false);
+  const message = normalizeMessage(messageOverride?.trim() || t('message'));
 
   useEffect(() => {
-    if (status === 'loading' || session?.user) {
+    if (!enabled || status === 'loading' || session?.user) {
       return;
     }
 
@@ -28,7 +41,7 @@ export function AnnouncementBar() {
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, [session?.user, status]);
+  }, [enabled, session?.user, status]);
 
   const dismiss = () => {
     try {
@@ -37,7 +50,7 @@ export function AnnouncementBar() {
     setVisible(false);
   };
 
-  if (!visible || status === 'loading' || session?.user) return null;
+  if (!enabled || !visible || status === 'loading' || session?.user) return null;
 
   return (
     <div
@@ -71,11 +84,11 @@ export function AnnouncementBar() {
             margin: 0,
           }}
         >
-          {t('message')}
+          {message}
         </p>
 
         <Link
-          href="/account/register"
+          href="/collections"
           style={{
             fontSize: '0.68rem',
             fontWeight: 700,

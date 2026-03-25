@@ -24,6 +24,7 @@ interface CartState {
 
 interface CartActions {
   addItem: (item: Omit<CartItem, 'cartKey' | 'quantity'>) => void;
+  enableBoxAndPapers: (cartKey: string, boxAndPapersPrice: number) => void;
   removeItem: (cartKey: string) => void;
   updateQuantity: (cartKey: string, quantity: number) => void;
   clearCart: () => void;
@@ -56,6 +57,21 @@ export const useCartStore = create<CartStore>()(
             isOpen: true,
           };
         });
+      },
+
+      enableBoxAndPapers: (cartKey, boxAndPapersPrice) => {
+        set((state) => ({
+          items: state.items.map((item) =>
+            item.cartKey === cartKey && !item.boxAndPapers
+              ? {
+                  ...item,
+                  cartKey: `${item.id}-bp`,
+                  boxAndPapers: true,
+                  price: item.price + boxAndPapersPrice,
+                }
+              : item
+          ),
+        }));
       },
 
       removeItem: (cartKey) => {

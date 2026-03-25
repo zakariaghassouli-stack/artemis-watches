@@ -1,17 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { sendWelcomeEmail } from '@/lib/email';
-
-// Generate a unique ARTEMIS-XXXX promo code
-function generatePromoCode(): string {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Unambiguous chars (no 0/O, 1/I)
-  let code = 'ARTEMIS-';
-  for (let i = 0; i < 4; i++) {
-    code += chars[Math.floor(Math.random() * chars.length)];
-  }
-  return code;
-}
+import { upsertContact } from '@/lib/hubspot';
+import { getSiteSettingsFresh } from '@/lib/queries';
+import { createSanityPromoCode, generateUniquePromoCode } from '@/lib/promo';
 
 export async function POST(request: NextRequest) {
   if (!prisma) {
@@ -44,25 +38,46 @@ export async function POST(request: NextRequest) {
   // Hash password
   const passwordHash = await bcrypt.hash(password, 12);
 
-  // Generate a unique promo code (retry on collision, extremely unlikely)
-  let promoCode: string;
-  let attempts = 0;
-  do {
-    promoCode = generatePromoCode();
-    const clash = await prisma.user.findUnique({ where: { promoCode } });
-    if (!clash) break;
-    attempts++;
-  } while (attempts < 5);
+  const welcomeDiscountPercent = (await getSiteSettingsFresh())?.welcomeDiscountPercent ?? 10;
 
-  // Create user
-  const user = await prisma.user.create({
-    data: {
-      name: name || null,
-      email,
-      passwordHash,
-      promoCode,
-    },
-  });
+  let promoCode = '';
+  let user: Awaited<ReturnType<typeof prisma.user.create>> | null = null;
+
+  for (let attempt = 0; attempt < 6; attempt += 1) {
+    promoCode = await generateUniquePromoCode();
+
+    try {
+      user = await prisma.user.create({
+        data: {
+          name: name || null,
+          email,
+          passwordHash,
+          promoCode,
+        },
+      });
+      break;
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === 'P2002' &&
+        attempt < 5
+      ) {
+        continue;
+      }
+
+      throw error;
+    }
+  }
+
+  if (!user) {
+    return NextResponse.json({ error: 'Unable to create account right now' }, { status: 500 });
+  }
+
+  createSanityPromoCode({
+    code: promoCode,
+    email,
+    discountPercent: welcomeDiscountPercent,
+  }).catch((err) => console.error('[register] Sanity promo sync failed:', err));
 
   // Send welcome email — non-blocking, never crash the registration
   sendWelcomeEmail({
@@ -70,6 +85,13 @@ export async function POST(request: NextRequest) {
     name: user.name,
     promoCode: user.promoCode!,
   }).catch((err) => console.error('[register] Welcome email failed:', err));
+
+  upsertContact({
+    email: user.email!,
+    firstname: user.name?.split(' ')[0],
+    lastname: user.name?.split(' ').slice(1).join(' '),
+    source: 'signup_10_percent',
+  }).catch((err) => console.error('[register] HubSpot sync failed:', err));
 
   return NextResponse.json({
     success: true,

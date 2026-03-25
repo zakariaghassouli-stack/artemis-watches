@@ -69,8 +69,8 @@ export default async function OrderDetailPage({ params }: Props) {
         via: 'via',
         itemsOrdered: 'Articles commandés',
         rangeLabel: {
-          essential: 'Gamme Essential',
-          premium: 'Gamme Premium',
+          essential: 'Essentielle · Mouvement japonais (Miyota)',
+          premium: 'Premium · Mouvement suisse (Dandong)',
         },
         boxAndPapers: '+ Boîte et papiers',
         qty: 'Qté',
@@ -102,8 +102,8 @@ export default async function OrderDetailPage({ params }: Props) {
         via: 'via',
         itemsOrdered: 'Items Ordered',
         rangeLabel: {
-          essential: 'Essential Range',
-          premium: 'Premium Range',
+          essential: 'Essential · Japanese Movement (Miyota)',
+          premium: 'Premium · Swiss Movement (Dandong)',
         },
         boxAndPapers: '+ Box & Papers',
         qty: 'Qty',

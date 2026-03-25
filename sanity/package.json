@@ -1,0 +1,12 @@
+{
+  "name": "artemis-cms",
+  "private": true,
+  "scripts": {
+    "dev": "../node_modules/.bin/sanity dev",
+    "build": "../node_modules/.bin/sanity build",
+    "deploy": "../node_modules/.bin/sanity deploy"
+  },
+  "dependencies": {
+    "styled-components": "^6.3.11"
+  }
+}

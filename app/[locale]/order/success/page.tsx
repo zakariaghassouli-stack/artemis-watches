@@ -32,6 +32,13 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
   let valid = false;
   let contentIds: string[] = [];
   let numItems = 0;
+  let analyticsItems: Array<{
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+    brand?: string;
+  }> = [];
 
   if (session_id) {
     try {
@@ -54,9 +61,22 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
         }));
 
         try {
-          const rawItems = JSON.parse(session.metadata?.items ?? '[]') as { id: string; qty: number }[];
+          const rawItems = JSON.parse(session.metadata?.items ?? '[]') as Array<{
+            id: string;
+            name: string;
+            brand?: string;
+            price: number;
+            qty: number;
+          }>;
           contentIds = rawItems.map((i) => i.id);
           numItems = rawItems.reduce((sum, i) => sum + (i.qty ?? 1), 0);
+          analyticsItems = rawItems.map((item) => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.qty ?? 1,
+            brand: item.brand,
+          }));
         } catch {
           numItems = itemLines.reduce((sum, l) => sum + l.qty, 0);
         }
@@ -77,7 +97,15 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
       <CartClearer />
 
       {/* Meta Pixel — Purchase (fires once, only on valid paid sessions) */}
-      {valid && <PurchaseTracker total={total} numItems={numItems} contentIds={contentIds} />}
+      {valid && (
+        <PurchaseTracker
+          orderId={session_id ?? orderNumber}
+          total={total}
+          numItems={numItems}
+          contentIds={contentIds}
+          items={analyticsItems}
+        />
+      )}
 
       <section
         style={{

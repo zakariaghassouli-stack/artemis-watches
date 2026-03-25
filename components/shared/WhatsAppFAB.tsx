@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { analytics } from '@/lib/analytics';
 import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 const COOKIE_KEY = 'artemis_cookie_consent';
@@ -37,6 +38,7 @@ export function WhatsAppFAB() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => analytics.whatsappClick('whatsapp_fab')}
       aria-label={t('fabTooltip')}
       title={t('fabTooltip')}
       style={{
