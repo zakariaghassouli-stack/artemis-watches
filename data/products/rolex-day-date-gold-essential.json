@@ -1,0 +1,72 @@
+{
+  "id": "rolex-day-date-gold-essential",
+  "slug": "day-date-gold-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Day-Date",
+  "collectionSlug": "day-date",
+  "name": "Day-Date 40",
+  "variant": "Champagne Gold Dial — Essential",
+  "description": "The champagne gold dial is the most prestigious configuration in the Day-Date range — the golden surface, diamond-set hour markers, full gold-tone President bracelet, and fluted bezel create a watch that reads unmistakably as a statement piece. The Day-Date was the first Rolex to feature a day display alongside the date, and the gold version has long been the version most associated with achievement.\n\nIn the Artemis Essential range, this Day-Date uses a Miyota Japanese automatic movement. The champagne dial with gold-set indices and the full gold-tone President bracelet bring the visual weight of the gold Day-Date into the Essential tier — the most requested Day-Date configuration in the Artemis catalogue.",
+  "descriptionShort": "Day-Date 40 champagne gold dial — gold indices, gold President bracelet, the prestige configuration.",
+  "keyPoints": [
+    "Champagne/gold dial with diamond-set indices",
+    "Full gold-tone President bracelet",
+    "Fluted gold-tone bezel",
+    "Day + full date display",
+    "Miyota Japanese automatic movement",
+    "Most prestigious Day-Date in the Essential range"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": "best-seller",
+  "images": [
+    "/images/rolex-day-date-gold-face.webp",
+    "/images/rolex-day-date-gold-side.webp",
+    "/images/rolex-day-date-gold-back.webp"
+  ],
+  "video": "/videos/rolex-day-date-gold.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Champagne/Gold",
+    "bracelet": "President, full gold-tone three-piece links",
+    "clasp": "Concealed folding clasp",
+    "bezel": "Fluted, gold-tone",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-day-date-brown-essential",
+    "rolex-day-date-ombre-essential",
+    "rolex-datejust-31-gold-essential",
+    "rolex-datejust-wimbledon-gold-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Day-Date 40 Gold Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Day-Date 40 Gold Dial at Artemis — from $330 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le cadran champagne or est la configuration la plus prestigieuse de la gamme Day-Date — la surface dorée, les index sertis de diamants, le bracelet President entièrement doré et la lunette cannelée créent une montre qui se lit incontestablement comme une pièce de prestige. La Day-Date fut la première Rolex à présenter un affichage du jour aux côtés de la date, et la version or est depuis longtemps la version la plus associée à la réussite.\n\nDans la gamme Essential Artemis, cette Day-Date utilise un mouvement automatique japonais Miyota. Le cadran champagne avec index dorés et le bracelet President entièrement doré apportent le poids visuel de la Day-Date or dans le tier Essential — la configuration Day-Date la plus demandée dans le catalogue Artemis.",
+  "descriptionShortFr": "Day-Date 40 cadran champagne or — index dorés, bracelet President doré, la configuration prestige.",
+  "keyPointsFr": [
+    "Cadran champagne/or avec index sertis",
+    "Bracelet President entièrement doré",
+    "Lunette cannelée dorée",
+    "Affichage jour + date complète",
+    "Mouvement automatique japonais Miyota",
+    "Day-Date la plus prestigieuse de la gamme Essential"
+  ],
+  "seoDescriptionFr": ""
+}

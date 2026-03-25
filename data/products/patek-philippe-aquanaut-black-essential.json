@@ -1,0 +1,72 @@
+{
+  "id": "patek-philippe-aquanaut-black-essential",
+  "slug": "aquanaut-black-essential",
+  "brand": "Patek Philippe",
+  "brandSlug": "patek-philippe",
+  "collection": "Aquanaut",
+  "collectionSlug": "aquanaut",
+  "name": "Aquanaut",
+  "variant": "Black — Essential",
+  "description": "The Aquanaut is Patek Philippe's more sporty, contemporary proposal — a rounded octagonal case in place of the Nautilus's sharper porthole geometry, and a composite rubber strap rather than an integrated bracelet. The black dial with horizontal embossing carries the same Patek texture as the Nautilus, but on a silhouette that reads with more casual confidence.\n\nIn the Artemis Essential range, this Aquanaut uses a Miyota Japanese automatic movement. The black rubber strap provides a comfortable, flexible fit on the wrist, and the case reads clean and modern. Three gallery angles show the Aquanaut from face, side, and back — all the angles needed to understand the case architecture.",
+  "descriptionShort": "Aquanaut with black embossed dial and rubber strap — Patek's sporty, contemporary proposition.",
+  "keyPoints": [
+    "Rounded octagonal case — less formal than the Nautilus",
+    "Black horizontally embossed dial",
+    "Composite rubber strap with pin buckle",
+    "Miyota Japanese automatic movement",
+    "More casual and sporty than the Nautilus",
+    "Contemporary Patek Philippe interpretation"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/patek-philippe-aquanaut-black-face.webp",
+    "/images/patek-philippe-aquanaut-black-side.webp",
+    "/images/patek-philippe-aquanaut-black-back.webp"
+  ],
+  "video": null,
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Black",
+    "bracelet": "Composite/rubber strap",
+    "clasp": "Pin buckle",
+    "bezel": "Rounded octagonal",
+    "lume": "Applied luminous indices"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "patek-philippe-nautilus-black-essential",
+    "patek-philippe-nautilus-blue-essential",
+    "ap-royal-oak-blue-essential",
+    "rolex-submariner-hulk-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Patek Philippe Aquanaut Black Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Aquanaut Black at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "L'Aquanaut est la proposition plus sportive et contemporaine de Patek Philippe — un boîtier octogonal arrondi en place de la géométrie de hublot plus nette du Nautilus, et une bracelet en caoutchouc composite plutôt qu'un bracelet intégré. Le cadran noir avec gaufrage horizontal porte la même texture Patek que le Nautilus, mais sur une silhouette qui se lit avec plus de confiance décontractée.\n\nDans la gamme Essential Artemis, cet Aquanaut utilise un mouvement automatique japonais Miyota. Le bracelet en caoutchouc noir offre un ajustement confortable et flexible au poignet, et le boîtier se lit propre et moderne. Trois angles de galerie montrent l'Aquanaut de face, côté et dos — tous les angles nécessaires pour comprendre l'architecture du boîtier.",
+  "descriptionShortFr": "Aquanaut à cadran noir gaufré et bracelet caoutchouc — la proposition sportive et contemporaine de Patek.",
+  "keyPointsFr": [
+    "Boîtier octogonal arrondi — moins formel que le Nautilus",
+    "Cadran noir horizontalement gaufré",
+    "Bracelet composite/caoutchouc avec boucle ardillon",
+    "Mouvement automatique japonais Miyota",
+    "Plus casual et sportif que le Nautilus",
+    "Interprétation contemporaine Patek Philippe"
+  ],
+  "seoDescriptionFr": ""
+}

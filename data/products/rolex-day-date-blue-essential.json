@@ -1,0 +1,72 @@
+{
+  "id": "rolex-day-date-blue-essential",
+  "slug": "day-date-blue-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Day-Date",
+  "collectionSlug": "day-date",
+  "name": "Day-Date 40",
+  "variant": "Blue Dial — Essential",
+  "description": "The Day-Date carries two displays that no other Rolex offered before it — the day of the week and the date, both spelled out in full on the dial. The blue dial version reads with a composed formality: the baton markers sit cleanly against the blue surface, and the President bracelet gives the watch a distinctive, refined presence on the wrist.\n\nIn the Artemis Essential range, this Day-Date uses a Miyota Japanese automatic movement and a President-style bracelet. The combination of the blue dial, smooth polished bezel, and concealed folding clasp creates a watch that occupies the upper end of the Essential tier in both price and presentation.",
+  "descriptionShort": "Day-Date 40 with blue dial, President bracelet, and day/date display in the Artemis Essential range.",
+  "keyPoints": [
+    "Day + full date display — the Day-Date signature",
+    "Blue dial with clean baton markers",
+    "President-style bracelet with concealed clasp",
+    "Smooth polished bezel",
+    "Miyota Japanese automatic movement",
+    "Upper Essential tier configuration"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": null,
+  "images": [
+    "/images/rolex-day-date-blue-face.webp",
+    "/images/rolex-day-date-blue-side.webp",
+    "/images/rolex-day-date-blue-back.webp"
+  ],
+  "video": "/videos/rolex-day-date-blue.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Blue",
+    "bracelet": "President, three-piece links",
+    "clasp": "Concealed folding clasp",
+    "bezel": "Smooth, polished",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-day-date-green-essential",
+    "rolex-day-date-gold-essential",
+    "rolex-datejust-41-blue-essential",
+    "rolex-gmt-master-ii-batgirl-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Day-Date 40 Blue Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Day-Date 40 Blue Dial at Artemis — Miyota automatic, from $330 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "La Day-Date porte deux affichages qu'aucune autre Rolex n'offrait avant elle — le jour de la semaine et la date, tous deux épelés en toutes lettres sur le cadran. La version à cadran bleu se lit avec une formalité composée : les index bâtons reposent proprement sur la surface bleue, et le bracelet President donne à la montre une présence distinctive et raffinée au poignet.\n\nDans la gamme Essential Artemis, cette Day-Date utilise un mouvement automatique japonais Miyota et un bracelet de style President. La combinaison du cadran bleu, de la lunette lisse polie et du fermoir pliant dissimulé crée une montre qui occupe le haut du tier Essential tant en prix qu'en présentation.",
+  "descriptionShortFr": "Day-Date 40 à cadran bleu, bracelet President et affichage jour/date dans la gamme Essential Artemis.",
+  "keyPointsFr": [
+    "Affichage jour + date complète — la signature Day-Date",
+    "Cadran bleu avec index bâtons propres",
+    "Bracelet President avec fermoir caché",
+    "Lunette lisse polie",
+    "Mouvement automatique japonais Miyota",
+    "Configuration haut du tier Essential"
+  ],
+  "seoDescriptionFr": ""
+}

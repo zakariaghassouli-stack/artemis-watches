@@ -18,7 +18,7 @@
     "Balanced everyday presence"
   ],
   "range": "essential",
-  "price": 330,
+  "price": 350,
   "compareAtPrice": null,
   "currency": "CAD",
   "inStock": true,
@@ -54,7 +54,7 @@
   "featured": false,
   "bestSeller": false,
   "seoTitle": "Audemars Piguet Royal Oak Black Dial Essential | Artemis Watches Montreal",
-  "seoDescription": "Shop the Audemars Piguet Royal Oak (Black Dial, Essential) at Artemis — your Montreal destination for luxury watches. Essential range, 30-day guarantee, free shipping. $330 CAD.",
+  "seoDescription": "Shop the Audemars Piguet Royal Oak (Black Dial, Essential) at Artemis — your Montreal destination for luxury watches. Essential range, 30-day guarantee, free shipping. $350 CAD.",
   "descriptionFr": "Le Royal Oak Essentiel reprend les codes centraux du Royal Oak dans une entrée plus légère au sein de la sélection Artemis. Le cadran noir donne à la lunette octogonale et au motif tapisserie une lecture plus retenue et contemporaine.\n\nCette version garde l'attention sur l'architecture du Royal Oak : bracelet intégré, lignes nettes et boîtier immédiatement identifiable. C'est une manière directe de porter l'une des silhouettes les plus reconnues du design horloger.",
   "descriptionShortFr": "Le design Royal Oak dans une configuration essentielle plus légère à cadran noir.",
   "keyPointsFr": [
@@ -64,5 +64,7 @@
     "Bracelet intégré pour un profil cohérent",
     "Design de boîtier net et architectural",
     "Présence équilibrée au quotidien"
-  ]
+  ],
+  "seoDescriptionFr": "L'AP Royal Oak Essential chez Artemis — l'esthétique iconique Royal Oak à prix accessible. Livraison depuis Montréal. 340 $ CAD.",
+  "seoTitleFr": "Audemars Piguet Royal Oak Essential | Artemis Montres Montréal"
 }

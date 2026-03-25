@@ -1,0 +1,72 @@
+{
+  "id": "rolex-datejust-41-white-essential",
+  "slug": "datejust-41-white-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Datejust",
+  "collectionSlug": "datejust",
+  "name": "Datejust 41",
+  "variant": "White Dial — Essential",
+  "description": "The white dial Datejust is the most classical reading of the reference — clean, highly legible, and naturally at home in formal contexts. The fluted bezel adds a vertical detail that has been part of the Datejust design language since 1945, and the Jubilee bracelet gives the piece a lighter, dressier feel than the Oyster alternative.\n\nIn the Artemis Essential range, this Datejust uses a Miyota Japanese automatic movement. The white dial with applied hour markers and Cyclops date lens is the layout that established the Datejust as a reference point for dress watches across the 20th century — and it continues to read that way.",
+  "descriptionShort": "Datejust 41 with white dial, fluted bezel, and Jubilee bracelet — the classical configuration.",
+  "keyPoints": [
+    "White dial — maximum clarity and formality",
+    "Fluted bezel — traditional Datejust mark",
+    "Jubilee bracelet with lighter, dressier feel",
+    "Miyota Japanese automatic movement",
+    "Date at 3 o'clock with Cyclops lens",
+    "The most formal Datejust configuration in the range"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 6,
+  "badge": null,
+  "images": [
+    "/images/rolex-datejust-41-white-face.webp",
+    "/images/rolex-datejust-41-white-side.webp",
+    "/images/rolex-datejust-41-white-back.webp"
+  ],
+  "video": "/videos/rolex-datejust-41-white.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "White",
+    "bracelet": "Jubilee, five-piece links",
+    "clasp": "Crownclasp",
+    "bezel": "Fluted, polished",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "white"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-datejust-41-grey-essential",
+    "rolex-daytona-panda-essential",
+    "rolex-datejust-31-pink-essential",
+    "rolex-datejust-41-wimbledon-smooth-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Datejust 41 White Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Datejust 41 White Dial at Artemis — Miyota automatic, from $330 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Datejust à cadran blanc est la lecture la plus classique de la référence — épurée, très lisible et naturellement à l'aise dans des contextes formels. La lunette cannelée ajoute un détail vertical qui fait partie du langage de design du Datejust depuis 1945, et le bracelet Jubilé donne à la pièce un ressenti plus léger et plus habillé que l'alternative Oyster.\n\nDans la gamme Essential Artemis, ce Datejust utilise un mouvement automatique japonais Miyota. Le cadran blanc avec index appliqués et loupe Cyclops est la disposition qui a établi le Datejust comme référence pour les montres habillées au XXe siècle — et il continue de se lire ainsi.",
+  "descriptionShortFr": "Datejust 41 à cadran blanc, lunette cannelée et bracelet Jubilé — la configuration classique.",
+  "keyPointsFr": [
+    "Cadran blanc — clarté et formalité maximales",
+    "Lunette cannelée — marque traditionnelle Datejust",
+    "Bracelet Jubilé au ressenti plus léger et habillé",
+    "Mouvement automatique japonais Miyota",
+    "Date à 3 h avec loupe Cyclops",
+    "La configuration Datejust la plus formelle de la gamme"
+  ],
+  "seoDescriptionFr": ""
+}

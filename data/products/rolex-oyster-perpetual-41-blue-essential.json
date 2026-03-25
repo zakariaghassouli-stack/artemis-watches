@@ -1,0 +1,72 @@
+{
+  "id": "rolex-oyster-perpetual-41-blue-essential",
+  "slug": "oyster-perpetual-41-blue-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Oyster Perpetual",
+  "collectionSlug": "oyster-perpetual",
+  "name": "Oyster Perpetual 41",
+  "variant": "Blue Dial — Essential",
+  "description": "The blue dial Oyster Perpetual — sometimes called the cornflower blue — is the most visually distinctive of the OP41 configurations. The vivid blue has become one of the most discussed dial colours in the Rolex catalogue, and on the pure, uncomplicaed Oyster Perpetual format it reads with a freshness that the sports watches in the same colour do not offer.\n\nIn the Artemis Essential range, this OP41 uses a Miyota Japanese automatic movement. The domed smooth bezel and clean Oyster bracelet are the same across all OP41 variants — the blue dial is what distinguishes this one. A watch with strong visual identity at the most accessible Essential price point.",
+  "descriptionShort": "Oyster Perpetual 41 with vivid blue dial — the most distinctive OP41 configuration.",
+  "keyPoints": [
+    "Vivid cornflower blue dial — the most discussed OP41 colour",
+    "Clean domed bezel — no complications",
+    "Oyster bracelet with Oysterclasp",
+    "Miyota Japanese automatic movement",
+    "Most accessible price in the Essential range",
+    "Pure Oyster format without sports watch bulk"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 6,
+  "badge": null,
+  "images": [
+    "/images/rolex-oyster-perpetual-41-blue-face.webp",
+    "/images/rolex-oyster-perpetual-41-blue-side.webp",
+    "/images/rolex-oyster-perpetual-41-blue-back.webp"
+  ],
+  "video": null,
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Cornflower Blue",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Smooth, domed",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-oyster-perpetual-41-black-essential",
+    "rolex-oyster-perpetual-41-green-essential",
+    "rolex-datejust-41-blue-essential",
+    "rolex-oyster-perpetual-41-grey-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Oyster Perpetual 41 Blue Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Oyster Perpetual 41 Blue at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le cadran bleu de l'Oyster Perpetual — parfois appelé bleu bleuet — est le plus visuellement distinctif des configurations OP41. Le bleu vif est devenu l'une des couleurs de cadran les plus discutées du catalogue Rolex, et sur le format Oyster Perpetual pur et sans complication, il se lit avec une fraîcheur que les montres sport dans la même couleur n'offrent pas.\n\nDans la gamme Essential Artemis, cette OP41 utilise un mouvement automatique japonais Miyota. La lunette bombée lisse et le bracelet Oyster propre sont les mêmes pour toutes les variantes OP41 — le cadran bleu est ce qui distingue celle-ci. Une montre à forte identité visuelle au prix Essential le plus accessible.",
+  "descriptionShortFr": "Oyster Perpetual 41 à cadran bleu vif — la configuration OP41 la plus distinctive.",
+  "keyPointsFr": [
+    "Cadran bleu bleuet vif — la couleur OP41 la plus discutée",
+    "Lunette bombée épurée — aucune complication",
+    "Bracelet Oyster avec Oysterclasp",
+    "Mouvement automatique japonais Miyota",
+    "Prix le plus accessible de la gamme Essential",
+    "Format Oyster pur sans l'encombrement sport"
+  ],
+  "seoDescriptionFr": ""
+}

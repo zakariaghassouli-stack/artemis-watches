@@ -4,12 +4,15 @@ import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductGridClient } from '@/components/collection/ProductGridClient';
 import { getBrandMeta, getCollectionMeta } from '@/lib/brands';
-import { getProductsByCollection, formatPrice } from '@/lib/products';
+import { getProductsByCollection } from '@/lib/queries';
+import { formatPrice } from '@/lib/products';
 import type { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ brandSlug: string; collectionSlug: string; locale: string }>;
 }
+
+export const revalidate = 60;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { brandSlug, collectionSlug } = await params;
@@ -45,7 +48,7 @@ export default async function CollectionPage({ params }: Props) {
   const collectionDescription =
     (tBrands(`collections.${collection.slug}.description` as never) as string) ||
     collection.description;
-  const products = getProductsByCollection(collectionSlug);
+  const products = await getProductsByCollection(collectionSlug);
   const lowestPrice = products.length
     ? Math.min(...products.map((p) => p.price))
     : 0;

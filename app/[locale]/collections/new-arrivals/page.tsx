@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'New Arrivals | Artemis Watches — Montreal',
   description:
-    'Freshly curated timepieces from Rolex, Cartier, Audemars Piguet, and Patek Philippe. New additions to the Artemis catalogue — Essential and Premium ranges.',
+    'Freshly curated timepieces from Rolex, Cartier, Audemars Piguet, and Patek Philippe. New additions to the Artemis catalogue — Japanese and Swiss movement options.',
 };
 
 // Sort: new-arrival badge first, then high-demand, then best-sellers, then rest

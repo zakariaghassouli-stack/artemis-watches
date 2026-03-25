@@ -1,19 +1,17 @@
-import { Link } from '@/i18n/navigation';
-import { getLocale, getTranslations } from 'next-intl/server';
-import { ScrollReveal } from '@/components/shared/ScrollReveal';
-import { SectionHeader } from '@/components/shared/SectionHeader';
-import { ProductGridClient } from '@/components/collection/ProductGridClient';
-import { getAllBrands, getCollectionsByBrand } from '@/lib/brands';
-import { getProductCountByBrand, getProductsByRange } from '@/lib/products';
-import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import { Link } from '@/i18n/navigation';
+import { getTranslations } from 'next-intl/server';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { getAllProducts } from '@/lib/queries';
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: 'Collections | Artemis Watches — Montreal',
   description:
-    'Shop Rolex, Cartier, Audemars Piguet, and Patek Philippe at Artemis. Your Montreal destination for luxury watches. Essential and Premium ranges. Free shipping across Canada.',
+    'Shop Rolex, Cartier, Audemars Piguet, and Patek Philippe at Artemis. A considered watch selection from Montreal, with direct service.',
   alternates: {
     canonical: `${BASE}/collections`,
     languages: {
@@ -23,399 +21,274 @@ export const metadata: Metadata = {
   },
 };
 
-const BRAND_PRODUCT_COUNTS = getProductCountByBrand();
+type BrandCardConfig = {
+  slug: 'rolex' | 'cartier' | 'audemars-piguet' | 'patek-philippe';
+  name: string;
+  image: string;
+  tags: Array<{ label: string; href: string }>;
+  ctaKey: 'exploreRolex' | 'exploreCartier' | 'exploreAP' | 'explorePatek';
+};
 
 function BrandCard({
-  slug,
-  name,
-  tagline,
-  description,
-  collectionNames,
+  brand,
+  count,
+  piecesLabel,
+  cta,
   index,
-  exploreLabel,
-  piecesCountLabel,
 }: {
-  slug: string;
-  name: string;
-  tagline: string;
-  description: string;
-  collectionNames: string[];
+  brand: BrandCardConfig;
+  count: number;
+  piecesLabel: string;
+  cta: string;
   index: number;
-  exploreLabel: string;
-  piecesCountLabel: string;
 }) {
   return (
-    <ScrollReveal delay={index * 80}>
-      <Link
-        href={`/collections/${slug}`}
+    <ScrollReveal delay={index * 70}>
+      <article
         style={{
-          display: 'block',
+          background: '#111111',
           border: '1px solid rgba(255,255,255,0.06)',
           borderRadius: 4,
           overflow: 'hidden',
-          textDecoration: 'none',
-          background: '#111111',
-          padding: '40px 36px 36px',
-          transition:
-            'border-color 0.3s, transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94)',
           height: '100%',
         }}
-        className="brand-card-link"
       >
-        {/* Product count badge */}
-        <div style={{ marginBottom: 28 }}>
+        <Link
+          href={`/collections/${brand.slug}`}
+          style={{
+            display: 'block',
+            aspectRatio: '4 / 3',
+            overflow: 'hidden',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+            background: '#121212',
+            position: 'relative',
+          }}
+        >
+          <Image
+            src={brand.image}
+            alt={brand.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+            style={{
+              objectFit: 'cover',
+              display: 'block',
+            }}
+          />
+        </Link>
+
+        <div style={{ padding: '20px 20px 22px' }}>
           <span
             style={{
-              fontSize: '0.6rem',
-              fontWeight: 600,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#C9A96E',
-              background: 'rgba(201,169,110,0.08)',
-              border: '1px solid rgba(201,169,110,0.18)',
+              display: 'inline-flex',
+              alignItems: 'center',
               padding: '4px 10px',
-              borderRadius: 2,
+              borderRadius: 999,
+              border: '1px solid rgba(201,169,110,0.18)',
+              background: 'rgba(201,169,110,0.08)',
+              color: '#C9A96E',
+              fontSize: '0.6rem',
+              fontWeight: 700,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              marginBottom: 16,
             }}
           >
-            {piecesCountLabel}
+            {count} {piecesLabel}
           </span>
+
+          <h2
+            style={{
+              fontSize: '1.45rem',
+              fontWeight: 700,
+              letterSpacing: '-0.02em',
+              color: '#F5F3EF',
+              marginBottom: 14,
+            }}
+          >
+            {brand.name}
+          </h2>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 22 }}>
+            {brand.tags.map((tag) => (
+              <Link
+                key={tag.href}
+                href={tag.href}
+                style={{
+                  fontSize: '0.64rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  color: '#A8A5A0',
+                  textDecoration: 'none',
+                  padding: '6px 9px',
+                  borderRadius: 999,
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'rgba(255,255,255,0.03)',
+                }}
+              >
+                {tag.label}
+              </Link>
+            ))}
+          </div>
+
+          <Link
+            href={`/collections/${brand.slug}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              fontSize: '0.68rem',
+              fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: '#C9A96E',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(201,169,110,0.3)',
+              paddingBottom: 2,
+            }}
+          >
+            {cta}
+          </Link>
         </div>
-
-        {/* Brand name */}
-        <h2
-          style={{
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-            fontWeight: 700,
-            color: '#F5F3EF',
-            letterSpacing: '-0.02em',
-            marginBottom: 8,
-            lineHeight: 1.1,
-          }}
-        >
-          {name}
-        </h2>
-
-        {/* Tagline */}
-        <p
-          style={{
-            fontSize: '0.75rem',
-            fontWeight: 500,
-            color: '#C9A96E',
-            letterSpacing: '0.06em',
-            marginBottom: 16,
-            fontStyle: 'italic',
-          }}
-        >
-          {tagline}
-        </p>
-
-        {/* Divider */}
-        <div
-          style={{
-            height: 1,
-            background:
-              'linear-gradient(90deg, rgba(201,169,110,0.2) 0%, transparent 100%)',
-            marginBottom: 16,
-          }}
-        />
-
-        {/* Description */}
-        <p
-          style={{
-            fontSize: '0.82rem',
-            color: '#6B6965',
-            lineHeight: 1.65,
-            marginBottom: 24,
-          }}
-        >
-          {description}
-        </p>
-
-        {/* Collections list */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 32 }}>
-          {collectionNames.map((col) => (
-            <span
-              key={col}
-              style={{
-                fontSize: '0.6rem',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.3)',
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                padding: '3px 8px',
-                borderRadius: 2,
-              }}
-            >
-              {col}
-            </span>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <span
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
-            fontSize: '0.72rem',
-            fontWeight: 600,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: '#C9A96E',
-          }}
-        >
-          {exploreLabel} {name}
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path
-              d="M2 6h8M6.5 2.5L10 6l-3.5 3.5"
-              stroke="currentColor"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
-      </Link>
+      </article>
     </ScrollReveal>
   );
 }
 
-export default async function CollectionsPage({
-  searchParams,
-}: {
-  searchParams?: Promise<{ range?: string }>;
-}) {
-  const [t, tBrands, locale] = await Promise.all([
+export default async function CollectionsPage() {
+  const [t, products] = await Promise.all([
     getTranslations('collections'),
-    getTranslations('brands'),
-    getLocale(),
+    getAllProducts(),
   ]);
-  const brands = getAllBrands();
-  const { range } = (await searchParams) ?? {};
-  const initialFilter = range === 'essential' || range === 'premium' ? range : undefined;
-  const rangeProducts = initialFilter ? getProductsByRange(initialFilter) : [];
-  const collectionsHelpUrl = getWhatsAppUrl(getGeneralWhatsAppMessage(locale));
-  const gridTranslations = {
-    filterAll: t('filterAll'),
-    filterEssential: t('filterEssential'),
-    filterPremium: t('filterPremium'),
-    sortBy: t('sortBy'),
-    sortDefault: t('sortDefault'),
-    sortPriceLow: t('sortPriceLow'),
-    sortPriceHigh: t('sortPriceHigh'),
-    products: t('products'),
-    product: t('product'),
-    viewDetails: t('viewDetails'),
-    noResults: t('noResults'),
+
+  const counts = {
+    rolex: products.filter((product) => product.brand === 'Rolex').length,
+    cartier: products.filter((product) => product.brand === 'Cartier').length,
+    ap: products.filter((product) => product.brand === 'Audemars Piguet').length,
+    patek: products.filter((product) => product.brand === 'Patek Philippe').length,
+    total: products.length,
   };
+
+  const brandCards: BrandCardConfig[] = [
+    {
+      slug: 'rolex',
+      name: 'Rolex',
+      image: '/images/rolex-gmt-master-ii-pepsi-face.webp',
+      tags: [
+        { label: 'Submariner', href: '/collections/rolex/submariner' },
+        { label: 'Datejust', href: '/collections/rolex/datejust' },
+        { label: 'GMT-Master II', href: '/collections/rolex/gmt-master-ii' },
+        { label: 'Daytona', href: '/collections/rolex/daytona' },
+        { label: 'Day-Date', href: '/collections/rolex/day-date' },
+        { label: 'Explorer', href: '/collections/rolex/explorer' },
+      ],
+      ctaKey: 'exploreRolex',
+    },
+    {
+      slug: 'cartier',
+      name: 'Cartier',
+      image: '/images/cartier-santos-silver-face.webp',
+      tags: [
+        { label: 'Santos', href: '/collections/cartier/santos' },
+        { label: 'Panthère', href: '/collections/cartier/panthere' },
+      ],
+      ctaKey: 'exploreCartier',
+    },
+    {
+      slug: 'audemars-piguet',
+      name: 'Audemars Piguet',
+      image: '/images/audemars-piguet-royal-oak-skeleton-silver-face.webp',
+      tags: [{ label: 'Royal Oak', href: '/collections/audemars-piguet/royal-oak' }],
+      ctaKey: 'exploreAP',
+    },
+    {
+      slug: 'patek-philippe',
+      name: 'Patek Philippe',
+      image: '/images/patek-philippe-nautilus-blue-face.webp',
+      tags: [
+        { label: 'Nautilus', href: '/collections/patek-philippe/nautilus' },
+        { label: 'Aquanaut', href: '/collections/patek-philippe/aquanaut' },
+        { label: 'Calatrava', href: '/collections/patek-philippe/calatrava' },
+      ],
+      ctaKey: 'explorePatek',
+    },
+  ];
+
+  const cardCounts = {
+    rolex: counts.rolex,
+    cartier: counts.cartier,
+    'audemars-piguet': counts.ap,
+    'patek-philippe': counts.patek,
+  } as const;
 
   return (
     <div style={{ background: '#0A0A0A', minHeight: '100vh' }}>
-      {/* Hero */}
       <section
         style={{
-          padding: 'clamp(80px, 12vw, 140px) 24px clamp(60px, 8vw, 100px)',
+          padding: 'clamp(84px, 12vw, 132px) 24px clamp(54px, 8vw, 88px)',
           background:
             'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,169,110,0.05) 0%, transparent 60%)',
           borderBottom: '1px solid rgba(255,255,255,0.05)',
         }}
       >
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <SectionHeader
-            overline={t('pageOverline')}
-            headline={t('pageHeadline')}
-            subheadline={t('pageSubheadline')}
-          />
-
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: 10,
-              justifyContent: 'center',
-            }}
-          >
-            {[t('trustShipping'), t('trustGuarantee'), t('trustQuality'), t('trustWhatsApp')].map((item) => (
-              <span
-                key={item}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  padding: '9px 12px',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  background: 'rgba(255,255,255,0.02)',
-                  borderRadius: 999,
-                  fontSize: '0.66rem',
-                  color: '#A8A5A0',
-                  letterSpacing: '0.05em',
-                }}
-              >
-                <span
-                  aria-hidden
-                  style={{
-                    width: 5,
-                    height: 5,
-                    borderRadius: '50%',
-                    background: '#C9A96E',
-                    flexShrink: 0,
-                  }}
-                />
-                {item}
-              </span>
-            ))}
-          </div>
+        <div style={{ maxWidth: 1280, margin: '0 auto', textAlign: 'center' }}>
+          <ScrollReveal delay={0}>
+            <h1
+              style={{
+                fontSize: 'clamp(2rem, 4.5vw, 3.35rem)',
+                fontWeight: 600,
+                lineHeight: 1.08,
+                letterSpacing: '-0.03em',
+                color: '#F5F3EF',
+                marginBottom: 16,
+              }}
+            >
+              {t('title')}
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <p
+              style={{
+                fontSize: '1rem',
+                color: '#A8A5A0',
+                lineHeight: 1.7,
+                maxWidth: 560,
+                margin: '0 auto',
+              }}
+            >
+              {t('subtitle', { count: counts.total })}
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Brand cards grid */}
-      <section style={{ padding: 'clamp(60px, 8vw, 100px) 24px' }}>
+      <section style={{ padding: 'clamp(40px, 6vw, 72px) 24px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <ScrollReveal delay={0}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: 16,
-                padding: '18px 22px',
-                marginBottom: 28,
-                border: '1px solid rgba(255,255,255,0.06)',
-                background: 'rgba(255,255,255,0.02)',
-                borderRadius: 4,
-              }}
-            >
-              <div>
-                <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#C9A96E', marginBottom: 6 }}>
-                  {t('adviceLabel')}
-                </p>
-                <p style={{ fontSize: '0.84rem', color: '#A8A5A0', lineHeight: 1.6 }}>
-                  {t('adviceBody')}
-                </p>
-              </div>
-              <a
-                href={collectionsHelpUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: '#C9A96E',
-                  textDecoration: 'none',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {t('adviceCta')}
-              </a>
-            </div>
-          </ScrollReveal>
-
-          <div className="brands-grid">
+          <div className="collection-brand-grid">
             <style>{`
-              .brands-grid {
+              .collection-brand-grid {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 20px;
               }
               @media (max-width: 1100px) {
-                .brands-grid { grid-template-columns: repeat(2, 1fr); }
+                .collection-brand-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
               }
-              @media (max-width: 560px) {
-                .brands-grid { grid-template-columns: 1fr; }
-              }
-              .brand-card-link:hover {
-                border-color: rgba(201,169,110,0.3) !important;
-                transform: translateY(-4px) !important;
+              @media (max-width: 640px) {
+                .collection-brand-grid { grid-template-columns: 1fr; }
               }
             `}</style>
 
-            {brands.map((brand, i) => {
-              const collections = getCollectionsByBrand(brand.slug);
-              const productCount = BRAND_PRODUCT_COUNTS[brand.slug] ?? 0;
-
-              const brandTagline = tBrands(`${brand.slug}.tagline` as never) as string || brand.tagline;
-              const brandDescription = tBrands(`${brand.slug}.description` as never) as string || brand.description;
-
-              return (
-                <BrandCard
-                  key={brand.slug}
-                  slug={brand.slug}
-                  name={brand.name}
-                  tagline={brandTagline}
-                  description={brandDescription}
-                  collectionNames={collections.map((c) => c.name)}
-                  index={i}
-                  exploreLabel={t('exploreLabel')}
-                  piecesCountLabel={t('piecesCount', { count: productCount })}
-                />
-              );
-            })}
+            {brandCards.map((brand, index) => (
+              <BrandCard
+                key={brand.slug}
+                brand={brand}
+                count={cardCounts[brand.slug]}
+                piecesLabel={t('pieces')}
+                cta={t(brand.ctaKey)}
+                index={index}
+              />
+            ))}
           </div>
-        </div>
-      </section>
-
-      {/* Filtered product grid — only when ?range= param is active */}
-      {initialFilter && (
-        <section style={{ padding: 'clamp(48px, 6vw, 80px) 24px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-          <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-            <p
-              style={{
-                fontSize: '0.65rem',
-                fontWeight: 600,
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.3)',
-                marginBottom: 32,
-              }}
-            >
-              {initialFilter === 'essential' ? t('filterEssential') : t('filterPremium')} — {t('allCollections')}
-            </p>
-            <ProductGridClient products={rangeProducts} t={gridTranslations} initialFilter={initialFilter} />
-          </div>
-        </section>
-      )}
-
-      {/* Bottom trust strip */}
-      <section
-        style={{
-          borderTop: '1px solid rgba(255,255,255,0.05)',
-          padding: '40px 24px',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1280,
-            margin: '0 auto',
-            display: 'flex',
-            justifyContent: 'center',
-            gap: 48,
-            flexWrap: 'wrap',
-          }}
-        >
-          {[
-            t('trustShipping'),
-            t('trustGuarantee'),
-            t('trustQuality'),
-            t('trustWhatsApp'),
-          ].map((item) => (
-            <span
-              key={item}
-              style={{
-                fontSize: '0.68rem',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.25)',
-              }}
-            >
-              {item}
-            </span>
-          ))}
         </div>
       </section>
     </div>

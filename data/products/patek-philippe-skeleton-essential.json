@@ -1,0 +1,74 @@
+{
+  "id": "patek-philippe-skeleton-essential",
+  "slug": "patek-skeleton-essential",
+  "brand": "Patek Philippe",
+  "brandSlug": "patek-philippe",
+  "collection": "Calatrava",
+  "collectionSlug": "calatrava",
+  "name": "Calatrava Skeleton",
+  "variant": "Open-worked — Essential",
+  "description": "The Patek Philippe Skeleton takes the round, refined Calatrava architecture and opens the dial entirely — the movement becomes the dial, visible from the front through a skeletonized frame. The result is a watch where technical display and aesthetic composition are inseparable: what you see is the mechanism, decorated and finished as a deliberate visual element.\n\nIn the Artemis Essential range, this skeleton Calatrava uses a Miyota Japanese automatic movement and a leather strap with pin buckle. Five gallery angles are available to capture the watch from multiple perspectives, as the skeleton reveals different aspects of the movement at each angle. The round case in polished stainless steel keeps the focus on the dial opening.",
+  "descriptionShort": "Calatrava Skeleton with fully open-worked dial — five gallery angles reveal the movement from every side.",
+  "keyPoints": [
+    "Fully skeletonized open-worked dial",
+    "Movement visible and decorated as the visual element",
+    "Five gallery angles to capture different aspects",
+    "Leather strap with pin buckle",
+    "Miyota Japanese automatic movement",
+    "Round polished case — maximum focus on the dial"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": "new-arrival",
+  "images": [
+    "/images/patek-philippe-skeleton-face.webp",
+    "/images/patek-philippe-skeleton-side.webp",
+    "/images/patek-philippe-skeleton-back.webp",
+    "/images/patek-philippe-skeleton-extra1.webp",
+    "/images/patek-philippe-skeleton-extra2.webp"
+  ],
+  "video": "/videos/patek-philippe-skeleton.mp4",
+  "specs": {
+    "caseDiameter": "38mm",
+    "dialColor": "Skeleton/Open-worked",
+    "bracelet": "Leather strap",
+    "clasp": "Pin buckle",
+    "bezel": "Smooth, polished round",
+    "lume": "None"
+  },
+  "availableSizes": [
+    "38mm"
+  ],
+  "availableColors": [
+    "silver"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "patek-philippe-nautilus-blue-essential",
+    "cartier-santos-skeleton-essential",
+    "ap-royal-oak-skeleton-silver-essential",
+    "patek-philippe-nautilus-black-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Patek Philippe Calatrava Skeleton Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Calatrava Skeleton at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Patek Philippe Skeleton prend l'architecture ronde et raffinée de la Calatrava et ouvre entièrement le cadran — le mouvement devient le cadran, visible de face à travers un cadre squelette. Le résultat est une montre où présentation technique et composition esthétique sont inséparables : ce que vous voyez, c'est le mécanisme, décoré et fini comme un élément visuel délibéré.\n\nDans la gamme Essential Artemis, ce Calatrava squelette utilise un mouvement automatique japonais Miyota et un bracelet en cuir avec boucle ardillon. Cinq angles de galerie sont disponibles pour capturer la montre sous plusieurs perspectives, car le squelette révèle différents aspects du mouvement à chaque angle. Le boîtier rond en acier inoxydable poli maintient l'attention sur l'ouverture du cadran.",
+  "descriptionShortFr": "Calatrava Skeleton avec cadran entièrement ajouré — cinq angles de galerie révèlent le mouvement sous tous les angles.",
+  "keyPointsFr": [
+    "Cadran entièrement ajouré squelette",
+    "Mouvement visible et décoré comme élément visuel",
+    "Cinq angles de galerie pour différentes perspectives",
+    "Bracelet cuir avec boucle ardillon",
+    "Mouvement automatique japonais Miyota",
+    "Boîtier rond poli — attention maximale sur le cadran"
+  ],
+  "seoDescriptionFr": ""
+}

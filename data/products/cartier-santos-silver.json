@@ -18,7 +18,7 @@
     "A long-running Santos reference with enduring relevance"
   ],
   "range": "premium",
-  "price": 1100,
+  "price": 1050,
   "compareAtPrice": null,
   "currency": "CAD",
   "inStock": true,
@@ -43,8 +43,8 @@
     "silver"
   ],
   "hasEssentialVariant": true,
-  "essentialPrice": 340,
-  "boxAndPapersPrice": 49,
+  "essentialPrice": 350,
+  "boxAndPapersPrice": 0,
   "relatedProducts": [
     "cartier-panthere-gold",
     "cartier-santos-black",
@@ -55,7 +55,7 @@
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Cartier Santos de Cartier Silver Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Cartier Santos de Cartier (Silver Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,100 CAD.",
+  "seoDescription": "Shop the Cartier Santos de Cartier (Silver Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,050 CAD.",
   "descriptionFr": "Le Santos de Cartier occupe une place singulière dans l'histoire horlogère, puisqu'il a d'abord été conçu en 1904 pour Alberto Santos-Dumont. Plus d'un siècle plus tard, son boîtier carré, ses vis apparentes et son cadran à chiffres romains lui donnent toujours un profil à la fois historique et actuel.\n\nLa variante cadran argent est souvent la lecture la plus équilibrée du Santos. Le boîtier poli, le bracelet brossé et le cadran clair composent une montre facile à porter dans des contextes formels comme plus décontractés.",
   "descriptionShortFr": "La première montre-bracelet. Boîtier carré, chiffres romains, vis apparentes emblématiques — le pur héritage Cartier.",
   "keyPointsFr": [
@@ -65,5 +65,7 @@
     "Bracelet acier intégré avec système de libération rapide",
     "À l'aise aussi bien avec un costume qu'en tenue décontractée",
     "Une référence Santos de long cours, toujours actuelle"
-  ]
+  ],
+  "seoDescriptionFr": "Le Cartier Santos (Cadran Argent) chez Artemis. Design architectural iconique, livraison depuis Montréal avec garantie 30 jours. 1 100 $ CAD.",
+  "seoTitleFr": "Cartier Santos Cadran Argent | Artemis Montres Montréal"
 }

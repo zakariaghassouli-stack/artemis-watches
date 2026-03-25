@@ -1,0 +1,72 @@
+{
+  "id": "rolex-land-dweller-blue-essential",
+  "slug": "land-dweller-blue-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Land-Dweller",
+  "collectionSlug": "land-dweller",
+  "name": "Land-Dweller",
+  "variant": "Blue Dial — Essential",
+  "description": "The Land-Dweller presents a clean, contemporary architecture in the dress watch register — a polished case with a smooth bezel, a blue dial, and a Jubilee-style bracelet. The proportions are balanced for everyday wear, and the blue dial sits with the same quiet character it brings to the Datejust, without the sporting infrastructure of the tool watches.\n\nIn the Artemis Essential range, the Land-Dweller uses a Miyota automatic movement and a five-link bracelet. The folding clasp provides a secure close, and the overall package reads as a considered dress watch with a contemporary edge — a solid alternative for those who want something outside the established Rolex subcollections.",
+  "descriptionShort": "Land-Dweller with blue dial, smooth bezel, and Jubilee-style bracelet — a contemporary dress watch.",
+  "keyPoints": [
+    "Blue dial — clean, contemporary reading",
+    "Smooth polished bezel",
+    "Jubilee-style bracelet with folding clasp",
+    "Miyota Japanese automatic movement",
+    "Contemporary dress watch proportions",
+    "Outside the established Rolex subcollections"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": null,
+  "images": [
+    "/images/rolex-land-dweller-blue-face.webp",
+    "/images/rolex-land-dweller-blue-side.webp",
+    "/images/rolex-land-dweller-blue-back.webp"
+  ],
+  "video": "/videos/rolex-land-dweller-blue.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Blue",
+    "bracelet": "Jubilee-style, five-piece links",
+    "clasp": "Folding clasp",
+    "bezel": "Smooth, polished",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-land-dweller-white-essential",
+    "rolex-land-dweller-rosegold-essential",
+    "rolex-datejust-41-blue-essential",
+    "rolex-oyster-perpetual-41-blue-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Land-Dweller Blue Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Land-Dweller Blue Dial at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Land-Dweller présente une architecture propre et contemporaine dans le registre des montres habillées — boîtier poli avec lunette lisse, cadran bleu et bracelet de style Jubilé. Les proportions sont équilibrées pour le port quotidien, et le cadran bleu repose avec le même caractère discret qu'il apporte à la Datejust, sans l'infrastructure sportive des montres outils.\n\nDans la gamme Essential Artemis, le Land-Dweller utilise un mouvement automatique Miyota et un bracelet à cinq maillons. Le fermoir pliant offre une fermeture sécurisée, et l'ensemble se lit comme une montre habillée réfléchie avec une touche contemporaine — une alternative solide pour ceux qui veulent quelque chose en dehors des sous-collections Rolex établies.",
+  "descriptionShortFr": "Land-Dweller à cadran bleu, lunette lisse et bracelet style Jubilé — une montre habillée contemporaine.",
+  "keyPointsFr": [
+    "Cadran bleu — lecture épurée et contemporaine",
+    "Lunette lisse polie",
+    "Bracelet style Jubilé avec fermoir pliant",
+    "Mouvement automatique japonais Miyota",
+    "Proportions de montre habillée contemporaine",
+    "En dehors des sous-collections Rolex établies"
+  ],
+  "seoDescriptionFr": ""
+}

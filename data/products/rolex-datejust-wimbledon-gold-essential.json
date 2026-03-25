@@ -1,0 +1,73 @@
+{
+  "id": "rolex-datejust-wimbledon-gold-essential",
+  "slug": "datejust-wimbledon-gold-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Datejust",
+  "collectionSlug": "datejust",
+  "name": "Datejust",
+  "variant": "Wimbledon Gold — Fluted",
+  "description": "The Wimbledon Gold version lifts the mixed-index dial into a warmer register — gold-tone accents on the dial indices, a gold-toned fluted bezel, and a gold-tone Jubilee bracelet that brings the whole configuration into a luxurious, dressed presentation. It occupies the space between the classic steel Wimbledon and the full Day-Date gold.\n\nIn the Artemis Essential range, this Datejust uses a Miyota automatic movement. The gold-tone Jubilee bracelet and fluted bezel give the watch a presence that reads above its tier — formal, warm, and composed.",
+  "descriptionShort": "Datejust Wimbledon in gold-tone — gold fluted bezel, gold Jubilee bracelet, mixed-index dial.",
+  "keyPoints": [
+    "Gold-tone Wimbledon dial with mixed indices",
+    "Fluted gold-tone bezel",
+    "Gold-tone Jubilee bracelet with Crownclasp",
+    "Miyota Japanese automatic movement",
+    "A warm, formal configuration",
+    "Bridges classic Datejust and full gold Day-Date"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-datejust-wimbledon-gold-face.webp",
+    "/images/rolex-datejust-wimbledon-gold-side.webp",
+    "/images/rolex-datejust-wimbledon-gold-back.webp"
+  ],
+  "video": "/videos/rolex-datejust-wimbledon-gold.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Silver/Gold Wimbledon",
+    "bracelet": "Jubilee, gold-tone five-piece links",
+    "clasp": "Crownclasp",
+    "bezel": "Fluted, gold-tone",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "gold",
+    "silver"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-datejust-41-wimbledon-essential",
+    "rolex-datejust-31-gold-essential",
+    "rolex-day-date-gold-essential",
+    "rolex-datejust-2tone-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Datejust Wimbledon Gold Fluted Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Datejust Wimbledon Gold (Gold-Tone) at Artemis — from $330 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "La version Wimbledon Gold élève le cadran à index mixtes dans un registre plus chaleureux — accents dorés sur les index du cadran, lunette cannelée dorée et bracelet Jubilé doré qui amènent toute la configuration dans une présentation luxueuse et habillée. Elle occupe l'espace entre le Wimbledon classique en acier et le Day-Date intégral en or.\n\nDans la gamme Essential Artemis, ce Datejust utilise un mouvement automatique Miyota. Le bracelet Jubilé et la lunette cannelée dorés donnent à la montre une présence qui se lit au-dessus de son niveau — formelle, chaleureuse et composée.",
+  "descriptionShortFr": "Datejust Wimbledon en doré — lunette cannelée dorée, bracelet Jubilé doré, cadran à index mixtes.",
+  "keyPointsFr": [
+    "Cadran Wimbledon doré avec index mixtes",
+    "Lunette cannelée dorée",
+    "Bracelet Jubilé doré avec Crownclasp",
+    "Mouvement automatique japonais Miyota",
+    "Configuration chaleureuse et formelle",
+    "Pont entre le Datejust classique et le Day-Date intégral en or"
+  ],
+  "seoDescriptionFr": ""
+}

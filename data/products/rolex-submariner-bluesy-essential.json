@@ -1,0 +1,73 @@
+{
+  "id": "rolex-submariner-bluesy-essential",
+  "slug": "submariner-bluesy-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Submariner",
+  "collectionSlug": "submariner",
+  "name": "Submariner Date",
+  "variant": "Bluesy — Two-Tone Blue/Gold",
+  "description": "The Bluesy is the most dressed version of the Submariner — a two-tone blue and gold configuration that softens the sport watch silhouette into something closer to a transitional piece. The blue dial and gold-and-steel Jubilee bracelet give it a warmth rarely found in sports watches at this scale.\n\nThis Artemis Essential selection brings the Bluesy aesthetic into the accessible tier: a Miyota automatic movement, a Jubilee bracelet in stainless steel and gold-tone finish, and a blue/gold ceramic bezel. The combination reads confident, polished, and immediately recognizable at the wrist.",
+  "descriptionShort": "The two-tone Submariner in blue and gold — Jubilee bracelet, blue dial, gold-toned bezel.",
+  "keyPoints": [
+    "Two-tone blue and gold aesthetic",
+    "Blue dial with gold luminous markers",
+    "Gold/steel Jubilee bracelet with Crownclasp",
+    "Blue/gold bidirectional bezel",
+    "Miyota Japanese automatic movement",
+    "Strong transitional presence from sport to formal"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-submariner-bluesy-face.webp",
+    "/images/rolex-submariner-bluesy-side.webp",
+    "/images/rolex-submariner-bluesy-back.webp"
+  ],
+  "video": "/videos/rolex-submariner-bluesy.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Blue",
+    "bracelet": "Jubilee, gold/steel two-tone",
+    "clasp": "Crownclasp",
+    "bezel": "Blue/gold ceramic unidirectional",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "blue",
+    "gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-submariner-smurf-essential",
+    "rolex-gmt-master-ii-pepsi-essential",
+    "rolex-datejust-41-blue-essential",
+    "rolex-submariner-blackdate-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Submariner Bluesy Two-Tone Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Submariner Bluesy (Two-Tone Blue/Gold) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Bluesy est la version la plus habillée de la Submariner — une configuration bicolore bleu et or qui adoucit la silhouette sport en quelque chose de plus proche d'une montre de transition. Le cadran bleu et le bracelet Jubilé or et acier lui confèrent une chaleur rarement trouvée dans les montres sport de ce calibre.\n\nCette sélection Artemis Essential transpose l'esthétique Bluesy dans le tier accessible : un mouvement automatique Miyota, un bracelet Jubilé en finition or et acier, et une lunette céramique bleu/or. La combinaison inspire la confiance, le raffinement, et une présence immédiatement reconnaissable au poignet.",
+  "descriptionShortFr": "La Submariner bicolore bleu et or — bracelet Jubilé, cadran bleu, lunette dorée.",
+  "keyPointsFr": [
+    "Esthétique bicolore bleu et or distinctive",
+    "Cadran bleu avec index lumineux dorés",
+    "Bracelet Jubilé or/acier avec Crownclasp",
+    "Lunette céramique bleu/or unidirectionnelle",
+    "Mouvement automatique japonais Miyota",
+    "Présence forte du sport au formel"
+  ],
+  "seoDescriptionFr": ""
+}

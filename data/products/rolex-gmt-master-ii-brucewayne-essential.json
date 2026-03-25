@@ -1,0 +1,72 @@
+{
+  "id": "rolex-gmt-master-ii-brucewayne-essential",
+  "slug": "gmt-master-ii-brucewayne-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "GMT-Master II",
+  "collectionSlug": "gmt-master-ii",
+  "name": "GMT-Master II",
+  "variant": "Bruce Wayne — All-Black",
+  "description": "The Bruce Wayne is the stealth configuration of the GMT — full black PVD treatment on the case and bracelet, a black ceramic bezel, and a black dial. Unlike the Submariner Label Noir which plays on the dive watch aesthetic, the Bruce Wayne GMT retains the dual-time zone function and travel watch proportions in a fully blacked-out format.\n\nIn the Artemis Essential range, this all-black GMT uses a Miyota automatic movement and a PVD-treated Oyster bracelet. It is one of the most assertive watches in the Essential catalogue — low-profile in colour, high-profile in intent.",
+  "descriptionShort": "All-black GMT-Master II with PVD-coated case, bracelet, black bezel, and dual-time display.",
+  "keyPoints": [
+    "Full black PVD treatment on case and bracelet",
+    "Black ceramic bezel with 24h scale",
+    "Dual-time zone function retained",
+    "Miyota Japanese automatic movement",
+    "Most assertive GMT in the Essential range",
+    "Stealth aesthetic with practical functionality"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": "new-arrival",
+  "images": [
+    "/images/rolex-gmt-master-ii-brucewayne-face.webp",
+    "/images/rolex-gmt-master-ii-brucewayne-side.webp",
+    "/images/rolex-gmt-master-ii-brucewayne-back.webp"
+  ],
+  "video": "/videos/rolex-gmt-master-ii-brucewayne.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Black",
+    "bracelet": "Oyster, black PVD-coated",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Black Cerachrom ceramic",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-submariner-label-noir-essential",
+    "rolex-gmt-master-ii-batgirl-essential",
+    "rolex-daytona-black-essential",
+    "rolex-gmt-master-ii-zombie-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex GMT-Master II Bruce Wayne All-Black Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the GMT-Master II Bruce Wayne (All-Black) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Bruce Wayne est la configuration furtive du GMT — traitement PVD noir intégral sur le boîtier et le bracelet, lunette céramique noire et cadran noir. Contrairement au Submariner Label Noir qui joue sur l'esthétique de montre de plongée, le Bruce Wayne GMT conserve la fonction double fuseau horaire et les proportions de montre de voyage dans un format entièrement noirci.\n\nDans la gamme Essential Artemis, ce GMT entièrement noir utilise un mouvement automatique Miyota et un bracelet Oyster traité PVD. C'est l'une des montres les plus affirmées du catalogue Essential — discrète en couleur, haute en intention.",
+  "descriptionShortFr": "GMT-Master II entièrement noir avec boîtier et bracelet PVD, lunette noire et double fuseau.",
+  "keyPointsFr": [
+    "Traitement PVD noir intégral sur boîtier et bracelet",
+    "Lunette céramique noire avec échelle 24h",
+    "Fonction double fuseau horaire conservée",
+    "Mouvement automatique japonais Miyota",
+    "GMT le plus affirmé de la gamme Essential",
+    "Esthétique furtive avec fonctionnalité pratique"
+  ],
+  "seoDescriptionFr": ""
+}

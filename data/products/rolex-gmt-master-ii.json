@@ -18,7 +18,7 @@
     "Prepared for quick dispatch from Artemis"
   ],
   "range": "premium",
-  "price": 1400,
+  "price": 1450,
   "compareAtPrice": null,
   "currency": "CAD",
   "inStock": true,
@@ -45,8 +45,8 @@
     "black"
   ],
   "hasEssentialVariant": true,
-  "essentialPrice": 340,
-  "boxAndPapersPrice": 49,
+  "essentialPrice": 350,
+  "boxAndPapersPrice": 0,
   "relatedProducts": [
     "rolex-daytona-black",
     "rolex-submariner-date-black",
@@ -57,7 +57,7 @@
   "featured": true,
   "bestSeller": true,
   "seoTitle": "Rolex GMT-Master II Pepsi | Artemis Watches Montreal",
-  "seoDescription": "Shop the Rolex GMT-Master II 'Pepsi' at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,400 CAD.",
+  "seoDescription": "Shop the Rolex GMT-Master II 'Pepsi' at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,450 CAD.",
   "descriptionFr": "Le GMT-Master II 'Pepsi' a d'abord été développé pour les pilotes de Pan Am en 1955 et reste aujourd'hui l'une des références de voyage les plus reconnaissables chez Rolex. La complication double fuseau horaire et la lunette rouge et bleue lui donnent une identité forte, tout en restant très facile à porter au quotidien.\n\nLe code couleur Pepsi se repère immédiatement et, sur bracelet Jubilé, l'ensemble trouve un bel équilibre au poignet. Cette sélection Artemis met l'accent sur l'essentiel : une lecture claire, une lunette distinctive et une configuration appréciée depuis longtemps par les collectionneurs.",
   "descriptionShortFr": "Une configuration classique du GMT-Master II avec lunette rouge-bleue et affichage double fuseau.",
   "keyPointsFr": [
@@ -67,5 +67,7 @@
     "Une référence appréciée de longue date par les collectionneurs",
     "Un profil de montre de voyage immédiatement identifiable",
     "Préparée pour une expédition rapide depuis Artemis"
-  ]
+  ],
+  "seoDescriptionFr": "Achetez la Rolex GMT-Master II chez Artemis — la montre des voyageurs d'exception. Sélectionnée, inspectée, livrée de Montréal. 1 450 $ CAD.",
+  "seoTitleFr": "Rolex GMT-Master II | Artemis Montres Montréal"
 }

@@ -1,0 +1,72 @@
+{
+  "id": "rolex-oyster-perpetual-41-green-essential",
+  "slug": "oyster-perpetual-41-green-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Oyster Perpetual",
+  "collectionSlug": "oyster-perpetual",
+  "name": "Oyster Perpetual 41",
+  "variant": "Green Dial — Essential",
+  "description": "The green Oyster Perpetual is the boldest of the OP41 colour configurations — a vivid, saturated green dial on the clean, uncomplicaed Oyster case. Without the sports watch architecture of the Submariner or GMT, the green dial on the Oyster Perpetual reads as a pure colour statement, unanchored by bezel or complication.\n\nIn the Artemis Essential range, this OP41 uses a Miyota automatic movement. The green sits cleanly behind the domed bezel, and the Oyster bracelet in stainless steel completes a watch that is deliberately simple and deliberately colour-forward.",
+  "descriptionShort": "Oyster Perpetual 41 with vivid green dial — bold color on the cleanest possible base.",
+  "keyPoints": [
+    "Vivid green dial — colour-forward, uncomplicaed",
+    "Smooth domed bezel",
+    "Oyster bracelet with Oysterclasp",
+    "Miyota Japanese automatic movement",
+    "Bold colour on the simplest Rolex format",
+    "Entry-level Essential pricing"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": null,
+  "images": [
+    "/images/rolex-oyster-perpetual-41-green-face.webp",
+    "/images/rolex-oyster-perpetual-41-green-side.webp",
+    "/images/rolex-oyster-perpetual-41-green-back.webp"
+  ],
+  "video": "/videos/rolex-oyster-perpetual-41-green.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Green",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Smooth, domed",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "green"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-oyster-perpetual-41-blue-essential",
+    "rolex-datejust-41-green-essential",
+    "rolex-submariner-hulk-essential",
+    "rolex-gmt-master-ii-sprite-green-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Oyster Perpetual 41 Green Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Oyster Perpetual 41 Green at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "L'Oyster Perpetual vert est la plus audacieuse des configurations de couleur OP41 — un cadran vert vif et saturé sur le boîtier Oyster propre et sans complication. Sans l'architecture sport de la Submariner ou du GMT, le cadran vert sur l'Oyster Perpetual se lit comme une déclaration de couleur pure, non ancrée par une lunette ou une complication.\n\nDans la gamme Essential Artemis, cette OP41 utilise un mouvement automatique Miyota. Le vert repose proprement derrière la lunette bombée, et le bracelet Oyster en acier inoxydable complète une montre délibérément simple et délibérément tournée vers la couleur.",
+  "descriptionShortFr": "Oyster Perpetual 41 à cadran vert vif — couleur audacieuse sur la base la plus épurée possible.",
+  "keyPointsFr": [
+    "Cadran vert vif — orienté couleur, sans complication",
+    "Lunette bombée lisse",
+    "Bracelet Oyster avec Oysterclasp",
+    "Mouvement automatique japonais Miyota",
+    "Couleur audacieuse sur le format Rolex le plus simple",
+    "Prix d'entrée Essential"
+  ],
+  "seoDescriptionFr": ""
+}

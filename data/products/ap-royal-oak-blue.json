@@ -47,8 +47,8 @@
     "silver"
   ],
   "hasEssentialVariant": true,
-  "essentialPrice": 330,
-  "boxAndPapersPrice": 49,
+  "essentialPrice": 350,
+  "boxAndPapersPrice": 0,
   "relatedProducts": [
     "ap-royal-oak-black-essential",
     "patek-nautilus-blue",
@@ -69,5 +69,7 @@
     "Bracelet intégré aux surfaces polies et brossées",
     "Boîtier 41 mm à l'assise moderne",
     "Une montre pensée autour de l'architecture et de la texture"
-  ]
+  ],
+  "seoDescriptionFr": "L'Audemars Piguet Royal Oak (Cadran Bleu) chez Artemis. Icône du luxe sportif, livrée depuis Montréal. Garantie 30 jours. 1 550 $ CAD.",
+  "seoTitleFr": "Audemars Piguet Royal Oak Cadran Bleu | Artemis Montres Montréal"
 }

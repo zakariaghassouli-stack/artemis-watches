@@ -1,0 +1,72 @@
+{
+  "id": "rolex-datejust-41-black-essential",
+  "slug": "datejust-41-black-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Datejust",
+  "collectionSlug": "datejust",
+  "name": "Datejust 41",
+  "variant": "Black Dial — Essential",
+  "description": "The Datejust 41 with black dial is the most understated configuration in the range — a clean black surface, applied hour markers, and the date window at 3 o'clock with Cyclops magnification. The fluted bezel adds a vertical rhythm to the case that has defined the Datejust since 1945.\n\nIn the Artemis Essential range, this Datejust uses a Miyota Japanese automatic movement and a Jubilee bracelet in stainless steel. The Crownclasp closes the bracelet cleanly against the wrist, and the overall character of the watch is deliberate, composed, and versatile across formal and everyday contexts.",
+  "descriptionShort": "Datejust 41 with black dial, fluted bezel, and Jubilee bracelet in the Artemis Essential range.",
+  "keyPoints": [
+    "41mm case — contemporary Datejust proportion",
+    "Black dial with applied luminous markers",
+    "Fluted bezel with vertical polish",
+    "Jubilee bracelet with Crownclasp",
+    "Miyota Japanese automatic movement",
+    "Date window with Cyclops magnification"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 6,
+  "badge": null,
+  "images": [
+    "/images/rolex-datejust-41-black-face.webp",
+    "/images/rolex-datejust-41-black-side.webp",
+    "/images/rolex-datejust-41-black-back.webp"
+  ],
+  "video": "/videos/rolex-datejust-41-black.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Black",
+    "bracelet": "Jubilee, five-piece links",
+    "clasp": "Crownclasp",
+    "bezel": "Fluted, polished",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-datejust-41-blue-essential",
+    "rolex-datejust-41-grey-essential",
+    "rolex-submariner-blackdate-essential",
+    "rolex-daytona-black-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Datejust 41 Black Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Datejust 41 Black Dial at Artemis — Miyota automatic, from $330 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "La Datejust 41 à cadran noir est la configuration la plus discrète de la gamme — une surface noire épurée, des index appliqués et la fenêtre de date à 3 heures avec loupe Cyclops. La lunette cannelée ajoute un rythme vertical au boîtier qui définit la Datejust depuis 1945.\n\nDans la gamme Essential Artemis, cette Datejust utilise un mouvement automatique japonais Miyota et un bracelet Jubilé en acier inoxydable. Le Crownclasp ferme le bracelet proprement au poignet, et le caractère général de la montre est délibéré, composé et polyvalent dans des contextes formels et quotidiens.",
+  "descriptionShortFr": "Datejust 41 à cadran noir, lunette cannelée et bracelet Jubilé dans la gamme Essential Artemis.",
+  "keyPointsFr": [
+    "Boîtier 41 mm — proportion Datejust contemporaine",
+    "Cadran noir avec index lumineux appliqués",
+    "Lunette cannelée avec polish vertical",
+    "Bracelet Jubilé avec Crownclasp",
+    "Mouvement automatique japonais Miyota",
+    "Fenêtre de date avec loupe Cyclops"
+  ],
+  "seoDescriptionFr": ""
+}

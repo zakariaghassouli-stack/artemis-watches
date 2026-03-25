@@ -1,0 +1,72 @@
+{
+  "id": "cartier-santos-silver-essential",
+  "slug": "santos-silver-essential",
+  "brand": "Cartier",
+  "brandSlug": "cartier",
+  "collection": "Santos de Cartier",
+  "collectionSlug": "santos",
+  "name": "Santos de Cartier",
+  "variant": "Silver Dial — Essential",
+  "description": "The Santos de Cartier is one of the oldest pilot watch designs in the world, created in 1904 for Alberto Santos-Dumont. The square case with visible screws, Roman numeral dial, and integrated bracelet give the Santos an architectural clarity that distinguishes it from any round case watch.\n\nIn the Artemis Essential range, this Santos uses a Miyota Japanese automatic movement and an integrated steel bracelet with butterfly clasp. The silver dial with Roman numerals is the most legible and versatile Santos configuration — equally at home in business and casual contexts, and the most requested Santos among new Artemis clients.",
+  "descriptionShort": "Santos de Cartier with silver dial, integrated steel bracelet, and exposed screw detail.",
+  "keyPoints": [
+    "Architectural square case with exposed screw detail",
+    "Silver Roman numeral dial",
+    "Integrated steel bracelet with butterfly clasp",
+    "Miyota Japanese automatic movement",
+    "One of the oldest pilot watch designs in history",
+    "Most versatile Santos configuration"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 7,
+  "badge": "best-seller",
+  "images": [
+    "/images/cartier-santos-silver-face.webp",
+    "/images/cartier-santos-silver-side.webp",
+    "/images/cartier-santos-silver-back.webp"
+  ],
+  "video": "/videos/cartier-santos-silver.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Silver/White",
+    "bracelet": "Integrated steel, interchangeable",
+    "clasp": "Butterfly clasp",
+    "bezel": "Square case edge with polished screws",
+    "lume": "None (sapphire hands)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "silver"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "cartier-santos-black-essential",
+    "cartier-santos-blue-essential",
+    "cartier-panthere-essential",
+    "rolex-datejust-41-white-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Santos de Cartier Silver Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Santos de Cartier Silver Dial at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Santos de Cartier est l'un des designs de montres pilotes les plus anciens au monde, créé en 1904 pour Alberto Santos-Dumont. Le boîtier carré avec vis apparentes, le cadran à chiffres romains et le bracelet intégré donnent au Santos une clarté architecturale qui le distingue de toute montre à boîtier rond.\n\nDans la gamme Essential Artemis, ce Santos utilise un mouvement automatique japonais Miyota et un bracelet en acier intégré avec fermoir papillon. Le cadran argent avec chiffres romains est la configuration Santos la plus lisible et polyvalente — aussi à l'aise en affaires qu'en casual, et le Santos le plus demandé par les nouveaux clients Artemis.",
+  "descriptionShortFr": "Santos de Cartier à cadran argent, bracelet acier intégré et vis apparentes caractéristiques.",
+  "keyPointsFr": [
+    "Boîtier carré architectural avec vis apparentes",
+    "Cadran argent à chiffres romains",
+    "Bracelet acier intégré avec fermoir papillon",
+    "Mouvement automatique japonais Miyota",
+    "L'un des plus anciens designs de montre pilote",
+    "Configuration Santos la plus polyvalente"
+  ],
+  "seoDescriptionFr": ""
+}

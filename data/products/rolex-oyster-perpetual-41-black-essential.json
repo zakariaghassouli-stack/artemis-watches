@@ -1,0 +1,72 @@
+{
+  "id": "rolex-oyster-perpetual-41-black-essential",
+  "slug": "oyster-perpetual-41-black-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Oyster Perpetual",
+  "collectionSlug": "oyster-perpetual",
+  "name": "Oyster Perpetual 41",
+  "variant": "Black Dial — Essential",
+  "description": "The Oyster Perpetual is the foundation of the Rolex lineup — no date, no bezel complications, no second time zone. Just a clean dial, baton hour markers, and the Oyster case and bracelet that define the platform. The black dial version is the most readable: strong contrast, simple, deliberate.\n\nIn the Artemis Essential range, this Oyster Perpetual uses a Miyota Japanese automatic movement. The domed bezel keeps the case profile low and clean, and the Oyster bracelet closes with the Oysterclasp. At $300, it is the most accessible entry point in the Artemis Essential catalogue.",
+  "descriptionShort": "Oyster Perpetual 41 with black dial — no complications, pure Oyster design, most accessible Essential entry.",
+  "keyPoints": [
+    "Clean black dial — no date, no complications",
+    "Smooth domed bezel",
+    "Oyster bracelet with Oysterclasp",
+    "Miyota Japanese automatic movement",
+    "Most accessible entry in the Essential range — from $300",
+    "The foundational Rolex format"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 7,
+  "badge": null,
+  "images": [
+    "/images/rolex-oyster-perpetual-41-black-face.webp",
+    "/images/rolex-oyster-perpetual-41-black-side.webp",
+    "/images/rolex-oyster-perpetual-41-black-back.webp"
+  ],
+  "video": "/videos/rolex-oyster-perpetual-41-black.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Black",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Smooth, domed",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-oyster-perpetual-41-blue-essential",
+    "rolex-oyster-perpetual-41-green-essential",
+    "rolex-explorer-black-essential",
+    "rolex-datejust-41-black-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Oyster Perpetual 41 Black Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Oyster Perpetual 41 Black at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "L'Oyster Perpetual est la base de la gamme Rolex — sans date, sans complication de lunette, sans second fuseau horaire. Juste un cadran propre, des index bâtons et le boîtier et le bracelet Oyster qui définissent la plateforme. La version à cadran noir est la plus lisible : fort contraste, simple, délibéré.\n\nDans la gamme Essential Artemis, cette Oyster Perpetual utilise un mouvement automatique japonais Miyota. La lunette bombée maintient le profil du boîtier bas et propre, et le bracelet Oyster se ferme avec l'Oysterclasp. À 300 $, c'est le point d'entrée le plus accessible dans le catalogue Essential Artemis.",
+  "descriptionShortFr": "Oyster Perpetual 41 à cadran noir — aucune complication, design Oyster pur, entrée Essential la plus accessible.",
+  "keyPointsFr": [
+    "Cadran noir épuré — sans date, sans complication",
+    "Lunette lisse bombée",
+    "Bracelet Oyster avec Oysterclasp",
+    "Mouvement automatique japonais Miyota",
+    "Entrée la plus accessible de la gamme Essential — à partir de 300 $",
+    "Le format Rolex fondamental"
+  ],
+  "seoDescriptionFr": ""
+}

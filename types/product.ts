@@ -56,12 +56,15 @@ export interface Product {
   badge: ProductBadge;
   /** 6 image paths relative to /public */
   images: string[];
+  video?: string | null;
   specs: ProductSpecs;
   availableSizes: string[];
   availableColors: string[];
   hasEssentialVariant: boolean;
+  hasPremiumVariant?: boolean;
   essentialPrice: number | null;
-  boxAndPapersPrice: 49;
+  premiumPrice?: number | null;
+  boxAndPapersPrice: number;
   /** IDs of related products */
   relatedProducts: string[];
   reviews: ProductReview[];
@@ -69,6 +72,8 @@ export interface Product {
   bestSeller: boolean;
   seoTitle?: string;
   seoDescription?: string;
+  seoTitleFr?: string;
+  seoDescriptionFr?: string;
   /** Localized FR fields — used when locale === 'fr' */
   descriptionFr?: string;
   descriptionShortFr?: string;

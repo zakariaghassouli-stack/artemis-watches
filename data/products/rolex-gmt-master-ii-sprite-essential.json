@@ -1,0 +1,73 @@
+{
+  "id": "rolex-gmt-master-ii-sprite-essential",
+  "slug": "gmt-master-ii-sprite-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "GMT-Master II",
+  "collectionSlug": "gmt-master-ii",
+  "name": "GMT-Master II",
+  "variant": "Sprite — Green/Black Bezel",
+  "description": "The Sprite pairs a deep green ceramic bezel half with a black half over a black dial — a more muted, darker take on the green palette than the full Sprite Green. The black bracelet and dial anchor the green, keeping the watch assertive without going full monochrome.\n\nIn the Artemis Essential range, the Sprite uses a Miyota automatic movement and a stainless steel Oyster bracelet. The green/black bezel creates strong visual interest while the black dial keeps the overall tone grounded — a balanced configuration for those who want green without overwhelming the watch.",
+  "descriptionShort": "GMT-Master II Sprite — green/black ceramic bezel, black dial, Oyster bracelet.",
+  "keyPoints": [
+    "Green/black \"Sprite\" bi-colour Cerachrom bezel",
+    "Black dial — grounded, strong palette",
+    "24h GMT hand for dual-time zone",
+    "Stainless steel Oyster bracelet",
+    "Miyota Japanese automatic movement",
+    "Green presence without overwhelming the overall design"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": null,
+  "images": [
+    "/images/rolex-gmt-master-ii-sprite-face.webp",
+    "/images/rolex-gmt-master-ii-sprite-side.webp",
+    "/images/rolex-gmt-master-ii-sprite-back.webp"
+  ],
+  "video": "/videos/rolex-gmt-master-ii-sprite.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Black",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Green/black Cerachrom ceramic",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "green",
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-gmt-master-ii-sprite-green-essential",
+    "rolex-submariner-hulk-essential",
+    "rolex-submariner-starbucks-essential",
+    "rolex-gmt-master-ii-batgirl-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex GMT-Master II Sprite Green/Black Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the GMT-Master II Sprite (Green/Black) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Sprite associe une moitié de lunette céramique vert profond à une moitié noire sur un cadran noir — une interprétation plus discrète et sombre de la palette verte que le Sprite Green intégral. Le bracelet et le cadran noirs ancrent le vert, maintenant la montre affirmée sans aller jusqu'au monochrome.\n\nDans la gamme Essential Artemis, le Sprite utilise un mouvement automatique Miyota et un bracelet Oyster en acier inoxydable. La lunette verte/noire crée un intérêt visuel fort tandis que le cadran noir maintient le ton général ancré — une configuration équilibrée pour ceux qui veulent du vert sans envahir la montre.",
+  "descriptionShortFr": "GMT-Master II Sprite — lunette céramique vert/noir, cadran noir, bracelet Oyster.",
+  "keyPointsFr": [
+    "Lunette Cerachrom bicolore vert/noir \"Sprite\"",
+    "Cadran noir — palette ancrée et forte",
+    "Aiguille GMT 24h pour double fuseau horaire",
+    "Bracelet Oyster en acier inoxydable",
+    "Mouvement automatique japonais Miyota",
+    "Présence verte sans envahir le design global"
+  ],
+  "seoDescriptionFr": ""
+}

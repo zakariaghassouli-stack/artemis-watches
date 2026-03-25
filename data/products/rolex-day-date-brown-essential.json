@@ -1,0 +1,72 @@
+{
+  "id": "rolex-day-date-brown-essential",
+  "slug": "day-date-brown-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Day-Date",
+  "collectionSlug": "day-date",
+  "name": "Day-Date 40",
+  "variant": "Brown Dial — Essential",
+  "description": "The brown dial Day-Date draws from the warm, heritage-adjacent register that brown occupies in watch design — the colour recalls antique brass and aged leather, giving the watch a character that feels considered and deliberate. The gold-tone President bracelet reinforces this warmth all the way to the clasp.\n\nIn the Artemis Essential range, this Day-Date uses a Miyota automatic movement. The gold-tone fluted bezel and President bracelet create a complete warm-toned presentation around the brown dial — a configuration that reads distinctly from the blue and green variants while occupying the same tier.",
+  "descriptionShort": "Day-Date 40 with brown dial, gold-tone President bracelet, and fluted bezel.",
+  "keyPoints": [
+    "Brown dial — warm, heritage-adjacent character",
+    "Gold-tone President bracelet",
+    "Fluted gold-tone bezel",
+    "Day + full date display",
+    "Miyota Japanese automatic movement",
+    "Coordinated warm-toned configuration"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-day-date-brown-face.webp",
+    "/images/rolex-day-date-brown-side.webp",
+    "/images/rolex-day-date-brown-back.webp"
+  ],
+  "video": "/videos/rolex-day-date-brown.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Brown",
+    "bracelet": "President, gold-tone three-piece links",
+    "clasp": "Concealed folding clasp",
+    "bezel": "Fluted, gold-tone",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "brown"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-day-date-gold-essential",
+    "rolex-datejust-41-chocolate-essential",
+    "rolex-gmt-master-ii-rootbeer-essential",
+    "rolex-day-date-ombre-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Day-Date 40 Brown Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Day-Date 40 Brown Dial at Artemis — from $330 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le cadran marron de la Day-Date puise dans le registre chaleureux et patrimonial que le marron occupe dans la conception des montres — la couleur rappelle le laiton antique et le cuir vieilli, donnant à la montre un caractère qui semble réfléchi et délibéré. Le bracelet President doré renforce cette chaleur jusqu'au fermoir.\n\nDans la gamme Essential Artemis, cette Day-Date utilise un mouvement automatique Miyota. La lunette cannelée et le bracelet President dorés créent une présentation complète aux tons chauds autour du cadran marron — une configuration qui se distingue nettement des variantes bleue et verte tout en occupant le même tier.",
+  "descriptionShortFr": "Day-Date 40 à cadran marron, bracelet President doré et lunette cannelée.",
+  "keyPointsFr": [
+    "Cadran marron — caractère chaleureux et patrimonial",
+    "Bracelet President doré",
+    "Lunette cannelée dorée",
+    "Affichage jour + date complète",
+    "Mouvement automatique japonais Miyota",
+    "Configuration entièrement aux tons chauds"
+  ],
+  "seoDescriptionFr": ""
+}

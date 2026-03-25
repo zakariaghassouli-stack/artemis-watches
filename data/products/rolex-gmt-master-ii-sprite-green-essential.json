@@ -1,0 +1,74 @@
+{
+  "id": "rolex-gmt-master-ii-sprite-green-essential",
+  "slug": "gmt-master-ii-sprite-green-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "GMT-Master II",
+  "collectionSlug": "gmt-master-ii",
+  "name": "GMT-Master II",
+  "variant": "Sprite Green — Full Green",
+  "description": "The Sprite Green is the full green configuration — a solid green ceramic bezel over a green dial, with an Oyster bracelet in stainless steel. It is the GMT equivalent of the Hulk Submariner: a monochrome green statement that commits entirely to the colour from bezel to dial.\n\nIn the Artemis Essential range, the Sprite Green uses a Miyota automatic movement and comes with five gallery angles to show the full depth of the green palette at different angles. The all-green combination reads boldly at first and mellows as it settles on the wrist — a watch that makes a definitive statement.",
+  "descriptionShort": "Full green GMT-Master II — green ceramic bezel, green dial, five gallery angles.",
+  "keyPoints": [
+    "Full green monochrome — bezel and dial",
+    "Five gallery angles in the collection",
+    "24h GMT hand for dual-time zone",
+    "Stainless steel Oyster bracelet",
+    "Miyota Japanese automatic movement",
+    "GMT equivalent of the all-green Submariner"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-gmt-master-ii-sprite-green-face.webp",
+    "/images/rolex-gmt-master-ii-sprite-green-side.webp",
+    "/images/rolex-gmt-master-ii-sprite-green-back.webp",
+    "/images/rolex-gmt-master-ii-sprite-green-extra1.webp",
+    "/images/rolex-gmt-master-ii-sprite-green-extra2.webp"
+  ],
+  "video": "/videos/rolex-gmt-master-ii-sprite-green.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Green",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Full green Cerachrom ceramic",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "green"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-gmt-master-ii-sprite-essential",
+    "rolex-submariner-hulk-essential",
+    "rolex-datejust-41-green-essential",
+    "rolex-day-date-green-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex GMT-Master II Sprite Full Green Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the GMT-Master II Sprite Green (Full Green) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Sprite Green est la configuration entièrement verte — une lunette céramique vert uni sur un cadran vert, avec un bracelet Oyster en acier inoxydable. C'est l'équivalent GMT du Submariner Hulk : une affirmation monochrome verte qui s'engage totalement dans la couleur de la lunette au cadran.\n\nDans la gamme Essential Artemis, le Sprite Green utilise un mouvement automatique Miyota et est fourni avec cinq angles de galerie pour montrer toute la profondeur de la palette verte sous différents angles. La combinaison tout en vert se lit avec audace au premier abord et s'adoucit en s'installant au poignet — une montre qui fait une déclaration définitive.",
+  "descriptionShortFr": "GMT-Master II entièrement vert — lunette céramique verte, cadran vert, cinq angles de galerie.",
+  "keyPointsFr": [
+    "Monochrome vert intégral — lunette et cadran",
+    "Cinq angles de galerie dans la collection",
+    "Aiguille GMT 24h pour double fuseau horaire",
+    "Bracelet Oyster en acier inoxydable",
+    "Mouvement automatique japonais Miyota",
+    "Équivalent GMT du Submariner tout vert"
+  ],
+  "seoDescriptionFr": ""
+}

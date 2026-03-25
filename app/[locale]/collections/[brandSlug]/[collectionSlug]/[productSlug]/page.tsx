@@ -1,7 +1,13 @@
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { getBrandMeta, getCollectionMeta } from '@/lib/brands';
-import { getProductBySlug, getProductsByCollection, localizeProduct } from '@/lib/products';
+import {
+  getAllProducts,
+  getProductBySlug,
+  getProductsByCollection,
+  getSiteSettings,
+} from '@/lib/queries';
+import { localizeProduct } from '@/lib/products';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductInfo } from '@/components/product/ProductInfo';
@@ -21,9 +27,11 @@ interface Props {
   }>;
 }
 
+export const revalidate = 60;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { brandSlug, collectionSlug, productSlug, locale } = await params;
-  const product = getProductBySlug(productSlug);
+  const product = await getProductBySlug(productSlug);
   if (!product) return {};
 
   const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
@@ -37,12 +45,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? rawImage.startsWith('http') ? rawImage : `${base}${rawImage}`
     : undefined;
 
+  const isFr = locale === 'fr';
+  const title = isFr
+    ? (product.seoTitleFr ?? product.seoTitle ?? `${product.brand} ${product.name} | Artemis Montres`)
+    : (product.seoTitle ?? `${product.brand} ${product.name} | Artemis Watches`);
+  const description = isFr
+    ? (product.seoDescriptionFr || product.descriptionShortFr || product.descriptionShort)
+    : (product.seoDescription ?? product.descriptionShort);
+
   return {
-    title: product.seoTitle ?? `${product.brand} ${product.name} | Artemis Watches`,
-    description:
-      locale === 'fr'
-        ? product.descriptionShortFr ?? product.descriptionShort
-        : product.seoDescription ?? product.descriptionShort,
+    title,
+    description,
     alternates: {
       canonical: canonicalUrl,
       languages: {
@@ -51,13 +64,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: product.seoTitle ?? `${product.brand} ${product.name}`,
-      description: product.seoDescription ?? product.descriptionShort,
+      title,
+      description,
       type: 'website',
-      url: locale === 'fr' ? frUrl : canonicalUrl,
+      locale: isFr ? 'fr_CA' : 'en_CA',
+      url: isFr ? frUrl : canonicalUrl,
       ...(ogImage && {
         images: [{ url: ogImage, width: 800, height: 800, alt: `${product.brand} ${product.name}` }],
       }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }
@@ -65,12 +85,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductPage({ params }: Props) {
   const { brandSlug, collectionSlug, productSlug, locale } = await params;
 
-  const product = getProductBySlug(productSlug);
+  const [product, siteSettings, allProducts] = await Promise.all([
+    getProductBySlug(productSlug),
+    getSiteSettings(),
+    getAllProducts(),
+  ]);
   if (!product) notFound();
 
   const localizedProduct = localizeProduct(product, locale);
 
-  const collectionVariants = getProductsByCollection(product.collectionSlug);
+  const collectionVariants = await getProductsByCollection(product.collectionSlug);
 
   const brand = getBrandMeta(brandSlug);
   const collection = getCollectionMeta(collectionSlug);
@@ -84,14 +108,20 @@ export default async function ProductPage({ params }: Props) {
     addToCart: t('addToCart'),
     orderWhatsApp: t('orderWhatsApp'),
     wishlistLabel: t('wishlistLabel'),
-    installmentLine: t('installmentLine'),
-    boxAndPapersLabel: t('boxAndPapersLabel'),
+    installmentLine: t.raw('installmentLine') as string,
+    boxAndPapersLabel: t.raw('boxAndPapersLabel') as string,
+    boxAndPapersIncluded: t('boxAndPapersIncluded'),
     freeShipping: t('freeShipping'),
     returnPolicy: t('returnPolicy'),
     authenticityLabel: t('authenticityLabel'),
     braceletTool: tCommon('braceletTool'),
     keyPoints: t('keyPoints'),
-    lowStock: t('lowStock'),
+    complimentaryBadge: t('complimentaryBadge'),
+    premiumPackagingLabel: t('premiumPackagingLabel'),
+    guaranteeLabel: t('guaranteeLabel'),
+    trackedShippingLabel: t('trackedShippingLabel'),
+    braceletToolLabel: t('braceletToolLabel'),
+    lowStock: t.raw('lowStock') as string,
     bestSeller: t('bestSeller'),
     highDemand: t('highDemand'),
     newArrival: t('newArrival'),
@@ -107,7 +137,7 @@ export default async function ProductPage({ params }: Props) {
     variantsLabel: t('variantsLabel'),
     sizeSelectorLabel: t('sizeSelectorLabel'),
     checkoutNote: t('checkoutNote'),
-    newClientDiscount: t('newClientDiscount'),
+    newClientDiscount: t.raw('newClientDiscount') as string,
   };
 
   const productTabsT = {
@@ -145,6 +175,7 @@ export default async function ProductPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: `${product.brand} ${product.name}`,
+    image: product.images[0] ? [product.images[0]] : undefined,
     description: product.descriptionShort,
     brand: {
       '@type': 'Brand',
@@ -223,7 +254,9 @@ export default async function ProductPage({ params }: Props) {
       <ViewContentTracker
         productId={product.id}
         productName={`${product.brand} ${product.name}`}
+        brand={product.brand}
         price={product.price}
+        range={product.range}
       />
 
       {/* ── Hero: gallery + sticky info ─────────────────────────────── */}
@@ -246,7 +279,7 @@ export default async function ProductPage({ params }: Props) {
             <style>{`
               .product-hero-grid {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
                 gap: clamp(40px, 6vw, 80px);
                 align-items: start;
                 padding-bottom: clamp(60px, 8vw, 100px);
@@ -260,13 +293,18 @@ export default async function ProductPage({ params }: Props) {
             `}</style>
 
             {/* Gallery */}
-            <div>
+            <div style={{ minWidth: 0, position: 'relative', zIndex: 0 }}>
               <ProductGallery product={localizedProduct} />
             </div>
 
             {/* Sticky info */}
-            <div>
-              <ProductInfo product={localizedProduct} collectionVariants={collectionVariants} t={productInfoT} />
+            <div style={{ minWidth: 0, position: 'relative', zIndex: 1 }}>
+              <ProductInfo
+                product={localizedProduct}
+                collectionVariants={collectionVariants}
+                welcomeDiscountPercent={siteSettings?.welcomeDiscountPercent ?? 10}
+                t={productInfoT}
+              />
             </div>
           </div>
         </div>
@@ -293,6 +331,7 @@ export default async function ProductPage({ params }: Props) {
       >
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <RelatedProducts
+            allProducts={allProducts}
             product={localizedProduct}
             title={t('relatedTitle')}
             viewAll={t('relatedViewAll')}
@@ -301,7 +340,7 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {/* ── Recently Viewed ─────────────────────────────────────────── */}
-      <RecentlyViewed currentProductId={product.id} />
+      <RecentlyViewed currentProductId={product.id} allProducts={allProducts} />
 
       {/* ── Mobile sticky bar ───────────────────────────────────────── */}
       <MobileStickyBar

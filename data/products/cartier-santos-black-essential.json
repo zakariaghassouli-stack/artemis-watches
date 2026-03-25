@@ -1,0 +1,72 @@
+{
+  "id": "cartier-santos-black-essential",
+  "slug": "santos-black-essential",
+  "brand": "Cartier",
+  "brandSlug": "cartier",
+  "collection": "Santos de Cartier",
+  "collectionSlug": "santos",
+  "name": "Santos de Cartier",
+  "variant": "Black Dial — Essential",
+  "description": "The black dial Santos de Cartier shifts the Cartier brand aesthetic toward a more contemporary and assertive reading. The exposed screws and architectural square case carry the same design language as the silver version, but the black dial creates a stronger contrast with the white hands and Roman numerals, giving the watch a bolder visual identity.\n\nIn the Artemis Essential range, this Santos uses a Miyota Japanese automatic movement and an integrated steel bracelet with butterfly clasp. The black dial configuration is the darker, more urban counterpart to the silver — a Santos that reads more sports-adjacent while retaining the full Cartier architectural vocabulary.",
+  "descriptionShort": "Santos de Cartier with black dial — more assertive contrast, same architectural Cartier design.",
+  "keyPoints": [
+    "Black dial — stronger contrast, more urban character",
+    "Exposed screws on the square bezel",
+    "Integrated steel bracelet with butterfly clasp",
+    "Miyota Japanese automatic movement",
+    "More assertive alternative to the silver Santos",
+    "Cartier architectural vocabulary in darker register"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 6,
+  "badge": null,
+  "images": [
+    "/images/cartier-santos-black-face.webp",
+    "/images/cartier-santos-black-side.webp",
+    "/images/cartier-santos-black-back.webp"
+  ],
+  "video": "/videos/cartier-santos-black.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Black",
+    "bracelet": "Integrated steel, interchangeable",
+    "clasp": "Butterfly clasp",
+    "bezel": "Square case edge with polished screws",
+    "lume": "None (sapphire hands)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "cartier-santos-silver-essential",
+    "cartier-santos-blue-essential",
+    "cartier-santos-gold-essential",
+    "rolex-submariner-blackdate-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Santos de Cartier Black Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Santos de Cartier Black Dial at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le cadran noir du Santos de Cartier fait évoluer l'esthétique de la marque Cartier vers une lecture plus contemporaine et affirmée. Les vis apparentes et le boîtier carré architectural portent le même langage de design que la version argentée, mais le cadran noir crée un contraste plus fort avec les aiguilles blanches et les chiffres romains, donnant à la montre une identité visuelle plus audacieuse.\n\nDans la gamme Essential Artemis, ce Santos utilise un mouvement automatique japonais Miyota et un bracelet en acier intégré avec fermoir papillon. La configuration cadran noir est le pendant plus sombre et urbain de la version argentée — un Santos qui se lit plus proche du sport tout en conservant tout le vocabulaire architectural Cartier.",
+  "descriptionShortFr": "Santos de Cartier à cadran noir — contraste plus affirmé, même design architectural Cartier.",
+  "keyPointsFr": [
+    "Cadran noir — contraste plus fort, caractère plus urbain",
+    "Vis apparentes sur la lunette carrée",
+    "Bracelet acier intégré avec fermoir papillon",
+    "Mouvement automatique japonais Miyota",
+    "Alternative plus affirmée au Santos argenté",
+    "Vocabulaire architectural Cartier en registre sombre"
+  ],
+  "seoDescriptionFr": ""
+}

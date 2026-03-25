@@ -1,0 +1,72 @@
+{
+  "id": "rolex-yacht-master-silver-essential",
+  "slug": "yacht-master-silver-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Yacht-Master",
+  "collectionSlug": "yacht-master",
+  "name": "Yacht-Master 40",
+  "variant": "Silver Dial — Essential",
+  "description": "This Yacht-Master variant features a silver dial with the characteristic bidirectional bezel, giving it a lighter and cleaner reading than the steel configuration. The stainless steel Oyster bracelet anchors the silver dial palette in the sportier direction, while the rotatable bezel keeps the functional vocabulary of the original Yacht-Master intact.\n\nIn the Artemis Essential range, this Yacht-Master uses a Miyota Japanese automatic movement. The silver dial reads with maximum clarity against the bezel numerals, and the Oyster bracelet closes with the Oysterclasp — a secure, sports-oriented finish to what is otherwise one of the more polished watches in the Essential collection.",
+  "descriptionShort": "Yacht-Master 40 with silver dial, bidirectional bezel, and Oyster bracelet — clean and polished.",
+  "keyPoints": [
+    "Silver dial — maximum clarity and lightness",
+    "Bidirectional rotatable bezel",
+    "Oyster bracelet with Oysterclasp",
+    "Miyota Japanese automatic movement",
+    "Clean, polished sports watch aesthetic",
+    "Slightly lighter reading than the steel/rhodium version"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-yacht-master-silver-face.webp",
+    "/images/rolex-yacht-master-silver-side.webp",
+    "/images/rolex-yacht-master-silver-back.webp"
+  ],
+  "video": "/videos/rolex-yacht-master-silver.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Silver",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Bidirectional rotatable, silver-finish numerals",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "silver"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-yacht-master-steel-essential",
+    "rolex-datejust-41-white-essential",
+    "rolex-sky-dweller-steel-essential",
+    "rolex-explorer-ii-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Yacht-Master 40 Silver Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Yacht-Master 40 Silver Dial at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Cette variante du Yacht-Master présente un cadran argent avec la lunette bidirectionnelle caractéristique, lui donnant une lecture plus légère et plus épurée que la configuration acier. Le bracelet Oyster en acier inoxydable ancre la palette du cadran argent dans une direction plus sportive, tandis que la lunette tournante maintient le vocabulaire fonctionnel du Yacht-Master original.\n\nDans la gamme Essential Artemis, ce Yacht-Master utilise un mouvement automatique japonais Miyota. Le cadran argent offre une clarté maximale face aux chiffres de la lunette, et le bracelet Oyster se ferme avec l'Oysterclasp — une finition sécurisée et orientée sport pour ce qui est par ailleurs l'une des montres les plus polies de la collection Essential.",
+  "descriptionShortFr": "Yacht-Master 40 à cadran argent, lunette bidirectionnelle et bracelet Oyster — épuré et raffiné.",
+  "keyPointsFr": [
+    "Cadran argent — clarté maximale et légèreté",
+    "Lunette bidirectionnelle tournante",
+    "Bracelet Oyster avec Oysterclasp",
+    "Mouvement automatique japonais Miyota",
+    "Esthétique sport épurée et polie",
+    "Lecture légèrement plus légère que la version acier/rhodium"
+  ],
+  "seoDescriptionFr": ""
+}

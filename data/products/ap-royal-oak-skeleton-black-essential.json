@@ -1,0 +1,70 @@
+{
+  "id": "ap-royal-oak-skeleton-black-essential",
+  "slug": "royal-oak-skeleton-black-essential",
+  "brand": "Audemars Piguet",
+  "brandSlug": "audemars-piguet",
+  "collection": "Royal Oak",
+  "collectionSlug": "royal-oak",
+  "name": "Royal Oak Skeleton",
+  "variant": "Black — Essential",
+  "description": "The Royal Oak Skeleton in black is the most assertive configuration in the AP Essential lineup — a fully skeletonized dial on the octagonal Royal Oak case, with a black PVD treatment on the case, bracelet, and bezel. The skeleton opening reveals the movement structure beneath the dial plane, framed by the eight screws of the black octagonal bezel.\n\nIn the Artemis Essential range, this Royal Oak Skeleton uses a Miyota automatic movement visible through the skeleton opening. The full black PVD treatment creates a stealth, high-contrast presentation where the movement details stand out sharply. The most technically and visually ambitious watch in the Essential AP collection.",
+  "descriptionShort": "Royal Oak Skeleton Black — skeletonized dial on full black PVD-treated case, bracelet, and bezel.",
+  "keyPoints": [
+    "Fully skeletonized open-worked dial",
+    "Full black PVD treatment on case and bracelet",
+    "Movement visible through the skeleton dial",
+    "Eight black hexagonal screws on octagonal bezel",
+    "Miyota Japanese automatic movement",
+    "Most technically ambitious AP in the Essential range"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": "new-arrival",
+  "images": [
+    "/images/audemars-piguet-royal-oak-skeleton-black-face.webp"
+  ],
+  "video": null,
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Black skeleton",
+    "bracelet": "Integrated black PVD-coated bracelet",
+    "clasp": "Butterfly clasp",
+    "bezel": "Octagonal black PVD with 8 screws",
+    "lume": "None"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "ap-royal-oak-skeleton-silver-essential",
+    "cartier-santos-skeleton-essential",
+    "patek-philippe-skeleton-essential",
+    "rolex-submariner-label-noir-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Audemars Piguet Royal Oak Skeleton Black Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Royal Oak Skeleton Black at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Royal Oak Skeleton noir est la configuration la plus affirmée de la gamme AP Essential — un cadran entièrement squelette sur le boîtier Royal Oak octogonal, avec un traitement PVD noir sur le boîtier, le bracelet et la lunette. L'ouverture squelette révèle la structure du mouvement sous le plan du cadran, encadrée par les huit vis de la lunette octogonale noire.\n\nDans la gamme Essential Artemis, ce Royal Oak Skeleton utilise un mouvement automatique Miyota visible à travers l'ouverture squelette. Le traitement PVD noir intégral crée une présentation furtive et à fort contraste où les détails du mouvement ressortent nettement. La montre AP la plus techniquement et visuellement ambitieuse de la collection Essential.",
+  "descriptionShortFr": "Royal Oak Skeleton Noir — cadran ajouré sur boîtier, bracelet et lunette entièrement PVD noir.",
+  "keyPointsFr": [
+    "Cadran entièrement ajouré squelette",
+    "Traitement PVD noir intégral sur boîtier et bracelet",
+    "Mouvement visible à travers le cadran squelette",
+    "Huit vis hexagonales noires sur lunette octogonale",
+    "Mouvement automatique japonais Miyota",
+    "AP la plus techniquement ambitieuse de la gamme Essential"
+  ],
+  "seoDescriptionFr": ""
+}

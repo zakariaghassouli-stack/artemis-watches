@@ -1,0 +1,72 @@
+{
+  "id": "rolex-datejust-41-chocolate-essential",
+  "slug": "datejust-41-chocolate-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Datejust",
+  "collectionSlug": "datejust",
+  "name": "Datejust 41",
+  "variant": "Chocolate Dial — Essential",
+  "description": "The chocolate dial Datejust occupies a distinctive position in the Datejust palette — warm, rich, and uncommon enough to stand apart from the blue and black configurations without making an aggressive statement. The brown tone sits naturally alongside steel and gold-tone finishes and works well in fall and winter contexts.\n\nIn the Artemis Essential range, this Datejust uses a Miyota Japanese automatic movement and a Jubilee bracelet in stainless steel. The smooth polished bezel keeps the focus on the chocolate dial, and the Crownclasp closes the bracelet with a clean, measured click.",
+  "descriptionShort": "Datejust 41 with warm chocolate dial, smooth bezel, and Jubilee bracelet.",
+  "keyPoints": [
+    "Rare chocolate/brown dial — warm and distinctive",
+    "Smooth polished bezel",
+    "Jubilee bracelet with Crownclasp",
+    "Miyota Japanese automatic movement",
+    "Date window with Cyclops lens",
+    "A versatile choice alongside steel and gold accessories"
+  ],
+  "range": "essential",
+  "price": 330,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": null,
+  "images": [
+    "/images/rolex-datejust-41-chocolate-face.webp",
+    "/images/rolex-datejust-41-chocolate-side.webp",
+    "/images/rolex-datejust-41-chocolate-back.webp"
+  ],
+  "video": "/videos/rolex-datejust-41-chocolate.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Chocolate/Brown",
+    "bracelet": "Jubilee, five-piece links",
+    "clasp": "Crownclasp",
+    "bezel": "Smooth, polished",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "brown"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-datejust-41-grey-essential",
+    "rolex-day-date-brown-essential",
+    "rolex-datejust-41-black-essential",
+    "rolex-gmt-master-ii-rootbeer-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Datejust 41 Chocolate Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Datejust 41 Chocolate Dial at Artemis — Miyota automatic, from $330 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le cadran chocolat du Datejust occupe une position distinctive dans la palette Datejust — chaud, riche et suffisamment inhabituel pour se démarquer des configurations bleues et noires sans faire de déclaration agressive. Le ton brun s'associe naturellement aux finitions acier et dorées et convient bien aux contextes d'automne et d'hiver.\n\nDans la gamme Essential Artemis, ce Datejust utilise un mouvement automatique japonais Miyota et un bracelet Jubilé en acier inoxydable. La lunette lisse polie met l'accent sur le cadran chocolat, et le Crownclasp ferme le bracelet avec un clic propre et mesuré.",
+  "descriptionShortFr": "Datejust 41 à cadran chocolat chaud, lunette lisse et bracelet Jubilé.",
+  "keyPointsFr": [
+    "Rare cadran chocolat/marron — chaleureux et distinctif",
+    "Lunette lisse polie",
+    "Bracelet Jubilé avec Crownclasp",
+    "Mouvement automatique japonais Miyota",
+    "Fenêtre de date avec loupe Cyclops",
+    "Choix polyvalent avec accessoires acier et dorés"
+  ],
+  "seoDescriptionFr": ""
+}

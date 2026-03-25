@@ -1,0 +1,73 @@
+{
+  "id": "rolex-daytona-panda-essential",
+  "slug": "daytona-panda-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Daytona",
+  "collectionSlug": "daytona",
+  "name": "Cosmograph Daytona",
+  "variant": "Panda — White Dial",
+  "description": "The Panda configuration — white main dial, black sub-dials — is the most classic and sought-after layout in the Daytona lineup. The contrast between white and black creates instant legibility, and the silver tachymetre bezel frames the dial with a cleanness that no other combination in the range achieves.\n\nIn the Artemis Essential catalogue, the Panda Daytona features a Miyota automatic movement, a stainless steel Oyster bracelet, and the iconic white/black dial layout. It is the configuration that established the Daytona's visual identity, and it remains the one most requested across the board.",
+  "descriptionShort": "The Panda Daytona — white main dial, black sub-dials, the most classic chronograph configuration.",
+  "keyPoints": [
+    "White/black \"Panda\" dial — maximum legibility",
+    "Silver tachymetre bezel",
+    "Most requested Daytona configuration",
+    "Stainless steel Oyster bracelet",
+    "Miyota Japanese automatic movement",
+    "Timeless — wears equally well sport or dressed"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 6,
+  "badge": "best-seller",
+  "images": [
+    "/images/rolex-daytona-panda-face.webp",
+    "/images/rolex-daytona-panda-side.webp",
+    "/images/rolex-daytona-panda-back.webp"
+  ],
+  "video": "/videos/rolex-daytona-panda.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "White with black sub-dials",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Silver tachymetre, fixed",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "white",
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-daytona-black-essential",
+    "rolex-daytona-blue-essential",
+    "rolex-datejust-41-white-essential",
+    "rolex-submariner-black-nodate-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Daytona Panda White Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Cosmograph Daytona Panda (White/Black) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "La configuration Panda — cadran principal blanc, sous-cadrans noirs — est la disposition la plus classique et la plus recherchée de la gamme Daytona. Le contraste entre le blanc et le noir crée une lisibilité instantanée, et la lunette tachymètre argentée encadre le cadran avec une netteté qu'aucune autre combinaison de la gamme n'atteint.\n\nDans le catalogue Essential Artemis, la Daytona Panda dispose d'un mouvement automatique Miyota, d'un bracelet Oyster en acier inoxydable et de la disposition iconique cadran blanc/noir. C'est la configuration qui a établi l'identité visuelle de la Daytona, et elle reste la plus demandée.",
+  "descriptionShortFr": "La Daytona Panda — cadran blanc, sous-cadrans noirs, la configuration chronographe la plus classique.",
+  "keyPointsFr": [
+    "Cadran blanc/noir \"Panda\" — lisibilité maximale",
+    "Lunette tachymètre argentée",
+    "Configuration Daytona la plus demandée",
+    "Bracelet Oyster en acier inoxydable",
+    "Mouvement automatique japonais Miyota",
+    "Intemporel — se porte aussi bien sport qu'habillé"
+  ],
+  "seoDescriptionFr": ""
+}

@@ -1,0 +1,71 @@
+{
+  "id": "rolex-submariner-starbucks-essential",
+  "slug": "submariner-starbucks-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Submariner",
+  "collectionSlug": "submariner",
+  "name": "Submariner Date",
+  "variant": "Starbucks — Green Dial, Black Bezel",
+  "description": "The Starbucks nickname comes from the contrast between the deep green dial and the black Cerachrom bezel — a combination that gives this Submariner a more subdued, layered character than the all-green Hulk. The stainless steel Oyster bracelet keeps it grounded in the classic Submariner aesthetic.\n\nThis Artemis Essential version pairs the signature green/black dial and bezel setup with a Miyota automatic movement. Two angles are enough to capture the character of the watch — the green dial reads quietly at first, then assertively once you notice the depth of the colour.",
+  "descriptionShort": "Green dial, black bezel Submariner — a more understated contrast than the Hulk.",
+  "keyPoints": [
+    "Deep green dial with black Cerachrom bezel contrast",
+    "More subdued aesthetic than the all-green Hulk",
+    "Stainless steel Oyster bracelet",
+    "Date window with Cyclops lens",
+    "Miyota Japanese automatic movement",
+    "Strong, quiet wrist presence"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-submariner-starbucks-face.webp",
+    "/images/rolex-submariner-starbucks-side.webp"
+  ],
+  "video": "/videos/rolex-submariner-starbucks.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Green",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Black Cerachrom ceramic unidirectional",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "green"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-submariner-hulk-essential",
+    "rolex-submariner-blackdate-essential",
+    "rolex-gmt-master-ii-sprite-essential",
+    "rolex-submariner-label-noir-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Submariner Starbucks Green/Black Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Submariner Starbucks (Green dial, Black bezel) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le surnom Starbucks vient du contraste entre le cadran vert profond et la lunette Cerachrom noire — une combinaison qui donne à cette Submariner un caractère plus discret et stratifié que le Hulk entièrement vert. Le bracelet Oyster en acier inoxydable l'ancre dans l'esthétique classique de la Submariner.\n\nCette version Essential Artemis associe le duo cadran vert/lunette noire caractéristique à un mouvement automatique Miyota. Deux angles suffisent pour saisir le caractère de la montre — le cadran vert se lit discrètement au premier abord, puis de manière affirmée dès que l'on remarque la profondeur de la couleur.",
+  "descriptionShortFr": "Submariner cadran vert, lunette noire — un contraste plus discret que le Hulk.",
+  "keyPointsFr": [
+    "Contraste cadran vert profond et lunette Cerachrom noire",
+    "Esthétique plus discrète que le Hulk tout vert",
+    "Bracelet Oyster en acier inoxydable",
+    "Fenêtre de date avec loupe Cyclops",
+    "Mouvement automatique japonais Miyota",
+    "Présence forte et silencieuse au poignet"
+  ],
+  "seoDescriptionFr": ""
+}

@@ -1,0 +1,72 @@
+{
+  "id": "rolex-explorer-ii-essential",
+  "slug": "explorer-ii-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Explorer",
+  "collectionSlug": "explorer",
+  "name": "Explorer II",
+  "variant": "White Dial — Essential",
+  "description": "The Explorer II sits at a different point than its predecessor — a 42mm case, a fixed 24-hour graduated bezel, and an additional orange 24-hour hand that allows the wearer to track a second timezone. The white dial version gives the watch the widest legibility margin in the lineup, with the orange hand reading clearly against the clean surface.\n\nIn the Artemis Essential range, this Explorer II uses a Miyota Japanese automatic movement and an Oyster bracelet in stainless steel. The 42mm case gives it more presence than the standard Explorer, and the fixed 24h bezel adds function without complicating the dial. A practical, bold configuration.",
+  "descriptionShort": "Explorer II with white dial, fixed 24h bezel, and orange GMT hand — 42mm case, functional and bold.",
+  "keyPoints": [
+    "42mm case — more presence than Explorer I",
+    "Fixed 24h graduated bezel for dual-time",
+    "Orange 24h hand — clearly legible against white dial",
+    "Oyster bracelet with Oysterclasp",
+    "Miyota Japanese automatic movement",
+    "Practical dual-time function"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": null,
+  "images": [
+    "/images/rolex-explorer-ii-face.webp",
+    "/images/rolex-explorer-ii-side.webp",
+    "/images/rolex-explorer-ii-back.webp"
+  ],
+  "video": "/videos/rolex-explorer-ii.mp4",
+  "specs": {
+    "caseDiameter": "42mm",
+    "dialColor": "White/Silver",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Fixed, 24h-graduated",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "42mm"
+  ],
+  "availableColors": [
+    "white"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-explorer-black-essential",
+    "rolex-gmt-master-ii-pepsi-essential",
+    "rolex-submariner-blackdate-essential",
+    "rolex-sky-dweller-steel-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Explorer II White Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Rolex Explorer II White Dial at Artemis — Miyota automatic, 42mm, from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "L'Explorer II se positionne différemment de son prédécesseur — un boîtier de 42 mm, une lunette fixe graduée 24 heures et une aiguille orange supplémentaire 24 heures permettant au porteur de suivre un second fuseau horaire. La version à cadran blanc donne à la montre la plus grande marge de lisibilité de la gamme, l'aiguille orange se lisant clairement sur la surface épurée.\n\nDans la gamme Essential Artemis, cet Explorer II utilise un mouvement automatique japonais Miyota et un bracelet Oyster en acier inoxydable. Le boîtier de 42 mm lui confère plus de présence que l'Explorer standard, et la lunette fixe 24h ajoute de la fonction sans compliquer le cadran. Une configuration pratique et audacieuse.",
+  "descriptionShortFr": "Explorer II à cadran blanc, lunette 24h fixe et aiguille GMT orange — boîtier 42mm, fonctionnel et affirmé.",
+  "keyPointsFr": [
+    "Boîtier 42 mm — plus de présence que l'Explorer I",
+    "Lunette 24h fixe pour double fuseau",
+    "Aiguille 24h orange — clairement lisible sur cadran blanc",
+    "Bracelet Oyster avec Oysterclasp",
+    "Mouvement automatique japonais Miyota",
+    "Fonction double fuseau pratique"
+  ],
+  "seoDescriptionFr": ""
+}

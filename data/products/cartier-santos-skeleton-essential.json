@@ -1,0 +1,72 @@
+{
+  "id": "cartier-santos-skeleton-essential",
+  "slug": "santos-skeleton-essential",
+  "brand": "Cartier",
+  "brandSlug": "cartier",
+  "collection": "Santos de Cartier",
+  "collectionSlug": "santos",
+  "name": "Santos de Cartier Skeleton",
+  "variant": "Skeleton Dial — Essential",
+  "description": "The skeleton Santos is the most technically ambitious configuration in the Essential Cartier lineup — a dial opened up to reveal the movement beneath, viewed through a sapphire crystal. The Santos architecture holds this reveal particularly well: the exposed screws and square case frame the skeletonized dial without competing with it.\n\nIn the Artemis Essential range, this Santos Skeleton uses a Miyota Japanese automatic movement visible through the skeleton opening. The integrated steel bracelet and butterfly clasp maintain the Santos structural identity, while the skeletonized dial adds a layer of mechanical transparency unique to this configuration.",
+  "descriptionShort": "Santos Skeleton — open-worked dial reveals the movement, square case, integrated steel bracelet.",
+  "keyPoints": [
+    "Skeletonized open-worked dial",
+    "Movement visible through the dial opening",
+    "Square case with exposed screws — Santos signature",
+    "Integrated steel bracelet with butterfly clasp",
+    "Miyota Japanese automatic movement",
+    "Most technically interesting Cartier in the Essential range"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": "new-arrival",
+  "images": [
+    "/images/cartier-santos-skeleton-face.webp",
+    "/images/cartier-santos-skeleton-side.webp",
+    "/images/cartier-santos-skeleton-back.webp"
+  ],
+  "video": "/videos/cartier-santos-skeleton.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Skeleton/Open-worked",
+    "bracelet": "Integrated steel, interchangeable",
+    "clasp": "Butterfly clasp",
+    "bezel": "Square case edge with polished screws",
+    "lume": "None (sapphire hands)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "silver"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "cartier-santos-silver-essential",
+    "cartier-santos-black-essential",
+    "patek-philippe-skeleton-essential",
+    "ap-royal-oak-skeleton-black-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Santos de Cartier Skeleton Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Santos Skeleton at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Santos squelette est la configuration la plus techniquement ambitieuse de la gamme Cartier Essential — un cadran ouvert pour révéler le mouvement en dessous, visible à travers un cristal saphir. L'architecture du Santos supporte particulièrement bien cette révélation : les vis apparentes et le boîtier carré encadrent le cadran squelette sans rivaliser avec lui.\n\nDans la gamme Essential Artemis, ce Santos Skeleton utilise un mouvement automatique japonais Miyota visible à travers l'ouverture squelette. Le bracelet en acier intégré et le fermoir papillon maintiennent l'identité structurelle du Santos, tandis que le cadran squelette ajoute une couche de transparence mécanique unique à cette configuration.",
+  "descriptionShortFr": "Santos Skeleton — cadran ajouré révèle le mouvement, boîtier carré, bracelet acier intégré.",
+  "keyPointsFr": [
+    "Cadran ajouré squelette",
+    "Mouvement visible à travers le cadran",
+    "Boîtier carré avec vis apparentes — signature Santos",
+    "Bracelet acier intégré avec fermoir papillon",
+    "Mouvement automatique japonais Miyota",
+    "Cartier techniquement le plus intéressant de la gamme Essential"
+  ],
+  "seoDescriptionFr": ""
+}

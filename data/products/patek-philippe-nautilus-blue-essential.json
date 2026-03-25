@@ -1,0 +1,70 @@
+{
+  "id": "patek-philippe-nautilus-blue-essential",
+  "slug": "nautilus-blue-essential",
+  "brand": "Patek Philippe",
+  "brandSlug": "patek-philippe",
+  "collection": "Nautilus",
+  "collectionSlug": "nautilus",
+  "name": "Nautilus",
+  "variant": "Blue Dial — Essential",
+  "description": "The blue Nautilus is the reference configuration — the horizontally embossed blue dial behind the octagonal porthole case is one of the most replicated silhouettes in modern watchmaking, and one of the clearest indicators of taste in an accessible watch collection. The integrated bracelet and fold-over clasp make the bracelet feel like a natural extension of the case.\n\nIn the Artemis Essential range, this Nautilus uses a Miyota Japanese automatic movement. The blue dial with horizontal embossing shifts in character across light conditions, moving from a deep navy to a lighter steel blue. It is the most requested Patek Philippe in the Artemis catalogue and the watch most often cited by clients as the piece they first wanted.",
+  "descriptionShort": "Nautilus with blue horizontally embossed dial — the reference configuration in the Essential range.",
+  "keyPoints": [
+    "Blue horizontally embossed dial — the classic Nautilus face",
+    "Porthole-inspired octagonal case and bezel",
+    "Integrated steel bracelet with fold-over clasp",
+    "Miyota Japanese automatic movement",
+    "Most requested Patek Philippe at Artemis",
+    "Dial shifts from deep navy to steel blue across light"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": "best-seller",
+  "images": [
+    "/images/patek-philippe-nautilus-blue-face.webp"
+  ],
+  "video": null,
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Blue",
+    "bracelet": "Integrated steel bracelet",
+    "clasp": "Fold-over clasp",
+    "bezel": "Octagonal, porthole-inspired",
+    "lume": "Applied luminous indices"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "patek-philippe-nautilus-black-essential",
+    "patek-philippe-aquanaut-black-essential",
+    "ap-royal-oak-blue-essential",
+    "rolex-datejust-41-blue-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Patek Philippe Nautilus Blue Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Nautilus Blue Dial at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Nautilus bleu est la configuration de référence — le cadran bleu horizontalement gaufré derrière le boîtier octogonal est l'une des silhouettes les plus reproduites dans l'horlogerie moderne, et l'un des indicateurs de goût les plus clairs dans une collection de montres accessibles. Le bracelet intégré et le fermoir rabattable font du bracelet une extension naturelle du boîtier.\n\nDans la gamme Essential Artemis, ce Nautilus utilise un mouvement automatique japonais Miyota. Le cadran bleu avec gaufrage horizontal varie de caractère selon les conditions d'éclairage, passant d'un marine profond à un bleu acier plus clair. C'est le Patek Philippe le plus demandé dans le catalogue Artemis et la montre la plus souvent citée par les clients comme la pièce qu'ils ont d'abord voulue.",
+  "descriptionShortFr": "Nautilus à cadran bleu horizontalement gaufré — la configuration de référence de la gamme Essential.",
+  "keyPointsFr": [
+    "Cadran bleu horizontalement gaufré — la face classique du Nautilus",
+    "Boîtier et lunette octogonaux inspirés du hublot",
+    "Bracelet acier intégré avec fermoir rabattable",
+    "Mouvement automatique japonais Miyota",
+    "Patek Philippe le plus demandé chez Artemis",
+    "Cadran passe du marine profond au bleu acier selon la lumière"
+  ],
+  "seoDescriptionFr": ""
+}

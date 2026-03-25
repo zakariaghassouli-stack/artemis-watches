@@ -18,7 +18,7 @@
     "A more expressive take on the Submariner line"
   ],
   "range": "premium",
-  "price": 1150,
+  "price": 1250,
   "compareAtPrice": null,
   "currency": "CAD",
   "inStock": true,
@@ -43,8 +43,8 @@
     "blue"
   ],
   "hasEssentialVariant": true,
-  "essentialPrice": 320,
-  "boxAndPapersPrice": 49,
+  "essentialPrice": 350,
+  "boxAndPapersPrice": 0,
   "relatedProducts": [
     "rolex-submariner-date-black",
     "rolex-gmt-master-ii-pepsi",
@@ -55,7 +55,7 @@
   "featured": true,
   "bestSeller": false,
   "seoTitle": "Rolex Submariner Date Blue Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Rolex Submariner Date (Blue Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,150 CAD.",
+  "seoDescription": "Shop the Rolex Submariner Date (Blue Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,250 CAD.",
   "descriptionFr": "La Submariner à cadran bleu propose une lecture plus expressive de l'une des silhouettes sport les plus familières chez Rolex. Le cadran bleu dégradé et la lunette Cerachrom assortie donnent à la montre une identité visuelle plus marquée, tout en conservant la lisibilité et l'équilibre propres à la ligne Submariner.\n\nCette sélection Artemis met l'accent sur la couleur, la proportion et l'aisance au poignet. C'est une variation plus affirmée de la Submariner, sans perdre la retenue générale du dessin.",
   "descriptionShortFr": "Une Submariner à cadran bleu avec lunette Cerachrom assortie et silhouette sport plus expressive.",
   "keyPointsFr": [
@@ -65,5 +65,7 @@
     "Index lumineux Chromalight",
     "Bracelet Oyster avec Oysterclasp",
     "Une interprétation plus expressive de la ligne Submariner"
-  ]
+  ],
+  "seoDescriptionFr": "Découvrez la Rolex Submariner Date (Cadran Bleu) chez Artemis. Livraison suivie depuis Montréal, garantie qualité 30 jours. 1 250 $ CAD.",
+  "seoTitleFr": "Rolex Submariner Date Cadran Bleu | Artemis Montres Montréal"
 }

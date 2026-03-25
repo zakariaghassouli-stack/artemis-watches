@@ -1,0 +1,72 @@
+{
+  "id": "rolex-oyster-perpetual-41-grey-essential",
+  "slug": "oyster-perpetual-41-grey-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Oyster Perpetual",
+  "collectionSlug": "oyster-perpetual",
+  "name": "Oyster Perpetual 41",
+  "variant": "Grey Dial — Essential",
+  "description": "The grey Oyster Perpetual is the most discreet of the OP41 configurations — a neutral dial that reads as silver in bright light and as pewter in shadow. On the clean, no-complication Oyster format, grey is as close to invisible as a watch can be while still being noticed, which is precisely its character.\n\nIn the Artemis Essential range, this OP41 uses a Miyota automatic movement. The domed bezel and grey dial combination creates the plainest, most understated watch in the Essential catalogue — a deliberate choice for clients who want quality and discretion over visual statement.",
+  "descriptionShort": "Oyster Perpetual 41 with grey dial — the most discreet configuration, neutral and understated.",
+  "keyPoints": [
+    "Grey dial — maximum discretion",
+    "Smooth domed bezel",
+    "Oyster bracelet with Oysterclasp",
+    "Miyota Japanese automatic movement",
+    "Most understated watch in the Essential range",
+    "No date, no complications — pure utility"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 6,
+  "badge": null,
+  "images": [
+    "/images/rolex-oyster-perpetual-41-grey-face.webp",
+    "/images/rolex-oyster-perpetual-41-grey-side.webp",
+    "/images/rolex-oyster-perpetual-41-grey-back.webp"
+  ],
+  "video": "/videos/rolex-oyster-perpetual-41-grey.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Grey",
+    "bracelet": "Oyster, three-piece solid links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Smooth, domed",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "grey"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-oyster-perpetual-41-black-essential",
+    "rolex-datejust-41-grey-essential",
+    "rolex-explorer-black-essential",
+    "rolex-oyster-perpetual-41-blue-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Oyster Perpetual 41 Grey Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Oyster Perpetual 41 Grey at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "L'Oyster Perpetual grise est la plus discrète des configurations OP41 — un cadran neutre qui se lit comme de l'argent en pleine lumière et comme du plomb en ombre. Sur le format Oyster épuré sans complication, le gris est aussi proche de l'invisible qu'une montre peut l'être tout en étant remarquée, ce qui est précisément son caractère.\n\nDans la gamme Essential Artemis, cette OP41 utilise un mouvement automatique Miyota. La combinaison lunette bombée et cadran gris crée la montre la plus simple et la plus discrète du catalogue Essential — un choix délibéré pour les clients qui privilégient la qualité et la discrétion à la déclaration visuelle.",
+  "descriptionShortFr": "Oyster Perpetual 41 à cadran gris — la configuration la plus discrète, neutre et sobre.",
+  "keyPointsFr": [
+    "Cadran gris — discrétion maximale",
+    "Lunette bombée lisse",
+    "Bracelet Oyster avec Oysterclasp",
+    "Mouvement automatique japonais Miyota",
+    "Montre la plus sobre du catalogue Essential",
+    "Sans date, sans complication — utilité pure"
+  ],
+  "seoDescriptionFr": ""
+}

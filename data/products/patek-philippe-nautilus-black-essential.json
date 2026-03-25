@@ -1,0 +1,70 @@
+{
+  "id": "patek-philippe-nautilus-black-essential",
+  "slug": "nautilus-black-essential",
+  "brand": "Patek Philippe",
+  "brandSlug": "patek-philippe",
+  "collection": "Nautilus",
+  "collectionSlug": "nautilus",
+  "name": "Nautilus",
+  "variant": "Black Dial — Essential",
+  "description": "The Nautilus black dial is the darker counterpart to the iconic blue — same porthole-inspired octagonal case, same horizontally embossed dial surface, same integrated bracelet. On a black dial the Nautilus reads with a more assertive character: the texture of the embossing is more visible, and the luminous indices create a stronger contrast than they do on the blue.\n\nIn the Artemis Essential range, this Nautilus uses a Miyota Japanese automatic movement and an integrated steel bracelet with fold-over clasp. The octagonal case and bezel remain the defining elements — one of the most recognized integrated-sports watch designs in watchmaking history.",
+  "descriptionShort": "Nautilus with black dial — assertive contrast on the iconic porthole-inspired case.",
+  "keyPoints": [
+    "Black horizontally embossed dial",
+    "Porthole-inspired octagonal case and bezel",
+    "Integrated steel bracelet with fold-over clasp",
+    "Miyota Japanese automatic movement",
+    "More assertive contrast than the blue version",
+    "One of watchmaking's most iconic integrated-sports designs"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": "high-demand",
+  "images": [
+    "/images/patek-philippe-nautilus-black-face.webp"
+  ],
+  "video": null,
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Black",
+    "bracelet": "Integrated steel bracelet",
+    "clasp": "Fold-over clasp",
+    "bezel": "Octagonal, porthole-inspired",
+    "lume": "Applied luminous indices"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "patek-philippe-nautilus-blue-essential",
+    "patek-philippe-aquanaut-black-essential",
+    "ap-royal-oak-blue-essential",
+    "rolex-submariner-blackdate-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Patek Philippe Nautilus Black Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Nautilus Black Dial at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le cadran noir du Nautilus est le pendant plus sombre de l'iconique bleu — même boîtier octogonal inspiré du hublot, même surface de cadran horizontalement gaufrée, même bracelet intégré. Sur un cadran noir, le Nautilus se lit avec un caractère plus affirmé : la texture du gaufrage est plus visible, et les index lumineux créent un contraste plus fort que sur le bleu.\n\nDans la gamme Essential Artemis, ce Nautilus utilise un mouvement automatique japonais Miyota et un bracelet en acier intégré avec fermoir rabattable. Le boîtier et la lunette octogonaux restent les éléments définissants — l'un des designs de sport intégré les plus reconnus de l'histoire de l'horlogerie.",
+  "descriptionShortFr": "Nautilus à cadran noir — contraste affirmé sur le boîtier iconique inspiré du hublot.",
+  "keyPointsFr": [
+    "Cadran noir horizontalement gaufré",
+    "Boîtier et lunette octogonaux inspirés du hublot",
+    "Bracelet acier intégré avec fermoir rabattable",
+    "Mouvement automatique japonais Miyota",
+    "Contraste plus affirmé que la version bleue",
+    "L'un des designs sport intégré les plus iconiques de l'horlogerie"
+  ],
+  "seoDescriptionFr": ""
+}

@@ -1,0 +1,73 @@
+{
+  "id": "rolex-gmt-master-ii-rootbeer-essential",
+  "slug": "gmt-master-ii-rootbeer-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "GMT-Master II",
+  "collectionSlug": "gmt-master-ii",
+  "name": "GMT-Master II",
+  "variant": "Root Beer — Brown/Gold Bezel",
+  "description": "The Root Beer is the warmest configuration in the GMT lineup — a brown and gold Cerachrom bezel over a champagne dial, mounted on a two-tone gold and steel Oyster bracelet. The overall tone is closer to a luxury sports watch than a pure tool watch, and it draws from the two-tone GMT heritage of the 1980s and 1990s.\n\nIn the Artemis Essential range, this Root Beer combines the brown/gold bezel and dial palette with a Miyota automatic movement. The two-tone Oyster bracelet maintains the warmth through to the wrist, creating a watch that reads distinctly different from every other configuration in the Essential GMT collection.",
+  "descriptionShort": "GMT-Master II Root Beer — brown/gold bezel, champagne dial, two-tone Oyster bracelet.",
+  "keyPoints": [
+    "Brown/gold \"Root Beer\" Cerachrom ceramic bezel",
+    "Champagne/warm dial",
+    "Two-tone gold/steel Oyster bracelet",
+    "24h GMT hand for dual-time",
+    "Miyota Japanese automatic movement",
+    "Warmest, most luxurious GMT in the Essential range"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-gmt-master-ii-rootbeer-face.webp",
+    "/images/rolex-gmt-master-ii-rootbeer-side.webp",
+    "/images/rolex-gmt-master-ii-rootbeer-back.webp"
+  ],
+  "video": "/videos/rolex-gmt-master-ii-rootbeer.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Champagne/brown",
+    "bracelet": "Oyster, gold/steel two-tone",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Brown/gold Cerachrom ceramic",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "brown",
+    "gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-gmt-master-ii-pepsi-essential",
+    "rolex-submariner-bluesy-essential",
+    "rolex-day-date-brown-essential",
+    "rolex-gmt-master-ii-batgirl-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex GMT-Master II Root Beer Brown/Gold Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the GMT-Master II Root Beer (Brown/Gold) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Root Beer est la configuration la plus chaleureuse de la gamme GMT — une lunette Cerachrom marron et or sur un cadran champagne, monté sur un bracelet Oyster bicolore or et acier. Le ton général se rapproche d'une montre sport de luxe plutôt que d'un outil pur, et il puise dans l'héritage GMT bicolore des années 1980 et 1990.\n\nDans la gamme Essential Artemis, ce Root Beer combine la palette de lunette et de cadran marron/or avec un mouvement automatique Miyota. Le bracelet Oyster bicolore maintient la chaleur jusqu'au poignet, créant une montre qui se distingue nettement de toutes les autres configurations de la collection GMT Essential.",
+  "descriptionShortFr": "GMT-Master II Root Beer — lunette marron/or, cadran champagne, bracelet Oyster bicolore.",
+  "keyPointsFr": [
+    "Lunette Cerachrom céramique marron/or \"Root Beer\"",
+    "Cadran chaud/champagne",
+    "Bracelet Oyster bicolore or/acier",
+    "Aiguille GMT 24h pour double fuseau",
+    "Mouvement automatique japonais Miyota",
+    "GMT le plus chaud et luxueux de la gamme Essential"
+  ],
+  "seoDescriptionFr": ""
+}

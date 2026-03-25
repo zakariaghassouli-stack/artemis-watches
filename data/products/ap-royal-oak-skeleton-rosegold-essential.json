@@ -1,0 +1,70 @@
+{
+  "id": "ap-royal-oak-skeleton-rosegold-essential",
+  "slug": "royal-oak-skeleton-rosegold-essential",
+  "brand": "Audemars Piguet",
+  "brandSlug": "audemars-piguet",
+  "collection": "Royal Oak",
+  "collectionSlug": "royal-oak",
+  "name": "Royal Oak Skeleton",
+  "variant": "Rose Gold — Essential",
+  "description": "The rose gold skeleton Royal Oak is the warmest and most jewellery-adjacent configuration in the Essential AP lineup — a skeletonized dial on a rose-gold-tone octagonal case, with a rose-gold-tone integrated bracelet. The movement is visible through the skeleton opening, surrounded by the gold-tone architecture of the Royal Oak bezel and screws.\n\nIn the Artemis Essential range, this Royal Oak Skeleton uses a Miyota automatic movement. The combination of the open dial, rose-gold-tone components, and Royal Oak geometry creates a watch that sits between watchmaking and jewellery — a configuration for those who want both technical display and material warmth in the same piece.",
+  "descriptionShort": "Royal Oak Skeleton Rose Gold — skeleton dial on rose-gold case and bracelet, jewellery-adjacent.",
+  "keyPoints": [
+    "Skeleton open-worked dial in rose-gold setting",
+    "Rose-gold-tone integrated bracelet and bezel",
+    "Movement visible through the skeleton frame",
+    "Eight rose-gold hexagonal screws on octagonal bezel",
+    "Miyota Japanese automatic movement",
+    "Between watchmaking and jewellery in character"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": null,
+  "images": [
+    "/images/audemars-piguet-royal-oak-skeleton-rosegold-face.webp"
+  ],
+  "video": null,
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Rose-gold skeleton",
+    "bracelet": "Integrated rose-gold-tone bracelet",
+    "clasp": "Butterfly clasp",
+    "bezel": "Octagonal rose-gold-tone with 8 screws",
+    "lume": "None"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "rose-gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "ap-royal-oak-rosegold-essential",
+    "ap-royal-oak-skeleton-black-essential",
+    "ap-royal-oak-skeleton-white-essential",
+    "rolex-sky-dweller-rosegold-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Audemars Piguet Royal Oak Skeleton Rose Gold Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Royal Oak Skeleton Rose Gold at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Royal Oak Skeleton rose gold est la configuration la plus chaude et la plus proche de la bijouterie dans la gamme AP Essential — un cadran squelette sur un boîtier octogonal doré rose, avec un bracelet intégré doré rose. Le mouvement est visible à travers l'ouverture squelette, entouré de l'architecture dorée de la lunette et des vis du Royal Oak.\n\nDans la gamme Essential Artemis, ce Royal Oak Skeleton utilise un mouvement automatique Miyota. La combinaison du cadran ouvert, des composants dorés rose et de la géométrie Royal Oak crée une montre qui se situe entre l'horlogerie et la bijouterie — une configuration pour ceux qui veulent à la fois une présentation technique et une chaleur matérielle dans la même pièce.",
+  "descriptionShortFr": "Royal Oak Skeleton Rose Gold — cadran squelette sur boîtier et bracelet dorés roses, proche bijouterie.",
+  "keyPointsFr": [
+    "Cadran ajouré squelette en cadre doré rose",
+    "Bracelet et lunette intégrés dorés roses",
+    "Mouvement visible à travers le cadre squelette",
+    "Huit vis hexagonales dorées roses sur lunette octogonale",
+    "Mouvement automatique japonais Miyota",
+    "Entre horlogerie et bijouterie par son caractère"
+  ],
+  "seoDescriptionFr": ""
+}

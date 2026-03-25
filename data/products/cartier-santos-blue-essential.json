@@ -1,0 +1,72 @@
+{
+  "id": "cartier-santos-blue-essential",
+  "slug": "santos-blue-essential",
+  "brand": "Cartier",
+  "brandSlug": "cartier",
+  "collection": "Santos de Cartier",
+  "collectionSlug": "santos",
+  "name": "Santos de Cartier",
+  "variant": "Blue Dial — Essential",
+  "description": "The blue dial Santos de Cartier brings a colour dimension to the architectural square case format that neither the silver nor the black can offer. The blue sits behind the exposed screws and Roman numerals with a depth that shifts across light conditions — a cooler read than the silver, a richer read than pure white.\n\nIn the Artemis Essential range, this Santos uses a Miyota Japanese automatic movement and an integrated steel bracelet with butterfly clasp. The blue dial creates a composition where Cartier's structural rigour meets a colour with genuine character — a versatile configuration that works in casual and formal registers.",
+  "descriptionShort": "Santos de Cartier with blue dial — colour depth on the architectural square case.",
+  "keyPoints": [
+    "Blue dial with depth across light conditions",
+    "Square case with exposed screw detail",
+    "Integrated steel bracelet with butterfly clasp",
+    "Miyota Japanese automatic movement",
+    "Versatile between casual and formal",
+    "Colour dimension unique to the blue configuration"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 5,
+  "badge": null,
+  "images": [
+    "/images/cartier-santos-blue-face.webp",
+    "/images/cartier-santos-blue-side.webp",
+    "/images/cartier-santos-blue-back.webp"
+  ],
+  "video": "/videos/cartier-santos-blue.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Blue",
+    "bracelet": "Integrated steel, interchangeable",
+    "clasp": "Butterfly clasp",
+    "bezel": "Square case edge with polished screws",
+    "lume": "None (sapphire hands)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "blue"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "cartier-santos-silver-essential",
+    "cartier-santos-black-essential",
+    "rolex-datejust-41-blue-essential",
+    "rolex-gmt-master-ii-batgirl-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Santos de Cartier Blue Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Santos de Cartier Blue Dial at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le cadran bleu du Santos de Cartier apporte une dimension colorée au format de boîtier carré architectural qu'ni l'argent ni le noir ne peuvent offrir. Le bleu se trouve derrière les vis apparentes et les chiffres romains avec une profondeur qui varie selon les conditions d'éclairage — une lecture plus fraîche que l'argent, une lecture plus riche que le blanc pur.\n\nDans la gamme Essential Artemis, ce Santos utilise un mouvement automatique japonais Miyota et un bracelet en acier intégré avec fermoir papillon. Le cadran bleu crée une composition où la rigueur structurelle de Cartier rencontre une couleur à caractère authentique — une configuration polyvalente qui fonctionne dans les registres casual et formel.",
+  "descriptionShortFr": "Santos de Cartier à cadran bleu — profondeur de couleur sur le boîtier carré architectural.",
+  "keyPointsFr": [
+    "Cadran bleu avec profondeur selon la lumière",
+    "Boîtier carré avec vis apparentes",
+    "Bracelet acier intégré avec fermoir papillon",
+    "Mouvement automatique japonais Miyota",
+    "Polyvalent casual/formel",
+    "Dimension colorée unique à la configuration bleue"
+  ],
+  "seoDescriptionFr": ""
+}

@@ -1,0 +1,72 @@
+{
+  "id": "cartier-santos-gold-essential",
+  "slug": "santos-gold-essential",
+  "brand": "Cartier",
+  "brandSlug": "cartier",
+  "collection": "Santos de Cartier",
+  "collectionSlug": "santos",
+  "name": "Santos de Cartier",
+  "variant": "Gold Dial — Essential",
+  "description": "The gold Santos de Cartier is the most dressed configuration in the Essential Santos lineup — a champagne/gold dial, gold-tone integrated bracelet, and gold-tone bezel screws that elevate the architectural Santos format toward jewellery territory. It maintains the full Santos DNA: square case, exposed screws, Roman numerals, butterfly clasp.\n\nIn the Artemis Essential range, this Santos uses a Miyota Japanese automatic movement. The gold-tone components are coordinated across dial, bracelet, and bezel — a configuration that sits at the Santos's closest point to a dress watch, while retaining the distinctive Cartier structural vocabulary.",
+  "descriptionShort": "Santos de Cartier Gold — champagne dial, gold bracelet and bezel, the most dressed Santos configuration.",
+  "keyPoints": [
+    "Champagne/gold dial",
+    "Gold-tone integrated bracelet with butterfly clasp",
+    "Gold-tone screws on bezel",
+    "Miyota Japanese automatic movement",
+    "Most dressed Santos in the Essential range",
+    "Full Santos DNA in a warmer, richer palette"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/cartier-santos-gold-face.webp",
+    "/images/cartier-santos-gold-side.webp",
+    "/images/cartier-santos-gold-back.webp"
+  ],
+  "video": "/videos/cartier-santos-gold.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Champagne/Gold",
+    "bracelet": "Integrated gold-tone, interchangeable",
+    "clasp": "Butterfly clasp",
+    "bezel": "Square case with gold-tone screws",
+    "lume": "None (sapphire hands)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "cartier-santos-silver-essential",
+    "cartier-santos-skeleton-essential",
+    "rolex-day-date-gold-essential",
+    "rolex-datejust-wimbledon-gold-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Santos de Cartier Gold Dial Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Santos de Cartier Gold Dial at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Santos de Cartier or est la configuration la plus habillée de la gamme Santos Essential — un cadran champagne/or, un bracelet intégré doré et des vis de lunette dorées qui élèvent le format Santos architectural vers le territoire de la bijouterie. Il conserve l'ADN complet du Santos : boîtier carré, vis apparentes, chiffres romains, fermoir papillon.\n\nDans la gamme Essential Artemis, ce Santos utilise un mouvement automatique japonais Miyota. Les composants dorés sont coordonnés entre le cadran, le bracelet et la lunette — une configuration qui se trouve au point de la Santos le plus proche d'une montre habillée, tout en conservant le vocabulaire structurel distinctif de Cartier.",
+  "descriptionShortFr": "Santos de Cartier Or — cadran champagne, bracelet et lunette dorés, la configuration Santos la plus habillée.",
+  "keyPointsFr": [
+    "Cadran champagne/or",
+    "Bracelet intégré doré avec fermoir papillon",
+    "Vis dorées sur la lunette",
+    "Mouvement automatique japonais Miyota",
+    "Santos le plus habillé de la gamme Essential",
+    "ADN Santos complet dans une palette plus chaude"
+  ],
+  "seoDescriptionFr": ""
+}

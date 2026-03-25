@@ -1,0 +1,72 @@
+{
+  "id": "rolex-land-dweller-rosegold-essential",
+  "slug": "land-dweller-rosegold-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Land-Dweller",
+  "collectionSlug": "land-dweller",
+  "name": "Land-Dweller",
+  "variant": "Rose Gold — Essential",
+  "description": "The rose gold Land-Dweller translates the architecture into a warmer palette — a champagne dial, rose-gold-tone bracelet, and rose-gold-tone bezel that coordinate with each other across the full watch. The dress watch format sits naturally in this material register, making the rose gold configuration the most jewellery-forward option in the Land-Dweller trio.\n\nIn the Artemis Essential range, this Land-Dweller uses a Miyota automatic movement. The folding clasp and five-link bracelet complete a configuration that reads as deliberately dressed and deliberately warm — a strong choice for formal occasions and jewellery-adjacent contexts.",
+  "descriptionShort": "Land-Dweller Rose Gold — champagne dial, rose-gold bracelet and bezel, dress watch format.",
+  "keyPoints": [
+    "Rose-gold-tone bracelet and bezel",
+    "Champagne dial — warm, coordinated palette",
+    "Jubilee-style bracelet with folding clasp",
+    "Miyota Japanese automatic movement",
+    "Most jewellery-forward Land-Dweller configuration",
+    "Ideal for formal and dressed occasions"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/rolex-land-dweller-rosegold-face.webp",
+    "/images/rolex-land-dweller-rosegold-side.webp",
+    "/images/rolex-land-dweller-rosegold-back.webp"
+  ],
+  "video": "/videos/rolex-land-dweller-rosegold.mp4",
+  "specs": {
+    "caseDiameter": "40mm",
+    "dialColor": "Champagne/Rose",
+    "bracelet": "Jubilee-style, rose-gold-tone five-piece links",
+    "clasp": "Folding clasp",
+    "bezel": "Smooth, rose-gold-tone",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "40mm"
+  ],
+  "availableColors": [
+    "rose-gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-land-dweller-blue-essential",
+    "rolex-land-dweller-white-essential",
+    "rolex-sky-dweller-rosegold-essential",
+    "rolex-day-date-gold-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Land-Dweller Rose Gold Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Land-Dweller Rose Gold at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Land-Dweller rose gold transpose l'architecture dans une palette plus chaude — un cadran champagne, un bracelet doré rose et une lunette dorée rose qui se coordonnent entre eux sur toute la montre. Le format de montre habillée s'intègre naturellement dans ce registre de matériaux, faisant de la configuration rose gold l'option la plus orientée bijoux du trio Land-Dweller.\n\nDans la gamme Essential Artemis, ce Land-Dweller utilise un mouvement automatique Miyota. Le fermoir pliant et le bracelet à cinq maillons complètent une configuration qui se lit délibérément habillée et délibérément chaleureuse — un choix fort pour les occasions formelles et les contextes proches de la bijouterie.",
+  "descriptionShortFr": "Land-Dweller Rose Gold — cadran champagne, bracelet et lunette dorés roses, format montre habillée.",
+  "keyPointsFr": [
+    "Bracelet et lunette en ton or rose",
+    "Cadran champagne — palette chaude et coordonnée",
+    "Bracelet style Jubilé avec fermoir pliant",
+    "Mouvement automatique japonais Miyota",
+    "Configuration Land-Dweller la plus orientée bijoux",
+    "Idéal pour occasions formelles et habillées"
+  ],
+  "seoDescriptionFr": ""
+}

@@ -1,0 +1,70 @@
+{
+  "id": "ap-royal-oak-rosegold-essential",
+  "slug": "royal-oak-rosegold-essential",
+  "brand": "Audemars Piguet",
+  "brandSlug": "audemars-piguet",
+  "collection": "Royal Oak",
+  "collectionSlug": "royal-oak",
+  "name": "Royal Oak",
+  "variant": "Rose Gold — Essential",
+  "description": "The rose gold Royal Oak translates the full geometric vocabulary of the reference into a warm, gold-tone palette — rose-gold-tone integrated bracelet, rose-gold-tone octagonal bezel with screws, and a champagne tapisserie dial that coordinates the palette from centre to clasp. The result is a watch that reads as conspicuously warm without losing any of the Royal Oak structural clarity.\n\nIn the Artemis Essential range, this Royal Oak uses a Miyota automatic movement. The butterfly clasp closes the rose-gold-tone bracelet cleanly, and the tapisserie texture on the champagne dial catches the light with the same multi-faceted quality as the blue version — but in a warmer register.",
+  "descriptionShort": "Royal Oak Rose Gold — champagne tapisserie dial, rose-gold bracelet and bezel.",
+  "keyPoints": [
+    "Rose-gold-tone integrated bracelet and bezel",
+    "Champagne tapisserie dial",
+    "Octagonal bezel with eight screws",
+    "Miyota Japanese automatic movement",
+    "Warmest Royal Oak in the Essential range",
+    "Full Royal Oak architecture in a gold-tone palette"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 4,
+  "badge": null,
+  "images": [
+    "/images/audemars-piguet-royal-oak-rosegold-face.webp"
+  ],
+  "video": null,
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Champagne",
+    "bracelet": "Integrated rose-gold-tone bracelet",
+    "clasp": "Butterfly clasp",
+    "bezel": "Octagonal rose-gold-tone with 8 screws",
+    "lume": "Applied luminous indices"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "rose-gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "ap-royal-oak-blue-essential",
+    "ap-royal-oak-skeleton-rosegold-essential",
+    "rolex-sky-dweller-rosegold-essential",
+    "rolex-datejust-wimbledon-gold-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Audemars Piguet Royal Oak Rose Gold Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Royal Oak Rose Gold at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Royal Oak rose gold transpose le vocabulaire géométrique complet de la référence dans une palette chaude et dorée — bracelet intégré doré rose, lunette octogonale dorée rose avec vis et cadran tapisserie champagne qui coordonne la palette du centre jusqu'au fermoir. Le résultat est une montre qui se lit comme ostensiblement chaleureuse sans perdre aucune de la clarté structurelle du Royal Oak.\n\nDans la gamme Essential Artemis, ce Royal Oak utilise un mouvement automatique Miyota. Le fermoir papillon ferme proprement le bracelet doré rose, et la texture tapisserie sur le cadran champagne capte la lumière avec la même qualité multi-facettes que la version bleue — mais dans un registre plus chaud.",
+  "descriptionShortFr": "Royal Oak Rose Gold — cadran tapisserie champagne, bracelet et lunette dorés roses.",
+  "keyPointsFr": [
+    "Bracelet et lunette intégrés dorés roses",
+    "Cadran tapisserie champagne",
+    "Lunette octogonale avec huit vis",
+    "Mouvement automatique japonais Miyota",
+    "Royal Oak le plus chaleureux de la gamme Essential",
+    "Architecture Royal Oak complète en palette dorée"
+  ],
+  "seoDescriptionFr": ""
+}

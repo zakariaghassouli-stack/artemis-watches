@@ -1,14 +1,14 @@
 {
   "id": "cartier-santos-black",
-  "slug": "santos-black-essential",
+  "slug": "santos-black-classic-essential",
   "brand": "Cartier",
   "brandSlug": "cartier",
   "collection": "Santos",
   "collectionSlug": "santos",
   "name": "Santos de Cartier",
-  "variant": "Black Dial — Essential",
+  "variant": "Black Dial — Classic Essential",
   "description": "The Santos de Cartier Essential brings the square case and Roman numeral layout of the Santos into the most accessible tier of the Artemis catalogue. The black dial gives the watch a more contemporary feel while keeping the architectural clarity that defines the model.\n\nThis selection is intended for clients who want the Santos profile and integrated-bracelet look in a simpler entry point. The proportions stay clean, the design remains immediately readable, and the overall character feels modern on the wrist.",
-  "descriptionShort": "A Santos interpretation in the Essential range with black dial and integrated-bracelet profile.",
+  "descriptionShort": "A classic-entry Santos interpretation with black dial and integrated-bracelet profile.",
   "keyPoints": [
     "Iconic Santos square case and exposed screws",
     "Black dial for a contemporary, assertive look",
@@ -18,7 +18,7 @@
     "Integrated bracelet for clean aesthetic"
   ],
   "range": "essential",
-  "price": 340,
+  "price": 350,
   "compareAtPrice": null,
   "currency": "CAD",
   "inStock": true,
@@ -53,10 +53,10 @@
   "reviews": [],
   "featured": false,
   "bestSeller": false,
-  "seoTitle": "Cartier Santos de Cartier Black Dial Essential | Artemis Watches Montreal",
-  "seoDescription": "Shop the Cartier Santos de Cartier (Black Dial, Essential) at Artemis — your Montreal destination for luxury watches. Essential range, 30-day guarantee, free shipping. $340 CAD.",
+  "seoTitle": "Cartier Santos de Cartier Black Dial Classic Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Cartier Santos de Cartier (Black Dial, Classic Essential) at Artemis — your Montreal destination for luxury watches. Japanese movement option, 30-day guarantee, free shipping. $350 CAD.",
   "descriptionFr": "Le Santos de Cartier Essentiel transpose le boîtier carré et les chiffres romains du Santos dans le niveau le plus accessible du catalogue Artemis. Le cadran noir apporte une lecture plus contemporaine, tout en conservant la clarté architecturale qui définit le modèle.\n\nCette sélection s'adresse à celles et ceux qui recherchent le profil du Santos et l'allure du bracelet intégré dans une porte d'entrée plus simple. Les proportions restent nettes, le dessin immédiatement lisible, et le caractère général demeure très actuel au poignet.",
-  "descriptionShortFr": "Une interprétation du Santos en gamme Essentielle avec cadran noir et profil à bracelet intégré.",
+  "descriptionShortFr": "Une interprétation classique du Santos en gamme Essentielle avec cadran noir et profil à bracelet intégré.",
   "keyPointsFr": [
     "Boîtier carré Santos iconique avec vis apparentes",
     "Cadran noir pour un look contemporain et affirmé",
@@ -64,5 +64,7 @@
     "Design historiquement significatif depuis 1904",
     "Un profil Santos clair à un niveau accessible",
     "Bracelet intégré pour une esthétique épurée"
-  ]
+  ],
+  "seoDescriptionFr": "Le Cartier Santos Essential chez Artemis — l'élégance Cartier accessible. Livraison gratuite depuis Montréal. 340 $ CAD.",
+  "seoTitleFr": "Cartier Santos Essential | Artemis Montres Montréal"
 }

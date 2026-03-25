@@ -1,0 +1,72 @@
+{
+  "id": "rolex-sky-dweller-rosegold-essential",
+  "slug": "sky-dweller-rosegold-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Sky-Dweller",
+  "collectionSlug": "sky-dweller",
+  "name": "Sky-Dweller",
+  "variant": "Rose Gold — Essential",
+  "description": "The rose gold Sky-Dweller brings the full complexity of the annual calendar and dual-time display into a warmer, more prestigious material palette — a rose-gold-tone Oyster bracelet, rose-gold fluted bezel, and champagne dial create a configuration that reads as decidedly dressed up while retaining all the horological substance of the steel version.\n\nIn the Artemis Essential range, this Sky-Dweller uses a Miyota automatic movement. The rose-gold-tone components give the watch a warmth that the steel configuration does not offer, and the champagne dial coordinates the overall palette without going fully gold. The most prestigious-reading configuration in the Essential Sky-Dweller pair.",
+  "descriptionShort": "Sky-Dweller Rose Gold — dual-time, annual calendar, rose-gold bracelet and bezel.",
+  "keyPoints": [
+    "Rose-gold-tone bracelet and bezel",
+    "Champagne dial — warm, coordinated palette",
+    "Annual calendar with month windows",
+    "Dual-time zone display",
+    "Miyota Japanese automatic movement",
+    "Most prestigious Sky-Dweller in the Essential range"
+  ],
+  "range": "essential",
+  "price": 320,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": "high-demand",
+  "images": [
+    "/images/rolex-sky-dweller-rosegold-face.webp",
+    "/images/rolex-sky-dweller-rosegold-side.webp",
+    "/images/rolex-sky-dweller-rosegold-back.webp"
+  ],
+  "video": "/videos/rolex-sky-dweller-rosegold.mp4",
+  "specs": {
+    "caseDiameter": "42mm",
+    "dialColor": "Champagne",
+    "bracelet": "Oyster, rose-gold-tone three-piece links",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Fluted, rose-gold-tone",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "42mm"
+  ],
+  "availableColors": [
+    "rose-gold"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-sky-dweller-steel-essential",
+    "rolex-day-date-gold-essential",
+    "rolex-datejust-wimbledon-gold-essential",
+    "rolex-yacht-master-silver-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Sky-Dweller Rose Gold Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Sky-Dweller Rose Gold at Artemis — from $320 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "Le Sky-Dweller rose gold apporte toute la complexité du calendrier annuel et de l'affichage double fuseau dans une palette de matériaux plus chaude et plus prestigieuse — un bracelet Oyster doré rose, une lunette cannelée rose gold et un cadran champagne créent une configuration qui se lit comme résolument habillée tout en conservant toute la substance horologique de la version acier.\n\nDans la gamme Essential Artemis, ce Sky-Dweller utilise un mouvement automatique Miyota. Les composants en ton or rose donnent à la montre une chaleur que la configuration acier n'offre pas, et le cadran champagne coordonne la palette globale sans aller totalement en or. La configuration la plus prestigieuse de la paire Sky-Dweller Essential.",
+  "descriptionShortFr": "Sky-Dweller Rose Gold — double fuseau, calendrier annuel, bracelet et lunette dorés roses.",
+  "keyPointsFr": [
+    "Bracelet et lunette en ton or rose",
+    "Cadran champagne — palette chaude et coordonnée",
+    "Calendrier annuel avec fenêtres de mois",
+    "Affichage double fuseau horaire",
+    "Mouvement automatique japonais Miyota",
+    "Sky-Dweller la plus prestigieuse de la gamme Essential"
+  ],
+  "seoDescriptionFr": ""
+}

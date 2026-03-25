@@ -7,7 +7,7 @@
   "collectionSlug": "daytona",
   "name": "Daytona",
   "variant": "Black Dial",
-  "description": "The Rolex Daytona grew out of motorsport and remains one of the house's most recognizable chronographs. Its tachymeter bezel, balanced sub-dial layout, and compact proportions give it a precise, technical character without losing everyday wearability.\n\nThis black-dial configuration pairs white sub-dials with a dark main dial for strong contrast and easy legibility. In this Artemis selection, the appeal is in the clarity of the design and the sense of mechanical purpose it carries on the wrist.",
+  "description": "The Rolex Daytona grew out of motorsport and remains one of the brand's most recognizable chronographs. Its tachymeter bezel, balanced sub-dial layout, and compact proportions give it a precise, technical character without losing everyday wearability.\n\nThis black-dial configuration pairs white sub-dials with a dark main dial for strong contrast and easy legibility. In this Artemis selection, the appeal is in the clarity of the design and the sense of mechanical purpose it carries on the wrist.",
   "descriptionShort": "A motorsport-inspired chronograph with black dial, white sub-dials, and tachymeter bezel.",
   "keyPoints": [
     "Iconic racing chronograph heritage",
@@ -43,8 +43,8 @@
     "white"
   ],
   "hasEssentialVariant": false,
-  "essentialPrice": null,
-  "boxAndPapersPrice": 49,
+  "essentialPrice": 350,
+  "boxAndPapersPrice": 0,
   "relatedProducts": [
     "rolex-gmt-master-ii-pepsi",
     "rolex-submariner-date-black",
@@ -56,7 +56,7 @@
   "bestSeller": false,
   "seoTitle": "Rolex Daytona Black Dial | Artemis Watches Montreal",
   "seoDescription": "Shop the Rolex Daytona (Black Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,550 CAD.",
-  "descriptionFr": "La Rolex Daytona puise ses origines dans le sport automobile et reste l'un des chronographes les plus reconnaissables de la maison. Sa lunette tachymètre, l'équilibre de ses sous-cadrans et ses proportions contenues lui donnent un caractère précis et technique, tout en restant très portable au quotidien.\n\nCette configuration à cadran noir associe des sous-cadrans blancs à un fond sombre pour offrir un contraste net et une lecture immédiate. Dans cette sélection Artemis, son attrait tient à la clarté de son dessin et à la sensation de mécanique assumée qu'elle apporte au poignet.",
+  "descriptionFr": "La Rolex Daytona puise ses origines dans le sport automobile et reste l'un des chronographes les plus reconnaissables de la marque. Sa lunette tachymètre, l'équilibre de ses sous-cadrans et ses proportions contenues lui donnent un caractère précis et technique, tout en restant très portable au quotidien.\n\nCette configuration à cadran noir associe des sous-cadrans blancs à un fond sombre pour offrir un contraste net et une lecture immédiate. Dans cette sélection Artemis, son attrait tient à la clarté de son dessin et à la sensation de mécanique assumée qu'elle apporte au poignet.",
   "descriptionShortFr": "Un chronographe inspiré du sport automobile avec cadran noir, sous-cadrans blancs et lunette tachymètre.",
   "keyPointsFr": [
     "Héritage emblématique du chronographe de course",
@@ -65,5 +65,7 @@
     "Bracelet Oyster avec Oysterclasp",
     "L'un des profils de chronographe Rolex les plus reconnaissables",
     "Préparée pour une expédition rapide depuis Artemis"
-  ]
+  ],
+  "seoDescriptionFr": "La Rolex Daytona chez Artemis — le chronographe de référence. Authenticité garantie, livraison gratuite au Canada. À partir de 1 550 $ CAD.",
+  "seoTitleFr": "Rolex Daytona | Artemis Montres Montréal"
 }

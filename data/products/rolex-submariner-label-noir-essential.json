@@ -1,0 +1,74 @@
+{
+  "id": "rolex-submariner-label-noir-essential",
+  "slug": "submariner-label-noir-essential",
+  "brand": "Rolex",
+  "brandSlug": "rolex",
+  "collection": "Submariner",
+  "collectionSlug": "submariner",
+  "name": "Submariner Date",
+  "variant": "Label Noir — All-Black Edition",
+  "description": "The Label Noir configuration takes the Submariner architecture and renders it entirely in black — black PVD-treated case, black bracelet, black bezel, black dial. The result is a watch that reads with a stealth presence rarely matched at any tier: assertive without announcing itself, architectural without ornament.\n\nIn the Artemis Essential range, this all-black Submariner is built on a Miyota automatic movement. The full black PVD-coated Oyster bracelet and case give it a uniformity that feels deliberate and controlled. Five angles are available in the gallery to give the full reading of the design.",
+  "descriptionShort": "Full all-black Submariner — PVD-coated case, bracelet, bezel, and dial.",
+  "keyPoints": [
+    "Full black PVD treatment on case and bracelet",
+    "Black dial with black bezel for stealth aesthetic",
+    "Most aggressive Submariner configuration in the Essential range",
+    "Miyota Japanese automatic movement",
+    "Five gallery angles available",
+    "Date window with Cyclops lens"
+  ],
+  "range": "essential",
+  "price": 350,
+  "compareAtPrice": null,
+  "currency": "CAD",
+  "inStock": true,
+  "stockCount": 3,
+  "badge": "new-arrival",
+  "images": [
+    "/images/rolex-submariner-label-noir-face.webp",
+    "/images/rolex-submariner-label-noir-side.webp",
+    "/images/rolex-submariner-label-noir-back.webp",
+    "/images/rolex-submariner-label-noir-extra1.webp",
+    "/images/rolex-submariner-label-noir-extra2.webp"
+  ],
+  "video": "/videos/rolex-submariner-label-noir.mp4",
+  "specs": {
+    "caseDiameter": "41mm",
+    "dialColor": "Black",
+    "bracelet": "Oyster, full black PVD-coated",
+    "clasp": "Oysterclasp with safety lock",
+    "bezel": "Black PVD unidirectional",
+    "lume": "Chromalight (blue luminescence)"
+  },
+  "availableSizes": [
+    "41mm"
+  ],
+  "availableColors": [
+    "black"
+  ],
+  "hasEssentialVariant": false,
+  "essentialPrice": null,
+  "boxAndPapersPrice": 49,
+  "relatedProducts": [
+    "rolex-submariner-blackdate-essential",
+    "rolex-gmt-master-ii-brucewayne-essential",
+    "rolex-daytona-black-essential",
+    "rolex-submariner-starbucks-essential"
+  ],
+  "reviews": [],
+  "featured": false,
+  "bestSeller": false,
+  "seoTitle": "Rolex Submariner Label Noir All-Black Essential | Artemis Watches Montreal",
+  "seoDescription": "Shop the Submariner Label Noir (All-Black PVD) at Artemis — from $350 CAD. 30-day returns, free Canada shipping.",
+  "descriptionFr": "La configuration Label Noir prend l'architecture de la Submariner et la rend entièrement en noir — boîtier traité PVD noir, bracelet noir, lunette noire, cadran noir. Le résultat est une montre qui se lit avec une présence furtive rarement égalée à n'importe quel niveau : affirmée sans se signaler, architecturale sans ornement.\n\nDans la gamme Essential Artemis, cette Submariner tout noire est construite sur un mouvement automatique Miyota. Le bracelet et le boîtier Oyster entièrement revêtus PVD noir lui donnent une uniformité qui paraît délibérée et maîtrisée. Cinq angles sont disponibles dans la galerie pour une lecture complète du design.",
+  "descriptionShortFr": "Submariner entièrement noire — boîtier, bracelet, lunette et cadran traités PVD noir.",
+  "keyPointsFr": [
+    "Traitement PVD noir intégral sur boîtier et bracelet",
+    "Cadran noir avec lunette noire pour une esthétique furtive",
+    "Configuration Submariner la plus agressive de la gamme Essential",
+    "Mouvement automatique japonais Miyota",
+    "Cinq angles de galerie disponibles",
+    "Fenêtre de date avec loupe Cyclops"
+  ],
+  "seoDescriptionFr": ""
+}

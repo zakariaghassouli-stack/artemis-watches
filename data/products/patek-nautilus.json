@@ -18,7 +18,7 @@
     "Prepared for immediate dispatch from Artemis"
   ],
   "range": "premium",
-  "price": 1500,
+  "price": 1400,
   "compareAtPrice": null,
   "currency": "CAD",
   "inStock": true,
@@ -42,8 +42,8 @@
     "blue"
   ],
   "hasEssentialVariant": false,
-  "essentialPrice": null,
-  "boxAndPapersPrice": 49,
+  "essentialPrice": 350,
+  "boxAndPapersPrice": 0,
   "relatedProducts": [
     "patek-aquanaut-blue",
     "ap-royal-oak-blue",
@@ -54,7 +54,7 @@
   "featured": true,
   "bestSeller": false,
   "seoTitle": "Patek Philippe Nautilus Blue Dial | Artemis Watches Montreal",
-  "seoDescription": "Shop the Patek Philippe Nautilus (Blue Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,500 CAD.",
+  "seoDescription": "Shop the Patek Philippe Nautilus (Blue Dial) at Artemis — your Montreal destination for luxury watches. Premium range, 30-day guarantee, free shipping. $1,400 CAD.",
   "descriptionFr": "La Patek Philippe Nautilus, introduite en 1976, a contribué à définir une autre idée de la montre sport de luxe. Son boîtier inspiré d'un hublot, son cadran bleu gaufré horizontalement et son bracelet intégré lui donnent une aisance et des proportions toujours très actuelles.\n\nLa configuration cadran bleu reste l'expression la plus familière du modèle. Dans cette sélection Artemis, l'attention se porte sur l'harmonie entre le boîtier, le bracelet et la texture du cadran, sans surenchère. C'est une pièce choisie pour son équilibre, sa retenue et sa forte identité de design.",
   "descriptionShortFr": "Une référence sport intégrée raffinée avec cadran bleu gaufré et boîtier Nautilus emblématique.",
   "keyPointsFr": [
@@ -64,5 +64,7 @@
     "Bracelet intégré d'une parfaite harmonie",
     "Une référence associée à une disponibilité souvent mesurée",
     "Préparée pour une expédition immédiate depuis Artemis"
-  ]
+  ],
+  "seoDescriptionFr": "La Patek Philippe Nautilus chez Artemis — le saint graal de l'horlogerie sportive. Sélectionnée et livrée depuis Montréal. 1 500 $ CAD.",
+  "seoTitleFr": "Patek Philippe Nautilus | Artemis Montres Montréal"
 }
