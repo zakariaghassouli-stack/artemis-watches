@@ -25,7 +25,10 @@
   "stockCount": 1,
   "badge": "high-demand",
   "images": [
-    "/images/rolex-daytona-black-dial.webp"
+    "/images/rolex-daytona-black-dial.webp",
+    "/images/rolex-daytona-black-face.webp",
+    "/images/rolex-daytona-black-back.webp",
+    "/images/rolex-daytona-black-side.webp"
   ],
   "specs": {
     "caseDiameter": "40mm",
