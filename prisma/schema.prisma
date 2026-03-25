@@ -55,7 +55,7 @@ model User {
   passwordHash  String?   // For email/password auth
 
   // ARTEMIS-specific
-  promoCode          String?   @unique // Format: ARTEMIS-XXXX
+  promoCode          String?   @unique // Format: ARTEMIS-XXXXXX
   promoUsed          Boolean   @default(false)
   emailMarketing     Boolean   @default(true)
   shippingFirstName  String?
@@ -70,6 +70,7 @@ model User {
   orders        Order[]
   reviews       Review[]
   wishlist      WishlistItem[]
+  passwordResetCodes PasswordResetCode[]
 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -149,4 +150,18 @@ model WishlistItem {
   createdAt DateTime @default(now())
 
   @@unique([userId, productId])
+}
+
+model PasswordResetCode {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  email     String
+  codeHash  String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([email])
+  @@index([expiresAt])
 }

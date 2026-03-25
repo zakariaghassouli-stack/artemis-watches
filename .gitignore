@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Photos sources (non servies, garder localement)
 public/images/real\ image/
+
+# Tests / scripts temporaires
+/tmp/
