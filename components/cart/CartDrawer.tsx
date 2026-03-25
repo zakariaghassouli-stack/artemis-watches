@@ -283,6 +283,10 @@ export function CartDrawer({
   const [promoError, setPromoError] = useState('');
   const [promoLoading, setPromoLoading] = useState(false);
   const [presentationSet, setPresentationSet] = useState(false);
+  const handleCloseCart = useCallback(() => {
+    document.body.style.overflow = '';
+    closeCart();
+  }, [closeCart]);
 
   const resolvedBoxAndPapersPrice = boxAndPapersPrice ?? 49;
   const resolvedWelcomeDiscountPercent = welcomeDiscountPercent ?? 10;
@@ -294,11 +298,11 @@ export function CartDrawer({
   // Close on Escape key
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) closeCart();
+      if (e.key === 'Escape' && isOpen) handleCloseCart();
     };
     document.addEventListener('keydown', handleKey);
     return () => document.removeEventListener('keydown', handleKey);
-  }, [isOpen, closeCart]);
+  }, [handleCloseCart, isOpen]);
 
   // Prevent body scroll when open
   useEffect(() => {
@@ -422,7 +426,8 @@ export function CartDrawer({
     <>
       {/* Overlay */}
       <div
-        onClick={closeCart}
+        onClick={handleCloseCart}
+        onTouchEnd={handleCloseCart}
         style={{
           position: 'fixed',
           inset: 0,
@@ -432,6 +437,7 @@ export function CartDrawer({
           opacity: isOpen ? 1 : 0,
           pointerEvents: isOpen ? 'auto' : 'none',
           transition: 'opacity 0.3s ease',
+          touchAction: 'none',
         }}
         aria-hidden="true"
       />
@@ -499,17 +505,25 @@ export function CartDrawer({
             )}
           </div>
           <button
-            onClick={closeCart}
+            onClick={handleCloseCart}
+            onTouchEnd={handleCloseCart}
             style={{
+              position: 'relative',
               background: 'none',
               border: 'none',
               cursor: 'pointer',
               color: 'rgba(255,255,255,0.4)',
-              padding: 4,
+              padding: 0,
+              width: 44,
+              height: 44,
+              minWidth: 44,
+              minHeight: 44,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               transition: 'color 0.2s',
+              zIndex: 2,
+              WebkitTapHighlightColor: 'transparent',
             }}
             onMouseEnter={(e) =>
               ((e.currentTarget as HTMLButtonElement).style.color = '#F5F3EF')
