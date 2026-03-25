@@ -15,7 +15,7 @@ import { useCartStore } from '@/store/cart';
 import { analytics } from '@/lib/analytics';
 import { pixel } from '@/lib/pixel';
 import { WishlistButton } from '@/components/product/WishlistButton';
-import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
+import { ScarcityBadge } from '@/components/shared/ProductBadges';
 import { Link } from '@/i18n/navigation';
 import { RotateCcw, ShieldCheck, Truck, Wrench } from 'lucide-react';
 import type { Product } from '@/types/product';
@@ -281,6 +281,33 @@ export function ProductInfo({
         {displayTitle}
       </h1>
 
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
+        <span
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            padding: '8px 12px',
+            borderRadius: 999,
+            background:
+              selectedRange === 'premium'
+                ? 'rgba(201,169,110,0.1)'
+                : 'rgba(255,255,255,0.06)',
+            border: `1px solid ${
+              selectedRange === 'premium'
+                ? 'rgba(201,169,110,0.24)'
+                : 'rgba(255,255,255,0.1)'
+            }`,
+            color: selectedRange === 'premium' ? '#C9A96E' : '#E6E1D8',
+            fontSize: '0.7rem',
+            fontWeight: 600,
+            letterSpacing: '0.06em',
+            lineHeight: 1.2,
+          }}
+        >
+          {selectedRange === 'premium' ? t.rangePremium : t.rangeEssential}
+        </span>
+      </div>
+
       {/* Star rating */}
       {avgRating !== null && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
@@ -430,16 +457,7 @@ export function ProductInfo({
         </div>
       )}
 
-      {/* Range badge */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-        <RangeBadge
-          range={selectedRange}
-          premiumLabel={t.rangePremium}
-          essentialLabel={t.rangeEssential}
-          size="md"
-        />
-
-        {/* Scarcity indicator */}
         {scarcity && (
           <ScarcityBadge
             scarcity={scarcity}
