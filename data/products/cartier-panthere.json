@@ -25,7 +25,9 @@
   "stockCount": 3,
   "badge": null,
   "images": [
-    "/images/cartier-santos-silver-dial.webp"
+    "/images/cartier-panthere-face.webp",
+    "/images/cartier-panthere-back.webp",
+    "/images/cartier-panthere-side.webp"
   ],
   "specs": {
     "caseDiameter": "35mm",

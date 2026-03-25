@@ -25,7 +25,9 @@
   "stockCount": 4,
   "badge": "new-arrival",
   "images": [
-    "/images/cartier-santos-silver-dial.webp"
+    "/images/cartier-santos-silver-face.webp",
+    "/images/cartier-santos-silver-back.webp",
+    "/images/cartier-santos-silver-side.webp"
   ],
   "specs": {
     "caseDiameter": "39.8mm",
