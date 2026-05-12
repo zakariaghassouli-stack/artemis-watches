@@ -438,7 +438,7 @@
     "faqItems": [
       {
         "q": "Combien de temps pour la livraison ?",
-        "a": "Les pièces marquées 'Expédié sous 48h depuis Montréal' partent dans les 2 jours ouvrables. Les pièces sous commande sont préparées et expédiées sous 10-14 jours. Une fois en route, le suivi est partagé par email ou WhatsApp. Livraison standard 3-5 jours ouvrables au Canada, 7-14 jours à l'international."
+        "a": "Les pièces marquées 'Expédié sous 48h depuis Montréal' partent dans les 2 jours ouvrables. Les pièces sous commande nécessitent 3-4 jours de préparation, puis sont expédiées par FedEx ou Postes Canada (3-5 jours au Canada, 7-14 jours à l'international). Le numéro de suivi est partagé par email et WhatsApp dès l'expédition."
       },
       {
         "q": "Comment se passent les retours sous 30 jours ?",
@@ -450,11 +450,11 @@
       },
       {
         "q": "Comment expédiez-vous au Canada ?",
-        "a": "Livraison suivie depuis Montréal, gratuite et incluse dans le prix. Délai 3-5 jours ouvrables d'un océan à l'autre via Postes Canada ou Purolator selon le code postal. Le numéro de suivi est envoyé par email et WhatsApp dès l'expédition."
+        "a": "Livraison suivie depuis Montréal, gratuite et incluse dans le prix. Délai 3-5 jours ouvrables d'un océan à l'autre via FedEx ou Postes Canada selon le code postal. Le numéro de suivi est envoyé par email et WhatsApp dès l'expédition."
       },
       {
         "q": "Comment expédiez-vous hors Canada ?",
-        "a": "Expédition internationale possible sur demande WhatsApp. Délai 7-14 jours ouvrables selon la destination. Les frais d'expédition internationale varient selon le pays et le poids - on vous transmet le tarif exact avant confirmation. Suivi inclus dans tous les cas."
+        "a": "Expédition internationale possible sur demande WhatsApp. Délai 7-14 jours ouvrables via FedEx ou Postes Canada selon la destination. Les frais d'expédition internationale varient selon le pays et le poids - on vous transmet le tarif exact avant confirmation. Suivi inclus dans tous les cas."
       },
       {
         "q": "Y a-t-il des frais de douane à prévoir ?",
