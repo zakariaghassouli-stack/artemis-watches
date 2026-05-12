@@ -95,7 +95,11 @@ export default async function ProductPage({ params }: Props) {
 
   const localizedProduct = localizeProduct(product, locale);
 
-  const collectionVariants = await getProductsByCollection(product.collectionSlug);
+  // Variant pills: only siblings sharing the exact `name` (e.g. "Datejust 41"),
+  // not the whole collection. Avoids mixing Datejust 31/36/41 in one pill row
+  // and the resulting duplicate labels ("Black Dial" appearing for both 36 + 41).
+  const collectionVariants = (await getProductsByCollection(product.collectionSlug))
+    .filter((sibling) => sibling.name === product.name);
 
   const brand = getBrandMeta(brandSlug);
   const collection = getCollectionMeta(collectionSlug);
