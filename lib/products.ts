@@ -519,11 +519,13 @@ export function getProductCountByBrand(): Record<string, number> {
 // ─── Scarcity label ───────────────────────────────────────────
 
 export type ScarcityState =
-  | { type: 'low-stock'; count: number }
   | { type: 'best-seller' }
   | { type: 'high-demand' }
   | { type: 'just-restocked' }
   | { type: 'new-arrival' }
+  | { type: 'stock-immediate' }
+  | { type: 'essential-only' }
+  | { type: 'premium-only' }
   | null;
 
 export function getScarcityState(product: Product): ScarcityState {
@@ -532,6 +534,9 @@ export function getScarcityState(product: Product): ScarcityState {
   if (product.badge === 'high-demand') return { type: 'high-demand' };
   if (product.badge === 'just-restocked') return { type: 'just-restocked' };
   if (product.badge === 'new-arrival') return { type: 'new-arrival' };
+  if (product.badge === 'stock-immediate') return { type: 'stock-immediate' };
+  if (product.badge === 'essential-only') return { type: 'essential-only' };
+  if (product.badge === 'premium-only') return { type: 'premium-only' };
   return null;
 }
 

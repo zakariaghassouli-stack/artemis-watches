@@ -6,11 +6,14 @@ type BadgeSize = 'xs' | 'sm' | 'md';
 type ScarcityKind = NonNullable<ScarcityState>['type'];
 
 interface ScarcityLabels {
-  lowStock: string;
+  lowStock?: string;
   bestSeller: string;
   highDemand: string;
   newArrival: string;
   justRestocked: string;
+  stockImmediate: string;
+  essentialOnly: string;
+  premiumOnly: string;
 }
 
 const SIZE_STYLES: Record<BadgeSize, CSSProperties> = {
@@ -87,38 +90,28 @@ export function ScarcityBadge({
   }
 
   const label =
-    scarcity.type === 'low-stock'
-      ? labels.lowStock.replace('{count}', String(scarcity.count))
-      : scarcity.type === 'best-seller'
+    scarcity.type === 'best-seller'
       ? labels.bestSeller
       : scarcity.type === 'high-demand'
       ? labels.highDemand
       : scarcity.type === 'new-arrival'
       ? labels.newArrival
-      : labels.justRestocked;
-
-  const highlighted = scarcity.type === 'low-stock';
-  const criticalLowStock =
-    scarcity.type === 'low-stock' && scarcity.count <= 2;
+      : scarcity.type === 'just-restocked'
+      ? labels.justRestocked
+      : scarcity.type === 'stock-immediate'
+      ? labels.stockImmediate
+      : scarcity.type === 'essential-only'
+      ? labels.essentialOnly
+      : labels.premiumOnly;
 
   return (
     <span
       style={{
         ...BADGE_BASE,
         ...SIZE_STYLES[size],
-        color: highlighted ? '#F5E2BC' : '#D6D1C9',
-        background: criticalLowStock
-          ? 'rgba(179,72,43,0.28)'
-          : highlighted
-          ? 'rgba(201,169,110,0.14)'
-          : 'rgba(255,255,255,0.05)',
-        border: `1px solid ${
-          criticalLowStock
-            ? 'rgba(215,141,114,0.45)'
-            : highlighted
-            ? 'rgba(201,169,110,0.24)'
-            : 'rgba(255,255,255,0.08)'
-        }`,
+        color: '#D6D1C9',
+        background: 'rgba(255,255,255,0.05)',
+        border: '1px solid rgba(255,255,255,0.08)',
       }}
     >
       {label}

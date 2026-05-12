@@ -179,7 +179,9 @@ const BADGE_MAP: Record<string, ProductBadge> = {
   'best-seller': 'best-seller',
   'high-demand': 'high-demand',
   'just-restocked': 'just-restocked',
-  'low-stock': 'low-stock',
+  'stock-immediate': 'stock-immediate',
+  'essential-only': 'essential-only',
+  'premium-only': 'premium-only',
 };
 
 const COLLECTION_SLUG_ALIASES: Record<string, string> = {

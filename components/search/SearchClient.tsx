@@ -162,12 +162,14 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
         >
           <ScarcityBadge
             scarcity={scarcity}
-              labels={{
-                lowStock: t.raw('lowStock') as string,
-                bestSeller: t('bestSeller'),
-                highDemand: t('highDemand'),
-                newArrival: t('newArrival'),
+            labels={{
+              bestSeller: t('bestSeller'),
+              highDemand: t('highDemand'),
+              newArrival: t('newArrival'),
               justRestocked: t('justRestocked'),
+              stockImmediate: t('stockImmediate'),
+              essentialOnly: t('essentialOnly'),
+              premiumOnly: t('premiumOnly'),
             }}
             size="xs"
             excludeTypes={['best-seller', 'high-demand']}

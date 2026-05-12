@@ -47,6 +47,9 @@ interface Props {
     highDemand: string;
     newArrival: string;
     justRestocked: string;
+    stockImmediate: string;
+    essentialOnly: string;
+    premiumOnly: string;
     inStock: string;
     outOfStock: string;
     rangeEssential: string;
@@ -402,11 +405,13 @@ export function ProductInfo({
           <ScarcityBadge
             scarcity={scarcity}
             labels={{
-              lowStock: t.lowStock,
               bestSeller: t.bestSeller,
               highDemand: t.highDemand,
               newArrival: t.newArrival,
               justRestocked: t.justRestocked,
+              stockImmediate: t.stockImmediate,
+              essentialOnly: t.essentialOnly,
+              premiumOnly: t.premiumOnly,
             }}
             size="md"
           />

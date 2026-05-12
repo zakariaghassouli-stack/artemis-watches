@@ -153,7 +153,10 @@
       "cardSupport": "Tracked shipping and 30-day returns",
       "cardCta": "View Piece",
       "newArrival": "Popular gift",
-      "justRestocked": "Just in"
+      "justRestocked": "Just in",
+      "stockImmediate": "Ready to ship",
+      "essentialOnly": "Essential only",
+      "premiumOnly": "Premium only"
     },
     "testimonials": {
       "overline": "WHAT OUR CLIENTS SAY",
@@ -363,6 +366,9 @@
     "highDemand": "Limited",
     "newArrival": "New Arrival",
     "justRestocked": "Just Restocked",
+    "stockImmediate": "Ready to ship",
+    "essentialOnly": "Essential only",
+    "premiumOnly": "Premium only",
     "inStock": "In Stock",
     "outOfStock": "Out of Stock",
     "verifiedPurchase": "Verified Purchase",
@@ -487,6 +493,9 @@
     "highDemand": "Limited",
     "newArrival": "New Arrival",
     "justRestocked": "Just Restocked",
+    "stockImmediate": "Ready to ship",
+    "essentialOnly": "Essential only",
+    "premiumOnly": "Premium only",
     "essentialBadge": "Essential · Japanese Movement (Miyota)",
     "premiumBadge": "Premium · High-grade automatic",
     "metaTitle": "Search Watches | Artemis - Montreal",

@@ -153,7 +153,10 @@
       "cardSupport": "Livraison suivie et retours 30 jours",
       "cardCta": "Voir la pièce",
       "newArrival": "Idée cadeau",
-      "justRestocked": "Vient d'arriver"
+      "justRestocked": "Vient d'arriver",
+      "stockImmediate": "Stock immédiat",
+      "essentialOnly": "Essential uniquement",
+      "premiumOnly": "Premium uniquement"
     },
     "testimonials": {
       "overline": "CE QUE DISENT NOS CLIENTS",
@@ -369,6 +372,9 @@
     "highDemand": "Disponibilité limitée",
     "newArrival": "Nouveau",
     "justRestocked": "Réapprovisionné",
+    "stockImmediate": "Stock immédiat",
+    "essentialOnly": "Essential uniquement",
+    "premiumOnly": "Premium uniquement",
     "inStock": "En stock",
     "outOfStock": "Rupture de stock",
     "verifiedPurchase": "Achat vérifié",
@@ -493,6 +499,9 @@
     "highDemand": "Disponibilité limitée",
     "newArrival": "Nouveau",
     "justRestocked": "Réapprovisionné",
+    "stockImmediate": "Stock immédiat",
+    "essentialOnly": "Essential uniquement",
+    "premiumOnly": "Premium uniquement",
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
     "premiumBadge": "Premium · Automatique haut de gamme",
     "metaTitle": "Recherche | Artemis - Montréal",

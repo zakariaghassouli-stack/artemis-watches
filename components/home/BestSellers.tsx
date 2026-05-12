@@ -135,11 +135,13 @@ function ProductCard({
               <ScarcityBadge
                 scarcity={scarcity}
                 labels={{
-                  lowStock: t.raw('lowStock') as string,
                   bestSeller: t('bestSeller'),
                   highDemand: t('highDemand'),
                   newArrival: t('newArrival'),
                   justRestocked: t('justRestocked'),
+                  stockImmediate: t('stockImmediate'),
+                  essentialOnly: t('essentialOnly'),
+                  premiumOnly: t('premiumOnly'),
                 }}
                 size="sm"
               />

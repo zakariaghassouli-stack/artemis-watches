@@ -3,10 +3,12 @@ export type ShippingSpeed = 'ready-to-ship' | 'made-to-order';
 
 export type ProductBadge =
   | 'best-seller'
-  | 'low-stock'
   | 'high-demand'
   | 'new-arrival'
   | 'just-restocked'
+  | 'stock-immediate'
+  | 'essential-only'
+  | 'premium-only'
   | null;
 
 export interface ProductSpecs {

@@ -123,11 +123,13 @@ export function CollectionProductCard({ product, index, viewDetailsLabel }: Prop
               <ScarcityBadge
                 scarcity={scarcity}
                 labels={{
-                  lowStock: tProduct.raw('lowStock') as string,
                   bestSeller: tProduct('bestSeller'),
                   highDemand: tProduct('highDemand'),
                   newArrival: tProduct('newArrival'),
                   justRestocked: tProduct('justRestocked'),
+                  stockImmediate: tProduct('stockImmediate'),
+                  essentialOnly: tProduct('essentialOnly'),
+                  premiumOnly: tProduct('premiumOnly'),
                 }}
                 size="sm"
                 excludeTypes={['best-seller', 'high-demand']}
