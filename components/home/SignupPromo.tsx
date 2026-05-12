@@ -35,6 +35,10 @@ export function SignupPromo({ discountPercent = 10 }: SignupPromoProps) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email.trim(), source: 'signup_10_percent_home' }),
     }).catch(() => undefined);
+    // Reset the loading flag before navigating — the home section is rendered
+    // inside the [locale] layout that persists across same-locale routes, so
+    // the button would otherwise stay stuck at "…" indefinitely.
+    setLoading(false);
     router.push(`/account/register?email=${encodeURIComponent(email.trim())}`);
   };
 
