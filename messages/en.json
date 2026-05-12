@@ -397,6 +397,8 @@
     "tabHelp": "Need Help?",
     "rangeSelectorLabel": "SELECT RANGE",
     "variantsLabel": "OTHER VARIANTS",
+    "variantsLabelDials": "DIALS",
+    "variantsLabelSpecial": "SPECIAL VARIANTS",
     "sizeSelectorLabel": "CASE SIZE",
     "checkoutNote": "Secure Stripe checkout. Shipping, taxes, and your 10% code apply before payment.",
     "recentlyViewedTitle": "Recently Viewed",

@@ -403,6 +403,8 @@
     "tabHelp": "Besoin d'aide ?",
     "rangeSelectorLabel": "CHOISIR LA GAMME",
     "variantsLabel": "AUTRES VARIANTES",
+    "variantsLabelDials": "CADRANS",
+    "variantsLabelSpecial": "VARIANTES SPÉCIALES",
     "sizeSelectorLabel": "TAILLE DU BOÎTIER",
     "checkoutNote": "Caisse Stripe sécurisée. Livraison, taxes et code de 10 % appliqués avant le paiement.",
     "recentlyViewedTitle": "Récemment consultés",

@@ -208,6 +208,8 @@ export default async function ProductPage({ params }: Props) {
     reviewPlural: t('reviewPlural'),
     rangeSelectorLabel: t('rangeSelectorLabel'),
     variantsLabel: t('variantsLabel'),
+    variantsLabelDials: t('variantsLabelDials'),
+    variantsLabelSpecial: t('variantsLabelSpecial'),
     sizeSelectorLabel: t('sizeSelectorLabel'),
     checkoutNote: t('checkoutNote'),
     newClientDiscount: t.raw('newClientDiscount') as string,
