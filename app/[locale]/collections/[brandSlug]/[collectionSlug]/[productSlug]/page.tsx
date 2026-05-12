@@ -179,7 +179,6 @@ export default async function ProductPage({ params }: Props) {
     addToCart: t('addToCart'),
     orderWhatsApp: t('orderWhatsApp'),
     wishlistLabel: t('wishlistLabel'),
-    installmentLine: t.raw('installmentLine') as string,
     boxAndPapersLabel: t.raw('boxAndPapersLabel') as string,
     boxAndPapersIncluded: t('boxAndPapersIncluded'),
     freeShipping: t('freeShipping'),

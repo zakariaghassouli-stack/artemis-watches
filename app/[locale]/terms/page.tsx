@@ -336,12 +336,6 @@ export default async function TermsPage() {
             chosen payment method and that the information provided is accurate. ARTEMIS does
             not store your full payment card information.
           </p>
-          <h3>Installment Payments</h3>
-          <p>
-            Where available, installment payment options remain subject to the terms and
-            conditions of the applicable third-party payment provider.
-          </p>
-
           <hr className="section-divider" />
           <h2 id="authenticity">4. Authenticity Statement</h2>
           <div className="legal-highlight">

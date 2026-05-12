@@ -564,10 +564,6 @@ export function formatPrice(amount: number, currency = 'CAD'): string {
   }).format(amount);
 }
 
-export function getInstallmentPrice(price: number, installments = 4): number {
-  return Math.ceil(price / installments);
-}
-
 const FR_VARIANT_MAP: Record<string, string> = {
   'Black Dial': 'Cadran noir',
   'Black Dial — Essential': 'Cadran noir',
