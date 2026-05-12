@@ -425,8 +425,8 @@
     "newClientDiscount": "New here? Create an account for 10% off → {price}",
     "sortFeatured": "Most Wanted",
     "shippingAvailabilityLabel": "Availability",
-    "shippingStatusReady": "Ready to ship. 2-3 days",
-    "shippingStatusMadeToOrder": "Made to order. 2-3 weeks",
+    "shippingStatusReady": "Shipped within 48h from Montréal",
+    "shippingStatusMadeToOrder": "Within 10-14 days",
     "shippingTrackingNote": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net."
   },
   "wishlist": {
