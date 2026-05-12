@@ -7,7 +7,9 @@ import { PreparationMontreal } from '@/components/home/PreparationMontreal';
 import { FeaturedCollections } from '@/components/home/FeaturedCollections';
 import { WhyArtemis } from '@/components/home/WhyArtemis';
 import { BestSellers } from '@/components/home/BestSellers';
-import { Testimonials } from '@/components/home/Testimonials';
+// Testimonials hidden pending verified reviews migration.
+// Restore import + JSX usage once Sanity verifiedReview schema is live.
+// import { Testimonials } from '@/components/home/Testimonials';
 import { SignupPromo } from '@/components/home/SignupPromo';
 import { FAQAccordion } from '@/components/home/FAQAccordion';
 import {
@@ -87,8 +89,8 @@ export default async function HomePage({
       {/* §7 Best sellers */}
       <BestSellers products={homepageProducts} />
 
-      {/* §8 Testimonials + UGC */}
-      <Testimonials />
+      {/* §8 Testimonials + UGC — hidden pending verified reviews migration */}
+      {/* <Testimonials /> */}
 
       {/* §9 Signup promo */}
       <SignupPromo discountPercent={welcomeDiscountPercent} />

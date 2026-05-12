@@ -293,7 +293,7 @@ export function Navbar() {
             </div>
 
             {[
-              { key: 'reviews', href: '/reviews' },
+              // 'reviews' link hidden pending verified reviews migration
               { key: 'faq', href: '/faq' },
               { key: 'contact', href: '/contact' },
               { key: 'about', href: '/about' },
@@ -783,7 +783,7 @@ function MobileMenu({
 
           {/* Static links */}
           {[
-            { label: t('reviews'), href: '/reviews' },
+            // 'reviews' link hidden pending verified reviews migration
             { label: t('faq'), href: '/faq' },
             { label: t('contact'), href: '/contact' },
             { label: t('about'), href: '/about' },

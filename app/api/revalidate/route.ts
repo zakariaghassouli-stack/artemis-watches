@@ -14,8 +14,7 @@ function runRevalidation() {
     '/en',
     '/collections',
     '/en/collections',
-    '/reviews',
-    '/en/reviews',
+    // '/reviews' + '/en/reviews' omitted pending verified reviews migration
   ];
 
   for (const path of paths) {

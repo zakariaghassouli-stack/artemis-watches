@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/',           priority: 1.0, changeFrequency: 'weekly'  },
     { path: '/collections', priority: 0.9, changeFrequency: 'weekly'  },
     { path: '/about',      priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/reviews',    priority: 0.6, changeFrequency: 'weekly'  },
+    // '/reviews' omitted pending verified reviews migration (page now noindex)
     { path: '/faq',        priority: 0.6, changeFrequency: 'monthly' },
     { path: '/contact',    priority: 0.5, changeFrequency: 'monthly' },
   ] satisfies { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[];
