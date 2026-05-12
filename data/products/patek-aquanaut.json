@@ -70,5 +70,8 @@
   "seoDescriptionFr": "La Patek Philippe Aquanaut chez Artemis - modernité et prestige horloger. Livrée depuis Montréal, garantie 30 jours. 1 500 $ CAD.",
   "seoTitleFr": "Patek Philippe Aquanaut | Artemis Montres Montréal",
   "shippingSpeed": "made-to-order",
-  "shippingEstimate": "2-3 weeks"
+  "shippingEstimate": "2-3 weeks",
+  "factoryOptions": [
+    "ZF"
+  ]
 }
