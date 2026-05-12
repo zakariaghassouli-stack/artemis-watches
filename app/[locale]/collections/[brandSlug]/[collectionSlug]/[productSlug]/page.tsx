@@ -143,15 +143,17 @@ export default async function ProductPage({ params }: Props) {
     customerChoice: t('factoryCustomerChoice'),
   };
 
-  const waterResistanceFallback =
-    localizedProduct.range === 'premium'
-      ? t('waterResistancePremium')
-      : t('waterResistanceEssential');
-
-  const specsWithWaterResistance = {
-    ...localizedProduct.specs,
-    waterResistance: localizedProduct.specs.waterResistance ?? waterResistanceFallback,
-  };
+  // Water resistance — Option A: append legal hedge suffix to the
+  // per-model value. If no value is set in Sanity, the row is omitted
+  // entirely (SpecsTable filters falsy values). Generic tier-based
+  // fallbacks have been removed to force precise per-SKU data.
+  const rawWaterResistance = localizedProduct.specs.waterResistance;
+  const specsWithWaterResistance = rawWaterResistance
+    ? {
+        ...localizedProduct.specs,
+        waterResistance: `${rawWaterResistance} ${t('waterResistanceSuffix')}`,
+      }
+    : localizedProduct.specs;
 
   const productInfoT = {
     addToCart: t('addToCart'),
