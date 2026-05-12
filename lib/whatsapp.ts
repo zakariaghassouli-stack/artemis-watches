@@ -33,8 +33,6 @@ export function getProductWhatsAppMessage(input: {
 }): string {
   const { locale, productName, variant, price, range, size, boxAndPapers } = input;
 
-  // Range qualifier — intentionally avoids "Swiss" / "Suisse" (factually wrong
-  // for our Dandong-sourced Premium pieces, and protected by the Swissness Act).
   const rangeLabel = range
     ? locale === 'fr'
       ? range === 'premium'

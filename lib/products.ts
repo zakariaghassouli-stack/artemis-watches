@@ -272,15 +272,15 @@ function resolveShippingAvailability(
 }
 
 export function isGenericMovementVariant(variant: string): boolean {
-  return /^(japanese movement|swiss movement|mouvement japonais|mouvement suisse)$/i.test(
+  return /^(japanese movement|dandong movement|mouvement japonais|mouvement dandong)$/i.test(
     variant.trim()
   );
 }
 
 function stripVariantRangeSuffix(variant: string): string {
   return variant
-    .replace(/\s+[·-]\s+(Japanese|Swiss) Movement(?:\s*\(.*?\))?$/i, '')
-    .replace(/\s+[·-]\s+Mouvement (japonais|suisse)(?:\s*\(.*?\))?$/i, '')
+    .replace(/\s+[·-]\s+(Japanese|Dandong) [Mm]ovement(?:\s*\(.*?\))?$/i, '')
+    .replace(/\s+[·-]\s+Mouvement (japonais|Dandong)(?:\s*\(.*?\))?$/i, '')
     .replace(/\s+[—-]\s+(Essential|Premium)$/i, '')
     .trim();
 }
@@ -292,8 +292,8 @@ export function getVariantOptionLabel(product: Pick<Product, 'variant' | 'range'
   if (!shortLabel || isGenericMovementVariant(shortLabel)) {
     return product.range === 'premium'
       ? locale === 'fr'
-        ? 'Version suisse'
-        : 'Swiss version'
+        ? 'Version Dandong'
+        : 'Dandong version'
       : locale === 'fr'
       ? 'Version japonaise'
       : 'Japanese version';
@@ -306,7 +306,7 @@ export function getVariantOptionLabel(product: Pick<Product, 'variant' | 'range'
     /dial|tone|cadran/i.test(cleaned)
   ) {
     const base = shortLabel.replace(/\s+Dial$/i, '').replace(/\s+Tone$/i, '').trim();
-    return `${base} (${locale === 'fr' ? 'suisse' : 'Swiss'})`;
+    return `${base} (Dandong)`;
   }
 
   return shortLabel;
@@ -344,8 +344,8 @@ export function getMovementComparisonLabel(
   }
 
   return locale === 'fr'
-    ? `Mouvement japonais — ${formatPrice(product.essentialPrice)} CAD | Mouvement suisse — ${formatPrice(product.premiumPrice)} CAD`
-    : `Japanese Movement — ${formatPrice(product.essentialPrice)} CAD | Swiss Movement — ${formatPrice(product.premiumPrice)} CAD`;
+    ? `Mouvement japonais — ${formatPrice(product.essentialPrice)} CAD | Mouvement Dandong — ${formatPrice(product.premiumPrice)} CAD`
+    : `Japanese Movement — ${formatPrice(product.essentialPrice)} CAD | Dandong movement — ${formatPrice(product.premiumPrice)} CAD`;
 }
 
 export function getRetailReference(
