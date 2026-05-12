@@ -22,6 +22,11 @@ import type { Product } from '@/types/product';
 import { ContactCTA } from '@/components/shared/ContactCTA';
 import { TrustBadgesStrip } from '@/components/product/TrustBadgesStrip';
 
+// Variants whose slug matches this pattern are surfaced in a separate
+// "VARIANTES SPÉCIALES" pill row instead of mixed with the dial colors.
+// Currently scoped to Datejust Wimbledon (fluted + smooth bezel pairing).
+const SPECIAL_VARIANT_PATTERN = /wimbledon/i;
+
 interface Props {
   product: Product;
   collectionVariants: Product[];
@@ -60,6 +65,8 @@ interface Props {
     reviewPlural: string;
     rangeSelectorLabel: string;
     variantsLabel: string;
+    variantsLabelDials: string;
+    variantsLabelSpecial: string;
     sizeSelectorLabel: string;
     checkoutNote: string;
     newClientDiscount: string;
@@ -265,43 +272,77 @@ export function ProductInfo({
         }}
       />
 
-      {/* Variant pills — other products in same collection */}
-      {collectionVariants.length > 1 && (
-        <div style={{ marginBottom: 20 }}>
-          <p style={{
-            fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.18em',
-            textTransform: 'uppercase', color: 'rgba(255,255,255,0.2)', marginBottom: 10,
-          }}>
-            {t.variantsLabel}
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            {collectionVariants.map((v) => {
-              const active = v.id === product.id;
-              return (
-                <Link
-                  key={v.id}
-                  href={`/collections/${v.brandSlug}/${v.collectionSlug}/${v.slug}`}
-                  style={{
-                    padding: '7px 14px',
-                    border: `1px solid ${active ? '#C9A96E' : 'rgba(255,255,255,0.1)'}`,
-                    borderRadius: 3,
-                    background: active ? 'rgba(201,169,110,0.08)' : 'transparent',
-                    fontSize: '0.68rem',
-                    fontWeight: active ? 600 : 400,
-                    color: active ? '#C9A96E' : 'rgba(255,255,255,0.45)',
-                    textDecoration: 'none',
-                  transition: 'all 0.2s',
-                  letterSpacing: '0.04em',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                  {getVariantOptionLabel(v, locale)}
-                </Link>
-              );
-            })}
+      {/* Variant pills — other products in same collection.
+          Split into dials + special-variants sections when both buckets
+          have entries (Datejust 41: 6 dial colors + 2 Wimbledon bezel
+          variants); otherwise renders a single flat list as before. */}
+      {(() => {
+        if (collectionVariants.length <= 1) return null;
+
+        const specialVariants = collectionVariants.filter((v) =>
+          SPECIAL_VARIANT_PATTERN.test(v.slug)
+        );
+        const standardVariants = collectionVariants.filter(
+          (v) => !SPECIAL_VARIANT_PATTERN.test(v.slug)
+        );
+        const hasGrouping =
+          specialVariants.length > 0 && standardVariants.length > 0;
+
+        const renderPill = (v: Product) => {
+          const active = v.id === product.id;
+          return (
+            <Link
+              key={v.id}
+              href={`/collections/${v.brandSlug}/${v.collectionSlug}/${v.slug}`}
+              style={{
+                padding: '7px 14px',
+                border: `1px solid ${active ? '#C9A96E' : 'rgba(255,255,255,0.1)'}`,
+                borderRadius: 3,
+                background: active ? 'rgba(201,169,110,0.08)' : 'transparent',
+                fontSize: '0.68rem',
+                fontWeight: active ? 600 : 400,
+                color: active ? '#C9A96E' : 'rgba(255,255,255,0.45)',
+                textDecoration: 'none',
+                transition: 'all 0.2s',
+                letterSpacing: '0.04em',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {getVariantOptionLabel(v, locale)}
+            </Link>
+          );
+        };
+
+        const renderSection = (label: string, variants: Product[]) => (
+          <div style={{ marginBottom: 20 }} key={label}>
+            <p
+              style={{
+                fontSize: '0.6rem',
+                fontWeight: 700,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.2)',
+                marginBottom: 10,
+              }}
+            >
+              {label}
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {variants.map(renderPill)}
+            </div>
           </div>
-        </div>
-      )}
+        );
+
+        if (hasGrouping) {
+          return (
+            <>
+              {renderSection(t.variantsLabelDials, standardVariants)}
+              {renderSection(t.variantsLabelSpecial, specialVariants)}
+            </>
+          );
+        }
+        return renderSection(t.variantsLabel, collectionVariants);
+      })()}
 
       {/* Size Selector — only when multiple sizes available */}
       {product.availableSizes.length > 1 && (
