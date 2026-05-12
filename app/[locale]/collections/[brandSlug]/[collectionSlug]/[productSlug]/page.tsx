@@ -12,6 +12,7 @@ import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductInfo } from '@/components/product/ProductInfo';
 import { ProductTabs } from '@/components/product/ProductTabs';
+import { ProductFAQ } from '@/components/product/ProductFAQ';
 import { SpecsTable } from '@/components/product/SpecsTable';
 import { RelatedProducts } from '@/components/product/RelatedProducts';
 import { RecentlyViewed } from '@/components/product/RecentlyViewed';
@@ -414,6 +415,15 @@ export default async function ProductPage({ params }: Props) {
           <ProductTabs product={enrichedLocalizedProduct} t={productTabsT} />
         </div>
       </section>
+
+      {/* ── FAQ produit (Schema.org FAQPage JSON-LD inline) ─────────── */}
+      <ProductFAQ
+        title={t('faqTitle')}
+        items={(t.raw('faqItems') as { q: string; a: string }[]).map((it) => ({
+          question: it.q,
+          answer: it.a,
+        }))}
+      />
 
       {/* ── Related Products ────────────────────────────────────────── */}
       <section

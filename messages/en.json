@@ -427,7 +427,42 @@
     "shippingAvailabilityLabel": "Availability",
     "shippingStatusReady": "Shipped within 48h from Montréal",
     "shippingStatusMadeToOrder": "Within 10-14 days",
-    "shippingTrackingNote": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net."
+    "shippingTrackingNote": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net.",
+    "faqTitle": "Frequently asked about this piece",
+    "faqItems": [
+      {
+        "q": "How long does delivery take?",
+        "a": "Pieces labeled 'Shipped within 48h from Montréal' leave within 2 business days. Made-to-order pieces are prepared and shipped within 10-14 days. Tracking is shared by email or WhatsApp once dispatched. Standard delivery 3-5 business days across Canada, 7-14 days internationally."
+      },
+      {
+        "q": "How do 30-day returns work?",
+        "a": "You have 30 days from receipt to request a return. Message us on WhatsApp, we confirm the return address and walk you through it. The piece must come back in its original condition, with box and papers if provided. Full refund issued upon receipt and inspection, typically within 3 business days."
+      },
+      {
+        "q": "Which factory does this model come from?",
+        "a": "Premium pieces come from a curated ecosystem of specialized manufactures (VSF, ARF, Clean, ZF, APSF, AF) selected for their accuracy to the original references. The exact factory for your order is listed in the spec sheet. Essential pieces use a Miyota Japanese automatic movement."
+      },
+      {
+        "q": "How do you ship within Canada?",
+        "a": "Tracked shipping from Montréal, free and included in the price. 3-5 business days coast to coast via Canada Post or Purolator depending on postal code. The tracking number is sent by email and WhatsApp upon dispatch."
+      },
+      {
+        "q": "How do you ship outside Canada?",
+        "a": "International shipping available on WhatsApp request. 7-14 business days depending on destination. International shipping fees vary by country and weight - we share the exact rate before confirming. Tracking included in all cases."
+      },
+      {
+        "q": "Are there customs fees to expect?",
+        "a": "For orders within Canada, no customs fees apply. For international orders, any duties or taxes are the buyer's responsibility per the destination country's regulations. We declare shipping value honestly, that's our policy."
+      },
+      {
+        "q": "What happens past 30 days (after-sale, movement, bracelet)?",
+        "a": "Past 30 days, WhatsApp after-sale service stays active. For a movement or bracelet issue, message us: we assess and propose a repair or exchange depending on the nature of the defect. Shipping and repair fees are discussed case by case. The principle: we don't drop a customer after the sale."
+      },
+      {
+        "q": "What payment methods are accepted?",
+        "a": "Secure payment via Stripe: Visa, Mastercard, American Express, Apple Pay, Google Pay. 10% off on account registration. 4-installment payment available based on eligibility. For Interac e-Transfer or wire transfer, message us on WhatsApp."
+      }
+    ]
   },
   "wishlist": {
     "pageOverline": "YOUR SELECTION",

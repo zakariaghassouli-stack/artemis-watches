@@ -433,7 +433,42 @@
     "shippingAvailabilityLabel": "Disponibilité",
     "shippingStatusReady": "Expédié sous 48h depuis Montréal",
     "shippingStatusMadeToOrder": "Sous 10-14 jours",
-    "shippingTrackingNote": "Votre numéro de suivi sera envoyé par email ou WhatsApp. Suivez votre commande sur 17track.net."
+    "shippingTrackingNote": "Votre numéro de suivi sera envoyé par email ou WhatsApp. Suivez votre commande sur 17track.net.",
+    "faqTitle": "Questions fréquentes sur cette pièce",
+    "faqItems": [
+      {
+        "q": "Combien de temps pour la livraison ?",
+        "a": "Les pièces marquées 'Expédié sous 48h depuis Montréal' partent dans les 2 jours ouvrables. Les pièces sous commande sont préparées et expédiées sous 10-14 jours. Une fois en route, le suivi est partagé par email ou WhatsApp. Livraison standard 3-5 jours ouvrables au Canada, 7-14 jours à l'international."
+      },
+      {
+        "q": "Comment se passent les retours sous 30 jours ?",
+        "a": "Vous avez 30 jours après réception pour demander un retour. Contactez-nous par WhatsApp, on confirme l'adresse de retour et on vous accompagne. La pièce doit revenir dans son état d'origine, avec sa boîte et ses papiers si fournis. Remboursement complet dès réception et inspection, généralement sous 3 jours ouvrables."
+      },
+      {
+        "q": "De quelle factory provient ce modèle ?",
+        "a": "Les pièces Premium proviennent d'un écosystème de manufactures spécialisées (VSF, ARF, Clean, ZF, APSF, AF) sélectionnées pour leur fidélité aux références d'origine. La factory exacte pour votre commande est précisée dans la fiche technique du produit. Les pièces Essential utilisent un mouvement Miyota automatique japonais."
+      },
+      {
+        "q": "Comment expédiez-vous au Canada ?",
+        "a": "Livraison suivie depuis Montréal, gratuite et incluse dans le prix. Délai 3-5 jours ouvrables d'un océan à l'autre via Postes Canada ou Purolator selon le code postal. Le numéro de suivi est envoyé par email et WhatsApp dès l'expédition."
+      },
+      {
+        "q": "Comment expédiez-vous hors Canada ?",
+        "a": "Expédition internationale possible sur demande WhatsApp. Délai 7-14 jours ouvrables selon la destination. Les frais d'expédition internationale varient selon le pays et le poids - on vous transmet le tarif exact avant confirmation. Suivi inclus dans tous les cas."
+      },
+      {
+        "q": "Y a-t-il des frais de douane à prévoir ?",
+        "a": "Pour les commandes au Canada, aucun frais de douane. Pour les commandes internationales, la responsabilité des droits et taxes éventuels revient à l'acheteur selon la réglementation du pays de destination. On déclare honnêtement la valeur expédiée, c'est notre politique."
+      },
+      {
+        "q": "Que se passe-t-il après les 30 jours (SAV, mouvement, bracelet) ?",
+        "a": "Au-delà des 30 jours, le service après-vente reste actif via WhatsApp. Pour un problème de mouvement ou de bracelet, contactez-nous : on évalue, on propose une réparation ou un échange selon la nature du défaut. Les frais d'envoi et de réparation sont discutés au cas par cas. La logique : on ne laisse pas tomber un client après l'achat."
+      },
+      {
+        "q": "Modes de paiement acceptés ?",
+        "a": "Paiement sécurisé par Stripe : Visa, Mastercard, American Express, Apple Pay, Google Pay. 10 % de réduction à la création de compte client. Possibilité de paiement en 4 fois selon éligibilité. Pour Interac e-Transfer ou virement, contactez-nous via WhatsApp."
+      }
+    ]
   },
   "wishlist": {
     "pageOverline": "VOTRE SÉLECTION",
