@@ -27,12 +27,37 @@ export function getProductWhatsAppMessage(input: {
   productName: string;
   variant: string;
   price: string;
+  range?: 'essential' | 'premium';
+  size?: string;
+  boxAndPapers?: boolean;
 }): string {
-  const { locale, productName, variant, price } = input;
+  const { locale, productName, variant, price, range, size, boxAndPapers } = input;
 
-  return locale === 'fr'
-    ? `Bonjour ! Je suis intéressé(e) par ${productName} (${variant}), ${price} CAD. Est-elle encore disponible ?`
-    : `Hi! I'm interested in the ${productName} (${variant}), ${price} CAD. Is it still available?`;
+  // Range qualifier — intentionally avoids "Swiss" / "Suisse" (factually wrong
+  // for our Dandong-sourced Premium pieces, and protected by the Swissness Act).
+  const rangeLabel = range
+    ? locale === 'fr'
+      ? range === 'premium'
+        ? 'gamme Premium'
+        : 'gamme Essential (Miyota)'
+      : range === 'premium'
+        ? 'Premium range'
+        : 'Essential range (Miyota)'
+    : null;
+
+  const sizePart = size ? ` ${size}` : '';
+  const boxPart = boxAndPapers
+    ? locale === 'fr'
+      ? ' avec box & papers'
+      : ' with box & papers'
+    : '';
+
+  if (locale === 'fr') {
+    const rangeSentence = rangeLabel ? ` en ${rangeLabel}` : '';
+    return `Bonjour ! Je suis intéressé(e) par ${productName} (${variant})${sizePart}${rangeSentence}${boxPart}, ${price} CAD. Est-elle encore disponible ?`;
+  }
+  const rangeSentence = rangeLabel ? `, ${rangeLabel}` : '';
+  return `Hi! I'm interested in the ${productName} (${variant})${sizePart}${rangeSentence}${boxPart}, ${price} CAD. Is it still available?`;
 }
 
 export function getOrderWhatsAppMessage(locale: string, orderId?: string): string {

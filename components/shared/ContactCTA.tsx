@@ -114,6 +114,9 @@ export function ContactCTA({
           productName: `${productContext.brand} ${productContext.name}`,
           variant: productContext.variant,
           price: formatPrice(productContext.price),
+          range: productContext.range,
+          size: productContext.size,
+          boxAndPapers: productContext.boxAndPapers,
         })
       : getGeneralWhatsAppMessage(locale);
     href = getWhatsAppUrl(message);
