@@ -137,7 +137,7 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     name: 'Oyster Perpetual',
     brandSlug: 'rolex',
     description:
-      'The purist Rolex — no date, no complications, no distraction. The Oyster Perpetual is the direct descendant of the original 1926 Rolex Oyster, reduced to its core.',
+      'The purist Rolex — no date, no complications, no distraction. The Oyster Perpetual is the direct descendant of the original 1926 design, reduced to its core.',
   },
   'sky-dweller': {
     slug: 'sky-dweller',
