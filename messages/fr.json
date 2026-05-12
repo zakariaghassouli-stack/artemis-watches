@@ -458,7 +458,7 @@
       },
       {
         "q": "Y a-t-il des frais de douane à prévoir ?",
-        "a": "Pour les commandes au Canada, aucun frais de douane. Pour les commandes internationales, la responsabilité des droits et taxes éventuels revient à l'acheteur selon la réglementation du pays de destination. On déclare honnêtement la valeur expédiée, c'est notre politique."
+        "a": "Pour les commandes au Canada, aucun frais de douane. Pour les commandes internationales, la responsabilité des droits et taxes éventuels revient à l'acheteur selon la réglementation du pays de destination. Nous déclarons la valeur d'expédition conformément aux réglementations applicables."
       },
       {
         "q": "Que se passe-t-il après les 30 jours (SAV, mouvement, bracelet) ?",
@@ -466,7 +466,7 @@
       },
       {
         "q": "Modes de paiement acceptés ?",
-        "a": "Paiement sécurisé par Stripe : Visa, Mastercard, American Express, Apple Pay, Google Pay. 10 % de réduction à la création de compte client. Possibilité de paiement en 4 fois selon éligibilité. Pour Interac e-Transfer ou virement, contactez-nous via WhatsApp."
+        "a": "Paiement sécurisé par Stripe : Visa, Mastercard, American Express, Apple Pay, Google Pay. 10 % de réduction à la création de compte client. Pour Interac e-Transfer ou virement, contactez-nous via WhatsApp."
       }
     ]
   },

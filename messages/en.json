@@ -452,7 +452,7 @@
       },
       {
         "q": "Are there customs fees to expect?",
-        "a": "For orders within Canada, no customs fees apply. For international orders, any duties or taxes are the buyer's responsibility per the destination country's regulations. We declare shipping value honestly, that's our policy."
+        "a": "For orders within Canada, no customs fees apply. For international orders, any duties or taxes are the buyer's responsibility per the destination country's regulations. We declare shipping value in accordance with applicable regulations."
       },
       {
         "q": "What happens past 30 days (after-sale, movement, bracelet)?",
@@ -460,7 +460,7 @@
       },
       {
         "q": "What payment methods are accepted?",
-        "a": "Secure payment via Stripe: Visa, Mastercard, American Express, Apple Pay, Google Pay. 10% off on account registration. 4-installment payment available based on eligibility. For Interac e-Transfer or wire transfer, message us on WhatsApp."
+        "a": "Secure payment via Stripe: Visa, Mastercard, American Express, Apple Pay, Google Pay. 10% off on account registration. For Interac e-Transfer or wire transfer, message us on WhatsApp."
       }
     ]
   },
