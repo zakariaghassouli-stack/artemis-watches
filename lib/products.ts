@@ -346,8 +346,30 @@ export function getMovementComparisonLabel(
   }
 
   return locale === 'fr'
-    ? `Mouvement japonais — ${formatPrice(product.essentialPrice)} CAD | Automatique haut de gamme — ${formatPrice(product.premiumPrice)} CAD`
-    : `Japanese Movement — ${formatPrice(product.essentialPrice)} CAD | High-grade automatic — ${formatPrice(product.premiumPrice)} CAD`;
+    ? `Mouvement japonais — ${formatPrice(product.essentialPrice)} CAD | Automatique 28 800 alt/h — ${formatPrice(product.premiumPrice)} CAD`
+    : `Japanese movement — ${formatPrice(product.essentialPrice)} CAD | Automatic 28,800 vph — ${formatPrice(product.premiumPrice)} CAD`;
+}
+
+/**
+ * Compact spec string for product cards: case diameter + movement + reserve.
+ * Returns null if essential segments are missing — caller renders nothing.
+ */
+export function getMicroSpecs(
+  product: Pick<Product, 'range' | 'specs'>,
+  locale: string
+): string | null {
+  const diameter = product.specs?.caseDiameter;
+  if (!diameter) return null;
+
+  const isPremium = product.range === 'premium';
+  if (locale === 'fr') {
+    return isPremium
+      ? `${diameter} · 28 800 alt/h · 70h`
+      : `${diameter} · Miyota · 40h`;
+  }
+  return isPremium
+    ? `${diameter} · 28,800 vph · 70h`
+    : `${diameter} · Miyota · 40h`;
 }
 
 export function getRetailReference(

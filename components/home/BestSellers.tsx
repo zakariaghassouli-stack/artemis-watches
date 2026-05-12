@@ -9,6 +9,7 @@ import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import {
   formatPrice,
   getHomepageEditProducts,
+  getMicroSpecs,
   getProductImageAlt,
   getScarcityState,
   localizeProduct,
@@ -36,6 +37,7 @@ function ProductCard({
   const locale = useLocale();
   const localizedProduct = localizeProduct(product, locale);
   const scarcity = getScarcityState(product);
+  const microSpecs = getMicroSpecs(product, locale);
   const { currency } = useCurrency();
   const displayImage = HOME_IMAGE_OVERRIDES[product.id] ?? product.images?.[0];
   const detailNote = product.hasEssentialVariant && product.hasPremiumVariant
@@ -189,11 +191,23 @@ function ProductCard({
             style={{
               fontSize: '0.75rem',
               color: '#6B6965',
-              marginBottom: 10,
+              marginBottom: microSpecs ? 6 : 10,
             }}
           >
           {localizedProduct.variant}
           </p>
+          {microSpecs && (
+            <p
+              style={{
+                fontSize: '0.68rem',
+                color: 'rgba(255,255,255,0.42)',
+                letterSpacing: '0.02em',
+                marginBottom: 10,
+              }}
+            >
+              {microSpecs}
+            </p>
+          )}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
             <p
               style={{

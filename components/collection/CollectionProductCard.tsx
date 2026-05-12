@@ -7,6 +7,7 @@ import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   formatPrice,
+  getMicroSpecs,
   getMovementComparisonLabel,
   getProductImageAlt,
   getScarcityState,
@@ -28,6 +29,7 @@ export function CollectionProductCard({ product, index, viewDetailsLabel }: Prop
   const tCollections = useTranslations('collections');
   const localizedProduct = localizeProduct(product, locale);
   const scarcity = getScarcityState(product);
+  const microSpecs = getMicroSpecs(product, locale);
   const { currency } = useCurrency();
   const movementComparison = getMovementComparisonLabel(product, locale);
   const detailNote = product.hasEssentialVariant && product.hasPremiumVariant
@@ -176,11 +178,23 @@ export function CollectionProductCard({ product, index, viewDetailsLabel }: Prop
             style={{
               fontSize: '0.75rem',
               color: '#6B6965',
-              marginBottom: 10,
+              marginBottom: microSpecs ? 6 : 10,
             }}
           >
             {localizedProduct.variant}
           </p>
+          {microSpecs && (
+            <p
+              style={{
+                fontSize: '0.68rem',
+                color: 'rgba(255,255,255,0.42)',
+                letterSpacing: '0.02em',
+                marginBottom: 10,
+              }}
+            >
+              {microSpecs}
+            </p>
+          )}
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
             <p style={{ fontSize: '0.88rem', fontWeight: 600, color: '#A8A5A0' }}>
               {formatPrice(convertPrice(product.price, currency), currency)} {currency}
