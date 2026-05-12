@@ -95,11 +95,14 @@ export default async function ProductPage({ params }: Props) {
 
   const localizedProduct = localizeProduct(product, locale);
 
-  // Variant pills: only siblings sharing the exact `name` (e.g. "Datejust 41"),
-  // not the whole collection. Avoids mixing Datejust 31/36/41 in one pill row
-  // and the resulting duplicate labels ("Black Dial" appearing for both 36 + 41).
+  // Variant pills: only siblings sharing the exact `name` AND the same `range` tier.
+  //   - Same name avoids mixing Datejust 31/36/41 in one pill row
+  //   - Same range avoids a "Black Dial" pill appearing twice when both an
+  //     Essential and a Premium variant exist with the same dial color
+  // Cross-tier discovery (Essential ↔ Premium for the same dial) is handled by
+  // the range selector lower in the panel — pills stay scoped to visual variants.
   const collectionVariants = (await getProductsByCollection(product.collectionSlug))
-    .filter((sibling) => sibling.name === product.name);
+    .filter((sibling) => sibling.name === product.name && sibling.range === product.range);
 
   const brand = getBrandMeta(brandSlug);
   const collection = getCollectionMeta(collectionSlug);
