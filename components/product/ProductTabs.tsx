@@ -68,7 +68,7 @@ function SpecsTab({
     movement:
       range === 'essential'
         ? 'Miyota Japanese automatic'
-        : 'Dandong automatic',
+        : 'High-grade automatic',
   };
   const entries = Object.entries(normalizedSpecs).filter(([, v]) => v) as [string, string][];
 

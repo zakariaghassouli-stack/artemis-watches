@@ -29,7 +29,7 @@
     "nautilus": "Nautilus",
     "aquanaut": "Aquanaut",
     "essential": "Essentielle · Mouvement japonais (Miyota)",
-    "premium": "Premium · Mouvement Dandong (automatique)",
+    "premium": "Premium · Automatique haut de gamme",
     "wishlist": "Pièces sauvegardées",
     "closeMenu": "Fermer le menu",
     "openMenu": "Ouvrir le menu",
@@ -41,7 +41,7 @@
     "megaAllWatches": "Toutes les montres →",
     "megaNewArrivals": "Nouveautés →",
     "megaEssential": "Essentielle · Mouvement japonais (Miyota) →",
-    "megaPremium": "Premium · Mouvement Dandong (automatique) →"
+    "megaPremium": "Premium · Automatique haut de gamme →"
   },
   "home": {
     "hero": {
@@ -139,11 +139,11 @@
     "bestSellers": {
       "overline": "SÉLECTION ARTEMIS",
       "headline": "Les pièces les plus demandées par nos clients",
-      "subheadline": "À partir de 280 $ CAD. Mouvements japonais et Dandong côte à côte.",
+      "subheadline": "À partir de 280 $ CAD. Deux niveaux de mouvement côte à côte.",
       "viewAll": "Voir les 78 pièces →",
       "from": "À partir de",
       "essential": "Essentielle · Mouvement japonais (Miyota)",
-      "premium": "Premium · Mouvement Dandong (automatique)",
+      "premium": "Premium · Automatique haut de gamme",
       "bestSeller": "Favori client",
       "lowStock": "Seulement {count} restants",
       "highDemand": "Choix polyvalent",
@@ -267,8 +267,8 @@
       "a5": "Oui. Écrivez-nous sur WhatsApp et nous vous orienterons sur la gamme, la taille ou la référence adaptée.",
       "q6": "Qu'est-ce qui est inclus avec la commande ?",
       "a6": "La montre, un outil d'ajustement de bracelet, un coffret protecteur et une livraison suivie.",
-      "q7": "Quelle est la différence entre les mouvements japonais et Dandong ?",
-      "a7": "Les deux options bénéficient du même processus d'inspection, de la livraison suivie et des retours 30 jours. Les pièces Essentielle utilisent des mouvements automatiques japonais Miyota. Les pièces Premium utilisent des mouvements automatiques Dandong — issus d'une manufacture chinoise spécialisée dans les mouvements automatiques de haute précision, avec des finitions plus poussées et une exécution plus riche."
+      "q7": "Quels mouvements équipent les pièces Premium ?",
+      "a7": "Les pièces Premium utilisent des mouvements automatiques de qualité supérieure avec une réserve de marche étendue, des finitions plus poussées et des tolérances de précision plus serrées. Pour les spécifications détaillées d'une référence précise, contactez-nous sur WhatsApp."
     }
   },
   "collections": {
@@ -288,7 +288,7 @@
     "adviceCta": "Écrire sur WhatsApp →",
     "filterAll": "Tous",
     "filterEssential": "Essentielle (japonais)",
-    "filterPremium": "Premium (Dandong)",
+    "filterPremium": "Premium",
     "brandLabel": "Marque",
     "modelLabel": "Modèle",
     "modelAll": "Tous",
@@ -306,7 +306,7 @@
     "resultPlural": "pièces affichées",
     "activeSortLabel": "Tri actif",
     "viewDetails": "Voir la pièce",
-    "rangeOptions": "Options mouvement japonais et Dandong",
+    "rangeOptions": "Options mouvement japonais et automatique haut de gamme",
     "sizeOptions": "Plusieurs tailles disponibles",
     "supportNote": "Livraison suivie et retours 30 jours",
     "noResults": "Aucun produit ne correspond à vos filtres.",
@@ -377,7 +377,7 @@
     "relatedTitle": "Vous pourriez aussi considérer",
     "relatedViewAll": "Voir tout →",
     "rangeEssential": "Essentielle · Mouvement japonais (Miyota)",
-    "rangePremium": "Premium · Mouvement Dandong (automatique)",
+    "rangePremium": "Premium · Automatique haut de gamme",
     "lowStock": "Seulement {count} restants",
     "bestSeller": "Favori clients",
     "highDemand": "Disponibilité limitée",
@@ -457,7 +457,7 @@
     "countPlural": "{count} pièces sauvegardées",
     "viewDetails": "Voir la pièce",
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
-    "premiumBadge": "Premium · Mouvement Dandong (automatique)",
+    "premiumBadge": "Premium · Automatique haut de gamme",
     "metaTitle": "Pièces sauvegardées | Artemis Montres",
     "metaDescription": "Vos montres Artemis sauvegardées - Rolex, Cartier, Audemars Piguet, Patek Philippe."
   },
@@ -486,7 +486,7 @@
     "allBrands": "Toutes les marques",
     "allRanges": "Toutes",
     "essential": "Essentielle (japonais)",
-    "premium": "Premium (Dandong)",
+    "premium": "Premium",
     "sortFeatured": "Plus demandées",
     "sortPriceLow": "Prix : croissant",
     "sortPriceHigh": "Prix : décroissant",
@@ -496,7 +496,7 @@
     "noResultsHint": "Essayez un autre terme - marque, modèle, couleur du cadran ou type de bracelet.",
     "suggestionsLabel": "Parcourir par marque :",
     "viewDetails": "Voir la pièce",
-    "rangeOptions": "Options mouvement japonais et Dandong",
+    "rangeOptions": "Options mouvement japonais et automatique haut de gamme",
     "sizeOptions": "Plusieurs tailles disponibles",
     "supportNote": "Livraison suivie et retours 30 jours",
     "fromPrice": "Dès",
@@ -508,9 +508,9 @@
     "newArrival": "Nouveau",
     "justRestocked": "Réapprovisionné",
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
-    "premiumBadge": "Premium · Mouvement Dandong (automatique)",
+    "premiumBadge": "Premium · Automatique haut de gamme",
     "metaTitle": "Recherche | Artemis - Montréal",
-    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Options mouvement japonais et Dandong. Livraison suivie au Canada."
+    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Options mouvement japonais et automatique haut de gamme. Livraison suivie au Canada."
   },
   "reviewsPage": {
     "metaTitle": "Avis Clients - ARTEMIS Watches",
@@ -630,8 +630,8 @@
     "s3a1": "Chaque montre est inspectée individuellement avant la mise en vente et avant l'expédition. Nous vérifions l'intégrité du boîtier, la clarté du verre, la tension du bracelet et la finition générale.",
     "s3q2": "Quelles marques proposez-vous ?",
     "s3a2": "Nous nous concentrons sur quatre marques : Rolex, Cartier, Audemars Piguet et Patek Philippe, autour d'un catalogue resserré de modèles emblématiques.",
-    "s3q3": "Quelle est la différence entre les mouvements japonais et Dandong ?",
-    "s3a3": "Les pièces à mouvement japonais (280-350 $ CAD) offrent une porte d'entrée plus légère avec des mouvements automatiques Miyota. Les pièces à mouvement Dandong (1 050-1 550 $ CAD) — issues d'une manufacture chinoise spécialisée dans les mouvements automatiques de haute précision — offrent davantage de finition et une sensation matière plus présente. Les deux suivent le même processus d'inspection.",
+    "s3q3": "Comment les mouvements Essential et Premium diffèrent-ils ?",
+    "s3a3": "Les pièces Essential (280-350 $ CAD) utilisent des mouvements automatiques japonais Miyota. Les pièces Premium (1 050-1 550 $ CAD) utilisent des mouvements automatiques de qualité supérieure avec une réserve de marche étendue, des finitions plus poussées et des tolérances de précision plus serrées. Pour les spécifications détaillées d'une référence précise, contactez-nous sur WhatsApp.",
     "s3q4": "Les montres sont-elles livrées avec boîte et papiers ?",
     "s3a4": "Les pièces Premium incluent la boîte & papiers sans frais. Les pièces Essentielle peuvent ajouter l'ensemble pour 49 $ CAD.",
     "s3q5": "Qu'est-ce qui est inclus avec chaque commande ?",

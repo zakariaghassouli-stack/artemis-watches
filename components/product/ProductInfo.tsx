@@ -128,7 +128,7 @@ export function ProductInfo({
   const rangeSelectorEssentialLabel =
     locale === 'fr' ? 'Mouvement japonais' : 'Japanese Movement';
   const rangeSelectorPremiumLabel =
-    locale === 'fr' ? 'Mouvement Dandong' : 'Dandong movement';
+    locale === 'fr' ? 'Mouvement haut de gamme' : 'High-grade movement';
   const familyVariants = collectionVariants.filter(
     (variant) => variant.name === product.name
   );
