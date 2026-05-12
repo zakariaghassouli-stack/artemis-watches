@@ -413,8 +413,11 @@
       "crystal": "Crystal",
       "waterResistance": "Water Resistance",
       "movement": "Movement",
-      "powerReserve": "Power Reserve"
+      "powerReserve": "Power Reserve",
+      "factory": "Factory"
     },
+    "factorySubjectToAvailability": "(subject to availability)",
+    "factoryCustomerChoice": "(your choice)",
     "tabShipping": "Shipping",
     "tabReturns": "Returns",
     "tabHelp": "Need Help?",

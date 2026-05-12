@@ -419,8 +419,11 @@
       "crystal": "Verre",
       "movement": "Mouvement",
       "powerReserve": "Réserve de marche",
-      "waterResistance": "Résistance à l'eau"
+      "waterResistance": "Résistance à l'eau",
+      "factory": "Factory"
     },
+    "factorySubjectToAvailability": "(selon arrivage)",
+    "factoryCustomerChoice": "(au choix)",
     "tabShipping": "Livraison",
     "tabReturns": "Retours",
     "tabHelp": "Besoin d'aide ?",

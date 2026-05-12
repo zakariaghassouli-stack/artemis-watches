@@ -1,14 +1,25 @@
-import type { ProductSpecs } from '@/types/product';
+import type {
+  FactoryChoice,
+  FactoryOption,
+  ProductRange,
+  ProductSpecs,
+} from '@/types/product';
 
 interface SpecsTableProps {
   specs: ProductSpecs;
   labels: {
     heading: string;
-    fields: Partial<Record<keyof ProductSpecs, string>>;
+    fields: Partial<Record<keyof ProductSpecs, string>> & { factory?: string };
+  };
+  range?: ProductRange;
+  factoryOptions?: FactoryOption[];
+  factoryChoice?: FactoryChoice;
+  factoryChoiceLabels?: {
+    subjectToAvailability: string;
+    customerChoice: string;
   };
 }
 
-// Order specs in a sensible reading flow regardless of insertion order
 const FIELD_ORDER: Array<keyof ProductSpecs> = [
   'caseDiameter',
   'caseThickness',
@@ -25,15 +36,52 @@ const FIELD_ORDER: Array<keyof ProductSpecs> = [
   'clasp',
 ];
 
-export function SpecsTable({ specs, labels }: SpecsTableProps) {
-  const rows = FIELD_ORDER
-    .map((key) => {
+type SpecRow = { key: string; label: string; value: string };
+
+function formatFactory(
+  options: FactoryOption[],
+  choice: FactoryChoice | undefined,
+  choiceLabels: SpecsTableProps['factoryChoiceLabels'],
+): string {
+  if (options.length === 1) return options[0];
+  const joined = options.join(' · ');
+  if (!choiceLabels) return joined;
+  if (choice === 'customer-choice') return `${joined} ${choiceLabels.customerChoice}`;
+  if (choice === 'subject-to-availability')
+    return `${joined} ${choiceLabels.subjectToAvailability}`;
+  return joined;
+}
+
+export function SpecsTable({
+  specs,
+  labels,
+  range,
+  factoryOptions,
+  factoryChoice,
+  factoryChoiceLabels,
+}: SpecsTableProps) {
+  const rows: SpecRow[] = FIELD_ORDER
+    .map((key): SpecRow | null => {
       const value = specs[key];
       const label = labels.fields[key];
       if (!value || !label || typeof value !== 'string') return null;
-      return { key, label, value };
+      return { key: String(key), label, value };
     })
-    .filter((row): row is { key: keyof ProductSpecs; label: string; value: string } => row !== null);
+    .filter((row): row is SpecRow => row !== null);
+
+  // Premium pieces lead with the source factory row when populated.
+  if (
+    range === 'premium' &&
+    factoryOptions &&
+    factoryOptions.length > 0 &&
+    labels.fields.factory
+  ) {
+    rows.unshift({
+      key: 'factory',
+      label: labels.fields.factory,
+      value: formatFactory(factoryOptions, factoryChoice, factoryChoiceLabels),
+    });
+  }
 
   if (rows.length === 0) return null;
 
