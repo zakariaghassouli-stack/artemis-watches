@@ -35,10 +35,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Green",
-    "bracelet": "Oyster, three-piece solid links",
-    "clasp": "Oysterclasp with safety lock",
-    "bezel": "Full green Cerachrom ceramic",
-    "lume": "Chromalight (blue luminescence)"
+    "bracelet": "Three-piece solid links",
+    "clasp": "Folding clasp with safety lock",
+    "bezel": "Full green Ceramic",
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

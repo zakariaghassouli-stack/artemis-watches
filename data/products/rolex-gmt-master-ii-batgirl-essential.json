@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Black",
-    "bracelet": "Jubilee, five-piece links",
-    "clasp": "Crownclasp",
-    "bezel": "Blue/black Cerachrom ceramic",
-    "lume": "Chromalight (blue luminescence)"
+    "bracelet": "Five-piece links",
+    "clasp": "Hidden folding clasp",
+    "bezel": "Blue/black Ceramic",
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

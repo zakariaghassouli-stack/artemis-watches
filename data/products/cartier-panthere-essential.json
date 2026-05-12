@@ -36,7 +36,9 @@
     "bracelet": "Articulated steel bracelet",
     "clasp": "Hidden clasp",
     "bezel": "Square polished case edge",
-    "lume": "None (sapphire hands)"
+    "lume": "None (sapphire hands)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "27mm"

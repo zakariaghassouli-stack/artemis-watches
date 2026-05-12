@@ -35,10 +35,12 @@
   "specs": {
     "caseDiameter": "41mm",
     "dialColor": "Black",
-    "bracelet": "Oyster, full black PVD-coated",
-    "clasp": "Oysterclasp with safety lock",
+    "bracelet": "Full black PVD-coated three-piece links",
+    "clasp": "Folding clasp with safety lock",
     "bezel": "Black PVD unidirectional",
-    "lume": "Chromalight (blue luminescence)"
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "41mm"

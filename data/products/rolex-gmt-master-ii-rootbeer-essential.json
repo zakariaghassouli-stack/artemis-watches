@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Champagne/brown",
-    "bracelet": "Oyster, gold/steel two-tone",
-    "clasp": "Oysterclasp with safety lock",
-    "bezel": "Brown/gold Cerachrom ceramic",
-    "lume": "Chromalight (blue luminescence)"
+    "bracelet": "Two-tone gold/steel three-piece links",
+    "clasp": "Folding clasp with safety lock",
+    "bezel": "Brown/gold Ceramic",
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

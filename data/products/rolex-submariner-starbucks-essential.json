@@ -32,10 +32,12 @@
   "specs": {
     "caseDiameter": "41mm",
     "dialColor": "Green",
-    "bracelet": "Oyster, three-piece solid links",
-    "clasp": "Oysterclasp with safety lock",
-    "bezel": "Black Cerachrom ceramic unidirectional",
-    "lume": "Chromalight (blue luminescence)"
+    "bracelet": "Three-piece solid links",
+    "clasp": "Folding clasp with safety lock",
+    "bezel": "Black Ceramic unidirectional",
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "41mm"

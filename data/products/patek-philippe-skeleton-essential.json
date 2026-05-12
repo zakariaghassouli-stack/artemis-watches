@@ -38,7 +38,9 @@
     "bracelet": "Leather strap",
     "clasp": "Pin buckle",
     "bezel": "Smooth, polished round",
-    "lume": "None"
+    "lume": "None",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "38mm"

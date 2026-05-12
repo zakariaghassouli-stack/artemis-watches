@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "White/Silver",
-    "bracelet": "Jubilee-style, steel five-piece links",
+    "bracelet": "Five-piece links-style, steel five-piece links",
     "clasp": "Folding clasp",
     "bezel": "Smooth, polished",
-    "lume": "Chromalight (blue luminescence)"
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

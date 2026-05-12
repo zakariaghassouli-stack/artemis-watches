@@ -34,7 +34,9 @@
     "bracelet": "Integrated rose-gold-tone bracelet",
     "clasp": "Butterfly clasp",
     "bezel": "Octagonal rose-gold-tone with 8 screws",
-    "lume": "None"
+    "lume": "None",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "41mm"

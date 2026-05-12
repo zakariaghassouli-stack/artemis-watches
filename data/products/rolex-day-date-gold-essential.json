@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Champagne/Gold",
-    "bracelet": "President, full gold-tone three-piece links",
+    "bracelet": "Semi-circular three-piece links, full gold-tone three-piece links",
     "clasp": "Concealed folding clasp",
     "bezel": "Fluted, gold-tone",
-    "lume": "Chromalight (blue luminescence)"
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

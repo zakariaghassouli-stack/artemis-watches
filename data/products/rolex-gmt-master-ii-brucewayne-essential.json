@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Black",
-    "bracelet": "Oyster, black PVD-coated",
-    "clasp": "Oysterclasp with safety lock",
-    "bezel": "Black Cerachrom ceramic",
-    "lume": "Chromalight (blue luminescence)"
+    "bracelet": "Black PVD-coated three-piece links",
+    "clasp": "Folding clasp with safety lock",
+    "bezel": "Black Ceramic",
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

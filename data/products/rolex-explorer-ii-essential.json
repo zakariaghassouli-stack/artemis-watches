@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "42mm",
     "dialColor": "White/Silver",
-    "bracelet": "Oyster, three-piece solid links",
-    "clasp": "Oysterclasp with safety lock",
+    "bracelet": "Three-piece solid links",
+    "clasp": "Folding clasp with safety lock",
     "bezel": "Fixed, 24h-graduated",
-    "lume": "Chromalight (blue luminescence)"
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "42mm"

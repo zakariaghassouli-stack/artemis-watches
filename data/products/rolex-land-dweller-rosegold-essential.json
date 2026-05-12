@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Champagne/Rose",
-    "bracelet": "Jubilee-style, rose-gold-tone five-piece links",
+    "bracelet": "Five-piece links-style, rose-gold-tone five-piece links",
     "clasp": "Folding clasp",
     "bezel": "Smooth, rose-gold-tone",
-    "lume": "Chromalight (blue luminescence)"
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

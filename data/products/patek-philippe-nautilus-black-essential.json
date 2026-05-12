@@ -34,7 +34,9 @@
     "bracelet": "Integrated steel bracelet",
     "clasp": "Fold-over clasp",
     "bezel": "Octagonal, porthole-inspired",
-    "lume": "Applied luminous indices"
+    "lume": "Applied luminous indices",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

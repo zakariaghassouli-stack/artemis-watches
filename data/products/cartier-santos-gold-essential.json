@@ -36,7 +36,9 @@
     "bracelet": "Integrated gold-tone, interchangeable",
     "clasp": "Butterfly clasp",
     "bezel": "Square case with gold-tone screws",
-    "lume": "None (sapphire hands)"
+    "lume": "None (sapphire hands)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Black",
-    "bracelet": "Jubilee, five-piece links",
-    "clasp": "Folding Oysterlock",
-    "bezel": "Bidirectional rotating, red/blue Cerachrom 24h",
-    "lume": "Chromalight (blue luminescence)"
+    "bracelet": "Five-piece links",
+    "clasp": "Folding safety clasp",
+    "bezel": "Bidirectional rotating, red/blue Ceramic 24h",
+    "lume": "Luminescent indices (blue)",
+    "movement": "Automatic, 28,800 vph",
+    "powerReserve": "70 hours"
   },
   "availableSizes": [
     "40mm"

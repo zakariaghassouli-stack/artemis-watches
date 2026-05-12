@@ -35,7 +35,9 @@
     "bracelet": "Integrated mesh, gold tone",
     "clasp": "Deployant buckle",
     "bezel": "Fixed, polished gold tone",
-    "lume": "Applied hour markers"
+    "lume": "Applied hour markers",
+    "movement": "Automatic, 28,800 vph",
+    "powerReserve": "70 hours"
   },
   "availableSizes": [
     "22mm",

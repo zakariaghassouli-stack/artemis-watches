@@ -33,7 +33,9 @@
     "bracelet": "Integrated, alternating polished and brushed",
     "clasp": "Fold-over clasp",
     "bezel": "Octagonal with decorative screws",
-    "lume": "Applied hour markers"
+    "lume": "Applied hour markers",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "41mm"

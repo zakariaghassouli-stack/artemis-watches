@@ -34,7 +34,9 @@
     "bracelet": "Integrated steel bracelet",
     "clasp": "Butterfly clasp",
     "bezel": "Octagonal with 8 hexagonal screws",
-    "lume": "Applied luminous indices"
+    "lume": "Applied luminous indices",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "41mm"

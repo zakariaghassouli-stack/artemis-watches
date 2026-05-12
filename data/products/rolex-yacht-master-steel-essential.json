@@ -33,10 +33,12 @@
   "specs": {
     "caseDiameter": "40mm",
     "dialColor": "Silver/Rhodium",
-    "bracelet": "Oyster or Oysterflex, stainless steel",
-    "clasp": "Oysterclasp with safety lock",
+    "bracelet": "Three-piece links or rubber-coated, stainless steel",
+    "clasp": "Folding clasp with safety lock",
     "bezel": "Bidirectional rotatable, platinum-finish numerals",
-    "lume": "Chromalight (blue luminescence)"
+    "lume": "Luminescent indices (blue)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

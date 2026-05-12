@@ -31,10 +31,12 @@
   "specs": {
     "caseDiameter": "41mm",
     "dialColor": "Blue",
-    "bracelet": "Oyster, three-piece solid links",
-    "clasp": "Oysterclasp with safety lock",
-    "bezel": "Unidirectional rotating, 60-min blue Cerachrom",
-    "lume": "Chromalight (blue luminescence)"
+    "bracelet": "Three-piece solid links",
+    "clasp": "Folding clasp with safety lock",
+    "bezel": "Unidirectional rotating, 60-min blue Ceramic",
+    "lume": "Luminescent indices (blue)",
+    "movement": "Automatic, 28,800 vph",
+    "powerReserve": "70 hours"
   },
   "availableSizes": [
     "41mm"

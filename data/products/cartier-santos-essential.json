@@ -35,7 +35,9 @@
     "bracelet": "Integrated steel",
     "clasp": "Deployant buckle",
     "bezel": "Fixed with exposed screws",
-    "lume": "Applied hour markers"
+    "lume": "Applied hour markers",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "39.8mm"

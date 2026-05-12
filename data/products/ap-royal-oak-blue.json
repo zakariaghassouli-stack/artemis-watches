@@ -34,7 +34,9 @@
     "bracelet": "Integrated, alternating polished and brushed",
     "clasp": "AP-signed fold-over clasp",
     "bezel": "Octagonal, 8 white gold screws",
-    "lume": "Applied luminescent hour markers"
+    "lume": "Applied luminescent hour markers",
+    "movement": "Automatic, 28,800 vph",
+    "powerReserve": "70 hours"
   },
   "availableSizes": [
     "37mm",

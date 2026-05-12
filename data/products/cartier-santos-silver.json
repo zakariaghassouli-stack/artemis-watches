@@ -35,7 +35,9 @@
     "bracelet": "Integrated steel, alternating polished and brushed links",
     "clasp": "Deployant buckle with double push-button",
     "bezel": "Fixed, polished with exposed screws",
-    "lume": "Applied hour markers"
+    "lume": "Applied hour markers",
+    "movement": "Automatic, 28,800 vph",
+    "powerReserve": "70 hours"
   },
   "availableSizes": [
     "35.1mm",

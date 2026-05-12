@@ -36,7 +36,9 @@
     "bracelet": "Integrated steel, interchangeable",
     "clasp": "Butterfly clasp",
     "bezel": "Square case edge with polished screws",
-    "lume": "None (sapphire hands)"
+    "lume": "None (sapphire hands)",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"

@@ -33,7 +33,9 @@
     "bracelet": "Integrated, polished and satin-finished",
     "clasp": "Fold-over clasp with push-button release",
     "bezel": "Octagonal with rounded corners",
-    "lume": "Applied luminescent hour markers"
+    "lume": "Applied luminescent hour markers",
+    "movement": "Automatic, 28,800 vph",
+    "powerReserve": "70 hours"
   },
   "availableSizes": [
     "40mm"

@@ -33,7 +33,9 @@
     "bracelet": "Tropical composite strap",
     "clasp": "Fold-over tang buckle",
     "bezel": "Rounded octagonal, brushed",
-    "lume": "Applied luminescent hour markers"
+    "lume": "Applied luminescent hour markers",
+    "movement": "Automatic, 28,800 vph",
+    "powerReserve": "70 hours"
   },
   "availableSizes": [
     "38mm"

@@ -36,7 +36,9 @@
     "bracelet": "Composite/rubber strap",
     "clasp": "Pin buckle",
     "bezel": "Rounded octagonal",
-    "lume": "Applied luminous indices"
+    "lume": "Applied luminous indices",
+    "movement": "Miyota automatic, Japanese",
+    "powerReserve": "40 hours"
   },
   "availableSizes": [
     "40mm"
