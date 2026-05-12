@@ -105,5 +105,10 @@
   "seoDescriptionFr": "L'Audemars Piguet Royal Oak (Cadran Bleu) chez Artemis. Icône du luxe sportif, livrée depuis Montréal. Garantie 30 jours. 1 550 $ CAD.",
   "seoTitleFr": "Audemars Piguet Royal Oak Cadran Bleu | Artemis Montres Montréal",
   "shippingSpeed": "made-to-order",
-  "shippingEstimate": "2-3 weeks"
+  "shippingEstimate": "2-3 weeks",
+  "factoryOptions": [
+    "ZF",
+    "APSF"
+  ],
+  "factoryChoice": "subject-to-availability"
 }

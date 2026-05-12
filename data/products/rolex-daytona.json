@@ -95,5 +95,10 @@
   "seoDescriptionFr": "La Rolex Daytona chez Artemis - le chronographe de référence. Authenticité garantie, livraison gratuite au Canada. À partir de 1 550 $ CAD.",
   "seoTitleFr": "Rolex Daytona | Artemis Montres Montréal",
   "shippingSpeed": "made-to-order",
-  "shippingEstimate": "2-3 weeks"
+  "shippingEstimate": "2-3 weeks",
+  "factoryOptions": [
+    "Clean",
+    "VSF"
+  ],
+  "factoryChoice": "customer-choice"
 }
