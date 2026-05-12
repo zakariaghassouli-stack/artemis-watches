@@ -68,6 +68,11 @@ export function RangeBadge({
         color: premium ? '#C9A96E' : '#C9C5BC',
         background: premium ? 'rgba(201,169,110,0.1)' : 'rgba(255,255,255,0.05)',
         border: `1px solid ${premium ? 'rgba(201,169,110,0.2)' : 'rgba(255,255,255,0.08)'}`,
+        whiteSpace: 'normal',
+        textAlign: 'center',
+        borderRadius: 6,
+        maxWidth: '100%',
+        lineHeight: 1.35,
       }}
     >
       {premium ? premiumLabel : essentialLabel}
