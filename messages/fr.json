@@ -278,7 +278,9 @@
       "q6": "Qu'est-ce qui est inclus avec la commande ?",
       "a6": "La montre, un outil d'ajustement de bracelet, un coffret protecteur et une livraison suivie.",
       "q7": "Quels mouvements équipent les pièces Premium ?",
-      "a7": "Les pièces Premium utilisent des mouvements automatiques de génération moderne : haute fréquence 28 800 alternances/heure (4 Hz), réserve de marche étendue à 70 heures, architecture optimisée pour la précision quotidienne. C'est une catégorie supérieure aux architectures plus anciennes à réserve courte qu'on retrouve encore chez certains revendeurs. Pour les spécifications détaillées d'une référence précise, contactez-nous sur WhatsApp."
+      "a7": "Les pièces Premium utilisent des mouvements automatiques de génération moderne : haute fréquence 28 800 alternances/heure (4 Hz), réserve de marche étendue à 70 heures, architecture optimisée pour la précision quotidienne. C'est une catégorie supérieure aux architectures plus anciennes à réserve courte qu'on retrouve encore chez certains revendeurs. Pour les spécifications détaillées d'une référence précise, contactez-nous sur WhatsApp.",
+      "q8": "Quelle est l'étanchéité de vos montres ?",
+      "a8": "Les pièces Essential utilisent un boîtier conçu pour résister aux éclaboussures du quotidien — lavage des mains, pluie, transpiration. Elles ne sont pas conçues pour l'immersion (piscine, baignade, douche prolongée).\n\nLes pièces Premium sortent de factories tier 1 (VSF, ARF, Clean, ZF, APSF, AF) qui produisent les boîtiers selon les spécifications d'origine du modèle imité. Selon le modèle, cela couvre l'usage quotidien à la natation surface. Pour les sports aquatiques, plongée ou immersion prolongée, contactez-nous sur WhatsApp pour validation au cas par cas."
     }
   },
   "collections": {
@@ -430,6 +432,8 @@
     },
     "factorySubjectToAvailability": "(selon arrivage)",
     "factoryCustomerChoice": "(au choix)",
+    "waterResistanceEssential": "Résistant aux éclaboussures (lavage des mains, pluie)",
+    "waterResistancePremium": "Selon spec factory d'origine (variable par modèle)",
     "tabShipping": "Livraison",
     "tabReturns": "Retours",
     "tabHelp": "Besoin d'aide ?",
