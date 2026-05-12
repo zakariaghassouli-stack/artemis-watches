@@ -185,55 +185,7 @@
       "subheadline": "Same points every time: accurate descriptions, direct guidance, and tracked delivery.",
       "ugcCaption": "Read the reviews, then compare the pieces that prompted them.",
       "cta": "Read all reviews →",
-      "reviews": [
-        {
-          "title": "Solid purchase",
-          "text": "Ordered the Submariner for my birthday. Arrived in 4 days, packaging was clean, watch feels solid on the wrist. Already looking at the GMT for my next one.",
-          "author": "Marc D.",
-          "location": "Toronto, ON",
-          "rating": 5,
-          "image": "/images/review/review-02.png"
-        },
-        {
-          "title": "Collector approved",
-          "text": "I collect watches and I was skeptical ordering online. The Santos arrived matching the listing exactly. WhatsApp support was fast and honest. Only reason for 4 stars is the bracelet needed some adjusting.",
-          "author": "David R.",
-          "location": "Ottawa, ON",
-          "rating": 4,
-          "image": "/images/review/review-04.png"
-        },
-        {
-          "text": "Gift for my dad. He hasn't taken it off since.",
-          "author": "Alex M.",
-          "location": "Calgary, AB",
-          "rating": 5,
-          "image": "/images/review/review-05.png"
-        },
-        {
-          "title": "Repeat customer",
-          "text": "Second order with Artemis. Datejust this time. Same quality, same speed. 👌",
-          "author": "François B.",
-          "location": "Montreal, QC",
-          "rating": 4.5,
-          "image": "/images/review/review-06.png"
-        },
-        {
-          "title": "Exactly as shown",
-          "text": "The GMT Pepsi looked sharp online and even better once it arrived. Tracking updates were clear the whole way.",
-          "author": "Leo S.",
-          "location": "Edmonton, AB",
-          "rating": 5,
-          "image": "/images/review/review-07.png"
-        },
-        {
-          "title": "Clean service",
-          "text": "Bought the Santos after comparing a few options on WhatsApp. Straight answers, solid fit, no wasted time.",
-          "author": "Karim T.",
-          "location": "Quebec City, QC",
-          "rating": 4.5,
-          "image": "/images/review/review-08.png"
-        }
-      ],
+      "reviews": [],
       "whatsappText": "Have a question about a specific piece? Our team responds directly.",
       "whatsappButton": "Ask on WhatsApp →",
       "shopCta": "See What They Ordered → Shop the Collection"
@@ -557,59 +509,7 @@
     "ctaHeadline": "Find the piece that suits you.",
     "ctaShop": "Shop the Collection →",
     "ctaWhatsApp": "Talk to us on WhatsApp →",
-    "reviewsList": [
-      {
-        "text": "Perfect. Exactly what I expected.",
-        "author": "Amine K.",
-        "location": "Montreal, QC",
-        "watch": "Rolex Submariner",
-        "rating": 5,
-        "image": "/images/review/review-01.png"
-      },
-      {
-        "title": "Solid purchase",
-        "text": "Ordered the Submariner for my birthday. Arrived in 4 days, packaging was clean, watch feels solid on the wrist. Already looking at the GMT for my next one.",
-        "author": "Marc D.",
-        "location": "Toronto, ON",
-        "watch": "Rolex Submariner",
-        "rating": 5,
-        "image": "/images/review/review-02.png"
-      },
-      {
-        "text": "🔥🔥🔥",
-        "author": "Jordan P.",
-        "location": "Vancouver, BC",
-        "watch": "Rolex GMT-Master II",
-        "rating": 5,
-        "image": "/images/review/review-03.png"
-      },
-      {
-        "title": "Collector approved",
-        "text": "I collect watches and I was skeptical ordering online. The Santos arrived matching the listing exactly. WhatsApp support was fast and honest. Only reason for 4 stars is the bracelet needed some adjusting.",
-        "author": "David R.",
-        "location": "Ottawa, ON",
-        "watch": "Cartier Santos",
-        "rating": 4,
-        "image": "/images/review/review-04.png"
-      },
-      {
-        "text": "Gift for my dad. He hasn't taken it off since.",
-        "author": "Alex M.",
-        "location": "Calgary, AB",
-        "watch": "Rolex Datejust",
-        "rating": 5,
-        "image": "/images/review/review-05.png"
-      },
-      {
-        "title": "Repeat customer",
-        "text": "Second order with Artemis. Datejust this time. Same quality, same speed. 👌",
-        "author": "François B.",
-        "location": "Montreal, QC",
-        "watch": "Rolex Datejust",
-        "rating": 4.5,
-        "image": "/images/review/review-06.png"
-      }
-    ]
+    "reviewsList": []
   },
   "faqPage": {
     "metaTitle": "FAQ - ARTEMIS Watches",
