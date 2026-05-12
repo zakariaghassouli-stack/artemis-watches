@@ -5,7 +5,6 @@ import { useLocale } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import {
   formatPrice,
-  getInstallmentPrice,
   getProductDisplayTitle,
   getRetailReference,
   getScarcityState,
@@ -35,7 +34,6 @@ interface Props {
     addToCart: string;
     orderWhatsApp: string;
     wishlistLabel: string;
-    installmentLine: string;
     boxAndPapersLabel: string;
     boxAndPapersIncluded: string;
     freeShipping: string;
@@ -205,7 +203,6 @@ export function ProductInfo({
 
   // viewers counter removed — replaced with stock/scarcity indicator
 
-  const installmentAmt = formatPrice(getInstallmentPrice(activePrice, 4));
   const totalPrice = activePrice + (resolvedBoxAndPapers ? boxAndPapersPrice : 0);
 
   const avgRating =
@@ -536,17 +533,6 @@ export function ProductInfo({
             </span>
           )}
         </div>
-
-        {/* Installment */}
-        <p
-          style={{
-            fontSize: '0.72rem',
-            color: 'rgba(255,255,255,0.3)',
-            letterSpacing: '0.04em',
-          }}
-        >
-          {t.installmentLine.replace('{amount}', installmentAmt)}
-        </p>
 
         {/* 10% welcome offer for non-logged-in */}
         <NewClientDiscount

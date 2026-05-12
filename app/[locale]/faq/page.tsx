@@ -60,7 +60,6 @@ export default async function FAQPage() {
         { q: t('s4q1'), a: t('s4a1') },
         { q: t('s4q2'), a: t('s4a2') },
         { q: t('s4q3'), a: t('s4a3') },
-        { q: t('s4q4'), a: t('s4a4') },
       ],
     },
     {
