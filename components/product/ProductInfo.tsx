@@ -20,6 +20,7 @@ import { Link } from '@/i18n/navigation';
 import { RotateCcw, ShieldCheck, Truck, Wrench } from 'lucide-react';
 import type { Product } from '@/types/product';
 import { ContactCTA } from '@/components/shared/ContactCTA';
+import { TrustBadgesStrip } from '@/components/product/TrustBadgesStrip';
 
 interface Props {
   product: Product;
@@ -66,6 +67,10 @@ interface Props {
     shippingStatusReady: string;
     shippingStatusMadeToOrder: string;
     shippingTrackingNote: string;
+    trustOrders: string;
+    trustMontreal: string;
+    trustReturns: string;
+    trustResponse: string;
   };
 }
 
@@ -509,6 +514,15 @@ export function ProductInfo({
           discountPercent={welcomeDiscountPercent}
         />
       </div>
+
+      <TrustBadgesStrip
+        labels={{
+          orders: t.trustOrders,
+          montreal: t.trustMontreal,
+          returns: t.trustReturns,
+          response: t.trustResponse,
+        }}
+      />
 
       {/* Box & Papers state */}
       {premiumIncludesBoxAndPapers ? (
