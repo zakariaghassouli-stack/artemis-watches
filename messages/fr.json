@@ -59,6 +59,20 @@
       "point3": "Livraison suivie au Canada",
       "socialProof": "200+ commandes expédiées depuis Montréal"
     },
+    "preparation": {
+      "overline": "PRÉPARATION MONTRÉAL",
+      "headline": "Préparation Montréal — notre signature",
+      "subheadline": "Avant qu'une Premium quitte notre atelier de Montréal :",
+      "bullets": [
+        "Sourcing exclusif de la génération moderne (architecture 4 Hz, réserve 70h)",
+        "Boîtier ouvert, joints d'étanchéité inspectés et remplacés si nécessaire",
+        "Mouvement contrôlé, précision vérifiée",
+        "Ajustement du bracelet à votre demande",
+        "Emballage et expédition suivie"
+      ],
+      "closing": "Chaque pièce arrive prête à porter en usage quotidien — bureau, sport léger, conditions normales. Pour les plongées ou bains prolongés, contactez-nous sur WhatsApp : nous évaluons ensemble la pièce.",
+      "whatsappCta": "Discuter d'une pièce →"
+    },
     "trust": {
       "item1Title": "Satisfait ou remboursé",
       "item1Body": "Remboursement complet, zéro frais.",

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Hero } from '@/components/home/Hero';
 import { TrustBar } from '@/components/home/TrustBar';
+import { PreparationMontreal } from '@/components/home/PreparationMontreal';
 import { FeaturedCollections } from '@/components/home/FeaturedCollections';
 import { WhyArtemis } from '@/components/home/WhyArtemis';
 import { BestSellers } from '@/components/home/BestSellers';
@@ -66,6 +67,9 @@ export default async function HomePage({
         headlineOverride={heroHeadline}
         subheadlineOverride={heroSubheadline}
       />
+
+      {/* §3b Préparation Montréal — differentiator */}
+      <PreparationMontreal />
 
       {/* §4 Reassurance bar */}
       <TrustBar />

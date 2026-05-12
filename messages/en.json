@@ -59,6 +59,20 @@
       "point3": "Tracked Canada shipping",
       "socialProof": "200+ orders shipped from Montreal"
     },
+    "preparation": {
+      "overline": "MONTRÉAL PREPARATION",
+      "headline": "Montréal preparation — our signature",
+      "subheadline": "Before a Premium piece leaves our Montréal atelier:",
+      "bullets": [
+        "Modern-generation sourcing only (4 Hz architecture, 70h reserve)",
+        "Case opened, water seals inspected and replaced when needed",
+        "Movement checked, accuracy verified",
+        "Bracelet adjusted to your fit on request",
+        "Tracked packaging and shipping"
+      ],
+      "closing": "Each piece arrives ready for daily wear — office, light sport, normal conditions. For diving or extended water exposure, message us on WhatsApp: we'll assess the specific piece together.",
+      "whatsappCta": "Discuss a piece →"
+    },
     "trust": {
       "item1Title": "Satisfied or Refunded",
       "item1Body": "Full refund, zero fees.",
