@@ -300,15 +300,6 @@ export function getVariantOptionLabel(product: Pick<Product, 'variant' | 'range'
       : 'Japanese version';
   }
 
-  if (
-    product.range === 'premium' &&
-    !cleaned.includes('—') &&
-    /dial|tone|cadran/i.test(cleaned)
-  ) {
-    const base = cleaned.replace(/\s+Dial$/i, '').replace(/\s+Tone$/i, '').trim();
-    return `${base} (Premium)`;
-  }
-
   return cleaned;
 }
 
