@@ -236,33 +236,6 @@ export function ProductInfo({
         {displayTitle}
       </h1>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-        <span
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            padding: '8px 12px',
-            borderRadius: 999,
-            background:
-              selectedRange === 'premium'
-                ? 'rgba(201,169,110,0.1)'
-                : 'rgba(255,255,255,0.06)',
-            border: `1px solid ${
-              selectedRange === 'premium'
-                ? 'rgba(201,169,110,0.24)'
-                : 'rgba(255,255,255,0.1)'
-            }`,
-            color: selectedRange === 'premium' ? '#C9A96E' : '#E6E1D8',
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            letterSpacing: '0.06em',
-            lineHeight: 1.2,
-          }}
-        >
-          {selectedRange === 'premium' ? t.rangePremium : t.rangeEssential}
-        </span>
-      </div>
-
       {/* Star rating */}
       {avgRating !== null && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
