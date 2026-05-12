@@ -143,17 +143,36 @@ export default async function ProductPage({ params }: Props) {
     customerChoice: t('factoryCustomerChoice'),
   };
 
-  // Water resistance — Option A: append legal hedge suffix to the
-  // per-model value. If no value is set in Sanity, the row is omitted
-  // entirely (SpecsTable filters falsy values). Generic tier-based
-  // fallbacks have been removed to force precise per-SKU data.
+  // Enrich specs once at the page level so both the structured SpecsTable
+  // and the in-tab SpecsTab render identical values:
+  //  - movement / powerReserve fall back to tier-canonical defaults when
+  //    Sanity data is missing (matches the Premium tagline 28 800 alt/h · 70h
+  //    and the Essential Miyota wording — no more dissonance with the table)
+  //  - waterResistance gets the Option A "(spec d'origine)" suffix when set,
+  //    otherwise the row is omitted entirely
   const rawWaterResistance = localizedProduct.specs.waterResistance;
-  const specsWithWaterResistance = rawWaterResistance
-    ? {
-        ...localizedProduct.specs,
-        waterResistance: `${rawWaterResistance} ${t('waterResistanceSuffix')}`,
-      }
-    : localizedProduct.specs;
+  const tierMovementDefault =
+    localizedProduct.range === 'premium'
+      ? t('movementPremiumDefault')
+      : t('movementEssentialDefault');
+  const tierPowerReserveDefault =
+    localizedProduct.range === 'premium'
+      ? t('powerReservePremiumDefault')
+      : t('powerReserveEssentialDefault');
+
+  const enrichedSpecs = {
+    ...localizedProduct.specs,
+    movement: localizedProduct.specs.movement ?? tierMovementDefault,
+    powerReserve: localizedProduct.specs.powerReserve ?? tierPowerReserveDefault,
+    ...(rawWaterResistance
+      ? { waterResistance: `${rawWaterResistance} ${t('waterResistanceSuffix')}` }
+      : {}),
+  };
+
+  const enrichedLocalizedProduct = {
+    ...localizedProduct,
+    specs: enrichedSpecs,
+  };
 
   const productInfoT = {
     addToCart: t('addToCart'),
@@ -356,13 +375,13 @@ export default async function ProductPage({ params }: Props) {
 
             {/* Gallery */}
             <div style={{ minWidth: 0, position: 'relative', zIndex: 0 }}>
-              <ProductGallery product={localizedProduct} />
+              <ProductGallery product={enrichedLocalizedProduct} />
             </div>
 
             {/* Sticky info */}
             <div style={{ minWidth: 0, position: 'relative', zIndex: 1 }}>
               <ProductInfo
-                product={localizedProduct}
+                product={enrichedLocalizedProduct}
                 collectionVariants={collectionVariants}
                 welcomeDiscountPercent={siteSettings?.welcomeDiscountPercent ?? 10}
                 t={productInfoT}
@@ -374,11 +393,11 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Spec sheet: visible without tab interaction ───────────── */}
       <SpecsTable
-        specs={specsWithWaterResistance}
+        specs={enrichedSpecs}
         labels={specsTableLabels}
-        range={localizedProduct.range}
-        factoryOptions={localizedProduct.factoryOptions}
-        factoryChoice={localizedProduct.factoryChoice}
+        range={enrichedLocalizedProduct.range}
+        factoryOptions={enrichedLocalizedProduct.factoryOptions}
+        factoryChoice={enrichedLocalizedProduct.factoryChoice}
         factoryChoiceLabels={factoryChoiceLabels}
       />
 
@@ -390,7 +409,7 @@ export default async function ProductPage({ params }: Props) {
         }}
       >
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <ProductTabs product={localizedProduct} t={productTabsT} />
+          <ProductTabs product={enrichedLocalizedProduct} t={productTabsT} />
         </div>
       </section>
 
@@ -404,7 +423,7 @@ export default async function ProductPage({ params }: Props) {
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <RelatedProducts
             allProducts={allProducts}
-            product={localizedProduct}
+            product={enrichedLocalizedProduct}
             title={t('relatedTitle')}
             viewAll={t('relatedViewAll')}
           />
@@ -416,7 +435,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Mobile sticky bar ───────────────────────────────────────── */}
       <MobileStickyBar
-        product={localizedProduct}
+        product={enrichedLocalizedProduct}
         addToCartLabel={t('addToCart')}
         orderWhatsAppLabel={t('orderWhatsApp')}
         selectOptionsLabel={t('selectOptions')}
