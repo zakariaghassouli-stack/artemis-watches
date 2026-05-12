@@ -378,6 +378,11 @@
       "waterResistance": "Water Resistance",
       "movement": "Movement",
       "powerReserve": "Power Reserve",
+      "weight": "Weight",
+      "hourMarkers": "Hour Markers",
+      "hands": "Hands",
+      "glassTreatment": "Glass Treatment",
+      "dialFinish": "Dial Finish",
       "factory": "Factory"
     },
     "factorySubjectToAvailability": "(subject to availability)",

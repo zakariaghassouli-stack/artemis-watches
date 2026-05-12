@@ -384,6 +384,11 @@
       "movement": "Mouvement",
       "powerReserve": "Réserve de marche",
       "waterResistance": "Résistance à l'eau",
+      "weight": "Poids",
+      "hourMarkers": "Index horaires",
+      "hands": "Aiguilles",
+      "glassTreatment": "Traitement du verre",
+      "dialFinish": "Finition du cadran",
       "factory": "Factory"
     },
     "factorySubjectToAvailability": "(selon arrivage)",
