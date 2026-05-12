@@ -204,6 +204,41 @@ export default defineType({
       of: [{ type: 'string' }],
     }),
     defineField({
+      name: 'factoryOptions',
+      title: 'Factory Options (Premium only)',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+          options: {
+            list: [
+              { title: 'VSF', value: 'VSF' },
+              { title: 'ARF', value: 'ARF' },
+              { title: 'Clean', value: 'Clean' },
+              { title: 'ZF', value: 'ZF' },
+              { title: 'APSF', value: 'APSF' },
+              { title: 'AF', value: 'AF' },
+            ],
+          },
+        },
+      ],
+      hidden: ({ document }) => document?.range !== 'premium',
+      description: 'Factories this Premium piece may ship from. Used for the SpecsTable Factory row.',
+    }),
+    defineField({
+      name: 'factoryChoice',
+      title: 'Factory Choice Mode',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Subject to availability', value: 'subject-to-availability' },
+          { title: 'Customer choice', value: 'customer-choice' },
+        ],
+      },
+      hidden: ({ document }) => document?.range !== 'premium',
+      description: 'How to label multi-factory Premium pieces in SpecsTable. Leave empty for single-factory.',
+    }),
+    defineField({
       name: 'availableColors',
       title: 'Available Colors',
       type: 'array',

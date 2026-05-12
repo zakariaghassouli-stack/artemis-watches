@@ -1,5 +1,7 @@
 export type ProductRange = 'essential' | 'premium';
 export type ShippingSpeed = 'ready-to-ship' | 'made-to-order';
+export type FactoryOption = 'VSF' | 'ARF' | 'Clean' | 'ZF' | 'APSF' | 'AF';
+export type FactoryChoice = 'subject-to-availability' | 'customer-choice' | null;
 
 export type ProductBadge =
   | 'best-seller'
@@ -66,6 +68,8 @@ export interface Product {
   specs: ProductSpecs;
   availableSizes: string[];
   availableColors: string[];
+  factoryOptions?: FactoryOption[];
+  factoryChoice?: FactoryChoice;
   hasEssentialVariant: boolean;
   hasPremiumVariant?: boolean;
   essentialPrice: number | null;
