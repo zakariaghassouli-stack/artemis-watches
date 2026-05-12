@@ -17,7 +17,7 @@ import { pixel } from '@/lib/pixel';
 import { WishlistButton } from '@/components/product/WishlistButton';
 import { ScarcityBadge } from '@/components/shared/ProductBadges';
 import { Link } from '@/i18n/navigation';
-import { RotateCcw, ShieldCheck, Truck, Wrench } from 'lucide-react';
+import { MessageCircle, ShieldCheck, Truck, Wrench } from 'lucide-react';
 import type { Product } from '@/types/product';
 import { ContactCTA } from '@/components/shared/ContactCTA';
 import { TrustBadgesStrip } from '@/components/product/TrustBadgesStrip';
@@ -707,7 +707,7 @@ export function ProductInfo({
           { icon: Wrench, label: t.braceletToolLabel, complimentary: true },
           { icon: Truck, label: t.trackedShippingLabel, complimentary: true },
           { icon: ShieldCheck, label: t.premiumPackagingLabel, complimentary: true },
-          { icon: RotateCcw, label: t.guaranteeLabel, complimentary: false },
+          { icon: MessageCircle, label: t.guaranteeLabel, complimentary: false },
         ].map(({ icon: Icon, label, complimentary }) => (
           <div
             key={label}
