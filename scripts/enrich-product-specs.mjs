@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Phase 3 — enrichment of data/products/*.json specs:
- *  1. Genericize brand-trademarked terms (Cerachrom, Chromalight, Oysterclasp, etc.)
+ * Phase 3 — enrichment of data/products/*.json:
+ *  1. Genericize brand-trademarked terms in specs, keyPoints (EN + FR),
+ *     and description/descriptionShort (EN + FR)
  *  2. Add `movement` and `powerReserve` based on `range`
  *
  * Idempotent: re-running produces no diff if already migrated.
@@ -32,8 +33,10 @@ const TM_REPLACEMENTS = [
   [/Oyster, black PVD-coated/g, 'Black PVD-coated three-piece links'],
   [/Oyster, gold\/steel two-tone/g, 'Two-tone gold/steel three-piece links'],
   [/Oyster, rose-gold-tone three-piece links/g, 'Rose-gold-tone three-piece links'],
-  // Bare "Oyster" in bracelet field (catch-all, last)
-  [/^Oyster$/g, 'Three-piece links'],
+  // EN prose phrasings (description, keyPoints in English)
+  [/Oyster bracelet with Oysterclasp/g, 'three-piece link bracelet with folding clasp'],
+  [/Oyster bracelet/g, 'three-piece link bracelet'],
+  [/\bOyster\b(?!\w)/g, 'three-piece links'],
 
   // Lume — Chromalight is Rolex's branding for SuperLumiNova-equivalent
   [/Chromalight \(blue luminescence\)/g, 'Luminescent indices (blue)'],
@@ -59,6 +62,26 @@ const TM_REPLACEMENTS = [
   [/Oysterlock/g, 'Safety clasp'],
 ];
 
+// French equivalents — applied to FR fields (keyPointsFr, descriptionFr, etc.)
+// Order matters: most specific first.
+const TM_REPLACEMENTS_FR = [
+  [/bracelet Oyster avec Oysterclasp/g, 'bracelet 3 maillons avec fermoir déployant'],
+  [/bracelet Oyster avec Easylink/g, 'bracelet 3 maillons avec extension réglable'],
+  [/lunette Cerachrom/g, 'lunette céramique'],
+  [/Oysterclasp/g, 'fermoir déployant'],
+  [/Oysterflex/g, 'bracelet caoutchouc'],
+  [/Oysterlock/g, 'fermoir de sécurité'],
+  [/Easylink/g, 'extension réglable'],
+  [/Crownclasp/g, 'fermoir invisible'],
+  [/Cerachrom/g, 'céramique'],
+  [/Chromalight/g, 'Indices luminescents'],
+  [/bracelet Oyster/g, 'bracelet 3 maillons'],
+  [/Jubilee\b/g, '5 maillons'],
+  [/President\b/g, '3 maillons semi-circulaire'],
+  // Bare Oyster (without "bracelet" prefix) — last
+  [/\bOyster\b/g, '3 maillons'],
+];
+
 const MOVEMENT_BY_RANGE = {
   premium: { en: 'Automatic, 28,800 vph', fr: 'Automatique, 28 800 alt/h' },
   essential: { en: 'Miyota automatic, Japanese', fr: 'Miyota automatique, japonais' },
@@ -69,13 +92,25 @@ const POWER_RESERVE_BY_RANGE = {
   essential: { en: '40 hours', fr: '40 heures' },
 };
 
-function genericize(value) {
+function genericize(value, replacements = TM_REPLACEMENTS) {
   if (typeof value !== 'string') return value;
   let out = value;
-  for (const [pattern, replacement] of TM_REPLACEMENTS) {
+  for (const [pattern, replacement] of replacements) {
     out = out.replace(pattern, replacement);
   }
   return out;
+}
+
+function genericizeArray(arr, replacements) {
+  if (!Array.isArray(arr)) return { arr, changes: 0 };
+  let changes = 0;
+  const out = arr.map((item) => {
+    if (typeof item !== 'string') return item;
+    const replaced = genericize(item, replacements);
+    if (replaced !== item) changes += 1;
+    return replaced;
+  });
+  return { arr: out, changes };
 }
 
 let processed = 0;
@@ -92,12 +127,45 @@ for (const file of files) {
 
   if (!product.specs) product.specs = {};
 
-  // 1. Genericize existing specs strings
+  // 1. Genericize existing specs strings (EN)
   for (const [k, v] of Object.entries(product.specs)) {
     if (typeof v === 'string') {
       const replaced = genericize(v);
       if (replaced !== v) {
         product.specs[k] = replaced;
+        summary.genericized += 1;
+      }
+    }
+  }
+
+  // 1b. Genericize keyPoints (EN) + keyPointsFr (FR)
+  if (product.keyPoints) {
+    const r = genericizeArray(product.keyPoints, TM_REPLACEMENTS);
+    if (r.changes) {
+      product.keyPoints = r.arr;
+      summary.genericized += r.changes;
+    }
+  }
+  if (product.keyPointsFr) {
+    const r = genericizeArray(product.keyPointsFr, TM_REPLACEMENTS_FR);
+    if (r.changes) {
+      product.keyPointsFr = r.arr;
+      summary.genericized += r.changes;
+    }
+  }
+
+  // 1c. Genericize prose fields
+  for (const [field, table] of [
+    ['description', TM_REPLACEMENTS],
+    ['descriptionShort', TM_REPLACEMENTS],
+    ['descriptionFr', TM_REPLACEMENTS_FR],
+    ['descriptionShortFr', TM_REPLACEMENTS_FR],
+  ]) {
+    const v = product[field];
+    if (typeof v === 'string') {
+      const replaced = genericize(v, table);
+      if (replaced !== v) {
+        product[field] = replaced;
         summary.genericized += 1;
       }
     }
