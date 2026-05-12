@@ -293,9 +293,17 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       .flatMap((item) => item.availableSizes)
       .filter(Boolean);
 
+    const sortedSizes = Array.from(new Set(sizes.length ? sizes : product.availableSizes))
+      .sort((a, b) => {
+        const aNum = parseInt(a, 10);
+        const bNum = parseInt(b, 10);
+        if (Number.isNaN(aNum) || Number.isNaN(bNum)) return 0;
+        return aNum - bNum;
+      });
+
     const normalizedProduct = {
       ...product,
-      availableSizes: Array.from(new Set(sizes.length ? sizes : product.availableSizes)),
+      availableSizes: sortedSizes,
       hasEssentialVariant: essentialSiblingPrices.length > 0,
       essentialPrice:
         essentialSiblingPrices.length > 0 ? Math.min(...essentialSiblingPrices) : product.essentialPrice,

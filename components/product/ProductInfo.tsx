@@ -125,7 +125,18 @@ export function ProductInfo({
 }: Props) {
   const [boxAndPapers, setBoxAndPapers] = useState(false);
   const [selectedRange, setSelectedRange] = useState<'essential' | 'premium'>(product.range);
-  const [selectedSize, setSelectedSize] = useState<string>(product.availableSizes[0] ?? '');
+
+  // Default size matches the product name when possible (e.g. "Datejust 41" → "41mm"),
+  // so a buyer landing on a sized PDP doesn't see a mismatched size selected.
+  // Fallback to the first available size if no match (sizes are sorted ascending
+  // at the query level — see lib/queries.ts).
+  const nameSizeMatch = product.name.match(/(\d{2})\b/);
+  const preferredSize = nameSizeMatch ? `${nameSizeMatch[1]}mm` : null;
+  const initialSize =
+    (preferredSize && product.availableSizes.includes(preferredSize) ? preferredSize : null) ??
+    product.availableSizes[0] ??
+    '';
+  const [selectedSize, setSelectedSize] = useState<string>(initialSize);
   const addItem = useCartStore((s) => s.addItem);
   const scarcity = getScarcityState(product);
   const locale = useLocale();
