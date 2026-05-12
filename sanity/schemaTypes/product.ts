@@ -195,6 +195,11 @@ export default defineType({
         defineField({ name: 'clasp', title: 'Clasp', type: 'string' }),
         defineField({ name: 'lume', title: 'Lume', type: 'string' }),
         defineField({ name: 'powerReserve', title: 'Power Reserve', type: 'string' }),
+        defineField({ name: 'weight', title: 'Weight', type: 'string', description: 'Ex. "152g"' }),
+        defineField({ name: 'hourMarkers', title: 'Hour Markers', type: 'string', description: 'Ex. "Applied index, white gold"' }),
+        defineField({ name: 'hands', title: 'Hands', type: 'string', description: 'Ex. "Mercedes, luminescent"' }),
+        defineField({ name: 'glassTreatment', title: 'Glass Treatment', type: 'string', description: 'Ex. "Anti-reflective coating, both sides"' }),
+        defineField({ name: 'dialFinish', title: 'Dial Finish', type: 'string', description: 'Ex. "Sunburst", "Grené", "Matte"' }),
       ],
     }),
     defineField({
