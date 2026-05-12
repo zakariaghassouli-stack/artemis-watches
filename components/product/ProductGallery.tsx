@@ -230,6 +230,9 @@ export function ProductGallery({ product }: Props) {
               poster={videoThumb ?? undefined}
               playsInline
               controls
+              autoPlay
+              muted
+              loop
               preload="metadata"
               style={{
                 display: 'block',
