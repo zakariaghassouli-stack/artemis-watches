@@ -50,6 +50,7 @@ interface Props {
     stockImmediate: string;
     essentialOnly: string;
     premiumOnly: string;
+    preparationMontreal: string;
     inStock: string;
     outOfStock: string;
     rangeEssential: string;
@@ -412,6 +413,7 @@ export function ProductInfo({
               stockImmediate: t.stockImmediate,
               essentialOnly: t.essentialOnly,
               premiumOnly: t.premiumOnly,
+              preparationMontreal: t.preparationMontreal,
             }}
             size="md"
           />

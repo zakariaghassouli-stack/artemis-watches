@@ -182,6 +182,7 @@ const BADGE_MAP: Record<string, ProductBadge> = {
   'stock-immediate': 'stock-immediate',
   'essential-only': 'essential-only',
   'premium-only': 'premium-only',
+  'preparation-montreal': 'preparation-montreal',
 };
 
 const COLLECTION_SLUG_ALIASES: Record<string, string> = {

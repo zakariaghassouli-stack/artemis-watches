@@ -130,6 +130,7 @@ export function CollectionProductCard({ product, index, viewDetailsLabel }: Prop
                   stockImmediate: tProduct('stockImmediate'),
                   essentialOnly: tProduct('essentialOnly'),
                   premiumOnly: tProduct('premiumOnly'),
+                  preparationMontreal: tProduct('preparationMontreal'),
                 }}
                 size="sm"
                 excludeTypes={['best-seller', 'high-demand']}

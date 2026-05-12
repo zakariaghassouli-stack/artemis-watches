@@ -129,6 +129,7 @@ export default async function ProductPage({ params }: Props) {
     stockImmediate: t('stockImmediate'),
     essentialOnly: t('essentialOnly'),
     premiumOnly: t('premiumOnly'),
+    preparationMontreal: t('preparationMontreal'),
     inStock: t('inStock'),
     outOfStock: t('outOfStock'),
     rangeEssential: t('rangeEssential'),

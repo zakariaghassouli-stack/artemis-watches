@@ -14,6 +14,7 @@ interface ScarcityLabels {
   stockImmediate: string;
   essentialOnly: string;
   premiumOnly: string;
+  preparationMontreal: string;
 }
 
 const SIZE_STYLES: Record<BadgeSize, CSSProperties> = {
@@ -102,16 +103,20 @@ export function ScarcityBadge({
       ? labels.stockImmediate
       : scarcity.type === 'essential-only'
       ? labels.essentialOnly
-      : labels.premiumOnly;
+      : scarcity.type === 'premium-only'
+      ? labels.premiumOnly
+      : labels.preparationMontreal;
+
+  const isSignature = scarcity.type === 'preparation-montreal';
 
   return (
     <span
       style={{
         ...BADGE_BASE,
         ...SIZE_STYLES[size],
-        color: '#D6D1C9',
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.08)',
+        color: isSignature ? '#C9A96E' : '#D6D1C9',
+        background: isSignature ? 'rgba(201,169,110,0.1)' : 'rgba(255,255,255,0.05)',
+        border: `1px solid ${isSignature ? 'rgba(201,169,110,0.24)' : 'rgba(255,255,255,0.08)'}`,
       }}
     >
       {label}

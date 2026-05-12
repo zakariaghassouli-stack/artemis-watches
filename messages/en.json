@@ -170,7 +170,8 @@
       "justRestocked": "Just in",
       "stockImmediate": "Ready to ship",
       "essentialOnly": "Essential only",
-      "premiumOnly": "Premium only"
+      "premiumOnly": "Premium only",
+      "preparationMontreal": "Montréal preparation"
     },
     "testimonials": {
       "overline": "WHAT OUR CLIENTS SAY",
@@ -383,6 +384,7 @@
     "stockImmediate": "Ready to ship",
     "essentialOnly": "Essential only",
     "premiumOnly": "Premium only",
+    "preparationMontreal": "Montréal preparation",
     "inStock": "In Stock",
     "outOfStock": "Out of Stock",
     "verifiedPurchase": "Verified Purchase",
@@ -510,6 +512,7 @@
     "stockImmediate": "Ready to ship",
     "essentialOnly": "Essential only",
     "premiumOnly": "Premium only",
+    "preparationMontreal": "Montréal preparation",
     "essentialBadge": "Essential · Japanese Movement (Miyota)",
     "premiumBadge": "Premium · Automatic 28,800 vph · 70h power reserve",
     "metaTitle": "Search Watches | Artemis - Montreal",

@@ -170,7 +170,8 @@
       "justRestocked": "Vient d'arriver",
       "stockImmediate": "Stock immédiat",
       "essentialOnly": "Essential uniquement",
-      "premiumOnly": "Premium uniquement"
+      "premiumOnly": "Premium uniquement",
+      "preparationMontreal": "Préparation Montréal"
     },
     "testimonials": {
       "overline": "CE QUE DISENT NOS CLIENTS",
@@ -389,6 +390,7 @@
     "stockImmediate": "Stock immédiat",
     "essentialOnly": "Essential uniquement",
     "premiumOnly": "Premium uniquement",
+    "preparationMontreal": "Préparation Montréal",
     "inStock": "En stock",
     "outOfStock": "Rupture de stock",
     "verifiedPurchase": "Achat vérifié",
@@ -516,6 +518,7 @@
     "stockImmediate": "Stock immédiat",
     "essentialOnly": "Essential uniquement",
     "premiumOnly": "Premium uniquement",
+    "preparationMontreal": "Préparation Montréal",
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
     "premiumBadge": "Premium · Automatique 28 800 alt/h · Réserve 70h",
     "metaTitle": "Recherche | Artemis - Montréal",

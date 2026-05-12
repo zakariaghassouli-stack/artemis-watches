@@ -9,6 +9,7 @@ export type ProductBadge =
   | 'stock-immediate'
   | 'essential-only'
   | 'premium-only'
+  | 'preparation-montreal'
   | null;
 
 export interface ProductSpecs {

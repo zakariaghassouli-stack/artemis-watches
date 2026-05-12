@@ -166,6 +166,7 @@ function RelatedCard({ product }: { product: Product }) {
                 stockImmediate: tProduct('stockImmediate'),
                 essentialOnly: tProduct('essentialOnly'),
                 premiumOnly: tProduct('premiumOnly'),
+                preparationMontreal: tProduct('preparationMontreal'),
               }}
               size="xs"
               excludeTypes={['best-seller', 'high-demand']}

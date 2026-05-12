@@ -526,6 +526,7 @@ export type ScarcityState =
   | { type: 'stock-immediate' }
   | { type: 'essential-only' }
   | { type: 'premium-only' }
+  | { type: 'preparation-montreal' }
   | null;
 
 export function getScarcityState(product: Product): ScarcityState {
@@ -537,6 +538,7 @@ export function getScarcityState(product: Product): ScarcityState {
   if (product.badge === 'stock-immediate') return { type: 'stock-immediate' };
   if (product.badge === 'essential-only') return { type: 'essential-only' };
   if (product.badge === 'premium-only') return { type: 'premium-only' };
+  if (product.badge === 'preparation-montreal') return { type: 'preparation-montreal' };
   return null;
 }
 

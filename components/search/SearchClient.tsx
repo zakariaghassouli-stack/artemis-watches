@@ -170,6 +170,7 @@ function ProductCard({ product, t }: { product: Product; t: ReturnType<typeof us
               stockImmediate: t('stockImmediate'),
               essentialOnly: t('essentialOnly'),
               premiumOnly: t('premiumOnly'),
+              preparationMontreal: t('preparationMontreal'),
             }}
             size="xs"
             excludeTypes={['best-seller', 'high-demand']}
