@@ -29,7 +29,7 @@
     "nautilus": "Nautilus",
     "aquanaut": "Aquanaut",
     "essential": "Essential · Japanese Movement (Miyota)",
-    "premium": "Premium · High-grade automatic",
+    "premium": "Premium · Automatic 28,800 vph · 70h power reserve",
     "wishlist": "Saved pieces",
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
@@ -41,7 +41,7 @@
     "megaAllWatches": "All Watches →",
     "megaNewArrivals": "New Arrivals →",
     "megaEssential": "Essential · Japanese Movement (Miyota) →",
-    "megaPremium": "Premium · High-grade automatic →"
+    "megaPremium": "Premium · Automatic 28,800 vph · 70h power reserve →"
   },
   "home": {
     "hero": {
@@ -143,7 +143,7 @@
       "viewAll": "See all 78 pieces →",
       "from": "From",
       "essential": "Essential · Japanese Movement (Miyota)",
-      "premium": "Premium · High-grade automatic",
+      "premium": "Premium · Automatic 28,800 vph · 70h power reserve",
       "bestSeller": "Client favourite",
       "lowStock": "Only {count} left",
       "highDemand": "Versatile pick",
@@ -289,7 +289,7 @@
     "resultPlural": "pieces shown",
     "activeSortLabel": "Active sort",
     "viewDetails": "View Piece",
-    "rangeOptions": "Japanese & high-grade automatic options",
+    "rangeOptions": "Japanese & 28,800 vph automatic options",
     "sizeOptions": "Multiple sizes available",
     "supportNote": "Tracked shipping & 30-day returns",
     "noResults": "No products match your filters.",
@@ -360,7 +360,7 @@
     "relatedTitle": "You May Also Consider",
     "relatedViewAll": "View All →",
     "rangeEssential": "Essential · Japanese Movement (Miyota)",
-    "rangePremium": "Premium · High-grade automatic",
+    "rangePremium": "Premium · Automatic 28,800 vph · 70h power reserve",
     "lowStock": "Only {count} left",
     "bestSeller": "Client favourite",
     "highDemand": "Limited",
@@ -443,7 +443,7 @@
     "countPlural": "{count} pieces saved",
     "viewDetails": "View Piece",
     "essentialBadge": "Essential · Japanese Movement (Miyota)",
-    "premiumBadge": "Premium · High-grade automatic",
+    "premiumBadge": "Premium · Automatic 28,800 vph · 70h power reserve",
     "metaTitle": "Saved Pieces | Artemis Watches",
     "metaDescription": "Your saved Artemis timepieces - Rolex, Cartier, Audemars Piguet, Patek Philippe."
   },
@@ -482,7 +482,7 @@
     "noResultsHint": "Try a different search - brand name, model, dial color, or bracelet type.",
     "suggestionsLabel": "Browse by brand:",
     "viewDetails": "View Piece",
-    "rangeOptions": "Japanese & high-grade automatic options",
+    "rangeOptions": "Japanese & 28,800 vph automatic options",
     "sizeOptions": "Multiple sizes available",
     "supportNote": "Tracked shipping & 30-day returns",
     "fromPrice": "From",
@@ -497,9 +497,9 @@
     "essentialOnly": "Essential only",
     "premiumOnly": "Premium only",
     "essentialBadge": "Essential · Japanese Movement (Miyota)",
-    "premiumBadge": "Premium · High-grade automatic",
+    "premiumBadge": "Premium · Automatic 28,800 vph · 70h power reserve",
     "metaTitle": "Search Watches | Artemis - Montreal",
-    "metaDescription": "Search our full catalog of Rolex, Cartier, Audemars Piguet, and Patek Philippe watches. Japanese and high-grade automatic options. Tracked shipping across Canada."
+    "metaDescription": "Search our full catalog of Rolex, Cartier, Audemars Piguet, and Patek Philippe watches. Japanese and 28,800 vph automatic options. Tracked shipping across Canada."
   },
   "reviewsPage": {
     "metaTitle": "Client Reviews - ARTEMIS Watches",

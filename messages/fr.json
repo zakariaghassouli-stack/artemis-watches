@@ -29,7 +29,7 @@
     "nautilus": "Nautilus",
     "aquanaut": "Aquanaut",
     "essential": "Essentielle · Mouvement japonais (Miyota)",
-    "premium": "Premium · Automatique haut de gamme",
+    "premium": "Premium · Automatique 28 800 alt/h · Réserve 70h",
     "wishlist": "Pièces sauvegardées",
     "closeMenu": "Fermer le menu",
     "openMenu": "Ouvrir le menu",
@@ -41,7 +41,7 @@
     "megaAllWatches": "Toutes les montres →",
     "megaNewArrivals": "Nouveautés →",
     "megaEssential": "Essentielle · Mouvement japonais (Miyota) →",
-    "megaPremium": "Premium · Automatique haut de gamme →"
+    "megaPremium": "Premium · Automatique 28 800 alt/h · Réserve 70h →"
   },
   "home": {
     "hero": {
@@ -143,7 +143,7 @@
       "viewAll": "Voir les 78 pièces →",
       "from": "À partir de",
       "essential": "Essentielle · Mouvement japonais (Miyota)",
-      "premium": "Premium · Automatique haut de gamme",
+      "premium": "Premium · Automatique 28 800 alt/h · Réserve 70h",
       "bestSeller": "Favori client",
       "lowStock": "Seulement {count} restants",
       "highDemand": "Choix polyvalent",
@@ -295,7 +295,7 @@
     "resultPlural": "pièces affichées",
     "activeSortLabel": "Tri actif",
     "viewDetails": "Voir la pièce",
-    "rangeOptions": "Options mouvement japonais et automatique haut de gamme",
+    "rangeOptions": "Options mouvement japonais et automatique 28 800 alt/h",
     "sizeOptions": "Plusieurs tailles disponibles",
     "supportNote": "Livraison suivie et retours 30 jours",
     "noResults": "Aucun produit ne correspond à vos filtres.",
@@ -366,7 +366,7 @@
     "relatedTitle": "Vous pourriez aussi considérer",
     "relatedViewAll": "Voir tout →",
     "rangeEssential": "Essentielle · Mouvement japonais (Miyota)",
-    "rangePremium": "Premium · Automatique haut de gamme",
+    "rangePremium": "Premium · Automatique 28 800 alt/h · Réserve 70h",
     "lowStock": "Seulement {count} restants",
     "bestSeller": "Favori clients",
     "highDemand": "Disponibilité limitée",
@@ -449,7 +449,7 @@
     "countPlural": "{count} pièces sauvegardées",
     "viewDetails": "Voir la pièce",
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
-    "premiumBadge": "Premium · Automatique haut de gamme",
+    "premiumBadge": "Premium · Automatique 28 800 alt/h · Réserve 70h",
     "metaTitle": "Pièces sauvegardées | Artemis Montres",
     "metaDescription": "Vos montres Artemis sauvegardées - Rolex, Cartier, Audemars Piguet, Patek Philippe."
   },
@@ -488,7 +488,7 @@
     "noResultsHint": "Essayez un autre terme - marque, modèle, couleur du cadran ou type de bracelet.",
     "suggestionsLabel": "Parcourir par marque :",
     "viewDetails": "Voir la pièce",
-    "rangeOptions": "Options mouvement japonais et automatique haut de gamme",
+    "rangeOptions": "Options mouvement japonais et automatique 28 800 alt/h",
     "sizeOptions": "Plusieurs tailles disponibles",
     "supportNote": "Livraison suivie et retours 30 jours",
     "fromPrice": "Dès",
@@ -503,9 +503,9 @@
     "essentialOnly": "Essential uniquement",
     "premiumOnly": "Premium uniquement",
     "essentialBadge": "Essentielle · Mouvement japonais (Miyota)",
-    "premiumBadge": "Premium · Automatique haut de gamme",
+    "premiumBadge": "Premium · Automatique 28 800 alt/h · Réserve 70h",
     "metaTitle": "Recherche | Artemis - Montréal",
-    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Options mouvement japonais et automatique haut de gamme. Livraison suivie au Canada."
+    "metaDescription": "Recherchez parmi nos Rolex, Cartier, Audemars Piguet et Patek Philippe. Options mouvement japonais et automatique 28 800 alt/h. Livraison suivie au Canada."
   },
   "reviewsPage": {
     "metaTitle": "Avis Clients - ARTEMIS Watches",
