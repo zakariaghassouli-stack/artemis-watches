@@ -150,6 +150,24 @@ function WatchPlaceholder({ brand }: { brand: string }) {
   );
 }
 
+// Hero image priority: square shots (face) > slight-portrait (cadrée face) > rest
+// (bracelet/side verticals). Video always last — thumbnail, not hero.
+// Reads Sanity CDN URL dim pattern: `...-1536x2730.webp`.
+// Unknown dimensions (local /images/*.webp) default to mid-priority.
+const SQUARE_TOLERANCE = 0.15;
+const PORTRAIT_MIN_RATIO = 0.77; // 1:1.3
+function imagePriority(src: string): number {
+  const m = src.match(/-(\d+)x(\d+)\.(?:webp|jpg|jpeg|png)/i);
+  if (!m) return 1;
+  const w = Number(m[1]);
+  const h = Number(m[2]);
+  if (!w || !h) return 1;
+  const ratio = w / h;
+  if (ratio >= 1 - SQUARE_TOLERANCE && ratio <= 1 + SQUARE_TOLERANCE) return 0;
+  if (ratio >= PORTRAIT_MIN_RATIO && ratio < 1 - SQUARE_TOLERANCE) return 1;
+  return 2;
+}
+
 export function ProductGallery({ product }: Props) {
   const t = useTranslations('product');
   const locale = useLocale();
@@ -162,7 +180,10 @@ export function ProductGallery({ product }: Props) {
   const videoMedia = uniqueMedia
     .filter((src) => /\.(mp4|webm)(\?.*)?$/i.test(src))
     .map((src) => ({ type: 'video' as const, src }));
-  const media = [...imageMedia, ...videoMedia];
+  const sortedImages = [...imageMedia].sort(
+    (a, b) => imagePriority(a.src) - imagePriority(b.src)
+  );
+  const media = [...sortedImages, ...videoMedia];
   const videoThumb = imageMedia[0]?.src ?? null;
   const thumbCount = media.length > 0 ? Math.min(media.length, 5) : 0;
   const [selected, setSelected] = useState(0);
