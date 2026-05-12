@@ -145,7 +145,21 @@ export function ContactCTA({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={() => analytics.whatsappClick(source, productContext?.productId)}
+      onClick={() =>
+        analytics.whatsappClick(
+          source,
+          productContext?.productId,
+          productContext
+            ? {
+                brand: productContext.brand,
+                range: productContext.range,
+                size: productContext.size,
+                boxAndPapers: productContext.boxAndPapers,
+                price: productContext.price,
+              }
+            : undefined
+        )
+      }
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={style}

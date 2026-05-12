@@ -124,10 +124,29 @@ export const analytics = {
     trackEvent('sign_up', { method });
   },
 
-  whatsappClick(page: string, productId?: string) {
+  whatsappClick(
+    page: string,
+    productId?: string,
+    context?: {
+      brand?: string;
+      range?: 'essential' | 'premium';
+      size?: string;
+      boxAndPapers?: boolean;
+      price?: number;
+    }
+  ) {
     trackEvent('whatsapp_click', {
       page,
       ...(productId ? { product_id: productId } : {}),
+      ...(context?.brand ? { brand: context.brand } : {}),
+      ...(context?.range ? { range: context.range } : {}),
+      ...(context?.size ? { size: context.size } : {}),
+      ...(context?.boxAndPapers !== undefined
+        ? { box_papers: context.boxAndPapers }
+        : {}),
+      ...(context?.price !== undefined
+        ? { value: context.price, currency: 'CAD' }
+        : {}),
     });
   },
 
