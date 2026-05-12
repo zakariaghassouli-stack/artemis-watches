@@ -129,7 +129,13 @@ export default async function ProductPage({ params }: Props) {
       waterResistance: tSpecs('waterResistance'),
       bracelet: tSpecs('bracelet'),
       clasp: tSpecs('clasp'),
+      factory: tSpecs('factory'),
     },
+  };
+
+  const factoryChoiceLabels = {
+    subjectToAvailability: t('factorySubjectToAvailability'),
+    customerChoice: t('factoryCustomerChoice'),
   };
 
   const productInfoT = {
@@ -346,7 +352,14 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {/* ── Spec sheet: visible without tab interaction ───────────── */}
-      <SpecsTable specs={localizedProduct.specs} labels={specsTableLabels} />
+      <SpecsTable
+        specs={localizedProduct.specs}
+        labels={specsTableLabels}
+        range={localizedProduct.range}
+        factoryOptions={localizedProduct.factoryOptions}
+        factoryChoice={localizedProduct.factoryChoice}
+        factoryChoiceLabels={factoryChoiceLabels}
+      />
 
       {/* ── Tabs: Description / Reviews / Shipping / Returns / Help ── */}
       <section
