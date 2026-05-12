@@ -272,7 +272,9 @@
       "q4": "Is payment secure?",
       "a4": "Yes. Stripe secure checkout is used throughout, and shipping, taxes, plus any duties appear before you confirm payment.",
       "q7": "What movements power the Premium pieces?",
-      "a7": "Premium pieces use automatic movements from the modern generation: high-frequency 28,800 vibrations per hour (4 Hz), extended 70-hour power reserve, architecture tuned for daily accuracy. This is a higher category than the older short-reserve architectures still found at some resellers. For detailed specs on a specific reference, message us on WhatsApp."
+      "a7": "Premium pieces use automatic movements from the modern generation: high-frequency 28,800 vibrations per hour (4 Hz), extended 70-hour power reserve, architecture tuned for daily accuracy. This is a higher category than the older short-reserve architectures still found at some resellers. For detailed specs on a specific reference, message us on WhatsApp.",
+      "q8": "What is the water resistance of your watches?",
+      "a8": "Essential pieces use a case designed to resist daily splashes — handwashing, rain, perspiration. They are not designed for immersion (pool, swimming, prolonged shower).\n\nPremium pieces come from tier 1 factories (VSF, ARF, Clean, ZF, APSF, AF) that produce cases to the original specifications of the model being referenced. Depending on the model, this covers daily wear through surface swimming. For water sports, diving, or prolonged immersion, message us on WhatsApp for case-by-case validation."
     }
   },
   "collections": {
@@ -424,6 +426,8 @@
     },
     "factorySubjectToAvailability": "(subject to availability)",
     "factoryCustomerChoice": "(your choice)",
+    "waterResistanceEssential": "Splash-resistant (handwashing, rain)",
+    "waterResistancePremium": "Per source factory specification (varies by model)",
     "tabShipping": "Shipping",
     "tabReturns": "Returns",
     "tabHelp": "Need Help?",

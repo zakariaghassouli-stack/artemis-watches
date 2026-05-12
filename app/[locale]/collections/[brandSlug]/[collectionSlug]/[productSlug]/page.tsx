@@ -138,6 +138,16 @@ export default async function ProductPage({ params }: Props) {
     customerChoice: t('factoryCustomerChoice'),
   };
 
+  const waterResistanceFallback =
+    localizedProduct.range === 'premium'
+      ? t('waterResistancePremium')
+      : t('waterResistanceEssential');
+
+  const specsWithWaterResistance = {
+    ...localizedProduct.specs,
+    waterResistance: localizedProduct.specs.waterResistance ?? waterResistanceFallback,
+  };
+
   const productInfoT = {
     addToCart: t('addToCart'),
     orderWhatsApp: t('orderWhatsApp'),
@@ -353,7 +363,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Spec sheet: visible without tab interaction ───────────── */}
       <SpecsTable
-        specs={localizedProduct.specs}
+        specs={specsWithWaterResistance}
         labels={specsTableLabels}
         range={localizedProduct.range}
         factoryOptions={localizedProduct.factoryOptions}
