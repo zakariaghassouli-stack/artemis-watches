@@ -57,20 +57,13 @@ function Stars({ rating, size = 12 }: { rating: number; size?: number }) {
 function SpecsTab({
   specs,
   specLabels,
-  range,
 }: {
   specs: ProductSpecs;
   specLabels: Record<string, string>;
-  range: Product['range'];
 }) {
-  const normalizedSpecs: ProductSpecs = {
-    ...specs,
-    movement:
-      range === 'essential'
-        ? 'Miyota Japanese automatic'
-        : 'High-grade automatic',
-  };
-  const entries = Object.entries(normalizedSpecs).filter(([, v]) => v) as [string, string][];
+  // Specs are pre-enriched at the page level with tier-default movement
+  // and powerReserve plus the water resistance suffix — render as-is.
+  const entries = Object.entries(specs).filter(([, v]) => v) as [string, string][];
 
   return (
     <div>
@@ -226,7 +219,7 @@ export function ProductTabs({ product, t }: Props) {
 
       {activeTab === 'specs' && (
         <div style={{ maxWidth: 600 }}>
-          <SpecsTab specs={product.specs} specLabels={specLabels} range={product.range} />
+          <SpecsTab specs={product.specs} specLabels={specLabels} />
         </div>
       )}
 
