@@ -189,6 +189,10 @@ export default async function ProductPage({ params }: Props) {
     shippingStatusReady: t('shippingStatusReady'),
     shippingStatusMadeToOrder: t('shippingStatusMadeToOrder'),
     shippingTrackingNote: t('shippingTrackingNote'),
+    trustOrders: t('trustOrders'),
+    trustMontreal: t('trustMontreal'),
+    trustReturns: t('trustReturns'),
+    trustResponse: t('trustResponse'),
   };
 
   const productTabsT = {
