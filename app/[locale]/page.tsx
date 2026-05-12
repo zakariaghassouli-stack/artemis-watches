@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Hero } from '@/components/home/Hero';
 import { TrustBar } from '@/components/home/TrustBar';
+import { TierOneSourcing } from '@/components/home/TierOneSourcing';
 import { PreparationMontreal } from '@/components/home/PreparationMontreal';
 import { FeaturedCollections } from '@/components/home/FeaturedCollections';
 import { WhyArtemis } from '@/components/home/WhyArtemis';
@@ -67,6 +68,9 @@ export default async function HomePage({
         headlineOverride={heroHeadline}
         subheadlineOverride={heroSubheadline}
       />
+
+      {/* §3a Tier 1 sourcing — positioning for averti buyers */}
+      <TierOneSourcing />
 
       {/* §3b Préparation Montréal — differentiator */}
       <PreparationMontreal />
