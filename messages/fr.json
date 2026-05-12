@@ -61,16 +61,16 @@
     },
     "preparation": {
       "overline": "PRÉPARATION MONTRÉAL",
-      "headline": "Préparation Montréal — notre signature",
-      "subheadline": "Avant qu'une Premium quitte notre atelier de Montréal :",
+      "headline": "Préparation Montréal — notre signature.",
+      "subheadline": "Avant qu'une pièce Premium quitte notre atelier de Montréal :",
       "bullets": [
-        "Sourcing exclusif de la génération moderne (architecture 4 Hz, réserve 70h)",
-        "Boîtier ouvert, joints d'étanchéité inspectés et remplacés si nécessaire",
-        "Mouvement contrôlé, précision vérifiée",
-        "Ajustement du bracelet à votre demande",
-        "Emballage et expédition suivie"
+        "Inspection visuelle complète (boîtier, cadran, verre, lume)",
+        "Contrôle du mouvement (mise à l'heure, vérification du fonctionnement)",
+        "Ajustement du bracelet à vos mesures sur demande",
+        "Emballage soigné et expédition suivie depuis Montréal",
+        "Support WhatsApp pour toute question avant ou après réception"
       ],
-      "closing": "Chaque pièce arrive prête à porter en usage quotidien — bureau, sport léger, conditions normales. Pour les plongées ou bains prolongés, contactez-nous sur WhatsApp : nous évaluons ensemble la pièce.",
+      "closing": "Le boîtier, l'étanchéité et le mouvement sont conçus par la factory tier 1 qui produit la pièce — nous transmettons ce niveau de qualité avec un service local et un accompagnement direct.",
       "whatsappCta": "Discuter d'une pièce →"
     },
     "tierOneSourcing": {
