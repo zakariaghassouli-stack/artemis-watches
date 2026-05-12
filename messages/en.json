@@ -432,7 +432,7 @@
     "faqItems": [
       {
         "q": "How long does delivery take?",
-        "a": "Pieces labeled 'Shipped within 48h from Montréal' leave within 2 business days. Made-to-order pieces are prepared and shipped within 10-14 days. Tracking is shared by email or WhatsApp once dispatched. Standard delivery 3-5 business days across Canada, 7-14 days internationally."
+        "a": "Pieces labeled 'Shipped within 48h from Montréal' leave within 2 business days. Made-to-order pieces require 3-4 days of preparation, then ship via FedEx or Canada Post (3-5 days within Canada, 7-14 days internationally). The tracking number is shared by email and WhatsApp upon dispatch."
       },
       {
         "q": "How do 30-day returns work?",
@@ -444,11 +444,11 @@
       },
       {
         "q": "How do you ship within Canada?",
-        "a": "Tracked shipping from Montréal, free and included in the price. 3-5 business days coast to coast via Canada Post or Purolator depending on postal code. The tracking number is sent by email and WhatsApp upon dispatch."
+        "a": "Tracked shipping from Montréal, free and included in the price. 3-5 business days coast to coast via FedEx or Canada Post depending on postal code. The tracking number is sent by email and WhatsApp upon dispatch."
       },
       {
         "q": "How do you ship outside Canada?",
-        "a": "International shipping available on WhatsApp request. 7-14 business days depending on destination. International shipping fees vary by country and weight - we share the exact rate before confirming. Tracking included in all cases."
+        "a": "International shipping available on WhatsApp request. 7-14 business days via FedEx or Canada Post depending on destination. International shipping fees vary by country and weight - we share the exact rate before confirming. Tracking included in all cases."
       },
       {
         "q": "Are there customs fees to expect?",
