@@ -14,7 +14,7 @@ import {
   getSiteSettings,
 } from '@/lib/queries';
 
-const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
+const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-sigma-tan.vercel.app';
 export const revalidate = 60;
 
 export async function generateMetadata({

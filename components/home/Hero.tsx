@@ -30,7 +30,7 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
       headlineAccent = lineBreakParts.slice(1).join(' ');
     } else {
       const sentenceParts = rawHeadline
-        .split(/(?<=\.)\s+/)
+        .split(/(?<=\.)\s*/)
         .map((part) => part.trim())
         .filter(Boolean);
       headlinePrimary = sentenceParts[0] ?? rawHeadline;

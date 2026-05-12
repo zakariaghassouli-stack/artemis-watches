@@ -232,17 +232,6 @@ export function SignupPromo({ discountPercent = 10 }: SignupPromoProps) {
           <p
             style={{
               fontSize: '0.72rem',
-              color: '#C9A96E',
-              lineHeight: 1.7,
-              marginBottom: 8,
-              letterSpacing: '0.03em',
-            }}
-          >
-            {t('expiryNotice')}
-          </p>
-          <p
-            style={{
-              fontSize: '0.72rem',
               color: '#A8A5A0',
               lineHeight: 1.7,
               marginBottom: 8,

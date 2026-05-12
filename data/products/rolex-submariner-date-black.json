@@ -19,7 +19,7 @@
   ],
   "range": "premium",
   "price": 1250,
-  "compareAtPrice": 1450,
+  "compareAtPrice": null,
   "currency": "CAD",
   "inStock": true,
   "stockCount": 5,

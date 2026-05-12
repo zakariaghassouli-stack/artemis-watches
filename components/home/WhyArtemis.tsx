@@ -45,6 +45,7 @@ export function WhyArtemis() {
   const t = useTranslations('home.why');
   const locale = useLocale();
 
+  const processVideosReady = process.env.NEXT_PUBLIC_PROCESS_VIDEOS_READY === 'true';
   const placeholders = locale === 'fr'
     ? [
         'Manipulation d’une montre',
@@ -84,7 +85,9 @@ export function WhyArtemis() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 0.98fr) minmax(0, 1.02fr)',
+            gridTemplateColumns: processVideosReady
+              ? 'minmax(0, 0.98fr) minmax(0, 1.02fr)'
+              : 'minmax(0, 1fr)',
             gap: 'clamp(24px, 4vw, 48px)',
             alignItems: 'start',
           }}
@@ -193,6 +196,7 @@ export function WhyArtemis() {
             </ScrollReveal>
           </div>
 
+          {processVideosReady ? (
           <div
             className="why-placeholders"
             style={{
@@ -289,6 +293,7 @@ export function WhyArtemis() {
               </ScrollReveal>
             ))}
           </div>
+          ) : null}
         </div>
       </div>
 

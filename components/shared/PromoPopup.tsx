@@ -231,18 +231,6 @@ export function PromoPopup({ discountPercent = 10 }: PromoPopupProps) {
           >
             {replaceDiscountCopy(t('subheadline'), resolvedDiscountPercent)}
           </p>
-          <p
-            style={{
-              fontSize: '0.76rem',
-              lineHeight: 1.6,
-              color: '#C9A96E',
-              marginBottom: 22,
-              letterSpacing: '0.03em',
-            }}
-          >
-            {replaceDiscountCopy(t('expiryNotice'), resolvedDiscountPercent)}
-          </p>
-
           <form onSubmit={handleSubmit} style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
             <input
               type="email"

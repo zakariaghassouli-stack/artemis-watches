@@ -528,7 +528,6 @@ export type ScarcityState =
 
 export function getScarcityState(product: Product): ScarcityState {
   if (!product.inStock) return null;
-  if (product.stockCount <= 5) return { type: 'low-stock', count: product.stockCount };
   if (product.badge === 'best-seller') return { type: 'best-seller' };
   if (product.badge === 'high-demand') return { type: 'high-demand' };
   if (product.badge === 'just-restocked') return { type: 'just-restocked' };
