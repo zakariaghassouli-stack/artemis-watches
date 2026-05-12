@@ -12,6 +12,7 @@ import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductInfo } from '@/components/product/ProductInfo';
 import { ProductTabs } from '@/components/product/ProductTabs';
+import { SpecsTable } from '@/components/product/SpecsTable';
 import { RelatedProducts } from '@/components/product/RelatedProducts';
 import { RecentlyViewed } from '@/components/product/RecentlyViewed';
 import { MobileStickyBar } from '@/components/product/MobileStickyBar';
@@ -103,6 +104,26 @@ export default async function ProductPage({ params }: Props) {
   const t = await getTranslations('product');
   const tCommon = await getTranslations('common');
   const tCollections = await getTranslations('collections');
+  const tSpecs = await getTranslations('product.specLabels');
+
+  const specsTableLabels = {
+    heading: t('specsHeading'),
+    fields: {
+      caseDiameter: tSpecs('caseDiameter'),
+      caseThickness: tSpecs('caseThickness'),
+      caseMaterial: tSpecs('caseMaterial'),
+      material: tSpecs('material'),
+      dialColor: tSpecs('dialColor'),
+      bezel: tSpecs('bezel'),
+      crystal: tSpecs('crystal'),
+      movement: tSpecs('movement'),
+      powerReserve: tSpecs('powerReserve'),
+      lume: tSpecs('lume'),
+      waterResistance: tSpecs('waterResistance'),
+      bracelet: tSpecs('bracelet'),
+      clasp: tSpecs('clasp'),
+    },
+  };
 
   const productInfoT = {
     addToCart: t('addToCart'),
@@ -317,7 +338,10 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── Tabs: Description / Specs / Reviews ────────────────────── */}
+      {/* ── Spec sheet: visible without tab interaction ───────────── */}
+      <SpecsTable specs={localizedProduct.specs} labels={specsTableLabels} />
+
+      {/* ── Tabs: Description / Reviews / Shipping / Returns / Help ── */}
       <section
         style={{
           borderTop: '1px solid rgba(255,255,255,0.05)',
