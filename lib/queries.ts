@@ -19,6 +19,15 @@ const BANNED_RENDER_PATTERN =
 function containsBannedTrademark(value: string | undefined | null): boolean {
   return typeof value === 'string' && BANNED_RENDER_PATTERN.test(value);
 }
+
+function arrayHasBannedTrademark(values: string[] | undefined | null): boolean {
+  return Array.isArray(values) && values.some((entry) => containsBannedTrademark(entry));
+}
+
+function specsHaveBannedTrademark(specs: ProductSpecs | undefined | null): boolean {
+  if (!specs) return false;
+  return Object.values(specs).some((value) => containsBannedTrademark(value));
+}
 import { client, sanityEnabled, serverClient } from '@/lib/sanity';
 
 type PortableTextBlock = {
@@ -328,6 +337,24 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       isGenericMovementVariant(normalizedProduct.variant) ||
       containsBannedTrademark(normalizedProduct.variant);
 
+    // Editorial fields managed in Sanity Studio can also drift; force
+    // local canonical when banned terms appear so prod never serves
+    // them in HTML (visible text, RSC payload, or SEO source).
+    const shouldUseCanonicalDescription =
+      containsBannedTrademark(normalizedProduct.description);
+    const shouldUseCanonicalDescriptionShort =
+      containsBannedTrademark(normalizedProduct.descriptionShort);
+    const shouldUseCanonicalKeyPoints =
+      arrayHasBannedTrademark(normalizedProduct.keyPoints);
+    const shouldUseCanonicalDescriptionFr =
+      containsBannedTrademark(normalizedProduct.descriptionFr);
+    const shouldUseCanonicalDescriptionShortFr =
+      containsBannedTrademark(normalizedProduct.descriptionShortFr);
+    const shouldUseCanonicalKeyPointsFr =
+      arrayHasBannedTrademark(normalizedProduct.keyPointsFr);
+    const shouldUseCanonicalSpecs =
+      specsHaveBannedTrademark(normalizedProduct.specs);
+
     const canonicalized = {
       ...normalizedProduct,
       name: shouldUseCanonicalName
@@ -336,6 +363,27 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       variant: shouldUseCanonicalVariant
         ? localCanonical?.variant ?? normalizedProduct.variant
         : normalizedProduct.variant,
+      description: shouldUseCanonicalDescription
+        ? localCanonical?.description ?? normalizedProduct.description
+        : normalizedProduct.description,
+      descriptionShort: shouldUseCanonicalDescriptionShort
+        ? localCanonical?.descriptionShort ?? normalizedProduct.descriptionShort
+        : normalizedProduct.descriptionShort,
+      keyPoints: shouldUseCanonicalKeyPoints
+        ? localCanonical?.keyPoints ?? normalizedProduct.keyPoints
+        : normalizedProduct.keyPoints,
+      descriptionFr: shouldUseCanonicalDescriptionFr
+        ? localCanonical?.descriptionFr ?? normalizedProduct.descriptionFr
+        : normalizedProduct.descriptionFr,
+      descriptionShortFr: shouldUseCanonicalDescriptionShortFr
+        ? localCanonical?.descriptionShortFr ?? normalizedProduct.descriptionShortFr
+        : normalizedProduct.descriptionShortFr,
+      keyPointsFr: shouldUseCanonicalKeyPointsFr
+        ? localCanonical?.keyPointsFr ?? normalizedProduct.keyPointsFr
+        : normalizedProduct.keyPointsFr,
+      specs: shouldUseCanonicalSpecs && localCanonical?.specs
+        ? localCanonical.specs
+        : normalizedProduct.specs,
       boxAndPapersPrice:
         normalizedProduct.range === 'premium'
           ? 0
