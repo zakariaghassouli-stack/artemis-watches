@@ -81,6 +81,11 @@ type SanityProductDocument = {
     clasp?: string;
     lume?: string;
     powerReserve?: string;
+    weight?: string;
+    hourMarkers?: string;
+    hands?: string;
+    glassTreatment?: string;
+    dialFinish?: string;
   };
   availableSizes?: string[];
   availableColors?: string[];

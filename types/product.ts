@@ -27,6 +27,11 @@ export interface ProductSpecs {
   movement?: string;
   powerReserve?: string;
   waterResistance?: string;
+  weight?: string;
+  hourMarkers?: string;
+  hands?: string;
+  glassTreatment?: string;
+  dialFinish?: string;
   [key: string]: string | undefined;
 }
 
