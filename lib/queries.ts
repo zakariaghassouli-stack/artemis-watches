@@ -9,6 +9,16 @@ import {
   getProductsByRange as getLocalProductsByRange,
   isGenericMovementVariant,
 } from '@/lib/products';
+
+// Sanity Studio data can drift from the post-Phase-2.5 scrubbed JSONs.
+// When a Sanity-sourced name or variant contains a banned trademark
+// term, force the local canonical so prod never renders forbidden copy.
+const BANNED_RENDER_PATTERN =
+  /swiss|suisse|cerachrom|cérachrome|chromalight|oysterclasp|jubilee|jubilé|glidelock|parachrom|chronergy/i;
+
+function containsBannedTrademark(value: string | undefined | null): boolean {
+  return typeof value === 'string' && BANNED_RENDER_PATTERN.test(value);
+}
 import { client, sanityEnabled, serverClient } from '@/lib/sanity';
 
 type PortableTextBlock = {
@@ -311,12 +321,18 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
 
     const localCanonical = ALL_PRODUCTS.find((localProduct) => localProduct.id === normalizedProduct.id);
 
+    const shouldUseCanonicalName =
+      !normalizedProduct.name || containsBannedTrademark(normalizedProduct.name);
     const shouldUseCanonicalVariant =
-      !normalizedProduct.variant || isGenericMovementVariant(normalizedProduct.variant);
+      !normalizedProduct.variant ||
+      isGenericMovementVariant(normalizedProduct.variant) ||
+      containsBannedTrademark(normalizedProduct.variant);
 
     const canonicalized = {
       ...normalizedProduct,
-      name: normalizedProduct.name || localCanonical?.name || normalizedProduct.name,
+      name: shouldUseCanonicalName
+        ? localCanonical?.name ?? normalizedProduct.name
+        : normalizedProduct.name,
       variant: shouldUseCanonicalVariant
         ? localCanonical?.variant ?? normalizedProduct.variant
         : normalizedProduct.variant,
