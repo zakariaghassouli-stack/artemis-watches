@@ -289,9 +289,8 @@ function stripVariantRangeSuffix(variant: string): string {
 
 export function getVariantOptionLabel(product: Pick<Product, 'variant' | 'range' | 'name' | 'slug'>, locale = 'en'): string {
   const cleaned = stripVariantRangeSuffix(product.variant || '').trim();
-  const shortLabel = cleaned.includes(' — ') ? cleaned.split(' — ')[0].trim() : cleaned;
 
-  if (!shortLabel || isGenericMovementVariant(shortLabel)) {
+  if (!cleaned || isGenericMovementVariant(cleaned)) {
     return product.range === 'premium'
       ? locale === 'fr'
         ? 'Version Premium'
@@ -304,14 +303,13 @@ export function getVariantOptionLabel(product: Pick<Product, 'variant' | 'range'
   if (
     product.range === 'premium' &&
     !cleaned.includes('—') &&
-    !cleaned.includes('—') &&
     /dial|tone|cadran/i.test(cleaned)
   ) {
-    const base = shortLabel.replace(/\s+Dial$/i, '').replace(/\s+Tone$/i, '').trim();
+    const base = cleaned.replace(/\s+Dial$/i, '').replace(/\s+Tone$/i, '').trim();
     return `${base} (Premium)`;
   }
 
-  return shortLabel;
+  return cleaned;
 }
 
 export function getProductDisplayTitle(product: Pick<Product, 'name' | 'variant'>): string {
