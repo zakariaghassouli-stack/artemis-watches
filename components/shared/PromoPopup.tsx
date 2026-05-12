@@ -118,6 +118,13 @@ export function PromoPopup({ discountPercent = 10 }: PromoPopupProps) {
       body: JSON.stringify({ email: email.trim(), source: 'signup_10_percent_popup' }),
     }).catch(() => undefined);
     setDismissCookie();
+    // Close popup state BEFORE navigating. The popup is mounted in the
+    // [locale] layout which persists across same-locale route changes, so
+    // router.push alone never unmounts the component — leaving loading=true
+    // and the overlay stuck on top of /account/register.
+    setEntered(false);
+    setVisible(false);
+    setLoading(false);
     router.push(
       `/account/register${email.trim() ? `?email=${encodeURIComponent(email.trim())}` : ''}`
     );
