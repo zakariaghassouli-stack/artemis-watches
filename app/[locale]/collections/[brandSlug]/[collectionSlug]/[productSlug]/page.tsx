@@ -130,7 +130,6 @@ export default async function ProductPage({ params }: Props) {
     outOfStock: t('outOfStock'),
     rangeEssential: t('rangeEssential'),
     rangePremium: t('rangePremium'),
-    buyNow: t('buyNow'),
     reviewSingular: t('reviewSingular'),
     reviewPlural: t('reviewPlural'),
     rangeSelectorLabel: t('rangeSelectorLabel'),
