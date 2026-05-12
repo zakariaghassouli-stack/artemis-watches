@@ -431,8 +431,8 @@
     "newClientDiscount": "Nouveau client ? Créez un compte pour 10 % de réduction → {price}",
     "sortFeatured": "Plus demandées",
     "shippingAvailabilityLabel": "Disponibilité",
-    "shippingStatusReady": "Prêt à expédier. 2 à 3 jours",
-    "shippingStatusMadeToOrder": "Sur commande. 2 à 3 semaines",
+    "shippingStatusReady": "Expédié sous 48h depuis Montréal",
+    "shippingStatusMadeToOrder": "Sous 10-14 jours",
     "shippingTrackingNote": "Votre numéro de suivi sera envoyé par email ou WhatsApp. Suivez votre commande sur 17track.net."
   },
   "wishlist": {
