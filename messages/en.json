@@ -197,7 +197,7 @@
       "placeholder": "Enter your email",
       "cta": "Get My 10% Code",
       "benefits": [
-        "10% off your first order - applied at checkout",
+        "10% off your first order - applied automatically",
         "Saved pieces and order history",
         "Priority access to new arrivals"
       ],
@@ -222,7 +222,7 @@
       "q3": "What is your return policy?",
       "a3": "You have 30 days to return the piece in its original condition if it is not right for you.",
       "q4": "Is payment secure?",
-      "a4": "Yes. Stripe secure checkout is used throughout, and shipping, taxes, plus any duties appear before you confirm payment.",
+      "a4": "Yes. Final price and delivery time are confirmed on WhatsApp before any payment. Payments are processed securely.",
       "q7": "What movements power the Premium pieces?",
       "a7": "Premium pieces use automatic movements from the modern generation: high-frequency 28,800 vibrations per hour (4 Hz), extended 70-hour power reserve, architecture tuned for daily accuracy. This is a higher category than the older short-reserve architectures still found at some resellers. For detailed specs on a specific reference, message us on WhatsApp.",
       "q8": "What is the water resistance of your watches?",
@@ -404,11 +404,11 @@
     "recentlyViewedEmpty": "Browse the collection to discover our timepieces.",
     "shippingTitle": "Shipping & Delivery",
     "shippingLine1Label": "Canada (Standard)",
-    "shippingLine1Value": "Tracked delivery. Rates calculated at checkout",
+    "shippingLine1Value": "Tracked delivery. Rates confirmed on WhatsApp",
     "shippingLine2Label": "Canada (Express)",
-    "shippingLine2Value": "Available at checkout when eligible",
+    "shippingLine2Value": "Available on WhatsApp request",
     "shippingLine3Label": "International",
-    "shippingLine3Value": "Calculated at checkout by destination",
+    "shippingLine3Value": "Calculated by destination, confirmed on WhatsApp",
     "shippingNote": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net.",
     "returnsTitle": "30-Day Return Policy",
     "returnsPoints": [
@@ -713,7 +713,7 @@
     "addBoxAndPapers": "Add Box & Papers - $49 CAD",
     "freeShipping": "Tracked shipping",
     "return30": "30-day returns",
-    "securePayment": "Secure Stripe checkout",
+    "securePayment": "WhatsApp support",
     "checkoutError": "We couldn't open checkout right now. Please try again or contact us on WhatsApp.",
     "checkoutMicrocopy": "Secure Stripe checkout opens next. Shipping, taxes, and your 10% code apply before payment.",
     "supportCta": "Need a hand? Ask on WhatsApp →",
@@ -721,7 +721,7 @@
     "closeLabel": "Close cart",
     "presentationSet": "Add Box & Papers set - $49 CAD",
     "presentationSetBody": "Branded presentation box and matching documentation.",
-    "accountPromoLine": "Have a 10% code? Create an account to apply it at checkout →"
+    "accountPromoLine": "Have a 10% code? Create an account to apply it to your order →"
   },
   "popup": {
     "overline": "WELCOME ADVANTAGE",

@@ -178,3 +178,56 @@ Once the mask is removed in code:
    describes the `containsBannedTrademark` fallback so future sessions
    don't reintroduce it.
 3. Update `MEMORY.md` description line accordingly.
+
+---
+
+## Code orphan keys to clean later
+
+Discovered during the Pivot V2 Sprint 1 audit. Pure technical debt — 0
+production impact, the keys are never consumed by any component or
+page so the public site is unaffected. Worth a small follow-up commit
+(post-Sprint 2 if needed) to keep the JSON tidy.
+
+### `messages/{fr,en}.json`
+
+- **`common.addToCart`** (FR + EN) — legacy duplicate of
+  `product.addToCart`. No consumer found via grep.
+- **`common.buyNow`** (FR + EN) — orphan, never rendered. No consumer.
+- **`product.buyNow`** (FR + EN) — orphan, never rendered. No consumer.
+- **`faqPage.s1a2`**, **`faqPage.s1a3`**, **`faqPage.s4a1`**,
+  **`faqPage.s4a3`** + their `s1q2`/`s1q3`/`s4q1`/`s4q3` question
+  counterparts (and likely the rest of the `faqPage.*` namespace).
+  These were consumed by `app/[locale]/faq/page.tsx`, which was
+  deleted in Sprint 1 Tâche 1.4 (legacy `/faq` route now serves a 301
+  redirect to `/#faq` via `next.config.ts redirects()`). The home
+  `FAQAccordion` consumes `home.faq.*` (different namespace), so
+  `faqPage.*` is now fully orphaned.
+- **`home.faq.q2`**, **`home.faq.a2`**, **`home.faq.q5`**,
+  **`home.faq.a5`**, **`home.faq.q6`**, **`home.faq.a6`** (FR only —
+  FR/EN parity drift pre-existing from before Sprint 1). The
+  `FAQAccordion` component iterates over `FAQ_KEYS = ['1','3','4','7','8']`,
+  so q2/a2/q5/a5/q6/a6 are never rendered. Can be deleted from
+  `messages/fr.json` to restore parity with `messages/en.json`.
+
+### Suggested cleanup commit
+
+```bash
+# Dry-run the orphan list with Python (do NOT execute blindly,
+# review the JSON first):
+python3 - <<'PY'
+import json
+for path in ['messages/fr.json', 'messages/en.json']:
+    d = json.load(open(path))
+    d.get('common', {}).pop('addToCart', None)
+    d.get('common', {}).pop('buyNow', None)
+    d.get('product', {}).pop('buyNow', None)
+    d.pop('faqPage', None)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(d, f, ensure_ascii=False, indent=2)
+PY
+# Then run: npx tsc --noEmit && npm run lint && npm run build
+# Commit message: chore(messages): retire orphan i18n keys (Pivot V2 cleanup)
+```
+
+Note: pure technical debt. 0 impact prod. Clean en commit séparé
+post-Sprint 2 si besoin.
