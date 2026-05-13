@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { ContactCTA } from '@/components/shared/ContactCTA';
 import { ProductGridClient } from '@/components/collection/ProductGridClient';
 import { BrandCatalogClient } from '@/components/collection/BrandCatalogClient';
 import { CollectionViewTracker } from '@/components/analytics/CollectionViewTracker';
@@ -154,10 +155,20 @@ export default async function BrandPage({ params, searchParams }: Props) {
                     color: '#A8A5A0',
                     lineHeight: 1.7,
                     maxWidth: 620,
+                    marginBottom: 24,
                   }}
                 >
                   {t('brandCatalogSummary', { name: brand.name })}
                 </p>
+                <div style={{ display: 'inline-flex' }}>
+                  <ContactCTA
+                    channel="whatsapp"
+                    variant="primary"
+                    size="md"
+                    source="brand_hero"
+                    label={t('catalogCTAWhatsapp')}
+                  />
+                </div>
               </div>
 
               <p
@@ -284,10 +295,23 @@ export default async function BrandPage({ params, searchParams }: Props) {
                 color: 'rgba(255,255,255,0.2)',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
+                marginBottom: 28,
               }}
             >
               {t('startingFrom')} {formatPrice(lowestPrice)} CAD
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={360}>
+            <div style={{ display: 'inline-flex' }}>
+              <ContactCTA
+                channel="whatsapp"
+                variant="primary"
+                size="md"
+                source="brand_hero"
+                label={t('catalogCTAWhatsapp')}
+              />
+            </div>
           </ScrollReveal>
         </div>
       </section>
