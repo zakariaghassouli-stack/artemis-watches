@@ -23,7 +23,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/collections', priority: 0.9, changeFrequency: 'weekly'  },
     { path: '/about',      priority: 0.7, changeFrequency: 'monthly' },
     // '/reviews' omitted pending verified reviews migration (page now noindex)
-    { path: '/faq',        priority: 0.6, changeFrequency: 'monthly' },
+    // '/faq' standalone retired Pivot V2 — content lives on home (#faq) and
+    // per-product PDPs. Legacy /faq URL serves a 301 to /#faq via
+    // next.config.ts redirects(), so no sitemap entry needed.
     { path: '/contact',    priority: 0.5, changeFrequency: 'monthly' },
   ] satisfies { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[];
 
