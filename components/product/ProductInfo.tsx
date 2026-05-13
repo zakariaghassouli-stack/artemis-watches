@@ -20,6 +20,7 @@ import { MessageCircle, ShieldCheck, Truck, Wrench } from 'lucide-react';
 import type { Product } from '@/types/product';
 import { ContactCTA } from '@/components/shared/ContactCTA';
 import { TrustBadgesStrip } from '@/components/product/TrustBadgesStrip';
+import { StockBadge } from '@/components/product/StockBadge';
 
 // Variants whose slug matches this pattern are surfaced in a separate
 // "VARIANTES SPÉCIALES" pill row instead of mixed with the dial colors.
@@ -545,6 +546,15 @@ export function ProductInfo({
           price={activePrice}
           registerLabel={t.newClientDiscount}
           discountPercent={welcomeDiscountPercent}
+        />
+      </div>
+
+      <div style={{ marginBottom: 16 }}>
+        <StockBadge
+          status={product.stockStatus}
+          leadTimeDays={product.leadTimeDays}
+          label={product.stockLabel}
+          size="pdp"
         />
       </div>
 

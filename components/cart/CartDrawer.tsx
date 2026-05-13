@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react';
 import { analytics } from '@/lib/analytics';
 import { useCartStore, selectItemCount, selectCartTotal } from '@/store/cart';
 import type { CartItem } from '@/store/cart';
+import { StockBadge } from '@/components/product/StockBadge';
 import {
   getCartWhatsAppMessage,
   getGeneralWhatsAppMessage,
@@ -86,6 +87,17 @@ function CartItemRow({ item, removeLabel, boxAndPapersLabel, addBoxAndPapersLabe
           <p style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.25)', letterSpacing: '0.08em', marginBottom: 4 }}>
             {item.size}
           </p>
+        )}
+        {/* Stock status (renders only when captured at add-to-cart time) */}
+        {item.stockStatus && (
+          <div style={{ marginBottom: 6 }}>
+            <StockBadge
+              status={item.stockStatus}
+              leadTimeDays={item.leadTimeDays}
+              label={item.stockLabel}
+              size="compact"
+            />
+          </div>
         )}
         {/* Box & papers indicator */}
         {hasIncludedBoxAndPapers && (

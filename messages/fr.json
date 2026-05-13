@@ -1031,5 +1031,11 @@
     "step4Body": "Livraison suivie depuis Montréal, support WhatsApp continu.",
     "ctaLabel": "Discuter d'une pièce sur WhatsApp",
     "footnote": "*Architecture inspirée des calibres suisses (Rolex 32xx series). Production VSF/Clean/ARF."
+  },
+  "stockBadge": {
+    "inStock": "En stock prêt à expédier",
+    "onOrder": "Sur commande · 10-14 jours",
+    "onOrderDays": "Sur commande · {days} jours",
+    "outOfStock": "Rupture temporaire"
   }
 }

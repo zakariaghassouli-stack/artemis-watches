@@ -15,6 +15,13 @@ export interface CartItem {
   price: number;         // final unit price (incl. box & papers if selected)
   boxAndPapers: boolean;
   quantity: number;
+  // Optional stock snapshot captured at add-to-cart time so the drawer can
+  // render a StockBadge without re-querying. Items added before Sprint 5
+  // will not have these fields — the drawer renders the badge only when
+  // stockStatus is present.
+  stockStatus?: 'in_stock' | 'on_order' | 'out_of_stock';
+  leadTimeDays?: number | null;
+  stockLabel?: string | null;
 }
 
 interface CartState {

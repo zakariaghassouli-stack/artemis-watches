@@ -1025,5 +1025,11 @@
     "step4Body": "Tracked delivery from Montréal, continuous WhatsApp support.",
     "ctaLabel": "Discuss a piece on WhatsApp",
     "footnote": "*Architecture inspired by Swiss calibers (Rolex 32xx series). Production VSF/Clean/ARF."
+  },
+  "stockBadge": {
+    "inStock": "In stock, ready to ship",
+    "onOrder": "On order · 10-14 days",
+    "onOrderDays": "On order · {days} days",
+    "outOfStock": "Temporarily unavailable"
   }
 }
