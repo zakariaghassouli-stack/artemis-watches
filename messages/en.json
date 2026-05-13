@@ -722,6 +722,8 @@
     "promoInvalid": "This code could not be applied",
     "promoNetError": "Unable to validate the code right now",
     "checkout": "Open Secure Checkout →",
+    "checkoutWhatsApp": "Finalize on WhatsApp",
+    "checkoutWhatsAppMicrocopy": "We confirm availability, final price, and timing on WhatsApp before any payment.",
     "checkoutLoading": "Redirecting...",
     "continueShopping": "Continue Shopping",
     "remove": "Remove",
