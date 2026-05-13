@@ -21,10 +21,11 @@ export default async function AboutPage() {
   const stats = [
     { value: t('stat1Value'), label: t('stat1Label') },
     { value: t('stat2Value'), label: t('stat2Label') },
-    { value: t('stat3Value'), label: t('stat3Label') },
-    { value: t('stat4Value'), label: t('stat4Label') },
   ];
 
+  // Pivot V2: 2 value cards instead of 4. Image headers reuse real product
+  // face shots — the legacy IMG_*.webp placeholders that backed the dropped
+  // value cards (v2 + v4) are gone from this page entirely.
   const valueCards = [
     {
       number: '01',
@@ -34,26 +35,15 @@ export default async function AboutPage() {
     },
     {
       number: '02',
-      title: t('v2Title'),
-      body: t('v2Body'),
-      image: '/images/IMG_5447.webp',
-    },
-    {
-      number: '03',
       title: t('v3Title'),
       body: t('v3Body'),
       image: '/images/cartier-santos-silver-face.webp',
-    },
-    {
-      number: '04',
-      title: t('v4Title'),
-      body: t('v4Body'),
-      image: '/images/patek-philippe-nautilus-blue-face.webp',
     },
   ];
 
   return (
     <>
+      {/* ── Hero (compact, single image) ────────────────────────────── */}
       <section
         style={{
           background: '#0A0A0A',
@@ -75,6 +65,7 @@ export default async function AboutPage() {
         />
 
         <div
+          className="about-hero-grid"
           style={{
             maxWidth: 1240,
             margin: '0 auto',
@@ -84,7 +75,6 @@ export default async function AboutPage() {
             alignItems: 'center',
             position: 'relative',
           }}
-          className="about-hero-grid"
         >
           <style>{`
             @media (max-width: 900px) {
@@ -92,8 +82,7 @@ export default async function AboutPage() {
             }
             @media (max-width: 700px) {
               .about-stats-grid,
-              .about-values-grid,
-              .about-montreal-grid {
+              .about-values-grid {
                 grid-template-columns: 1fr !important;
               }
             }
@@ -206,69 +195,39 @@ export default async function AboutPage() {
           <ScrollReveal delay={120}>
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 1.15fr) minmax(0, 0.85fr)',
-                gap: 14,
-                minHeight: 540,
+                position: 'relative',
+                aspectRatio: '4 / 5',
+                borderRadius: 8,
+                overflow: 'hidden',
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: '#151515',
               }}
             >
+              {/* IMG_5447.webp is a placeholder until Zaki shoots the
+                  Montréal atelier portrait + workshop set. Replace then
+                  with a real founder / workshop image. */}
+              <Image
+                src="/images/IMG_5447.webp"
+                alt="Artemis original product photography"
+                fill
+                sizes="(max-width: 900px) 100vw, 44vw"
+                style={{ objectFit: 'cover' }}
+              />
               <div
+                aria-hidden
                 style={{
-                  position: 'relative',
-                  borderRadius: 8,
-                  overflow: 'hidden',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  minHeight: 540,
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'linear-gradient(180deg, rgba(10,10,10,0.04) 0%, rgba(10,10,10,0.38) 100%)',
                 }}
-              >
-                <Image
-                  src="/images/IMG_5447.webp"
-                  alt="Artemis original product photography"
-                  fill
-                  sizes="(max-width: 900px) 100vw, 36vw"
-                  style={{ objectFit: 'cover' }}
-                />
-                <div
-                  aria-hidden
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background:
-                      'linear-gradient(180deg, rgba(10,10,10,0.04) 0%, rgba(10,10,10,0.38) 100%)',
-                  }}
-                />
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateRows: '1fr 1fr', gap: 14 }}>
-                {[
-                  '/images/cartier-santos-silver-face.webp',
-                  '/images/patek-philippe-nautilus-blue-face.webp',
-                ].map((src) => (
-                  <div
-                    key={src}
-                    style={{
-                      position: 'relative',
-                      borderRadius: 8,
-                      overflow: 'hidden',
-                      border: '1px solid rgba(255,255,255,0.06)',
-                      minHeight: 0,
-                    }}
-                  >
-                    <Image
-                      src={src}
-                      alt="Artemis collection detail"
-                      fill
-                      sizes="(max-width: 900px) 50vw, 22vw"
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                ))}
-              </div>
+              />
             </div>
           </ScrollReveal>
         </div>
       </section>
 
+      {/* ── Stats (2 tiles) ─────────────────────────────────────────── */}
       <section
         style={{
           background: '#111',
@@ -279,10 +238,10 @@ export default async function AboutPage() {
         <div
           className="about-stats-grid"
           style={{
-            maxWidth: 1240,
+            maxWidth: 720,
             margin: '0 auto',
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+            gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
             gap: 16,
           }}
         >
@@ -290,7 +249,7 @@ export default async function AboutPage() {
             <ScrollReveal key={stat.label} delay={index * 60}>
               <div
                 style={{
-                  padding: '20px 18px',
+                  padding: '24px 20px',
                   borderRadius: 6,
                   border: '1px solid rgba(255,255,255,0.06)',
                   background: 'rgba(255,255,255,0.025)',
@@ -300,7 +259,7 @@ export default async function AboutPage() {
               >
                 <p
                   style={{
-                    fontSize: 'clamp(1.65rem, 2.8vw, 2.3rem)',
+                    fontSize: 'clamp(1.85rem, 3vw, 2.5rem)',
                     fontWeight: 700,
                     color: '#C9A96E',
                     lineHeight: 1,
@@ -312,7 +271,7 @@ export default async function AboutPage() {
                 </p>
                 <p
                   style={{
-                    fontSize: '0.68rem',
+                    fontSize: '0.7rem',
                     fontWeight: 600,
                     letterSpacing: '0.16em',
                     textTransform: 'uppercase',
@@ -327,141 +286,7 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section
-        style={{
-          background: '#0A0A0A',
-          padding: 'clamp(72px, 10vw, 120px) 24px',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1240,
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'minmax(0, 0.9fr) minmax(0, 1.1fr)',
-            gap: 'clamp(32px, 5vw, 60px)',
-            alignItems: 'center',
-          }}
-          className="about-montreal-grid"
-        >
-          <ScrollReveal delay={0}>
-            <div
-              style={{
-                position: 'relative',
-                borderRadius: 8,
-                overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.06)',
-                minHeight: 520,
-                background: '#151515',
-              }}
-            >
-              <Image
-                src="/images/IMG_6279.webp"
-                alt="Artemis Montreal watch detail"
-                fill
-                sizes="(max-width: 700px) 100vw, 40vw"
-                style={{ objectFit: 'cover' }}
-              />
-              <div
-                style={{
-                  position: 'absolute',
-                  left: 20,
-                  right: 20,
-                  bottom: 20,
-                  padding: '16px 18px',
-                  borderRadius: 6,
-                  background: 'rgba(10,10,10,0.72)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: '0.6rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.18em',
-                    textTransform: 'uppercase',
-                    color: '#C9A96E',
-                    marginBottom: 6,
-                  }}
-                >
-                  {t('storyOverline')}
-                </p>
-                <p
-                  style={{
-                    fontSize: '0.86rem',
-                    color: '#F5F3EF',
-                    lineHeight: 1.65,
-                  }}
-                >
-                  &ldquo;{t('storyQuote')}&rdquo;
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <div>
-            <ScrollReveal delay={80}>
-              <p
-                style={{
-                  fontSize: '0.68rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.25em',
-                  textTransform: 'uppercase',
-                  color: '#C9A96E',
-                  marginBottom: 20,
-                }}
-              >
-                {t('storyOverline')}
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={140}>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.9rem, 3.6vw, 3rem)',
-                  fontWeight: 600,
-                  lineHeight: 1.14,
-                  letterSpacing: '-0.02em',
-                  color: '#F5F3EF',
-                  marginBottom: 24,
-                }}
-              >
-                {t('storyHeadline1')}
-                <br />
-                {t('storyHeadline2')}
-              </h2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <p
-                style={{
-                  fontSize: '0.96rem',
-                  color: '#A8A5A0',
-                  lineHeight: 1.85,
-                  marginBottom: 18,
-                }}
-              >
-                {t('storyP1')}
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={240}>
-              <p
-                style={{
-                  fontSize: '0.96rem',
-                  color: '#A8A5A0',
-                  lineHeight: 1.85,
-                }}
-              >
-                {t('storyP2')}
-              </p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
+      {/* ── Values (2 cards) ────────────────────────────────────────── */}
       <section
         style={{
           background: '#0D0D0D',
@@ -586,157 +411,6 @@ export default async function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section
-        style={{
-          background: '#0A0A0A',
-          padding: 'clamp(72px, 10vw, 120px) 24px',
-          borderTop: '1px solid rgba(255,255,255,0.04)',
-        }}
-      >
-        <div
-          className="about-montreal-grid"
-          style={{
-            maxWidth: 1240,
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'minmax(0, 0.95fr) minmax(0, 1.05fr)',
-            gap: 'clamp(32px, 5vw, 64px)',
-            alignItems: 'center',
-          }}
-        >
-          <ScrollReveal delay={0}>
-            <div>
-              <p
-                style={{
-                  fontSize: '0.68rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.25em',
-                  textTransform: 'uppercase',
-                  color: '#C9A96E',
-                  marginBottom: 18,
-                }}
-              >
-                {t('montrealOverline')}
-              </p>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.9rem, 3.5vw, 2.9rem)',
-                  fontWeight: 600,
-                  lineHeight: 1.18,
-                  letterSpacing: '-0.02em',
-                  color: '#F5F3EF',
-                  marginBottom: 22,
-                }}
-              >
-                {t('montrealHeadline1')}
-                <br />
-                {t('montrealHeadline2')}
-              </h2>
-              <p
-                style={{
-                  fontSize: '0.96rem',
-                  color: '#A8A5A0',
-                  lineHeight: 1.82,
-                  marginBottom: 28,
-                  maxWidth: 560,
-                }}
-              >
-                {t('montrealBody')}
-              </p>
-              <a
-                href={aboutWhatsAppUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '15px 30px',
-                  border: '1px solid rgba(201,169,110,0.35)',
-                  color: '#C9A96E',
-                  textDecoration: 'none',
-                  fontSize: '0.74rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  borderRadius: 4,
-                  background: 'rgba(201,169,110,0.04)',
-                }}
-              >
-                {t('ctaWhatsApp')}
-              </a>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={120}>
-            <div
-              style={{
-                position: 'relative',
-                minHeight: 420,
-                borderRadius: 8,
-                overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.06)',
-                background: '#151515',
-              }}
-            >
-              <Image
-                src="/images/IMG_3268.webp"
-                alt="Prepared in Montreal"
-                fill
-                sizes="(max-width: 700px) 100vw, 44vw"
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <section
-        style={{
-          background: '#111',
-          padding: '56px 24px',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
-          textAlign: 'center',
-        }}
-      >
-        <ScrollReveal delay={0}>
-          <p
-            style={{
-              fontSize: '0.7rem',
-              fontWeight: 600,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: '#6B6965',
-              marginBottom: 20,
-            }}
-          >
-            {t('ctaReadyLabel')}
-          </p>
-        </ScrollReveal>
-
-        <ScrollReveal delay={80}>
-          <Link
-            href="/collections"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '16px 40px',
-              background: '#F5F3EF',
-              color: '#0A0A0A',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              borderRadius: 4,
-            }}
-          >
-            {t('ctaShop')}
-          </Link>
-        </ScrollReveal>
       </section>
     </>
   );
