@@ -48,17 +48,17 @@
   "home": {
     "hero": {
       "overline": "MONTRÉAL · ROLEX · CARTIER · AUDEMARS PIGUET · PATEK",
-      "headline": "Quatre marques iconiques. Une adresse à Montréal.",
-      "subheadline": "78 pièces · À partir de 280 $ · Livraison suivie · Retours 30 jours",
+      "headline": "Horlogerie iconique préparée à Montréal.",
+      "subheadline": "Quatre marques curées, deux niveaux de mouvement, un service direct.",
       "ctaPrimary": "Explorer les 78 pièces",
       "ctaSecondary": "Besoin d'aide ? WhatsApp →",
-      "ctaWhatsapp": "Parler avec un spécialiste",
+      "ctaWhatsapp": "Commander sur WhatsApp",
       "scrollLabel": "Découvrir",
-      "headlinePart1": "Quatre marques iconiques.",
-      "headlineAccent": "Une adresse à Montréal.",
-      "point1": "À partir de 280 $ CAD",
-      "point2": "Retours 30 jours",
-      "point3": "Livraison suivie au Canada",
+      "headlinePart1": "Horlogerie iconique",
+      "headlineAccent": "préparée à Montréal.",
+      "point1": "Préparé Montréal",
+      "point2": "Retours 30j",
+      "point3": "Réponse <1h",
       "socialProof": "200+ commandes expédiées depuis Montréal"
     },
     "preparation": {

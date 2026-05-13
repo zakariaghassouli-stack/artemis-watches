@@ -47,18 +47,18 @@
   },
   "home": {
     "hero": {
-      "overline": "MONTREAL · ROLEX · CARTIER · AUDEMARS PIGUET · PATEK",
-      "headline": "Four iconic brands. One Montreal address.",
-      "subheadline": "78 pieces · From $280 · Tracked shipping · 30-day returns",
-      "ctaPrimary": "Explore the 78 Pieces",
+      "overline": "MONTRÉAL · ROLEX · CARTIER · AUDEMARS PIGUET · PATEK",
+      "headline": "Iconic watchmaking prepared in Montréal.",
+      "subheadline": "Four curated brands, two movement tiers, direct service.",
+      "ctaPrimary": "Explore the 78 pieces",
       "ctaSecondary": "Need guidance? WhatsApp →",
-      "ctaWhatsapp": "Speak with a specialist",
+      "ctaWhatsapp": "Order on WhatsApp",
       "scrollLabel": "Discover",
-      "headlinePart1": "Four iconic brands.",
-      "headlineAccent": "One Montreal address.",
-      "point1": "From $280 CAD",
+      "headlinePart1": "Iconic watchmaking",
+      "headlineAccent": "prepared in Montréal.",
+      "point1": "Prepared in Montréal",
       "point2": "30-day returns",
-      "point3": "Tracked Canada shipping",
+      "point3": "Reply <1h",
       "socialProof": "200+ orders shipped from Montreal"
     },
     "preparation": {
