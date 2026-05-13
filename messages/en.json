@@ -45,7 +45,7 @@
   },
   "home": {
     "hero": {
-      "overline": "MONTREAL · ROLEX · CARTIER · AP · PATEK",
+      "overline": "MONTREAL · ROLEX · CARTIER · AUDEMARS PIGUET · PATEK",
       "headline": "Four iconic brands. One Montreal address.",
       "subheadline": "78 pieces · From $280 · Tracked shipping · 30-day returns",
       "ctaPrimary": "Explore the 78 Pieces",
@@ -76,7 +76,7 @@
     "tierOneSourcing": {
       "overline": "TIER 1 SOURCING",
       "headline": "The factory ecosystem, transparent.",
-      "body": "Our Premium pieces come exclusively from the tier 1 factories of the market — the manufactures the community recognizes as the references in alternative watch production.\n\nFor Rolex: VSF and ARF on Submariner, GMT-Master II, and Datejust 41. Clean or VSF, your choice, on Daytona.\n\nFor AP: ZF and APSF on Royal Oak. For Patek (Nautilus, Aquanaut): ZF. For Cartier (Santos, Panthère): AF Factory.\n\nEvery Premium piece shows its source factory in its specifications, because for those who know, that is the information that matters most.",
+      "body": "Our Premium pieces come exclusively from the tier 1 factories of the market — the manufactures the community recognizes as the references in alternative watch production.\n\nFor Rolex: VSF and ARF on Submariner, GMT-Master II, and Datejust 41. Clean or VSF, your choice, on Daytona.\n\nFor Audemars Piguet: ZF and APSF on Royal Oak. For Patek (Nautilus, Aquanaut): ZF. For Cartier (Santos, Panthère): AF Factory.\n\nEvery Premium piece shows its source factory in its specifications, because for those who know, that is the information that matters most.",
       "cta": "View Premium pieces →"
     },
     "trust": {
@@ -98,7 +98,7 @@
       "cartierSub": "Santos · Panthère",
       "cartierCta": "EXPLORE CARTIER →",
       "apSub": "Royal Oak",
-      "apCta": "EXPLORE AP →",
+      "apCta": "EXPLORE AUDEMARS PIGUET →",
       "patekSub": "Nautilus · Aquanaut · Calatrava",
       "patekCta": "EXPLORE PATEK →",
       "no1Bestseller": "Client favourite",
@@ -234,7 +234,7 @@
     "subtitle": "{count} pieces across 4 brands.",
     "exploreRolex": "EXPLORE ROLEX →",
     "exploreCartier": "EXPLORE CARTIER →",
-    "exploreAP": "EXPLORE AP →",
+    "exploreAP": "EXPLORE AUDEMARS PIGUET →",
     "explorePatek": "EXPLORE PATEK →",
     "pieces": "pieces",
     "pageOverline": "THE FULL COLLECTION",
