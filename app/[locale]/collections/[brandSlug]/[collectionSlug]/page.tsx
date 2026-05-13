@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { ContactCTA } from '@/components/shared/ContactCTA';
 import { ProductGridClient } from '@/components/collection/ProductGridClient';
 import { getBrandMeta, getCollectionMeta } from '@/lib/brands';
 import { getProductsByCollection } from '@/lib/queries';
@@ -147,7 +148,7 @@ export default async function CollectionPage({ params }: Props) {
           </ScrollReveal>
 
           <ScrollReveal delay={240}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap', marginBottom: 28 }}>
               <p
                 style={{
                   fontSize: '0.72rem',
@@ -173,6 +174,18 @@ export default async function CollectionPage({ params }: Props) {
                   CAD
                 </p>
               )}
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={320}>
+            <div style={{ display: 'inline-flex' }}>
+              <ContactCTA
+                channel="whatsapp"
+                variant="primary"
+                size="md"
+                source="category_hero"
+                label={t('catalogCTAWhatsapp')}
+              />
             </div>
           </ScrollReveal>
         </div>
