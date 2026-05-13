@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { RangeBadge, ScarcityBadge } from '@/components/shared/ProductBadges';
+import { StockBadge } from '@/components/product/StockBadge';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -140,12 +141,28 @@ export function CollectionProductCard({ product, index, viewDetailsLabel }: Prop
             </div>
           )}
 
-          <div style={{ position: 'absolute', top: 10, right: 10 }}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-end',
+              gap: 6,
+            }}
+          >
             <RangeBadge
               range={product.range}
               premiumLabel={tProduct('rangePremium')}
               essentialLabel={tProduct('rangeEssential')}
               size="xs"
+            />
+            <StockBadge
+              status={product.stockStatus}
+              leadTimeDays={product.leadTimeDays}
+              label={product.stockLabel}
+              size="compact"
             />
           </div>
         </div>

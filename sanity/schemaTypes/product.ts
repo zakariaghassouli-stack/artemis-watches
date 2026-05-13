@@ -101,6 +101,36 @@ export default defineType({
       initialValue: 5,
     }),
     defineField({
+      name: 'stockStatus',
+      title: 'Stock Status',
+      type: 'string',
+      description:
+        'Drives the StockBadge on PDP, collection cards, and cart drawer. Essential defaults in_stock, Premium defaults on_order. Datejust 2tone + Chocolate are on_order regardless of range.',
+      options: {
+        list: [
+          { title: 'In stock', value: 'in_stock' },
+          { title: 'On order', value: 'on_order' },
+          { title: 'Out of stock', value: 'out_of_stock' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'in_stock',
+    }),
+    defineField({
+      name: 'leadTimeDays',
+      title: 'Lead Time (days)',
+      type: 'number',
+      description:
+        'Used when stockStatus is on_order to render a precise window. Falls back to 10-14 days when empty.',
+    }),
+    defineField({
+      name: 'stockLabel',
+      title: 'Stock Label Override',
+      type: 'string',
+      description:
+        'Optional custom label that bypasses the default StockBadge copy. Use sparingly — most pieces should rely on stockStatus + leadTimeDays.',
+    }),
+    defineField({
       name: 'badge',
       title: 'Badge',
       type: 'string',

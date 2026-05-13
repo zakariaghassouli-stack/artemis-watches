@@ -58,6 +58,9 @@ type SanityProductDocument = {
   compareAtPrice?: number | null;
   inStock?: boolean;
   stockCount?: number;
+  stockStatus?: 'in_stock' | 'on_order' | 'out_of_stock';
+  leadTimeDays?: number | null;
+  stockLabel?: string | null;
   badge?: string | null;
   images?: string[];
   video?: string | null;
@@ -134,6 +137,9 @@ const PRODUCT_QUERY = `*[_type == "product"] | order(brand asc, price asc, name 
   compareAtPrice,
   inStock,
   stockCount,
+  stockStatus,
+  leadTimeDays,
+  stockLabel,
   badge,
   "images": images[].asset->url,
   "video": video.asset->url,
@@ -278,6 +284,9 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       currency: 'CAD' as const,
       inStock: doc.inStock ?? true,
       stockCount: doc.stockCount ?? 0,
+      stockStatus: doc.stockStatus ?? (doc.range === 'premium' ? 'on_order' : 'in_stock'),
+      leadTimeDays: doc.leadTimeDays ?? null,
+      stockLabel: doc.stockLabel ?? null,
       badge: (doc.badge ? BADGE_MAP[doc.badge] : null) ?? null,
       images: doc.images ?? [],
       video: doc.video ?? null,

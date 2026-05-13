@@ -64,6 +64,10 @@ export interface Product {
   currency: 'CAD';
   inStock: boolean;
   stockCount: number;
+  /** Pivot V2 stock model — feeds the StockBadge on PDP / cards / cart. */
+  stockStatus?: 'in_stock' | 'on_order' | 'out_of_stock';
+  leadTimeDays?: number | null;
+  stockLabel?: string | null;
   badge: ProductBadge;
   /** Product gallery assets. Prefer 3 photos plus 1 optional video. */
   images: string[];
