@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { getBrandMeta, getCollectionMeta } from '@/lib/brands';
 import {
   getAllProducts,
+  getBoxAndPapersPricing,
   getProductBySlug,
   getProductsByCollection,
   getSiteSettings,
@@ -87,10 +88,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductPage({ params }: Props) {
   const { brandSlug, collectionSlug, productSlug, locale } = await params;
 
-  const [product, siteSettings, allProducts] = await Promise.all([
+  const [product, siteSettings, allProducts, boxAndPapersPricing] = await Promise.all([
     getProductBySlug(productSlug),
     getSiteSettings(),
     getAllProducts(),
+    getBoxAndPapersPricing(),
   ]);
   if (!product) notFound();
 
@@ -386,6 +388,7 @@ export default async function ProductPage({ params }: Props) {
                 product={enrichedLocalizedProduct}
                 collectionVariants={collectionVariants}
                 welcomeDiscountPercent={siteSettings?.welcomeDiscountPercent ?? 10}
+                boxAndPapersPricing={boxAndPapersPricing}
                 t={productInfoT}
               />
             </div>

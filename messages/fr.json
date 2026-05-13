@@ -1037,5 +1037,15 @@
     "onOrder": "Sur commande · 10-14 jours",
     "onOrderDays": "Sur commande · {days} jours",
     "outOfStock": "Rupture temporaire"
+  },
+  "complements": {
+    "title": "Compléments",
+    "essentialCardTitle": "Box & Papers Rolex",
+    "essentialDefaultDesc": "Boîte d'origine, papiers, sticker hologramme, carte de garantie.",
+    "premiumCardTitle": "Box & Papers Rolex Haut de gamme",
+    "premiumDefaultDesc": "Boîte premium, papiers, sticker hologramme, carte de garantie, écrin de voyage.",
+    "addToOrder": "Ajouter à ma commande",
+    "addedToOrder": "Ajouté à ma commande",
+    "pricePrefix": "+"
   }
 }

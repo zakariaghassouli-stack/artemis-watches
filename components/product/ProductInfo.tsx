@@ -21,6 +21,8 @@ import type { Product } from '@/types/product';
 import { ContactCTA } from '@/components/shared/ContactCTA';
 import { TrustBadgesStrip } from '@/components/product/TrustBadgesStrip';
 import { StockBadge } from '@/components/product/StockBadge';
+import { Complements } from '@/components/product/Complements';
+import type { BoxAndPapersPricing } from '@/lib/queries';
 
 // Variants whose slug matches this pattern are surfaced in a separate
 // "VARIANTES SPÉCIALES" pill row instead of mixed with the dial colors.
@@ -31,6 +33,7 @@ interface Props {
   product: Product;
   collectionVariants: Product[];
   welcomeDiscountPercent?: number;
+  boxAndPapersPricing?: BoxAndPapersPricing;
   t: {
     addToCart: string;
     orderWhatsApp: string;
@@ -132,6 +135,7 @@ export function ProductInfo({
   product,
   collectionVariants,
   welcomeDiscountPercent = 10,
+  boxAndPapersPricing,
   t,
 }: Props) {
   const [boxAndPapers, setBoxAndPapers] = useState(false);
@@ -567,7 +571,9 @@ export function ProductInfo({
         }}
       />
 
-      {/* Box & Papers state */}
+      {/* Box & Papers — Sprint 6 Complements card. Premium keeps the
+          "included" badge (selectedRange === 'premium' → alreadyIncluded);
+          Essential gets the new Complements upsell at the singleton price. */}
       {premiumIncludesBoxAndPapers ? (
         <div
           style={{
@@ -615,67 +621,18 @@ export function ProductInfo({
           </span>
         </div>
       ) : boxAndPapersPrice > 0 ? (
-        <label
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-            marginBottom: 24,
-            cursor: 'pointer',
-            padding: '12px 14px',
-            border: `1px solid ${
-              boxAndPapers ? 'rgba(201,169,110,0.3)' : 'rgba(255,255,255,0.08)'
-            }`,
-            borderRadius: 3,
-            background: boxAndPapers ? 'rgba(201,169,110,0.05)' : 'transparent',
-            transition: 'border-color 0.2s, background 0.2s',
-          }}
-        >
-          {/* Custom checkbox */}
-          <div
-            style={{
-              width: 16,
-              height: 16,
-              border: `1px solid ${
-                boxAndPapers ? '#C9A96E' : 'rgba(255,255,255,0.2)'
-              }`,
-              borderRadius: 2,
-              background: boxAndPapers ? '#C9A96E' : 'transparent',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-              transition: 'all 0.2s',
-            }}
-          >
-            {boxAndPapers && (
-              <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                <path
-                  d="M1 4l3 3 5-6"
-                  stroke="#0A0A0A"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            )}
-          </div>
-          <input
-            type="checkbox"
-            checked={boxAndPapers}
-            onChange={(e) => setBoxAndPapers(e.target.checked)}
-            style={{ display: 'none' }}
-          />
-          <span
-            style={{
-              fontSize: '0.75rem',
-              color: boxAndPapers ? '#C9A96E' : 'rgba(255,255,255,0.5)',
-              letterSpacing: '0.04em',
-            }}
-          >
-            {t.boxAndPapersLabel.replace('{price}', String(boxAndPapersPrice))}
-          </span>
-        </label>
+        <Complements
+          range="essential"
+          price={boxAndPapersPricing?.essentialPrice ?? boxAndPapersPrice}
+          checked={boxAndPapers}
+          onChange={setBoxAndPapers}
+          description={boxAndPapersPricing?.essentialDescription?.[locale === 'fr' ? 'fr' : 'en'] ?? null}
+          inclusions={
+            boxAndPapersPricing?.inclusionsBullets
+              ?.map((b) => (locale === 'fr' ? b.fr : b.en))
+              .filter((s): s is string => Boolean(s)) ?? null
+          }
+        />
       ) : null}
 
       {/* Key points */}

@@ -589,6 +589,47 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
   return settings ?? null;
 }
 
+export interface BoxAndPapersPricing {
+  essentialPrice: number;
+  premiumPrice: number;
+  essentialDescription?: { en?: string; fr?: string } | null;
+  premiumDescription?: { en?: string; fr?: string } | null;
+  inclusionsBullets?: Array<{ en?: string; fr?: string }> | null;
+}
+
+const DEFAULT_BOX_AND_PAPERS_PRICING: BoxAndPapersPricing = {
+  essentialPrice: 49,
+  premiumPrice: 120,
+  essentialDescription: null,
+  premiumDescription: null,
+  inclusionsBullets: null,
+};
+
+const BOX_AND_PAPERS_PRICING_QUERY = `*[_type == "boxAndPapersPricing"][0]{
+  essentialPrice,
+  premiumPrice,
+  essentialDescription,
+  premiumDescription,
+  inclusionsBullets
+}`;
+
+export async function getBoxAndPapersPricing(): Promise<BoxAndPapersPricing> {
+  if (!client || !sanityEnabled) return DEFAULT_BOX_AND_PAPERS_PRICING;
+
+  const row = await client.fetch<BoxAndPapersPricing | null>(
+    BOX_AND_PAPERS_PRICING_QUERY
+  );
+  if (!row) return DEFAULT_BOX_AND_PAPERS_PRICING;
+
+  return {
+    essentialPrice: row.essentialPrice ?? DEFAULT_BOX_AND_PAPERS_PRICING.essentialPrice,
+    premiumPrice: row.premiumPrice ?? DEFAULT_BOX_AND_PAPERS_PRICING.premiumPrice,
+    essentialDescription: row.essentialDescription ?? null,
+    premiumDescription: row.premiumDescription ?? null,
+    inclusionsBullets: row.inclusionsBullets ?? null,
+  };
+}
+
 export async function getSiteSettingsFresh(): Promise<SiteSettings | null> {
   const activeClient = serverClient ?? client;
   if (!activeClient || !sanityEnabled) return null;

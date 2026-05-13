@@ -1031,5 +1031,15 @@
     "onOrder": "On order · 10-14 days",
     "onOrderDays": "On order · {days} days",
     "outOfStock": "Temporarily unavailable"
+  },
+  "complements": {
+    "title": "Add-ons",
+    "essentialCardTitle": "Rolex Box & Papers",
+    "essentialDefaultDesc": "Original box, papers, hologram sticker, warranty card.",
+    "premiumCardTitle": "Premium Rolex Box & Papers",
+    "premiumDefaultDesc": "Premium box, papers, hologram sticker, warranty card, travel pouch.",
+    "addToOrder": "Add to my order",
+    "addedToOrder": "Added to my order",
+    "pricePrefix": "+"
   }
 }
