@@ -41,7 +41,9 @@
     "megaAllWatches": "Toutes les montres →",
     "megaNewArrivals": "Nouveautés →",
     "megaEssential": "Essentielle · Mouvement japonais (Miyota) →",
-    "megaPremium": "Premium · Automatique 28 800 alt/h · Réserve 70h →"
+    "megaPremium": "Premium · Automatique 28 800 alt/h · Réserve 70h →",
+    "movements": "Mouvements",
+    "approach": "Notre approche"
   },
   "home": {
     "hero": {
@@ -319,7 +321,9 @@
     "shippingPolicyShort": "Politique d'expédition",
     "copyright": "© {year} Artemis Montres. Tous droits réservés.",
     "madeIn": "Conçu à Montréal.",
-    "depth": "78 pièces à travers 4 marques."
+    "depth": "78 pièces à travers 4 marques.",
+    "movements": "Mouvements",
+    "approach": "Notre approche"
   },
   "product": {
     "tabDescription": "Description",

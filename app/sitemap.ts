@@ -19,14 +19,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // ── Static pages ────────────────────────────────────────────────
   const staticPages = [
-    { path: '/',           priority: 1.0, changeFrequency: 'weekly'  },
-    { path: '/collections', priority: 0.9, changeFrequency: 'weekly'  },
-    { path: '/about',      priority: 0.7, changeFrequency: 'monthly' },
+    { path: '/',                priority: 1.0, changeFrequency: 'weekly'  },
+    { path: '/collections',     priority: 0.9, changeFrequency: 'weekly'  },
+    { path: '/about',           priority: 0.7, changeFrequency: 'monthly' },
+    // Sprint 3 editorial pages. Currently rendered with robots:noindex
+    // (TM-adjacent content). Sitemap entries are kept so the URLs are
+    // discoverable the moment Zaki flips the metadata to index:true — a
+    // one-line change in each page's generateMetadata. Until then,
+    // Googlebot will fetch and respect the noindex directive.
+    { path: '/mouvements',      priority: 0.7, changeFrequency: 'monthly' },
+    { path: '/notre-approche',  priority: 0.7, changeFrequency: 'monthly' },
     // '/reviews' omitted pending verified reviews migration (page now noindex)
     // '/faq' standalone retired Pivot V2 — content lives on home (#faq) and
     // per-product PDPs. Legacy /faq URL serves a 301 to /#faq via
     // next.config.ts redirects(), so no sitemap entry needed.
-    { path: '/contact',    priority: 0.5, changeFrequency: 'monthly' },
+    { path: '/contact',         priority: 0.5, changeFrequency: 'monthly' },
   ] satisfies { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[];
 
   for (const locale of LOCALES) {
