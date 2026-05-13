@@ -267,6 +267,7 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
         {/* Right — Hero watch image */}
         <ScrollReveal delay={200}>
           <div
+            className="hero-image"
             style={{
               position: 'relative',
               aspectRatio: '4/5',
@@ -326,8 +327,21 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
             50% { opacity: 0.8; transform: translateX(-50%) translateY(7px); }
           }
           @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr !important; }
-            .hero-grid > *:last-child { display: none; }
+            .hero-grid {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+              padding-top: clamp(88px, 14vh, 120px) !important;
+              padding-bottom: clamp(64px, 9vh, 84px) !important;
+            }
+            /* Image visible above the fold on mobile (audit Top 10 #2):
+               move the visual hook above the text, switch to a landscape
+               ratio so it does not push the headline + CTAs offscreen. */
+            .hero-grid > *:last-child { order: -1; }
+            .hero-image {
+              aspect-ratio: 16 / 11 !important;
+              max-height: 50vh !important;
+              width: 100% !important;
+            }
           }
         `}</style>
         <span
