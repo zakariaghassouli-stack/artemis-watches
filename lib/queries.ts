@@ -300,6 +300,13 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       bestSeller: doc.bestSeller ?? doc.badge === 'client-favourite',
       seoTitle: doc.seoTitle,
       seoDescription: doc.seoDescription,
+      // FR SEO meta — projected by PRODUCT_QUERY but previously dropped
+      // here, so any seoTitleFr / seoDescriptionFr edits in Sanity Studio
+      // were silently ignored and prod always fell back to the JSON SEO.
+      // Mapping them here unblocks Zaki to optimise Montréal/Québec
+      // indexing without a code PR per product.
+      seoTitleFr: doc.seoTitleFr,
+      seoDescriptionFr: doc.seoDescriptionFr,
       descriptionFr: portableTextToPlainText(doc.longDescriptionFr),
       descriptionShortFr: doc.shortDescriptionFr ?? '',
       keyPointsFr: doc.highlightsFr ?? [],
@@ -427,6 +434,8 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       reviews: canonicalized.reviews.length ? canonicalized.reviews : localCanonical.reviews,
       seoTitle: canonicalized.seoTitle || localCanonical.seoTitle,
       seoDescription: canonicalized.seoDescription || localCanonical.seoDescription,
+      seoTitleFr: canonicalized.seoTitleFr || localCanonical.seoTitleFr,
+      seoDescriptionFr: canonicalized.seoDescriptionFr || localCanonical.seoDescriptionFr,
       descriptionFr: canonicalized.descriptionFr || localCanonical.descriptionFr,
       descriptionShortFr: canonicalized.descriptionShortFr || localCanonical.descriptionShortFr,
       keyPointsFr: canonicalized.keyPointsFr.length
