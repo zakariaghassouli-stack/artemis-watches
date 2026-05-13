@@ -33,15 +33,29 @@ export function ConsentAwareAnalytics() {
     };
   }, []);
 
-  if (!enabled) return null;
-
   return (
     <>
-      <GoogleAnalytics />
-      <HubSpotTracking />
-      <MetaPixel />
+      {/*
+        Always-on, cookieless trackers (Loi 25 / RGPD compatible without
+        explicit consent per Vercel privacy policy: no PII, no fingerprinting,
+        no third-party cookies). Sprint V3 Phase 3 moved these out of the
+        consent gate so the conversion baseline collects ~100% of sessions
+        instead of the ~30-50% opt-in floor.
+      */}
       <Analytics />
       <SpeedInsights />
+
+      {/*
+        PII trackers gated behind explicit opt-in (consent === 'all').
+        Cookies, fingerprinting, cross-site remarketing. Stay opt-in.
+      */}
+      {enabled && (
+        <>
+          <GoogleAnalytics />
+          <HubSpotTracking />
+          <MetaPixel />
+        </>
+      )}
     </>
   );
 }

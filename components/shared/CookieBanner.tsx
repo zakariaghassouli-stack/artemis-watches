@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+import { track } from '@vercel/analytics';
 
 const STORAGE_KEY = 'artemis_cookie_consent';
 const REOPEN_EVENT = 'artemis:cookie-banner-reopen';
@@ -44,6 +45,7 @@ export function CookieBanner() {
     try {
       localStorage.setItem(STORAGE_KEY, value);
     } catch {}
+    track('cookie_consent', { choice: value });
     window.dispatchEvent(new CustomEvent('artemis:cookie-consent'));
     setVisible(false);
   };

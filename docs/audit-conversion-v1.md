@@ -210,20 +210,33 @@ Synthèse en 5 priorités pour le prochain sprint, avec mapping vers frictions :
 
 ## 7. Métriques baseline suggérées
 
-8 métriques à brancher (Vercel Analytics + GA4 ou Posthog) pour mesurer impact du prochain sprint.
+État Sprint V3 Phase 3 : **Vercel Web Analytics + Speed Insights installés en pre-consent** (cookieless, Loi 25 / RGPD compatible). Couverture sessions ~100% (vs ~30-50% précédent). Custom events instrumentés via `track()` parallèle à `gtag()`.
 
-| # | Métrique | Cible | Outil | Notes |
+| # | Métrique | Cible | Event Vercel | Notes |
 |---|---|---|---|---|
-| 1 | Bounce rate par page (landing, PDP, /collections, /mouvements, /notre-approche) | <60% | Vercel Analytics ou GA4 | Granularité : par device (desktop/mobile) |
-| 2 | Scroll depth median par page | >70% atteint 50% du fold | Posthog ou GA4 scroll events | Identifie les pages où persona décroche tôt |
-| 3 | Time to first WhatsApp CTA click (sec) | <30s | Custom event | Nécessite timer JS branché sur whatsappClick |
-| 4 | WhatsApp CTA click rate par source analytics | >5% sur sources hero | Existing `whatsappClick` event split par `source` (home_hero, product_hero, product_page, product_sticky, etc.) | Source code déjà en place |
-| 5 | PDP → WhatsApp click rate | >8% des visiteurs PDP cliquent un CTA WA | GA4 funnel | Compare avec metric #4 par source PDP |
-| 6 | Mobile vs desktop conversion split | Gap <10pts | GA4 segment | Mesure parité mobile (critère E scoring) |
-| 7 | Pop-up dismissal rate (PromoPopup) | Si >85% dismiss = popup nuit | Custom event | Données pour décider drop ou keep |
-| 8 | Time on page médian par page | >25s landing, >45s PDP | GA4 | Métriques engagement |
+| 1 | Bounce rate par page | <60% | auto (pageviews) | Désagrégation par pathname automatique |
+| 2 | Scroll depth landing (25/50/75/100%) | >70% atteint 50% | `scroll_depth` (depth: 25/50/75/100) | ScrollDepthTracker monté sur `/` uniquement. Évite cap free tier |
+| 3 | Time to first WhatsApp CTA click | <30s | `whatsapp_click` timestamp - pageview timestamp | Calcul côté dashboard |
+| 4 | WhatsApp CTA click rate par source | >5% sur sources hero | `whatsapp_click` (source, brand, range, value) | 11 sources distinctes incluant home_hero, product_hero, product_page, product_sticky, collection_hero, brand_hero, category_hero, movements_hero, footer, general |
+| 5 | PDP view rate | baseline à mesurer | `view_item` (product_id, brand, range, slug, value) | Branché via ViewContentTracker, slug ajouté Sprint V3 |
+| 6 | Mobile vs desktop split | Gap <10pts | auto (device dimension Vercel) | Mesure parité mobile (critère E scoring) |
+| 7 | Cookie consent split (all vs essential) | Mesurer baseline opt-in % | `cookie_consent` (choice: all/essential) | Branché Sprint V3 Phase 3 sur CookieBanner accept() |
+| 8 | Collection view rate par brand | baseline à mesurer | `collection_view` (brand, item_count) | Branché via viewCollection / CollectionViewTracker |
+| 9 | Add to cart events (si feature flag activé) | baseline à mesurer | `add_to_cart` (product_id, brand, range, value, quantity) | Cart hidden par défaut, mesure quand activé |
+| 10 | Purchase events (si Stripe activé) | baseline à mesurer | `purchase` (order_id, value, item_count) | Cohérent funnel cart |
 
-**Note infra** : `lib/analytics.ts` (`whatsappClick`) émet déjà des events avec source. Brancher à Vercel Analytics ou Posthog pour collecte. Sans ces métriques, le rapport reste qualitatif et la mesure d'impact du prochain sprint sera approximative.
+**Volume estimé free tier** (cap 2500 events/mois) : ~1500-4000 events selon trafic. Si scroll_depth verbose, on bascule sur seuils binaires (50/100% seulement).
+
+**Outils complémentaires** : Vercel Pro tier débloque les filtres custom event property côté dashboard. Sans Pro, désagrégation par pathname auto + custom events accessibles via export CSV.
+
+## 8. Frictions identifiées post-audit
+
+Bugs latents découverts pendant Sprint V3 Phase 3, hors scope sprint mais à traiter Sprint V4.
+
+| # | Bug | Page / Fichier | Impact | Priorité |
+|---|---|---|---|---|
+| 1 | Buffer `__artemisPendingAnalytics` ne flush jamais | `lib/analytics.ts:21-29` | Events bufferés avant chargement de gtag (consent === 'all' arrivé tard) sont permanently perdus. Sous-estimation des conversions GA4 d'environ 20-30% selon timing utilisateur | M |
+| 2 | CookieBanner `learn more` link caché sur mobile | `components/shared/CookieBanner.tsx` media query 768px | Compromis volontaire Sprint V3 Phase 1 (espace mobile). Accessible via Footer "Préférences cookies" qui réouvre le banner mais le link reste caché. Pas de blocker Loi 25 (article 8.1 satisfait), mais une seconde session mobile sans rappel direct vers /privacy depuis le banner. À convertir en icône `(?)` cliquable inline | L |
 
 ---
 

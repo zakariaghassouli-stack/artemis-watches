@@ -342,6 +342,7 @@ export default async function ProductPage({ params }: Props) {
         brand={product.brand}
         price={product.price}
         range={product.range}
+        slug={product.slug}
       />
 
       {/* ── Hero: gallery + sticky info ─────────────────────────────── */}

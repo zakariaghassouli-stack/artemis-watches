@@ -14,6 +14,7 @@ import { HowToOrder } from '@/components/home/HowToOrder';
 // import { Testimonials } from '@/components/home/Testimonials';
 import { SignupPromo } from '@/components/home/SignupPromo';
 import { FAQAccordion } from '@/components/home/FAQAccordion';
+import { ScrollDepthTracker } from '@/components/analytics/ScrollDepthTracker';
 import {
   getHomepageEditProducts,
   getProductCountByBrand,
@@ -67,6 +68,8 @@ export default async function HomePage({
 
   return (
     <>
+      <ScrollDepthTracker />
+
       {/* §3 Hero */}
       <Hero
         headlineOverride={heroHeadline}

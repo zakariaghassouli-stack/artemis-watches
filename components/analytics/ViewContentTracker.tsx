@@ -10,6 +10,7 @@ interface Props {
   brand: string;
   price: number;
   range: string;
+  slug?: string;
 }
 
 export function ViewContentTracker({
@@ -18,6 +19,7 @@ export function ViewContentTracker({
   brand,
   price,
   range,
+  slug,
 }: Props) {
   useEffect(() => {
     pixel.viewContent({
@@ -33,8 +35,9 @@ export function ViewContentTracker({
       brand,
       price,
       range,
+      slug,
     });
-  }, [brand, price, productId, productName, range]);
+  }, [brand, price, productId, productName, range, slug]);
 
   return null;
 }

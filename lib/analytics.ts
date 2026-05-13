@@ -1,3 +1,5 @@
+import { track } from '@vercel/analytics';
+
 declare global {
   interface Window {
     dataLayer?: unknown[];
@@ -35,6 +37,7 @@ export const analytics = {
     brand: string;
     price: number;
     range: string;
+    slug?: string;
   }) {
     trackEvent('view_item', {
       currency: 'CAD',
@@ -48,6 +51,13 @@ export const analytics = {
           price: product.price,
         },
       ],
+    });
+    track('view_item', {
+      product_id: product.id,
+      brand: product.brand,
+      range: product.range,
+      value: product.price,
+      ...(product.slug ? { slug: product.slug } : {}),
     });
   },
 
@@ -72,6 +82,13 @@ export const analytics = {
           quantity: product.quantity,
         },
       ],
+    });
+    track('add_to_cart', {
+      product_id: product.id,
+      brand: product.brand,
+      range: product.range,
+      value: product.price * product.quantity,
+      quantity: product.quantity,
     });
   },
 
@@ -118,6 +135,11 @@ export const analytics = {
         quantity: item.quantity ?? 1,
       })),
     });
+    track('purchase', {
+      order_id: orderId,
+      value: total,
+      item_count: items.length,
+    });
   },
 
   signUp(method: string) {
@@ -148,6 +170,13 @@ export const analytics = {
         ? { value: context.price, currency: 'CAD' }
         : {}),
     });
+    track('whatsapp_click', {
+      source: page,
+      ...(productId ? { product_id: productId } : {}),
+      ...(context?.brand ? { brand: context.brand } : {}),
+      ...(context?.range ? { range: context.range } : {}),
+      ...(context?.price !== undefined ? { value: context.price } : {}),
+    });
   },
 
   viewCollection(brand: string, itemCount: number) {
@@ -160,6 +189,10 @@ export const analytics = {
           item_list_name: `${brand} (${itemCount} pieces)`,
         },
       ],
+    });
+    track('collection_view', {
+      brand,
+      item_count: itemCount,
     });
   },
 
