@@ -294,6 +294,8 @@ export function Navbar() {
 
             {[
               // 'reviews' link hidden pending verified reviews migration
+              { key: 'movements', href: '/mouvements' },
+              { key: 'approach', href: '/notre-approche' },
               { key: 'faq', href: '/#faq' },
               { key: 'contact', href: '/contact' },
               { key: 'about', href: '/about' },
@@ -784,6 +786,8 @@ function MobileMenu({
           {/* Static links */}
           {[
             // 'reviews' link hidden pending verified reviews migration
+            { label: t('movements'), href: '/mouvements' },
+            { label: t('approach'), href: '/notre-approche' },
             { label: t('faq'), href: '/#faq' },
             { label: t('contact'), href: '/contact' },
             { label: t('about'), href: '/about' },

@@ -14,6 +14,10 @@ function runRevalidation() {
     '/en',
     '/collections',
     '/en/collections',
+    '/mouvements',
+    '/en/mouvements',
+    '/notre-approche',
+    '/en/notre-approche',
     // '/reviews' + '/en/reviews' omitted pending verified reviews migration
   ];
 

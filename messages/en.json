@@ -41,7 +41,9 @@
     "megaAllWatches": "All Watches →",
     "megaNewArrivals": "New Arrivals →",
     "megaEssential": "Essential · Japanese Movement (Miyota) →",
-    "megaPremium": "Premium · Automatic 28,800 vph · 70h power reserve →"
+    "megaPremium": "Premium · Automatic 28,800 vph · 70h power reserve →",
+    "movements": "Movements",
+    "approach": "Our Approach"
   },
   "home": {
     "hero": {
@@ -313,7 +315,9 @@
     "shippingPolicyShort": "Shipping Policy",
     "copyright": "© {year} Artemis Watches. All rights reserved.",
     "madeIn": "Designed in Montreal.",
-    "depth": "78 pieces across 4 brands."
+    "depth": "78 pieces across 4 brands.",
+    "movements": "Movements",
+    "approach": "Our Approach"
   },
   "product": {
     "tabDescription": "Description",

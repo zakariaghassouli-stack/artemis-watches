@@ -125,6 +125,8 @@ export function Footer() {
           {/* Col 3 — Company */}
           <FooterColumn title={t('company')}>
             <FooterLink href="/about">{t('about')}</FooterLink>
+            <FooterLink href="/mouvements">{t('movements')}</FooterLink>
+            <FooterLink href="/notre-approche">{t('approach')}</FooterLink>
             {/* Reviews link hidden pending verified reviews migration */}
             <FooterLink href="/contact">{t('contact')}</FooterLink>
           </FooterColumn>
