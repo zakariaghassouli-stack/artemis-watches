@@ -10,7 +10,6 @@ import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { WhatsAppFAB } from '@/components/shared/WhatsAppFAB';
 import { CookieBanner } from '@/components/shared/CookieBanner';
-import { PromoPopup } from '@/components/shared/PromoPopup';
 import { ConsentAwareAnalytics } from '@/components/analytics/ConsentAwareAnalytics';
 import { CartAbandonment } from '@/components/analytics/CartAbandonment';
 import { SessionEmailSync } from '@/components/analytics/SessionEmailSync';
@@ -197,7 +196,6 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           />
           <WhatsAppFAB />
           <CookieBanner />
-          <PromoPopup discountPercent={welcomeDiscountPercent} />
           <SessionEmailSync />
           <CartAbandonment />
           <ConsentAwareAnalytics />
