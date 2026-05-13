@@ -255,10 +255,11 @@ export function ProductGallery({ product }: Props) {
               priority={selected === 0}
               style={{
                 objectFit: 'cover',
-                // Sanity sources are 1536x2730 portrait (ratio 0.56). Square 1/1
-                // container with default center crop hides the dial. Top-aligning
-                // the crop keeps the dial visible since photos are framed dial-up.
-                objectPosition: 'top',
+                // Sanity sources are 1536x2730 portrait UGC shots: watch held in
+                // hand, Rolex/AP box top-left, watch in the bottom third of frame.
+                // Bottom-aligning the cover crop keeps the watch + dial visible.
+                // Verified visually on 8 SKUs via Sanity ?fit=crop&crop=bottom.
+                objectPosition: 'bottom',
                 zIndex: 0,
               }}
             />
