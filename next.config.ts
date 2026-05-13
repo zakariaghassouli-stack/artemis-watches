@@ -22,8 +22,9 @@ const nextConfig: NextConfig = {
   },
   // Pivot V2: the standalone /faq page is retired. The 5 home FAQ
   // questions and the 8 PDP FAQ questions cover the same ground. Send
-  // legacy traffic — internal links updated to /#faq, but external links
-  // and stored bookmarks still hit /faq — to the home anchor with a 301.
+  // legacy traffic (internal links updated to /#faq, but external links
+  // and stored bookmarks still hit /faq) to the home anchor with a 301.
+  // Fix 4 sprint: /about merged into /notre-approche, 301 added below.
   async redirects() {
     return [
       {
@@ -34,6 +35,16 @@ const nextConfig: NextConfig = {
       {
         source: '/en/faq',
         destination: '/en#faq',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/notre-approche',
+        permanent: true,
+      },
+      {
+        source: '/en/about',
+        destination: '/en/notre-approche',
         permanent: true,
       },
     ];

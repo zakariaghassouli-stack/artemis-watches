@@ -1,18 +1,17 @@
 import type { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
-import { getApproachWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
+import { ContactCTA } from '@/components/shared/ContactCTA';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('approach');
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
-    // Same posture as /mouvements: Section 2 names the four houses (Rolex,
-    // Cartier, Audemars Piguet, Patek Philippe) and references "calibres
-    // suisses*". Defaulting to noindex while Zaki evaluates SEO vs prudence
-    // for both editorial pages together.
+    // Editorial page that names Dandong + Rolex calibre architecture in
+    // the footnote. Kept noindex while Zaki evaluates SEO vs prudence.
     robots: { index: false, follow: true },
   };
 }
@@ -20,7 +19,6 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ApproachPage() {
   const t = await getTranslations('approach');
   const locale = await getLocale();
-  const ctaUrl = getWhatsAppUrl(getApproachWhatsAppMessage(locale));
 
   const tableRows = [
     {
@@ -34,16 +32,6 @@ export default async function ApproachPage() {
       premium: t('rowReservePremium'),
     },
     {
-      label: t('rowFrequencyLabel'),
-      essential: t('rowFrequencyEssential'),
-      premium: t('rowFrequencyPremium'),
-    },
-    {
-      label: t('rowDialLabel'),
-      essential: t('rowDialEssential'),
-      premium: t('rowDialPremium'),
-    },
-    {
       label: t('rowWaterLabel'),
       essential: t('rowWaterEssential'),
       premium: t('rowWaterPremium'),
@@ -55,19 +43,7 @@ export default async function ApproachPage() {
     },
   ];
 
-  const guarantees = [
-    t('guarantee1'),
-    t('guarantee2'),
-    t('guarantee3'),
-    t('guarantee4'),
-  ];
-
-  const steps = [
-    { number: '01', title: t('step1Title'), body: t('step1Body') },
-    { number: '02', title: t('step2Title'), body: t('step2Body') },
-    { number: '03', title: t('step3Title'), body: t('step3Body') },
-    { number: '04', title: t('step4Title'), body: t('step4Body') },
-  ];
+  const guarantees = [t('guarantee1'), t('guarantee2')];
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -86,11 +62,11 @@ export default async function ApproachPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
 
-      {/* ── Hero ──────────────────────────────────────────────────────── */}
+      {/* Hero */}
       <section
         style={{
           background: '#0A0A0A',
-          padding: 'clamp(96px, 14vw, 160px) 24px clamp(48px, 8vw, 80px)',
+          padding: 'clamp(96px, 14vw, 160px) 24px clamp(56px, 8vw, 88px)',
           borderBottom: '1px solid rgba(255,255,255,0.06)',
           position: 'relative',
           overflow: 'hidden',
@@ -116,6 +92,22 @@ export default async function ApproachPage() {
           />
 
           <ScrollReveal delay={0}>
+            <p
+              style={{
+                fontSize: '0.68rem',
+                fontWeight: 600,
+                letterSpacing: '0.24em',
+                textTransform: 'uppercase',
+                color: '#C9A96E',
+                marginTop: 20,
+                marginBottom: 24,
+              }}
+            >
+              {t('overline')}
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={80}>
             <h1
               style={{
                 fontSize: 'clamp(2.4rem, 5.4vw, 4.4rem)',
@@ -125,15 +117,55 @@ export default async function ApproachPage() {
                 color: '#F5F3EF',
                 fontFamily:
                   'var(--font-playfair, "Playfair Display", serif)',
+                marginBottom: 24,
               }}
             >
               {t('headline')}
             </h1>
           </ScrollReveal>
+
+          <ScrollReveal delay={140}>
+            <p
+              style={{
+                fontSize: 'clamp(1rem, 1.35vw, 1.1rem)',
+                color: '#A8A5A0',
+                lineHeight: 1.75,
+                maxWidth: 720,
+                marginBottom: 32,
+              }}
+            >
+              {t('subhero')}
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div
+              style={{
+                display: 'flex',
+                gap: 14,
+                flexWrap: 'wrap',
+                alignItems: 'center',
+              }}
+            >
+              <Link
+                href="/collections"
+                style={ctaPrimaryStyle}
+              >
+                {t('ctaPrimary')}
+              </Link>
+              <ContactCTA
+                channel="whatsapp"
+                variant="secondary"
+                size="md"
+                source="general"
+                label={t('ctaSecondary')}
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Section 1: Pourquoi Artemis ───────────────────────────────── */}
+      {/* Section 1: Authenticité assumée */}
       <section style={sectionStyle('#0D0D0D')}>
         <div style={{ maxWidth: 820, margin: '0 auto' }}>
           <ScrollReveal delay={0}>
@@ -145,46 +177,53 @@ export default async function ApproachPage() {
         </div>
       </section>
 
-      {/* ── Section 2: Pourquoi pas authentique ───────────────────────── */}
-      <section style={sectionStyle('#0A0A0A')}>
-        <div style={{ maxWidth: 820, margin: '0 auto' }}>
-          <ScrollReveal delay={0}>
-            <h2 style={h2Style}>{t('section2Title')}</h2>
-          </ScrollReveal>
-          <ScrollReveal delay={80}>
-            <p style={bodyStyle}>{t('section2P1')}</p>
-          </ScrollReveal>
-          <ScrollReveal delay={120}>
-            <p style={bodyStyle}>{t('section2P2')}</p>
-          </ScrollReveal>
-          <ScrollReveal delay={160}>
-            <div
+      {/* Stats band: single centered tile */}
+      <section
+        style={{
+          background: '#111',
+          borderTop: '1px solid rgba(255,255,255,0.05)',
+          borderBottom: '1px solid rgba(255,255,255,0.05)',
+          padding: '44px 24px',
+        }}
+      >
+        <ScrollReveal delay={0}>
+          <div
+            style={{
+              maxWidth: 480,
+              margin: '0 auto',
+              textAlign: 'center',
+            }}
+          >
+            <p
               style={{
-                marginTop: 16,
-                padding: '24px 24px',
-                borderRadius: 8,
-                border: '1px solid rgba(255,255,255,0.06)',
-                background: 'rgba(255,255,255,0.02)',
+                fontSize: 'clamp(3rem, 6vw, 5rem)',
+                fontWeight: 700,
+                color: '#C9A96E',
+                lineHeight: 1,
+                letterSpacing: '-0.025em',
+                marginBottom: 10,
+                fontFamily:
+                  'var(--font-playfair, "Playfair Display", serif)',
               }}
             >
-              <p style={{ ...bodyStyle, marginBottom: 14 }}>
-                <strong style={labelInlineStyle}>
-                  {t('section2ForLabel')} :
-                </strong>{' '}
-                {t('section2ForBody')}
-              </p>
-              <p style={{ ...bodyStyle, marginBottom: 0 }}>
-                <strong style={labelInlineStyle}>
-                  {t('section2NotForLabel')} :
-                </strong>{' '}
-                {t('section2NotForBody')}
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
+              {t('statValue')}
+            </p>
+            <p
+              style={{
+                fontSize: '0.78rem',
+                fontWeight: 600,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: '#8C8884',
+              }}
+            >
+              {t('statLabel')}
+            </p>
+          </div>
+        </ScrollReveal>
       </section>
 
-      {/* ── Section 3: Essential vs Premium table ─────────────────────── */}
+      {/* Section 3: Deux gammes, un standard */}
       <section style={sectionStyle('#0D0D0D')}>
         <div style={{ maxWidth: 980, margin: '0 auto' }}>
           <ScrollReveal delay={0}>
@@ -353,6 +392,28 @@ export default async function ApproachPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={140}>
+            <div style={{ textAlign: 'center', marginTop: 28 }}>
+              <Link
+                href="/mouvements"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  color: '#C9A96E',
+                  fontSize: '0.78rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textDecoration: 'none',
+                  borderBottom: '1px solid rgba(201,169,110,0.35)',
+                  paddingBottom: 3,
+                }}
+              >
+                {t('viewMovementsLink')}
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
 
         <style>{`
@@ -364,7 +425,7 @@ export default async function ApproachPage() {
         `}</style>
       </section>
 
-      {/* ── Section 4: Nos garanties ──────────────────────────────────── */}
+      {/* Section 4: Garanties solides (2 items) */}
       <section style={sectionStyle('#0A0A0A')}>
         <div style={{ maxWidth: 820, margin: '0 auto' }}>
           <ScrollReveal delay={0}>
@@ -380,7 +441,7 @@ export default async function ApproachPage() {
             }}
           >
             {guarantees.map((g, i) => (
-              <ScrollReveal key={i} delay={60 + i * 50}>
+              <ScrollReveal key={i} delay={60 + i * 60}>
                 <li
                   style={{
                     display: 'flex',
@@ -420,83 +481,7 @@ export default async function ApproachPage() {
         </div>
       </section>
 
-      {/* ── Section 5: Le process Artemis ─────────────────────────────── */}
-      <section style={sectionStyle('#0D0D0D')}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <ScrollReveal delay={0}>
-            <h2 style={{ ...h2Style, textAlign: 'center', marginBottom: 40 }}>
-              {t('section5Title')}
-            </h2>
-          </ScrollReveal>
-          <div
-            className="process-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-              gap: 18,
-            }}
-          >
-            <style>{`
-              @media (max-width: 900px) {
-                .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-              }
-              @media (max-width: 540px) {
-                .process-grid { grid-template-columns: 1fr !important; }
-              }
-            `}</style>
-            {steps.map((step, i) => (
-              <ScrollReveal key={step.number} delay={i * 60}>
-                <article
-                  style={{
-                    padding: '24px 22px',
-                    borderRadius: 10,
-                    border: '1px solid rgba(255,255,255,0.06)',
-                    background: 'rgba(255,255,255,0.025)',
-                    height: '100%',
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily:
-                        'var(--font-playfair, "Playfair Display", serif)',
-                      fontStyle: 'italic',
-                      fontSize: '1.6rem',
-                      color: '#C9A96E',
-                      marginBottom: 10,
-                      lineHeight: 1,
-                    }}
-                  >
-                    {step.number}
-                  </p>
-                  <h3
-                    style={{
-                      fontSize: '0.95rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.04em',
-                      color: '#F5F3EF',
-                      marginBottom: 10,
-                    }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: '0.88rem',
-                      lineHeight: 1.65,
-                      color: '#A8A5A0',
-                    }}
-                  >
-                    {step.body}
-                  </p>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Final CTA ─────────────────────────────────────────────────── */}
+      {/* Final CTA */}
       <section
         style={{
           background: '#0A0A0A',
@@ -504,30 +489,28 @@ export default async function ApproachPage() {
           textAlign: 'center',
         }}
       >
-        <a
-          href={ctaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
           style={{
             display: 'inline-flex',
-            alignItems: 'center',
+            gap: 14,
+            flexWrap: 'wrap',
             justifyContent: 'center',
-            padding: '18px 36px',
-            background: '#C9A96E',
-            color: '#0A0A0A',
-            textDecoration: 'none',
-            fontSize: '0.76rem',
-            fontWeight: 700,
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            borderRadius: 4,
           }}
         >
-          {t('ctaLabel')}
-        </a>
+          <Link href="/collections" style={ctaPrimaryStyle}>
+            {t('ctaPrimary')}
+          </Link>
+          <ContactCTA
+            channel="whatsapp"
+            variant="secondary"
+            size="md"
+            source="general"
+            label={t('ctaSecondary')}
+          />
+        </div>
       </section>
 
-      {/* ── Footnote (anchored to Section 2 "suisses*") ───────────────── */}
+      {/* Footnote (anchored to footnote disclaimer) */}
       <section
         style={{
           background: '#0A0A0A',
@@ -571,12 +554,7 @@ const bodyStyle: React.CSSProperties = {
   fontSize: 'clamp(1rem, 1.3vw, 1.08rem)',
   color: '#C7C4BE',
   lineHeight: 1.85,
-  marginBottom: 18,
-};
-
-const labelInlineStyle: React.CSSProperties = {
-  color: '#C9A96E',
-  fontWeight: 600,
+  marginBottom: 0,
 };
 
 const cellHeadStyle: React.CSSProperties = {
@@ -603,4 +581,20 @@ const cellStyle: React.CSSProperties = {
   padding: '18px 20px',
   fontSize: '0.95rem',
   color: '#E8E5DF',
+};
+
+const ctaPrimaryStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '16px 28px',
+  background: '#C9A96E',
+  color: '#0A0A0A',
+  textDecoration: 'none',
+  fontSize: '0.72rem',
+  fontWeight: 700,
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  borderRadius: 3,
+  border: 'none',
 };

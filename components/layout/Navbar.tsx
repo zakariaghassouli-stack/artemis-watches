@@ -295,10 +295,10 @@ export function Navbar() {
             {[
               // 'reviews' link hidden pending verified reviews migration
               // 'faq' link removed (already present in landing #faq and product PDPs)
+              // 'about' merged into /notre-approche (Fix 4 sprint)
               { key: 'movements', href: '/mouvements' },
               { key: 'approach', href: '/notre-approche' },
               { key: 'contact', href: '/contact' },
-              { key: 'about', href: '/about' },
             ].map(({ key, href }) => (
               <Link
                 key={key}
@@ -787,10 +787,10 @@ function MobileMenu({
           {[
             // 'reviews' link hidden pending verified reviews migration
             // 'faq' link removed (already present in landing #faq and product PDPs)
+            // 'about' merged into /notre-approche (Fix 4 sprint)
             { label: t('movements'), href: '/mouvements' },
             { label: t('approach'), href: '/notre-approche' },
             { label: t('contact'), href: '/contact' },
-            { label: t('about'), href: '/about' },
           ].map(({ label, href }) => (
             <Link
               key={href}

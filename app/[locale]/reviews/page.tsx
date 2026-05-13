@@ -82,7 +82,7 @@ export default async function ReviewsPage() {
             {isFr ? 'Voir le catalogue' : 'View collections'}
           </Link>
           <Link
-            href="/about"
+            href="/notre-approche"
             style={{
               display: 'inline-flex',
               padding: '14px 28px',

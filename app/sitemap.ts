@@ -21,12 +21,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     { path: '/',                priority: 1.0, changeFrequency: 'weekly'  },
     { path: '/collections',     priority: 0.9, changeFrequency: 'weekly'  },
-    { path: '/about',           priority: 0.7, changeFrequency: 'monthly' },
-    // Sprint 3 editorial pages. Currently rendered with robots:noindex
-    // (TM-adjacent content). Sitemap entries are kept so the URLs are
-    // discoverable the moment Zaki flips the metadata to index:true - a
-    // one-line change in each page's generateMetadata. Until then,
-    // Googlebot will fetch and respect the noindex directive.
+    // '/about' retired (Fix 4 sprint): content merged into /notre-approche,
+    // legacy URL 301-redirects via next.config.ts.
+    // Sprint 3 editorial pages /mouvements + /notre-approche are noindex
+    // (TM-adjacent content). Sitemap entries kept so URLs are discoverable
+    // the moment Zaki flips the metadata to index:true. Googlebot fetches
+    // and respects the noindex directive until then.
     { path: '/mouvements',      priority: 0.7, changeFrequency: 'monthly' },
     { path: '/notre-approche',  priority: 0.7, changeFrequency: 'monthly' },
     // '/reviews' omitted pending verified reviews migration (page now noindex)
