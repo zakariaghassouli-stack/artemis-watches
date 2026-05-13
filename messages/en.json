@@ -915,5 +915,36 @@
   },
   "shipping": {
     "trackingInfo": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net."
+  },
+  "movements": {
+    "metaTitle": "Artemis Movements — Transparent Comparison",
+    "metaDescription": "Three movement families exist in alternative high-end watchmaking. Here is exactly what Artemis uses and why.",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Movements",
+    "headline": "Artemis Movements — Transparent Comparison",
+    "intro": "Three movement families exist in alternative high-end watchmaking. Here is exactly what Artemis uses and why.",
+    "tableCriterion": "Criterion",
+    "tableChinese": "Chinese (Mingzhu)",
+    "tableJapanese": "Japanese (Miyota)",
+    "tableSwiss": "Swiss* (Dandong via VSF)",
+    "tableRowPrecision": "Accuracy",
+    "tableRowLifespan": "Estimated lifespan",
+    "tableRowRange": "Artemis range",
+    "tableRowPrice": "Price range",
+    "chinesePrecision": "-30 / +60 s/day",
+    "japanesePrecision": "-20 / +40 s/day",
+    "swissPrecision": "-4 / +6 s/day",
+    "chineseLifespan": "2 to 3 years",
+    "japaneseLifespan": "8 to 10 years",
+    "swissLifespan": "15 to 20 years",
+    "chineseRange": "Not commercialized",
+    "japaneseRange": "Essential",
+    "swissRange": "Premium",
+    "chinesePrice": "n/a",
+    "japanesePrice": "320-340 CAD",
+    "swissPrice": "950-1550 CAD",
+    "positionAssumed": "Artemis does not sell Chinese movements. Position assumed.",
+    "footnote": "*Architecture inspired by Swiss calibers (Rolex 32xx series). Production VSF/Clean/ARF.",
+    "ctaLabel": "Discuss a piece on WhatsApp"
   }
 }

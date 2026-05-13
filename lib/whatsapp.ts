@@ -22,6 +22,12 @@ export function getFooterWhatsAppMessage(locale: string): string {
     : 'Hello! I have a question about Artemis Watches.';
 }
 
+export function getMovementsWhatsAppMessage(locale: string): string {
+  return locale === 'fr'
+    ? "Bonjour ARTEMIS, j'ai lu votre comparatif des mouvements et j'aimerais discuter d'une pièce."
+    : 'Hello ARTEMIS, I read your movements comparison and would like to discuss a piece.';
+}
+
 export function getProductWhatsAppMessage(input: {
   locale: string;
   productName: string;
