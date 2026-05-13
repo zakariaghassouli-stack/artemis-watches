@@ -13,7 +13,7 @@ function PixelRouteTracker() {
   const isFirstRender = useRef(true);
 
   useEffect(() => {
-    // Skip first render — the init script already fires PageView on load
+    // Skip first render - the init script already fires PageView on load
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
@@ -29,7 +29,7 @@ export function MetaPixel() {
 
   return (
     <>
-      {/* Pixel base code — loads after hydration */}
+      {/* Pixel base code - loads after hydration */}
       <Script
         id="meta-pixel-init"
         strategy="afterInteractive"
@@ -48,7 +48,7 @@ export function MetaPixel() {
           `,
         }}
       />
-      {/* Route change tracker — no Suspense needed (no useSearchParams) */}
+      {/* Route change tracker - no Suspense needed (no useSearchParams) */}
       <PixelRouteTracker />
     </>
   );

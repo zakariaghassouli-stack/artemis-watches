@@ -136,12 +136,12 @@ export function WishlistClient({ allProducts }: { allProducts: Product[] }) {
           const localizedProduct = localizeProduct(product, locale);
           return (
             <div key={product.id} style={{ position: 'relative' }}>
-              {/* Remove button — top left */}
+              {/* Remove button - top left */}
               <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 2 }}>
                 <WishlistButton productId={product.id} size="sm" />
               </div>
 
-              {/* Range badge — top right */}
+              {/* Range badge - top right */}
               <div
                 style={{
                   position: 'absolute',

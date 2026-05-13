@@ -134,7 +134,7 @@ function buildOrderConfirmationHtml(args: SendOrderConfirmationArgs): string {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Order Confirmed — ARTEMIS</title>
+  <title>Order Confirmed - ARTEMIS</title>
 </head>
 <body style="margin:0;padding:0;background:#0A0A0A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#0A0A0A;padding:48px 20px;">
@@ -403,7 +403,7 @@ function buildPasswordResetEmailHtml({ code }: { code: string }): string {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Password reset — ARTEMIS</title>
+  <title>Password reset - ARTEMIS</title>
 </head>
 <body style="margin:0;padding:0;background:#0A0A0A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#0A0A0A;padding:48px 20px;">
@@ -451,7 +451,7 @@ function buildPasswordResetEmailHtml({ code }: { code: string }): string {
 // ── Public send functions ────────────────────────────────────────────────────
 export async function sendOrderConfirmation(args: SendOrderConfirmationArgs): Promise<void> {
   if (!resend) {
-    console.warn('[email] RESEND_API_KEY not set — skipping order confirmation email');
+    console.warn('[email] RESEND_API_KEY not set - skipping order confirmation email');
     return;
   }
 
@@ -459,7 +459,7 @@ export async function sendOrderConfirmation(args: SendOrderConfirmationArgs): Pr
 
   const sent = await sendWithFallback({
     to: args.to,
-    subject: `Order confirmed — ARTEMIS #${shortId}`,
+    subject: `Order confirmed - ARTEMIS #${shortId}`,
     html: buildOrderConfirmationHtml(args),
   });
 
@@ -470,13 +470,13 @@ export async function sendOrderConfirmation(args: SendOrderConfirmationArgs): Pr
 
 export async function sendWelcomeEmail(args: SendWelcomeEmailArgs): Promise<void> {
   if (!resend) {
-    console.warn('[email] RESEND_API_KEY not set — skipping welcome email');
+    console.warn('[email] RESEND_API_KEY not set - skipping welcome email');
     return;
   }
 
   const sent = await sendWithFallback({
     to: args.to,
-    subject: 'Welcome to ARTEMIS — Your welcome code',
+    subject: 'Welcome to ARTEMIS - Your welcome code',
     html: buildWelcomeEmailHtml(args),
   });
 
@@ -489,7 +489,7 @@ export async function sendPasswordResetCodeEmail(
   args: SendPasswordResetCodeArgs
 ): Promise<boolean> {
   if (!resend) {
-    console.warn('[email] RESEND_API_KEY not set — skipping password reset email');
+    console.warn('[email] RESEND_API_KEY not set - skipping password reset email');
     return false;
   }
 

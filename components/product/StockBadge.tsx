@@ -7,7 +7,7 @@ type StockStatus = 'in_stock' | 'on_order' | 'out_of_stock';
 interface StockBadgeProps {
   status?: StockStatus | null;
   leadTimeDays?: number | null;
-  /** Optional Sanity override label — wins over the default i18n copy. */
+  /** Optional Sanity override label - wins over the default i18n copy. */
   label?: string | null;
   /** Visual density: 'pdp' (default) or 'compact' (cards, cart). */
   size?: 'pdp' | 'compact';

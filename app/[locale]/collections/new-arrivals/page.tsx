@@ -6,9 +6,9 @@ import { ALL_PRODUCTS, formatPrice } from '@/lib/products';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'New Arrivals | Artemis Watches — Montreal',
+  title: 'New Arrivals | Artemis Watches Montreal',
   description:
-    'Freshly curated timepieces from Rolex, Cartier, Audemars Piguet, and Patek Philippe. New additions to the Artemis catalogue — Japanese and high-grade automatic options.',
+    'Freshly curated timepieces from Rolex, Cartier, Audemars Piguet, and Patek Philippe. New additions to the Artemis catalogue. Japanese and high-grade automatic options.',
 };
 
 // Sort: new-arrival badge first, then high-demand, then best-sellers, then rest
@@ -70,7 +70,7 @@ export default async function NewArrivalsPage() {
             <SectionHeader
               overline={t('newArrivalsOverline')}
               headline={t('newArrivalsHeadline')}
-              subheadline={`${t('piecesAvailable', { count: ALL_PRODUCTS.length })} — Rolex, Cartier, Audemars Piguet, Patek Philippe. ${t('startingFrom')} ${formatPrice(LOWEST_PRICE)} CAD.`}
+              subheadline={`${t('piecesAvailable', { count: ALL_PRODUCTS.length })} · Rolex, Cartier, Audemars Piguet, Patek Philippe. ${t('startingFrom')} ${formatPrice(LOWEST_PRICE)} CAD.`}
             />
           </div>
         </div>

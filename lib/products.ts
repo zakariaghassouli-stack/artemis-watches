@@ -16,7 +16,7 @@ import apRoyalOakEssential from '@/data/products/ap-royal-oak-essential.json';
 import patekNautilus from '@/data/products/patek-nautilus.json';
 import patekAquanaut from '@/data/products/patek-aquanaut.json';
 
-// ─── Essential range — Submariner ─────────────────────────────
+// ─── Essential range - Submariner ─────────────────────────────
 import rolexSubmarinerBlackNodate from '@/data/products/rolex-submariner-black-nodate-essential.json';
 import rolexSubmarinerBlackdate from '@/data/products/rolex-submariner-blackdate-essential.json';
 import rolexSubmarinerBluesy from '@/data/products/rolex-submariner-bluesy-essential.json';
@@ -25,12 +25,12 @@ import rolexSubmarinerSmurf from '@/data/products/rolex-submariner-smurf-essenti
 import rolexSubmarinerStarbucks from '@/data/products/rolex-submariner-starbucks-essential.json';
 import rolexSubmarinerLabelNoir from '@/data/products/rolex-submariner-label-noir-essential.json';
 
-// ─── Essential range — Daytona ────────────────────────────────
+// ─── Essential range - Daytona ────────────────────────────────
 import rolexDaytonaBlack from '@/data/products/rolex-daytona-black-essential.json';
 import rolexDaytonaBlue from '@/data/products/rolex-daytona-blue-essential.json';
 import rolexDaytonaPanda from '@/data/products/rolex-daytona-panda-essential.json';
 
-// ─── Essential range — GMT-Master II ─────────────────────────
+// ─── Essential range - GMT-Master II ─────────────────────────
 import rolexGmtBatgirl from '@/data/products/rolex-gmt-master-ii-batgirl-essential.json';
 import rolexGmtBrucewayne from '@/data/products/rolex-gmt-master-ii-brucewayne-essential.json';
 import rolexGmtPepsi from '@/data/products/rolex-gmt-master-ii-pepsi-essential.json';
@@ -39,7 +39,7 @@ import rolexGmtSprite from '@/data/products/rolex-gmt-master-ii-sprite-essential
 import rolexGmtSpriteGreen from '@/data/products/rolex-gmt-master-ii-sprite-green-essential.json';
 import rolexGmtZombie from '@/data/products/rolex-gmt-master-ii-zombie-essential.json';
 
-// ─── Essential range — Datejust ───────────────────────────────
+// ─── Essential range - Datejust ───────────────────────────────
 import rolexDj41Black from '@/data/products/rolex-datejust-41-black-essential.json';
 import rolexDj41Blue from '@/data/products/rolex-datejust-41-blue-essential.json';
 import rolexDj41Chocolate from '@/data/products/rolex-datejust-41-chocolate-essential.json';
@@ -53,7 +53,7 @@ import rolexDj31Gold from '@/data/products/rolex-datejust-31-gold-essential.json
 import rolexDj2tone from '@/data/products/rolex-datejust-2tone-essential.json';
 import rolexDj31Pink from '@/data/products/rolex-datejust-31-pink-essential.json';
 
-// ─── Essential range — Day-Date ───────────────────────────────
+// ─── Essential range - Day-Date ───────────────────────────────
 import rolexDayDateBlue from '@/data/products/rolex-day-date-blue-essential.json';
 import rolexDayDateBrown from '@/data/products/rolex-day-date-brown-essential.json';
 import rolexDayDateGold from '@/data/products/rolex-day-date-gold-essential.json';
@@ -62,30 +62,30 @@ import rolexDayDateGrey from '@/data/products/rolex-day-date-grey-essential.json
 import rolexDayDateOmbre from '@/data/products/rolex-day-date-ombre-essential.json';
 import rolexDayDateRed from '@/data/products/rolex-day-date-red-essential.json';
 
-// ─── Essential range — Explorer ───────────────────────────────
+// ─── Essential range - Explorer ───────────────────────────────
 import rolexExplorerBlack from '@/data/products/rolex-explorer-black-essential.json';
 import rolexExplorerIi from '@/data/products/rolex-explorer-ii-essential.json';
 
-// ─── Essential range — Yacht-Master ──────────────────────────
+// ─── Essential range - Yacht-Master ──────────────────────────
 import rolexYachtMasterSteel from '@/data/products/rolex-yacht-master-steel-essential.json';
 import rolexYachtMasterSilver from '@/data/products/rolex-yacht-master-silver-essential.json';
 
-// ─── Essential range — Oyster Perpetual 41 ───────────────────
+// ─── Essential range - Oyster Perpetual 41 ───────────────────
 import rolexOp41Black from '@/data/products/rolex-oyster-perpetual-41-black-essential.json';
 import rolexOp41Blue from '@/data/products/rolex-oyster-perpetual-41-blue-essential.json';
 import rolexOp41Green from '@/data/products/rolex-oyster-perpetual-41-green-essential.json';
 import rolexOp41Grey from '@/data/products/rolex-oyster-perpetual-41-grey-essential.json';
 
-// ─── Essential range — Sky-Dweller ───────────────────────────
+// ─── Essential range - Sky-Dweller ───────────────────────────
 import rolexSkyDwellerSteel from '@/data/products/rolex-sky-dweller-steel-essential.json';
 import rolexSkyDwellerRosegold from '@/data/products/rolex-sky-dweller-rosegold-essential.json';
 
-// ─── Essential range — Land-Dweller ──────────────────────────
+// ─── Essential range - Land-Dweller ──────────────────────────
 import rolexLandDwellerBlue from '@/data/products/rolex-land-dweller-blue-essential.json';
 import rolexLandDwellerRosegold from '@/data/products/rolex-land-dweller-rosegold-essential.json';
 import rolexLandDwellerWhite from '@/data/products/rolex-land-dweller-white-essential.json';
 
-// ─── Essential range — Cartier ────────────────────────────────
+// ─── Essential range - Cartier ────────────────────────────────
 import cartierPanthereEssential from '@/data/products/cartier-panthere-essential.json';
 import cartierSantosSilverEssential from '@/data/products/cartier-santos-silver-essential.json';
 import cartierSantosBlackEssential from '@/data/products/cartier-santos-black-essential.json';
@@ -93,13 +93,13 @@ import cartierSantosBlueEssential from '@/data/products/cartier-santos-blue-esse
 import cartierSantosGoldEssential from '@/data/products/cartier-santos-gold-essential.json';
 import cartierSantosSkeletonEssential from '@/data/products/cartier-santos-skeleton-essential.json';
 
-// ─── Essential range — Patek Philippe ────────────────────────
+// ─── Essential range - Patek Philippe ────────────────────────
 import patekNautilusBlack from '@/data/products/patek-philippe-nautilus-black-essential.json';
 import patekNautilusBlue from '@/data/products/patek-philippe-nautilus-blue-essential.json';
 import patekAquanautBlack from '@/data/products/patek-philippe-aquanaut-black-essential.json';
 import patekSkeletonEssential from '@/data/products/patek-philippe-skeleton-essential.json';
 
-// ─── Essential range — Audemars Piguet ───────────────────────
+// ─── Essential range - Audemars Piguet ───────────────────────
 import apRoyalOakBlueEssential from '@/data/products/ap-royal-oak-blue-essential.json';
 import apRoyalOakRosegold from '@/data/products/ap-royal-oak-rosegold-essential.json';
 import apRoyalOakSkeletonBlack from '@/data/products/ap-royal-oak-skeleton-black-essential.json';
@@ -283,7 +283,7 @@ function stripVariantRangeSuffix(variant: string): string {
     .replace(/\s+[·-]\s+High-grade automatic(?:\s*\(.*?\))?$/i, '')
     .replace(/\s+[·-]\s+Mouvement japonais(?:\s*\(.*?\))?$/i, '')
     .replace(/\s+[·-]\s+Automatique haut de gamme(?:\s*\(.*?\))?$/i, '')
-    .replace(/\s+[—-]\s+(Essential|Premium)$/i, '')
+    .replace(/\s+[--]\s+(Essential|Premium)$/i, '')
     .trim();
 }
 
@@ -311,19 +311,19 @@ export function getProductDisplayTitle(product: Pick<Product, 'name' | 'variant'
   const variantParts = cleaned.split(/\s+[—–-]\s+/).map((part) => part.trim()).filter(Boolean);
   const variantFirstPart = variantParts[0] ?? '';
 
-  if (product.name === 'Submariner Date' && cleaned.includes(' — ')) {
-    const [variantName, ...rest] = cleaned.split(' — ');
-    const detail = rest.join(' — ').trim();
-    return detail ? `Submariner ${variantName} — ${detail}` : `Submariner ${variantName}`;
+  if (product.name === 'Submariner Date' && cleaned.includes(' - ')) {
+    const [variantName, ...rest] = cleaned.split(' - ');
+    const detail = rest.join(' · ').trim();
+    return detail ? `Submariner ${variantName} · ${detail}` : `Submariner ${variantName}`;
   }
   if (
     variantFirstPart &&
     product.name.toLowerCase().endsWith(variantFirstPart.toLowerCase())
   ) {
-    const variantRest = variantParts.slice(1).join(' — ').trim();
-    return variantRest ? `${product.name} — ${variantRest}` : product.name;
+    const variantRest = variantParts.slice(1).join(' · ').trim();
+    return variantRest ? `${product.name} · ${variantRest}` : product.name;
   }
-  return `${product.name} — ${cleaned}`;
+  return `${product.name} · ${cleaned}`;
 }
 
 export function getMovementComparisonLabel(
@@ -335,13 +335,13 @@ export function getMovementComparisonLabel(
   }
 
   return locale === 'fr'
-    ? `Mouvement japonais — ${formatPrice(product.essentialPrice)} CAD | Automatique 28 800 alt/h — ${formatPrice(product.premiumPrice)} CAD`
-    : `Japanese movement — ${formatPrice(product.essentialPrice)} CAD | Automatic 28,800 vph — ${formatPrice(product.premiumPrice)} CAD`;
+    ? `Mouvement japonais - ${formatPrice(product.essentialPrice)} CAD | Automatique 28 800 alt/h - ${formatPrice(product.premiumPrice)} CAD`
+    : `Japanese movement - ${formatPrice(product.essentialPrice)} CAD | Automatic 28,800 vph - ${formatPrice(product.premiumPrice)} CAD`;
 }
 
 /**
  * Compact spec string for product cards: case diameter + movement + reserve.
- * Returns null if essential segments are missing — caller renders nothing.
+ * Returns null if essential segments are missing - caller renders nothing.
  */
 export function getMicroSpecs(
   product: Pick<Product, 'range' | 'specs'>,
@@ -566,12 +566,12 @@ export function formatPrice(amount: number, currency = 'CAD'): string {
 
 const FR_VARIANT_MAP: Record<string, string> = {
   'Black Dial': 'Cadran noir',
-  'Black Dial — Essential': 'Cadran noir',
+  'Black Dial - Essential': 'Cadran noir',
   'Blue Dial': 'Cadran bleu',
   'Blue Dial · 41mm': 'Cadran bleu · 41 mm',
   'Blue/Black Dial': 'Cadran bleu/noir',
   'Gold Tone': 'Ton doré',
-  'Pepsi — Red/Blue Bezel': 'Pepsi — lunette rouge/bleu',
+  'Pepsi - Red/Blue Bezel': 'Pepsi - lunette rouge/bleu',
   'Silver Dial': 'Cadran argent',
 };
 
@@ -656,7 +656,7 @@ export function getProductImageAlt(
 ): string {
   const isFr = options?.locale === 'fr';
   const suffix = isFr ? 'Artemis Montres Montréal' : 'Artemis Watches Montreal';
-  const base = `${product.brand} ${product.name} ${product.variant} — ${suffix}`;
+  const base = `${product.brand} ${product.name} ${product.variant}, ${suffix}`;
   if (!options?.viewIndex) return base;
-  return isFr ? `${base} — vue ${options.viewIndex}` : `${base} — view ${options.viewIndex}`;
+  return isFr ? `${base}, vue ${options.viewIndex}` : `${base}, view ${options.viewIndex}`;
 }

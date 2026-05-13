@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 
 interface ComplementsProps {
   range: 'essential' | 'premium';
-  /** Add-on price (CAD) for the relevant tier — coming from the singleton. */
+  /** Add-on price (CAD) for the relevant tier - coming from the singleton. */
   price: number;
   checked: boolean;
   onChange: (next: boolean) => void;

@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title:
       locale === 'fr'
-        ? 'Politique de retour — ARTEMIS Watches'
-        : 'Return Policy — ARTEMIS Watches',
+        ? 'Politique de retour | ARTEMIS Watches'
+        : 'Return Policy | ARTEMIS Watches',
     description:
       locale === 'fr'
         ? 'Politique de retour de 30 jours ARTEMIS. Remboursement integral, sans complication. Voici comment demander un retour.'

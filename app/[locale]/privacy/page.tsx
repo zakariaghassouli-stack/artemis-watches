@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title:
       locale === 'fr'
-        ? 'Politique de confidentialite — ARTEMIS Watches'
-        : 'Privacy Policy — ARTEMIS Watches',
+        ? 'Politique de confidentialite | ARTEMIS Watches'
+        : 'Privacy Policy | ARTEMIS Watches',
     description:
       locale === 'fr'
         ? 'Politique de confidentialite ARTEMIS Watches. Comment nous recueillons, utilisons et protegons vos renseignements personnels.'

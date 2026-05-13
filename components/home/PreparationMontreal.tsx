@@ -52,7 +52,7 @@ export function PreparationMontreal() {
           }
         `}</style>
 
-        {/* LEFT — Image placeholder (asset to come later) */}
+        {/* LEFT - Image placeholder (asset to come later) */}
         <ScrollReveal delay={0}>
           <div
             className="prep-image"
@@ -110,7 +110,7 @@ export function PreparationMontreal() {
           </div>
         </ScrollReveal>
 
-        {/* RIGHT — Text content */}
+        {/* RIGHT - Text content */}
         <div>
           <ScrollReveal delay={80}>
             <p

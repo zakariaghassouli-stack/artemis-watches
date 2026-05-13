@@ -138,7 +138,7 @@ export function FeaturedCollections({ counts }: FeaturedCollectionsProps) {
                 {/* Brand image */}
                 <Image
                   src={brand.image}
-                  alt={`${brandNames[brand.key]} collection — Artemis Watches Montreal`}
+                  alt={`${brandNames[brand.key]} collection, Artemis Watches Montreal`}
                   fill
                   sizes="(max-width: 520px) 100vw, (max-width: 900px) 50vw, 25vw"
                   style={{

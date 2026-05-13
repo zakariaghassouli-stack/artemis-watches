@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
   const path = `/collections/${brandSlug}`;
   return {
-    title: `${brand.name} | Artemis Watches — Montreal`,
+    title: `${brand.name} | Artemis Watches Montreal`,
     description: `Shop ${brand.name} at Artemis. ${brand.description}`,
     alternates: {
       canonical: `${base}${path}`,

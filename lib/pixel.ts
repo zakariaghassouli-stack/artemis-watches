@@ -1,5 +1,5 @@
 // Typed wrapper for Meta Pixel (fbq)
-// Guards against SSR and unloaded script — safe to call anywhere.
+// Guards against SSR and unloaded script - safe to call anywhere.
 
 declare global {
   interface Window {

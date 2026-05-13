@@ -67,7 +67,7 @@ async function updateProducts() {
     const newPrice = getOfficialPrice(subject);
 
     if (newPrice === null) {
-      console.log(`SKIP ${product.name} (${product.range}) — no official rule matched`);
+      console.log(`SKIP ${product.name} (${product.range}) - no official rule matched`);
       skipped += 1;
       continue;
     }
@@ -106,7 +106,7 @@ async function updateSiteSettings() {
   );
 
   if (!siteSettings?._id) {
-    console.log('SKIP siteSettings — document not found');
+    console.log('SKIP siteSettings - document not found');
     return;
   }
 

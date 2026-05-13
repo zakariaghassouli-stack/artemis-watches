@@ -82,7 +82,7 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
         }
       }
     } catch {
-      // Invalid session_id — show generic confirmation
+      // Invalid session_id - show generic confirmation
     }
   }
 
@@ -96,7 +96,7 @@ export default async function OrderSuccessPage({ searchParams }: Props) {
       {/* Clear cart on mount */}
       <CartClearer />
 
-      {/* Meta Pixel — Purchase (fires once, only on valid paid sessions) */}
+      {/* Meta Pixel - Purchase (fires once, only on valid paid sessions) */}
       {valid && (
         <PurchaseTracker
           orderId={session_id ?? orderNumber}

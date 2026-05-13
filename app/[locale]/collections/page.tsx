@@ -9,7 +9,7 @@ const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'Collections | Artemis Watches — Montreal',
+  title: 'Collections | Artemis Watches Montreal',
   description:
     'Shop Rolex, Cartier, Audemars Piguet, and Patek Philippe at Artemis. A considered watch selection from Montreal, with direct service.',
   alternates: {

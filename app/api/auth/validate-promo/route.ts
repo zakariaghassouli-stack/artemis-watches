@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       valid: true,
       discount: cmsPromo.discountPercent,
-      label: `${code} — promo code applied`,
+      label: `${code} - promo code applied`,
     });
   }
 
@@ -68,6 +68,6 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({
     valid: true,
     discount: welcomeDiscountPercent,
-    label: `${code} — welcome code applied`,
+    label: `${code} - welcome code applied`,
   });
 }

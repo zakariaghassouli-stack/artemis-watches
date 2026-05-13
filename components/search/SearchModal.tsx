@@ -10,7 +10,7 @@ import { useSearchStore } from '@/store/search';
 import { ALL_PRODUCTS, formatPrice, getProductImageAlt, localizeProduct } from '@/lib/products';
 import type { Product } from '@/types/product';
 
-// ─── Search logic (lightweight — top 6 matches) ───────────────
+// ─── Search logic (lightweight - top 6 matches) ───────────────
 
 function quickSearch(query: string): Product[] {
   if (!query.trim()) return [];
@@ -118,7 +118,7 @@ function ResultRow({
             {localizedProduct.name}
           </span>
           <span style={{ fontSize: '0.75rem', color: '#6B6965', whiteSpace: 'nowrap' }}>
-            — {localizedProduct.variant}
+            · {localizedProduct.variant}
           </span>
         </div>
         <p style={{ fontSize: '0.7rem', color: '#6B6965', marginTop: 2 }}>
@@ -429,7 +429,7 @@ export function SearchModal() {
           </div>
         )}
 
-        {/* Empty state — show suggestions when no query */}
+        {/* Empty state - show suggestions when no query */}
         {!query.trim() && (
           <div style={{ padding: '20px 24px 24px' }}>
             <p

@@ -73,10 +73,10 @@ export default async function HomePage({
         subheadlineOverride={heroSubheadline}
       />
 
-      {/* §3a Tier 1 sourcing — positioning for averti buyers */}
+      {/* §3a Tier 1 sourcing - positioning for averti buyers */}
       <TierOneSourcing />
 
-      {/* §3b Préparation Montréal — differentiator */}
+      {/* §3b Préparation Montréal - differentiator */}
       <PreparationMontreal />
 
       {/* §4 Reassurance bar */}
@@ -91,13 +91,13 @@ export default async function HomePage({
       {/* §7 Best sellers */}
       <BestSellers products={homepageProducts} />
 
-      {/* §8 Authenticity assumed — 3 cards Movement / Water / Warranty */}
+      {/* §8 Authenticity assumed - 3 cards Movement / Water / Warranty */}
       <AuthenticityAssumed />
 
-      {/* §9 How to order — 3-step WhatsApp flow */}
+      {/* §9 How to order - 3-step WhatsApp flow */}
       <HowToOrder />
 
-      {/* §10 Testimonials + UGC — hidden pending verified reviews migration */}
+      {/* §10 Testimonials + UGC - hidden pending verified reviews migration */}
       {/* <Testimonials /> */}
 
       {/* §11 Signup promo */}

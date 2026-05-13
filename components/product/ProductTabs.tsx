@@ -62,7 +62,7 @@ function SpecsTab({
   specLabels: Record<string, string>;
 }) {
   // Specs are pre-enriched at the page level with tier-default movement
-  // and powerReserve plus the water resistance suffix — render as-is.
+  // and powerReserve plus the water resistance suffix - render as-is.
   const entries = Object.entries(specs).filter(([, v]) => v) as [string, string][];
 
   return (

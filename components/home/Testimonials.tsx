@@ -167,7 +167,7 @@ export function Testimonials() {
           ))}
         </div>
 
-        {/* CTA post-reviews — push toward products */}
+        {/* CTA post-reviews - push toward products */}
         <ScrollReveal delay={0}>
           <div style={{ textAlign: 'center', marginBottom: 32 }}>
             <Link
@@ -195,7 +195,7 @@ export function Testimonials() {
           </div>
         </ScrollReveal>
 
-        {/* WhatsApp CTA — capture hésitants */}
+        {/* WhatsApp CTA - capture hésitants */}
         <ScrollReveal delay={0}>
           <div
             style={{

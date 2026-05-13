@@ -142,10 +142,10 @@ export function ProductInfo({
   const [selectedRange, setSelectedRange] = useState<'essential' | 'premium'>(product.range);
 
   // Default size matches the size mentioned in the product's name OR variant
-  // string (e.g. "Datejust 41" → "41mm", "Royal Oak — Blue Dial · 41mm" → "41mm"),
+  // string (e.g. "Datejust 41" → "41mm", "Royal Oak - Blue Dial · 41mm" → "41mm"),
   // so a buyer landing on a sized PDP doesn't see a mismatched size selected.
   // Fallback to the first available size if no match (sizes are sorted ascending
-  // at the query level — see lib/queries.ts).
+  // at the query level - see lib/queries.ts).
   const sizeHaystack = `${product.name} ${product.variant ?? ''}`;
   const sizeMatch = sizeHaystack.match(/(\d{2})\s*mm|(\d{2})\b/);
   const preferredSize = sizeMatch
@@ -206,12 +206,12 @@ export function ProductInfo({
       ? 'rgba(201,169,110,0.06)'
       : 'rgba(255,255,255,0.035)';
 
-  // viewers counter removed — replaced with stock/scarcity indicator
+  // viewers counter removed - replaced with stock/scarcity indicator
 
   const totalPrice = activePrice + (resolvedBoxAndPapers ? boxAndPapersPrice : 0);
 
   // Pivot V2: the secondary "Add to Cart" button is gated behind a feature
-  // flag. Default (unset / 'false') hides it — customers reach checkout via
+  // flag. Default (unset / 'false') hides it - customers reach checkout via
   // WhatsApp from the primary ContactCTA. Set NEXT_PUBLIC_ENABLE_CART to
   // 'true' on Vercel to restore the legacy cart flow.
   const cartEnabled = process.env.NEXT_PUBLIC_ENABLE_CART === 'true';
@@ -280,7 +280,7 @@ export function ProductInfo({
         }}
       />
 
-      {/* Variant pills — other products in same collection.
+      {/* Variant pills - other products in same collection.
           Split into dials + special-variants sections when both buckets
           have entries (Datejust 41: 6 dial colors + 2 Wimbledon bezel
           variants); otherwise renders a single flat list as before. */}
@@ -352,7 +352,7 @@ export function ProductInfo({
         return renderSection(t.variantsLabel, collectionVariants);
       })()}
 
-      {/* Size Selector — only when multiple sizes available */}
+      {/* Size Selector - only when multiple sizes available */}
       {product.availableSizes.length > 1 && (
         <div style={{ marginBottom: 20 }}>
           <p style={{
@@ -389,7 +389,7 @@ export function ProductInfo({
         </div>
       )}
 
-      {/* Range Selector — only if product has essential variant */}
+      {/* Range Selector - only if product has essential variant */}
       {showRangeSelector && (
         <div style={{ marginBottom: 24 }}>
           <p style={{
@@ -434,7 +434,7 @@ export function ProductInfo({
                     color: active ? '#F5F3EF' : 'rgba(255,255,255,0.4)',
                     letterSpacing: '-0.01em',
                   }}>
-                    {price !== null ? `${formatPrice(price)} CAD` : '—'}
+                    {price !== null ? `${formatPrice(price)} CAD` : locale === 'fr' ? 'Prix sur demande' : 'Price on request'}
                   </p>
                 </button>
               );
@@ -571,7 +571,7 @@ export function ProductInfo({
         }}
       />
 
-      {/* Box & Papers — Sprint 6 Complements card. Premium keeps the
+      {/* Box & Papers - Sprint 6 Complements card. Premium keeps the
           "included" badge (selectedRange === 'premium' → alreadyIncluded);
           Essential gets the new Complements upsell at the singleton price. */}
       {premiumIncludesBoxAndPapers ? (
@@ -774,7 +774,7 @@ export function ProductInfo({
           }}
         />
 
-        {/* Add to Cart secondary (outline) — Pivot V2: hidden by default. */}
+        {/* Add to Cart secondary (outline) - Pivot V2: hidden by default. */}
         {cartEnabled && (
         <button
           disabled={!product.inStock}
@@ -845,7 +845,7 @@ export function ProductInfo({
         )}
       </div>
 
-      {/* Stripe checkout microcopy — only relevant when the cart flow is
+      {/* Stripe checkout microcopy - only relevant when the cart flow is
           live. In Pivot V2 the line is misleading (no in-page payment),
           so we gate it by the same cartEnabled flag as the button above. */}
       {cartEnabled && (

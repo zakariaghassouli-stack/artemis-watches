@@ -309,7 +309,7 @@ function normalizeSanityProducts(docs: SanityProductDocument[]): Product[] {
       bestSeller: doc.bestSeller ?? doc.badge === 'client-favourite',
       seoTitle: doc.seoTitle,
       seoDescription: doc.seoDescription,
-      // FR SEO meta — projected by PRODUCT_QUERY but previously dropped
+      // FR SEO meta - projected by PRODUCT_QUERY but previously dropped
       // here, so any seoTitleFr / seoDescriptionFr edits in Sanity Studio
       // were silently ignored and prod always fell back to the JSON SEO.
       // Mapping them here unblocks Zaki to optimise Montréal/Québec

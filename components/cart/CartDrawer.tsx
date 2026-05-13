@@ -591,7 +591,7 @@ export function CartDrawer({
           </button>
         </div>
 
-        {/* Items — scrollable */}
+        {/* Items - scrollable */}
         <div
           style={{
             flex: 1,
@@ -717,7 +717,7 @@ export function CartDrawer({
           )}
         </div>
 
-        {/* Footer — subtotal + checkout */}
+        {/* Footer - subtotal + checkout */}
         {items.length > 0 && (
           <div
             style={{

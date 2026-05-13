@@ -284,7 +284,7 @@ export default async function ContactPage() {
             }
           `}</style>
 
-          {/* Left — info */}
+          {/* Left - info */}
           <div>
             <ScrollReveal delay={0}>
               <p
@@ -362,7 +362,7 @@ export default async function ContactPage() {
             </ScrollReveal>
           </div>
 
-          {/* Right — form */}
+          {/* Right - form */}
           <ScrollReveal delay={120}>
             <ContactForm />
           </ScrollReveal>

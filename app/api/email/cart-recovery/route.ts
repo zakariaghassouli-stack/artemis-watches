@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   await resend.emails.send({
     from,
     to: email,
-    subject: 'You left something behind — your selection is still available',
+    subject: 'You left something behind - your selection is still available',
     html: `
       <div style="font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;background:#0A0A0A;color:#F5F3EF;padding:40px;">
         <h1 style="font-size:24px;font-weight:300;letter-spacing:-0.02em;margin-bottom:24px;">Your selection is waiting.</h1>

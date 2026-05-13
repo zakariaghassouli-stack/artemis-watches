@@ -63,7 +63,7 @@
     },
     "preparation": {
       "overline": "MONTRÉAL PREPARATION",
-      "headline": "Montréal preparation — our signature.",
+      "headline": "Montréal preparation · our signature.",
       "subheadline": "Before a Premium piece leaves our Montréal atelier:",
       "bullets": [
         "Complete visual inspection (case, dial, crystal, lume)",
@@ -72,13 +72,13 @@
         "Careful packaging and tracked shipping from Montréal",
         "WhatsApp support for any question before or after delivery"
       ],
-      "closing": "The case, water resistance, and movement are designed by the tier 1 factory that produces the piece — we deliver that level of quality with local service and direct support.",
+      "closing": "The case, water resistance, and movement are designed by the tier 1 factory that produces the piece, we deliver that level of quality with local service and direct support.",
       "whatsappCta": "Discuss a piece →"
     },
     "tierOneSourcing": {
       "overline": "TIER 1 SOURCING",
       "headline": "The factory ecosystem, transparent.",
-      "body": "Our Premium pieces come exclusively from the tier 1 factories of the market — the manufactures the community recognizes as the references in alternative watch production.\n\nFor Rolex: VSF and ARF on Submariner, GMT-Master II, and Datejust 41. Clean or VSF, your choice, on Daytona.\n\nFor Audemars Piguet: ZF and APSF on Royal Oak. For Patek (Nautilus, Aquanaut): ZF. For Cartier (Santos, Panthère): AF Factory.\n\nEvery Premium piece shows its source factory in its specifications, because for those who know, that is the information that matters most.",
+      "body": "Our Premium pieces come exclusively from the tier 1 factories of the market, the manufactures the community recognizes as the references in alternative watch production.\n\nFor Rolex: VSF and ARF on Submariner, GMT-Master II, and Datejust 41. Clean or VSF, your choice, on Daytona.\n\nFor Audemars Piguet: ZF and APSF on Royal Oak. For Patek (Nautilus, Aquanaut): ZF. For Cartier (Santos, Panthère): AF Factory.\n\nEvery Premium piece shows its source factory in its specifications, because for those who know, that is the information that matters most.",
       "cta": "View Premium pieces →"
     },
     "trust": {
@@ -210,7 +210,7 @@
       "q7": "What movements power the Premium pieces?",
       "a7": "Premium pieces use automatic movements from the modern generation: high-frequency 28,800 vibrations per hour (4 Hz), extended 70-hour power reserve, architecture tuned for daily accuracy. This is a higher category than the older short-reserve architectures still found at some resellers. For detailed specs on a specific reference, message us on WhatsApp.",
       "q8": "What is the water resistance of your watches?",
-      "a8": "Essential pieces use a case designed to resist daily splashes — handwashing, rain, perspiration. They are not designed for immersion (pool, swimming, prolonged shower).\n\nPremium pieces come from tier 1 factories (VSF, ARF, Clean, ZF, APSF, AF) that produce cases to the original specifications of the model being referenced. Depending on the model, this covers daily wear through surface swimming. For water sports, diving, or prolonged immersion, message us on WhatsApp for case-by-case validation."
+      "a8": "Essential pieces use a case designed to resist daily splashes, handwashing, rain, perspiration. They are not designed for immersion (pool, swimming, prolonged shower).\n\nPremium pieces come from tier 1 factories (VSF, ARF, Clean, ZF, APSF, AF) that produce cases to the original specifications of the model being referenced. Depending on the model, this covers daily wear through surface swimming. For water sports, diving, or prolonged immersion, message us on WhatsApp for case-by-case validation."
     },
     "tiersCards": {
       "overline": "Two tiers, one standard",
@@ -652,7 +652,7 @@
     "overline": "OUR STORY",
     "headline1": "Born in Montreal.",
     "headlineAccent": "Built with restraint.",
-    "heroBody": "ARTEMIS was founded by watch enthusiasts who wanted a more direct way to shop considered watch designs. A focused catalogue of four iconic brands, Montréal Preparation before every shipment, direct WhatsApp service from first contact to delivery — across Canada and internationally.",
+    "heroBody": "ARTEMIS was founded by watch enthusiasts who wanted a more direct way to shop considered watch designs. A focused catalogue of four iconic brands, Montréal Preparation before every shipment, direct WhatsApp service from first contact to delivery, across Canada and internationally.",
     "stat1Value": "200+",
     "stat1Label": "Orders delivered",
     "stat2Value": "4",
@@ -942,11 +942,11 @@
     "trackingInfo": "Your tracking number is sent by email or WhatsApp. Track your order at 17track.net."
   },
   "movements": {
-    "metaTitle": "Artemis Movements — Transparent Comparison",
+    "metaTitle": "Artemis Movements | Transparent Comparison",
     "metaDescription": "Three movement families exist in alternative high-end watchmaking. Here is exactly what Artemis uses and why.",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Movements",
-    "headline": "Artemis Movements — Transparent Comparison",
+    "headline": "Artemis Movements · Transparent Comparison",
     "intro": "Three movement families exist in alternative high-end watchmaking. Here is exactly what Artemis uses and why.",
     "tableCriterion": "Criterion",
     "tableChinese": "Chinese (Mingzhu)",
@@ -973,15 +973,15 @@
     "ctaLabel": "Discuss a piece on WhatsApp"
   },
   "approach": {
-    "metaTitle": "Our Approach — Artemis Watches",
+    "metaTitle": "Our Approach | Artemis Watches",
     "metaDescription": "Why Artemis, who it's for, and what you get: an honest read on our high-fidelity alternative.",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Our Approach",
-    "headline": "Our Approach — Artemis Watches",
+    "headline": "Our Approach · Artemis Watches",
     "section1Title": "Why Artemis",
     "section1Body": "Artemis offers high-fidelity alternative watchmaking, accessible to the connoisseur who values quality/price ratio without aesthetic compromise. Our selection is intentionally limited to four iconic brands, and each piece undergoes our Montréal Preparation before shipment.",
     "section2Title": "Why not authentic?",
-    "section2P1": "An authentic Rolex, Cartier, Audemars Piguet or Patek Philippe watch costs between 8,000 and 200,000 CAD depending on the reference. If you want authentic, buy authentic — that's the only real choice.",
+    "section2P1": "An authentic Rolex, Cartier, Audemars Piguet or Patek Philippe watch costs between 8,000 and 200,000 CAD depending on the reference. If you want authentic, buy authentic, that's the only real choice.",
     "section2P2": "Artemis offers a high-fidelity alternative for those who value iconic aesthetics without the entry ticket. Our Premium reproduces the architecture of Swiss* high-end calibers with tier 1 factories (VSF, Clean, ARF, ZF, APSF, AF). Our Essential uses proven Miyota Japanese movements.",
     "section2ForLabel": "Who it's for",
     "section2ForBody": "watch connoisseurs who want to wear an icon without investing 10,000+ CAD.",

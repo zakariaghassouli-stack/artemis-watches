@@ -117,7 +117,7 @@ export function getCartWhatsAppMessage(input: {
     const boxPart = it.boxAndPapers ? (isFr ? ' + Box & Papers' : ' + Box & Papers') : '';
     const qtyPart = it.quantity > 1 ? `${it.quantity}× ` : '';
     const linePrice = it.price * it.quantity;
-    return `- ${qtyPart}${it.brand} ${it.name}${variantPart}${sizePart}${rangeLabel}${boxPart} — ${linePrice} CAD`;
+    return `- ${qtyPart}${it.brand} ${it.name}${variantPart}${sizePart}${rangeLabel}${boxPart} · ${linePrice} CAD`;
   });
 
   const totalLine = isFr

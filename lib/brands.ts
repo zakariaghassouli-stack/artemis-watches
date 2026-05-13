@@ -81,7 +81,7 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     name: 'Santos de Cartier',
     brandSlug: 'cartier',
     description:
-      "The world's first aviator's watch, designed in 1904 for Alberto Santos-Dumont. Architectural, bold, and unmistakably Cartier — over a century of pioneering spirit.",
+      "The world's first aviator's watch, designed in 1904 for Alberto Santos-Dumont. Architectural, bold, and unmistakably Cartier - over a century of pioneering spirit.",
   },
   panthere: {
     slug: 'panthere',
@@ -116,14 +116,14 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     name: 'Day-Date',
     brandSlug: 'rolex',
     description:
-      "Rolex's flagship dress watch since 1956. Reserved for precious metals only, the Day-Date was the first watch to display both the day and date — and remains the definitive prestige Rolex.",
+      "Rolex's flagship dress watch since 1956. Reserved for precious metals only, the Day-Date was the first watch to display both the day and date - and remains the definitive prestige Rolex.",
   },
   explorer: {
     slug: 'explorer',
     name: 'Explorer',
     brandSlug: 'rolex',
     description:
-      'Born from the 1953 Everest expedition. The Explorer trades ornament for pure legibility and robustness — a purposeful tool watch that holds its own in any context.',
+      'Born from the 1953 Everest expedition. The Explorer trades ornament for pure legibility and robustness - a purposeful tool watch that holds its own in any context.',
   },
   'yacht-master': {
     slug: 'yacht-master',
@@ -137,7 +137,7 @@ export const COLLECTION_META: Record<string, CollectionMeta> = {
     name: 'Oyster Perpetual',
     brandSlug: 'rolex',
     description:
-      'The purist Rolex — no date, no complications, no distraction. The Oyster Perpetual is the direct descendant of the original 1926 design, reduced to its core.',
+      'The purist Rolex - no date, no complications, no distraction. The Oyster Perpetual is the direct descendant of the original 1926 design, reduced to its core.',
   },
   'sky-dweller': {
     slug: 'sky-dweller',

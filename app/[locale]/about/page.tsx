@@ -24,7 +24,7 @@ export default async function AboutPage() {
   ];
 
   // Pivot V2: 2 value cards instead of 4. Image headers reuse real product
-  // face shots — the legacy IMG_*.webp placeholders that backed the dropped
+  // face shots - the legacy IMG_*.webp placeholders that backed the dropped
   // value cards (v2 + v4) are gone from this page entirely.
   const valueCards = [
     {

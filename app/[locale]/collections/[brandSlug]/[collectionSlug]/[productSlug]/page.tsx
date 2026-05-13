@@ -39,10 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
   const productPath = `/collections/${brandSlug}/${collectionSlug}/${productSlug}`;
-  const frUrl = `${base}${productPath}`;               // FR — no locale prefix (default)
+  const frUrl = `${base}${productPath}`;               // FR - no locale prefix (default)
   const enUrl = `${base}/en${productPath}`;             // EN
 
-  // Resolve og:image — handles both absolute Supabase URLs and relative /public paths
+  // Resolve og:image - handles both absolute Supabase URLs and relative /public paths
   const rawImage = product.images[0];
   const ogImage = rawImage
     ? rawImage.startsWith('http') ? rawImage : `${base}${rawImage}`
@@ -103,7 +103,7 @@ export default async function ProductPage({ params }: Props) {
   //   - Same range avoids a "Black Dial" pill appearing twice when both an
   //     Essential and a Premium variant exist with the same dial color
   // Cross-tier discovery (Essential ↔ Premium for the same dial) is handled by
-  // the range selector lower in the panel — pills stay scoped to visual variants.
+  // the range selector lower in the panel - pills stay scoped to visual variants.
   const collectionVariants = (await getProductsByCollection(product.collectionSlug))
     .filter((sibling) => sibling.name === product.name && sibling.range === product.range);
 
@@ -150,7 +150,7 @@ export default async function ProductPage({ params }: Props) {
   // and the in-tab SpecsTab render identical values:
   //  - movement / powerReserve fall back to tier-canonical defaults when
   //    Sanity data is missing (matches the Premium tagline 28 800 alt/h · 70h
-  //    and the Essential Miyota wording — no more dissonance with the table)
+  //    and the Essential Miyota wording - no more dissonance with the table)
   //  - waterResistance gets the Option A "(spec d'origine)" suffix when set,
   //    otherwise the row is omitted entirely
   const rawWaterResistance = localizedProduct.specs.waterResistance;
@@ -291,7 +291,7 @@ export default async function ProductPage({ params }: Props) {
     }),
   };
 
-  // JSON-LD BreadcrumbList — helps Google show breadcrumbs in SERPs
+  // JSON-LD BreadcrumbList - helps Google show breadcrumbs in SERPs
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -335,7 +335,7 @@ export default async function ProductPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      {/* Meta Pixel — ViewContent */}
+      {/* Meta Pixel - ViewContent */}
       <ViewContentTracker
         productId={product.id}
         productName={`${product.brand} ${product.name}`}

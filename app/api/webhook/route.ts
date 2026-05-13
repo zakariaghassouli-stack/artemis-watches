@@ -7,7 +7,7 @@ import { sendOrderConfirmation, type OrderEmailItem } from '@/lib/email';
 import { createDeal, updateContactProperty, upsertContact } from '@/lib/hubspot';
 import { markSanityPromoCodeUsed } from '@/lib/promo';
 
-// Next.js App Router — read raw body for Stripe signature verification
+// Next.js App Router - read raw body for Stripe signature verification
 export async function POST(request: NextRequest) {
   const body = await request.text();
   const sig = request.headers.get('stripe-signature');
@@ -42,7 +42,7 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
   const customer = session.customer_details;
 
   if (!prisma) {
-    console.warn('Prisma not configured — skipping order DB write for session', session.id);
+    console.warn('Prisma not configured - skipping order DB write for session', session.id);
     return;
   }
 
@@ -78,7 +78,7 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
       });
       userId = user?.id;
     } catch {
-      // Non-blocking — order still created without userId
+      // Non-blocking - order still created without userId
     }
   }
 
@@ -114,11 +114,11 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
       );
     }
   } catch (err) {
-    // Log but don't fail the webhook — Stripe will retry on 5xx errors
+    // Log but don't fail the webhook - Stripe will retry on 5xx errors
     console.error('DB write failed for session', session.id, err);
   }
 
-  // Send order confirmation email (non-blocking — email failure must not affect webhook response)
+  // Send order confirmation email (non-blocking - email failure must not affect webhook response)
   if (customer?.email) {
     let parsedItems: OrderEmailItem[] = [];
     try {
@@ -134,7 +134,7 @@ async function handleCheckoutComplete(session: Stripe.Checkout.Session) {
         });
       }
     } catch {
-      // malformed metadata — send email with empty items rather than skip
+      // malformed metadata - send email with empty items rather than skip
     }
 
     await sendOrderConfirmation({

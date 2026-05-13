@@ -9,21 +9,21 @@ export default defineType({
   fields: [
     defineField({
       name: 'essentialPrice',
-      title: 'Essential — Add-on Price (CAD)',
+      title: 'Essential - Add-on Price (CAD)',
       type: 'number',
       initialValue: 49,
       validation: (rule) => rule.required().positive(),
     }),
     defineField({
       name: 'premiumPrice',
-      title: 'Premium — Add-on Price (CAD)',
+      title: 'Premium - Add-on Price (CAD)',
       type: 'number',
       initialValue: 120,
       validation: (rule) => rule.required().positive(),
     }),
     defineField({
       name: 'essentialDescription',
-      title: 'Essential — Description',
+      title: 'Essential - Description',
       type: 'object',
       fields: [
         defineField({ name: 'en', title: 'English', type: 'text', rows: 2 }),
@@ -32,7 +32,7 @@ export default defineType({
     }),
     defineField({
       name: 'premiumDescription',
-      title: 'Premium — Description',
+      title: 'Premium - Description',
       type: 'object',
       fields: [
         defineField({ name: 'en', title: 'English', type: 'text', rows: 2 }),

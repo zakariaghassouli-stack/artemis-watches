@@ -49,7 +49,7 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
         overflow: 'hidden',
       }}
     >
-      {/* Ambient gold glow — left */}
+      {/* Ambient gold glow - left */}
       <div
         aria-hidden
         style={{
@@ -62,7 +62,7 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
           pointerEvents: 'none',
         }}
       />
-      {/* Ambient glow — right bottom */}
+      {/* Ambient glow - right bottom */}
       <div
         aria-hidden
         style={{
@@ -103,7 +103,7 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
         }}
         className="hero-grid"
       >
-        {/* Left — Text */}
+        {/* Left - Text */}
         <div>
           <ScrollReveal delay={0}>
             <p
@@ -265,7 +265,7 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
 
         </div>
 
-        {/* Right — Hero watch image */}
+        {/* Right - Hero watch image */}
         <ScrollReveal delay={200}>
           <div
             className="hero-image"

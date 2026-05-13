@@ -211,8 +211,8 @@ async function migrateSiteSettings() {
     _type: 'siteSettings',
     announcementBar: {
       enabled: true,
-      en: 'New here? Get 10% off your first order — Shop Now →',
-      fr: 'Nouveau client ? Obtenez 10 % sur votre première commande — Magasiner →',
+      en: 'New here? Get 10% off your first order - Shop Now →',
+      fr: 'Nouveau client ? Obtenez 10 % sur votre première commande - Magasiner →',
     },
     heroHeadline: {
       en: 'Four iconic brands. One Montreal address.',

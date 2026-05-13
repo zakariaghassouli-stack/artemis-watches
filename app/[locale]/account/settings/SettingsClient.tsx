@@ -300,7 +300,7 @@ export function SettingsClient({ user, locale }: { user: UserData; locale: strin
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <div style={{ display: 'flex', gap: 16 }}>
               <span style={{ fontSize: '0.75rem', color: '#6B6965', minWidth: 60 }}>{copy.name}</span>
-              <span style={{ fontSize: '0.82rem', color: '#F5F3EF' }}>{user.name || '—'}</span>
+              <span style={{ fontSize: '0.82rem', color: '#F5F3EF' }}>{user.name || '-'}</span>
             </div>
             <div style={{ display: 'flex', gap: 16 }}>
               <span style={{ fontSize: '0.75rem', color: '#6B6965', minWidth: 60 }}>{copy.email}</span>

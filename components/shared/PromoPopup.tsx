@@ -120,7 +120,7 @@ export function PromoPopup({ discountPercent = 10 }: PromoPopupProps) {
     setDismissCookie();
     // Close popup state BEFORE navigating. The popup is mounted in the
     // [locale] layout which persists across same-locale route changes, so
-    // router.push alone never unmounts the component — leaving loading=true
+    // router.push alone never unmounts the component - leaving loading=true
     // and the overlay stuck on top of /account/register.
     setEntered(false);
     setVisible(false);

@@ -21,7 +21,7 @@ export async function PATCH(request: NextRequest) {
   }
 
   if (!name || name.length < 2 || name.length > 80) {
-    return NextResponse.json({ error: 'Name must be 2–80 characters' }, { status: 400 });
+    return NextResponse.json({ error: 'Name must be 2-80 characters' }, { status: 400 });
   }
 
   await prisma.user.update({

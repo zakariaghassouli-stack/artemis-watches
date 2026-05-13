@@ -39,7 +39,7 @@ export function Footer() {
             marginBottom: 64,
           }}
         >
-          {/* Col 1 — Brand */}
+          {/* Col 1 - Brand */}
           <div style={{ gridColumn: 'span 1' }}>
             <span
               style={{
@@ -112,7 +112,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2 — Collections */}
+          {/* Col 2 - Collections */}
           <FooterColumn title={t('collections')}>
             <FooterLink href="/collections">{t('allCollections')}</FooterLink>
             <FooterLink href="/collections/rolex">{t('rolex')}</FooterLink>
@@ -122,7 +122,7 @@ export function Footer() {
             <FooterLink href="/collections/new-arrivals">{t('newArrivals')}</FooterLink>
           </FooterColumn>
 
-          {/* Col 3 — Company */}
+          {/* Col 3 - Company */}
           <FooterColumn title={t('company')}>
             <FooterLink href="/about">{t('about')}</FooterLink>
             <FooterLink href="/mouvements">{t('movements')}</FooterLink>
@@ -131,7 +131,7 @@ export function Footer() {
             <FooterLink href="/contact">{t('contact')}</FooterLink>
           </FooterColumn>
 
-          {/* Col 4 — Support */}
+          {/* Col 4 - Support */}
           <FooterColumn title={t('support')}>
             <FooterLink href="/#faq">{t('faq')}</FooterLink>
             <FooterLink href="/shipping">{t('shippingPolicy')}</FooterLink>
@@ -142,7 +142,7 @@ export function Footer() {
             </FooterLink>
           </FooterColumn>
 
-          {/* Col 5 — Legal */}
+          {/* Col 5 - Legal */}
           <FooterColumn title={t('legal')}>
             <FooterLink href="/terms">{t('termsConditions')}</FooterLink>
             <FooterLink href="/privacy">{t('privacyPolicy')}</FooterLink>

@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const base = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
   const path = `/collections/${brandSlug}/${collectionSlug}`;
   return {
-    title: `${brand.name} ${collection.name} | Artemis Watches — Montreal`,
+    title: `${brand.name} ${collection.name} | Artemis Watches Montreal`,
     description: `Shop the ${brand.name} ${collection.name} at Artemis. ${collection.description}`,
     alternates: {
       canonical: `${base}${path}`,
@@ -169,7 +169,7 @@ export default async function CollectionPage({ params }: Props) {
                 >
                   {lowestPrice === highestPrice
                     ? formatPrice(lowestPrice)
-                    : `${formatPrice(lowestPrice)} – ${formatPrice(highestPrice)}`}{' '}
+                    : `${formatPrice(lowestPrice)} - ${formatPrice(highestPrice)}`}{' '}
                   CAD
                 </p>
               )}

@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
     discountPercent: welcomeDiscountPercent,
   }).catch((err) => console.error('[register] Sanity promo sync failed:', err));
 
-  // Send welcome email — non-blocking, never crash the registration
+  // Send welcome email - non-blocking, never crash the registration
   sendWelcomeEmail({
     to: user.email!,
     name: user.name,
