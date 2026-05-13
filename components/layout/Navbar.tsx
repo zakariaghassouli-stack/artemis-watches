@@ -294,7 +294,7 @@ export function Navbar() {
 
             {[
               // 'reviews' link hidden pending verified reviews migration
-              { key: 'faq', href: '/faq' },
+              { key: 'faq', href: '/#faq' },
               { key: 'contact', href: '/contact' },
               { key: 'about', href: '/about' },
             ].map(({ key, href }) => (
@@ -784,7 +784,7 @@ function MobileMenu({
           {/* Static links */}
           {[
             // 'reviews' link hidden pending verified reviews migration
-            { label: t('faq'), href: '/faq' },
+            { label: t('faq'), href: '/#faq' },
             { label: t('contact'), href: '/contact' },
             { label: t('about'), href: '/about' },
           ].map(({ label, href }) => (

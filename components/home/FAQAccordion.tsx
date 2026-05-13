@@ -17,9 +17,11 @@ export function FAQAccordion() {
 
   return (
     <section
+      id="faq"
       style={{
         background: '#0A0A0A',
         padding: 'clamp(72px, 10vw, 120px) 24px',
+        scrollMarginTop: 'var(--header-h, 100px)',
       }}
     >
       <div style={{ maxWidth: 800, margin: '0 auto' }}>
@@ -109,7 +111,7 @@ export function FAQAccordion() {
         <ScrollReveal delay={0}>
           <div style={{ textAlign: 'center', marginTop: 40 }}>
             <Link
-              href="/faq"
+              href="/#faq"
               style={{
                 fontSize: '0.78rem',
                 fontWeight: 500,
