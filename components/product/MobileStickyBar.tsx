@@ -29,6 +29,10 @@ export function MobileStickyBar({
   const defaultSize = product.availableSizes[0] ?? undefined;
   const needsSelection = product.availableSizes.length > 1 || product.hasEssentialVariant;
   const includesBoxAndPapers = product.range === 'premium';
+  // Pivot V2: same flag as ProductInfo. Hides the right "Add to Cart" button
+  // in the mobile sticky bar; the WhatsApp CTA on the left expands to take
+  // the full width.
+  const cartEnabled = process.env.NEXT_PUBLIC_ENABLE_CART === 'true';
 
   // Show bar only after user has scrolled past the hero info panel (~600px)
   useEffect(() => {
@@ -189,6 +193,7 @@ export function MobileStickyBar({
             />
           </div>
 
+          {cartEnabled && (
           <button
             disabled={!product.inStock}
             onClick={handlePrimaryAction}
@@ -213,6 +218,7 @@ export function MobileStickyBar({
           >
             {needsSelection ? selectOptionsLabel : added ? '✓' : addToCartLabel}
           </button>
+          )}
         </div>
       </div>
     </>
