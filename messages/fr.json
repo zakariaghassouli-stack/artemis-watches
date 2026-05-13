@@ -197,7 +197,7 @@
       "placeholder": "Entrez votre courriel",
       "cta": "Obtenir mon code de 10 %",
       "benefits": [
-        "10 % sur votre première commande - appliqué à la caisse",
+        "10 % sur votre première commande - appliqué automatiquement",
         "Pièces sauvegardées et historique de commandes",
         "Accès prioritaire aux nouveautés"
       ],
@@ -224,7 +224,7 @@
       "q3": "Quelle est votre politique de retour ?",
       "a3": "Vous disposez de 30 jours pour retourner la pièce dans son état d'origine si elle ne vous convient pas.",
       "q4": "Le paiement est-il sécurisé ?",
-      "a4": "Oui. La caisse Stripe est sécurisée et la livraison, les taxes ainsi que les éventuels droits sont affichés avant validation.",
+      "a4": "Oui. Le prix final et le délai sont confirmés sur WhatsApp avant tout paiement. Le paiement se fait de manière sécurisée.",
       "q5": "Puis-je parler à quelqu'un avant de commander ?",
       "a5": "Oui. Écrivez-nous sur WhatsApp et nous vous orienterons sur la gamme, la taille ou la référence adaptée.",
       "q6": "Qu'est-ce qui est inclus avec la commande ?",
@@ -410,11 +410,11 @@
     "recentlyViewedEmpty": "Parcourez la collection pour découvrir nos pièces.",
     "shippingTitle": "Livraison & Délais",
     "shippingLine1Label": "Canada (Standard)",
-    "shippingLine1Value": "Livraison suivie. Frais calculés à la caisse",
+    "shippingLine1Value": "Livraison suivie. Frais confirmés sur WhatsApp",
     "shippingLine2Label": "Canada (Express)",
-    "shippingLine2Value": "Disponible à la caisse selon l'adresse",
+    "shippingLine2Value": "Disponible sur demande WhatsApp",
     "shippingLine3Label": "International",
-    "shippingLine3Value": "Calculée à la caisse selon la destination",
+    "shippingLine3Value": "Calculé par destination, confirmé sur WhatsApp",
     "shippingNote": "Votre numéro de suivi sera envoyé par email ou WhatsApp. Suivez votre commande sur 17track.net.",
     "returnsTitle": "Politique de retour 30 jours",
     "returnsPoints": [
@@ -719,7 +719,7 @@
     "addBoxAndPapers": "Ajouter ensemble boîte & papiers - 49 $ CAD",
     "freeShipping": "Livraison suivie",
     "return30": "Retours 30 jours",
-    "securePayment": "Caisse Stripe sécurisée",
+    "securePayment": "Support WhatsApp",
     "checkoutError": "Impossible d'ouvrir la caisse pour le moment. Réessayez ou écrivez-nous sur WhatsApp.",
     "checkoutMicrocopy": "La caisse Stripe sécurisée s’ouvre ensuite. Livraison, taxes et votre code de 10 % s’appliquent avant le paiement.",
     "supportCta": "Besoin d'aide ? Écrire sur WhatsApp →",
@@ -727,7 +727,7 @@
     "closeLabel": "Fermer le panier",
     "presentationSet": "Ajouter ensemble boîte & papiers - 49 $ CAD",
     "presentationSetBody": "Coffret de présentation de la marque et documentation assortie.",
-    "accountPromoLine": "Vous avez un code de 10 % ? Créez un compte pour l’appliquer à la caisse →"
+    "accountPromoLine": "Vous avez un code -10 % ? Créez un compte pour l'appliquer à votre commande →"
   },
   "popup": {
     "overline": "AVANTAGE DE BIENVENUE",

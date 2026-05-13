@@ -878,6 +878,10 @@ export function ProductInfo({
         )}
       </div>
 
+      {/* Stripe checkout microcopy — only relevant when the cart flow is
+          live. In Pivot V2 the line is misleading (no in-page payment),
+          so we gate it by the same cartEnabled flag as the button above. */}
+      {cartEnabled && (
       <p
         style={{
           marginTop: 12,
@@ -889,6 +893,7 @@ export function ProductInfo({
       >
         {t.checkoutNote}
       </p>
+      )}
 
       {/* Save to wishlist */}
       <div style={{ marginTop: 12 }}>

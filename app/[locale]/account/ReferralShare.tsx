@@ -21,7 +21,7 @@ export function ReferralShare({ code }: { code: string }) {
   const whatsappText = encodeURIComponent(
     locale === 'fr'
       ? `Je regardais la sélection Artemis et j'ai pensé à toi. Si tu commandes, tu peux utiliser mon code *${code}* sur une première commande.\n${referralUrl}`
-      : `I was browsing Artemis and thought of you. If you place a first order, you can use my code *${code}* at checkout.\n${referralUrl}`
+      : `I was browsing Artemis and thought of you. If you place a first order, you can use my code *${code}* when ordering.\n${referralUrl}`
   );
 
   return (
