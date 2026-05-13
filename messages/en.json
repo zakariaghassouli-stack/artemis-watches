@@ -511,7 +511,8 @@
     "learnMore": "Privacy Policy",
     "acceptAll": "Accept All",
     "essentialOnly": "Essential Only",
-    "preferencesLink": "Cookie preferences"
+    "preferencesLink": "Cookie preferences",
+    "learnMoreIcon": "Learn more about cookies"
   },
   "search": {
     "pageTitle": "Search",

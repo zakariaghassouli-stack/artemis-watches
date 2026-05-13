@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { track } from '@vercel/analytics';
+import { Info } from 'lucide-react';
 
 const STORAGE_KEY = 'artemis_cookie_consent';
 const REOPEN_EVENT = 'artemis:cookie-banner-reopen';
@@ -92,12 +93,42 @@ export function CookieBanner() {
           overflow: hidden;
           text-overflow: ellipsis;
         }
+        .cookie-banner-info-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          width: 22px;
+          height: 22px;
+          border-radius: 999px;
+          border: 1px solid rgba(201,169,110,0.3);
+          background: rgba(201,169,110,0.12);
+          color: #C9A96E;
+          text-decoration: none;
+          transition: border-color 0.2s, background 0.2s;
+        }
+        .cookie-banner-info-icon:hover {
+          border-color: rgba(201,169,110,0.55);
+          background: rgba(201,169,110,0.2);
+        }
+        @media (min-width: 769px) {
+          .cookie-banner-info-icon { display: none; }
+        }
         @media (max-width: 768px) {
           .cookie-banner-row { flex-wrap: wrap; gap: 8px; }
           .cookie-banner-learn-more { display: none; }
         }
       `}</style>
       <div className="cookie-banner-row">
+        <a
+          className="cookie-banner-info-icon"
+          href={privacyHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t('learnMoreIcon')}
+        >
+          <Info size={12} aria-hidden="true" />
+        </a>
         <p className="cookie-banner-message">
           {t('message')}{' '}
           <a
