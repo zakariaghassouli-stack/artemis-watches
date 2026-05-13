@@ -11,7 +11,7 @@ interface Props {
   product: Product;
 }
 
-// Dial graphic for placeholder — shows brand initial in a watch-face motif
+// Dial graphic for placeholder - shows brand initial in a watch-face motif
 function WatchPlaceholder({ brand }: { brand: string }) {
   return (
     <div
@@ -151,7 +151,7 @@ function WatchPlaceholder({ brand }: { brand: string }) {
 }
 
 // Hero image priority: square shots (face) > slight-portrait (cadrée face) > rest
-// (bracelet/side verticals). Video always last — thumbnail, not hero.
+// (bracelet/side verticals). Video always last - thumbnail, not hero.
 // Reads Sanity CDN URL dim pattern: `...-1536x2730.webp`.
 // Unknown dimensions (local /images/*.webp) default to mid-priority.
 const SQUARE_TOLERANCE = 0.15;
@@ -185,7 +185,7 @@ export function ProductGallery({ product }: Props) {
   );
   const media = [...sortedImages, ...videoMedia];
   const videoThumb = imageMedia[0]?.src ?? null;
-  const thumbCount = media.length > 0 ? Math.min(media.length, 5) : 0;
+  const thumbCount = media.length;
   const [selected, setSelected] = useState(0);
   const activeMedia = media[selected];
 
@@ -291,13 +291,23 @@ export function ProductGallery({ product }: Props) {
 
       {/* Thumbnail strip */}
       {thumbCount > 1 && (
-        <div style={{ display: 'flex', gap: 8, minWidth: 0 }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: 8,
+            minWidth: 0,
+            overflowX: 'auto',
+            scrollbarWidth: 'thin',
+            paddingBottom: 2,
+          }}
+        >
           {Array.from({ length: thumbCount }).map((_, i) => (
             <button
               key={i}
               onClick={() => setSelected(i)}
               style={{
-                flex: 1,
+                flex: '1 1 0',
+                minWidth: 64,
                 aspectRatio: '1/1',
                 background:
                   selected === i

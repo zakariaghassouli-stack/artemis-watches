@@ -49,7 +49,7 @@ export default defineType({
       name: 'variant',
       title: 'Variant / Dial',
       type: 'string',
-      description: 'Ex. Black Dial, Hulk — Green Dial & Bezel',
+      description: 'Ex. Black Dial, Hulk - Green Dial & Bezel',
     }),
     defineField({
       name: 'range',
@@ -128,7 +128,7 @@ export default defineType({
       title: 'Stock Label Override',
       type: 'string',
       description:
-        'Optional custom label that bypasses the default StockBadge copy. Use sparingly — most pieces should rely on stockStatus + leadTimeDays.',
+        'Optional custom label that bypasses the default StockBadge copy. Use sparingly - most pieces should rely on stockStatus + leadTimeDays.',
     }),
     defineField({
       name: 'badge',
@@ -162,7 +162,16 @@ export default defineType({
       type: 'array',
       of: [{ type: 'image', options: { hotspot: true } }],
       description: '1st = face, then side/back/detail. Drag to reorder.',
-      validation: (rule) => rule.min(1),
+      validation: (rule) => [
+        rule.min(1),
+        rule
+          .custom((images) =>
+            !images || images.length < 4
+              ? 'Recommandé: 4 photos minimum (face, côté gauche, côté droit, dos)'
+              : true
+          )
+          .warning(),
+      ],
     }),
     defineField({
       name: 'video',
