@@ -294,9 +294,9 @@ export function Navbar() {
 
             {[
               // 'reviews' link hidden pending verified reviews migration
+              // 'faq' link removed (already present in landing #faq and product PDPs)
               { key: 'movements', href: '/mouvements' },
               { key: 'approach', href: '/notre-approche' },
-              { key: 'faq', href: '/#faq' },
               { key: 'contact', href: '/contact' },
               { key: 'about', href: '/about' },
             ].map(({ key, href }) => (
@@ -786,9 +786,9 @@ function MobileMenu({
           {/* Static links */}
           {[
             // 'reviews' link hidden pending verified reviews migration
+            // 'faq' link removed (already present in landing #faq and product PDPs)
             { label: t('movements'), href: '/mouvements' },
             { label: t('approach'), href: '/notre-approche' },
-            { label: t('faq'), href: '/#faq' },
             { label: t('contact'), href: '/contact' },
             { label: t('about'), href: '/about' },
           ].map(({ label, href }) => (

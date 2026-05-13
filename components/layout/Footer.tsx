@@ -133,7 +133,6 @@ export function Footer() {
 
           {/* Col 4 - Support */}
           <FooterColumn title={t('support')}>
-            <FooterLink href="/#faq">{t('faq')}</FooterLink>
             <FooterLink href="/shipping">{t('shippingPolicy')}</FooterLink>
             <FooterLink href="/returns">{t('returnPolicy')}</FooterLink>
             <FooterLink href="/account/orders">{t('trackOrder')}</FooterLink>
