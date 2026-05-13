@@ -92,9 +92,8 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
       {/* Content */}
       <div
         style={{
-          maxWidth: 1280,
           margin: '0 auto',
-          padding: 'clamp(100px, 14vh, 140px) 24px clamp(80px, 10vh, 100px)',
+          padding: 'clamp(100px, 14vh, 140px) clamp(24px, 6vw, 120px) clamp(80px, 10vh, 100px)',
           width: '100%',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',

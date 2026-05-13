@@ -36,7 +36,7 @@ export function AuthenticityAssumed() {
         borderTop: '1px solid rgba(255,255,255,0.04)',
       }}
     >
-      <div style={{ maxWidth: 1180, margin: '0 auto' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <ScrollReveal delay={0}>
           <p
             style={{

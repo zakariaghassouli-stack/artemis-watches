@@ -36,7 +36,7 @@ export function PreparationMontreal() {
 
       <div
         style={{
-          maxWidth: 1280,
+          maxWidth: 1440,
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',

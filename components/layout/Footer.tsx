@@ -20,7 +20,7 @@ export function Footer() {
         paddingBottom: 40,
       }}
     >
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
+      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 24px' }}>
         {/* Gold divider */}
         <div
           style={{

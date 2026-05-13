@@ -76,7 +76,7 @@ export function FeaturedCollections({ counts }: FeaturedCollectionsProps) {
         padding: 'clamp(72px, 10vw, 120px) 24px',
       }}
     >
-      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+      <div style={{ maxWidth: 1440, margin: '0 auto' }}>
         <SectionHeader
           overline={t('overline')}
           headline={t('headline')}
