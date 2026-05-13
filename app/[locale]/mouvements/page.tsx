@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
@@ -45,6 +46,33 @@ export default async function MovementsPage() {
       chinese: t('chinesePrice'),
       japanese: t('japanesePrice'),
       swiss: t('swissPrice'),
+    },
+  ];
+
+  const visualCards = [
+    {
+      name: t('visualCard1Name'),
+      origin: t('visualCard1Origin'),
+      tier: t('visualCard1Tier'),
+      note: t('visualCard1Note'),
+      image: '/assets/movements/mingzhu-placeholder.svg',
+      notSold: true,
+    },
+    {
+      name: t('visualCard2Name'),
+      origin: t('visualCard2Origin'),
+      tier: t('visualCard2Tier'),
+      note: t('visualCard2Note'),
+      image: '/assets/movements/miyota-placeholder.svg',
+      notSold: false,
+    },
+    {
+      name: t('visualCard3Name'),
+      origin: t('visualCard3Origin'),
+      tier: t('visualCard3Tier'),
+      note: t('visualCard3Note'),
+      image: '/assets/movements/dandong-placeholder.svg',
+      notSold: false,
     },
   ];
 
@@ -349,6 +377,168 @@ export default async function MovementsPage() {
             .mvt-cards-mobile { display: grid !important; }
           }
         `}</style>
+      </section>
+
+      {/* ── The 3 movements in image ──────────────────────────────────── */}
+      <section
+        style={{
+          background: '#0A0A0A',
+          padding: 'clamp(56px, 8vw, 96px) 24px',
+          borderTop: '1px solid rgba(255,255,255,0.04)',
+        }}
+      >
+        <div style={{ maxWidth: 1180, margin: '0 auto' }}>
+          <ScrollReveal delay={0}>
+            <h2
+              style={{
+                fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
+                fontWeight: 600,
+                lineHeight: 1.15,
+                letterSpacing: '-0.02em',
+                color: '#F5F3EF',
+                textAlign: 'center',
+                marginBottom: 14,
+                fontFamily:
+                  'var(--font-playfair, "Playfair Display", serif)',
+              }}
+            >
+              {t('visualSectionTitle')}
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <p
+              style={{
+                fontSize: 'clamp(0.95rem, 1.2vw, 1.05rem)',
+                color: '#A8A5A0',
+                lineHeight: 1.7,
+                textAlign: 'center',
+                marginBottom: 48,
+                maxWidth: 640,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              {t('visualSectionSubtitle')}
+            </p>
+          </ScrollReveal>
+
+          <div
+            className="mvt-visual-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+              gap: 20,
+            }}
+          >
+            <style>{`
+              @media (max-width: 900px) {
+                .mvt-visual-grid { grid-template-columns: 1fr !important; }
+              }
+            `}</style>
+
+            {visualCards.map((card, i) => (
+              <ScrollReveal key={card.name} delay={i * 80}>
+                <article
+                  style={{
+                    borderRadius: 12,
+                    overflow: 'hidden',
+                    border: card.notSold
+                      ? '1px solid rgba(255,255,255,0.05)'
+                      : '1px solid rgba(201,169,110,0.18)',
+                    background: 'rgba(255,255,255,0.02)',
+                    opacity: card.notSold ? 0.7 : 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                  }}
+                >
+                  <div
+                    style={{
+                      position: 'relative',
+                      aspectRatio: '1 / 1',
+                      overflow: 'hidden',
+                      borderBottom: '1px solid rgba(255,255,255,0.06)',
+                    }}
+                  >
+                    {/* TODO: replace with macro photo by Zaki (atelier shoot) */}
+                    <Image
+                      src={card.image}
+                      alt={card.name}
+                      fill
+                      sizes="(max-width: 900px) 100vw, 33vw"
+                      style={{
+                        objectFit: 'cover',
+                        filter: card.notSold ? 'grayscale(100%)' : 'none',
+                      }}
+                    />
+                  </div>
+
+                  <div
+                    style={{
+                      padding: '24px 24px 28px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 10,
+                    }}
+                  >
+                    <span
+                      style={{
+                        alignSelf: 'flex-start',
+                        padding: '4px 10px',
+                        borderRadius: 3,
+                        fontSize: '0.62rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.14em',
+                        textTransform: 'uppercase',
+                        background: card.notSold
+                          ? 'rgba(107,107,107,0.12)'
+                          : 'rgba(201,169,110,0.1)',
+                        color: card.notSold ? '#6B6B6B' : '#C9A96E',
+                        border: card.notSold
+                          ? '1px solid rgba(107,107,107,0.3)'
+                          : '1px solid rgba(201,169,110,0.35)',
+                      }}
+                    >
+                      {card.tier}
+                    </span>
+                    <h3
+                      style={{
+                        fontSize: '1.2rem',
+                        fontWeight: 600,
+                        color: '#F5F3EF',
+                        letterSpacing: '-0.01em',
+                        marginTop: 4,
+                      }}
+                    >
+                      {card.name}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '0.72rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.16em',
+                        textTransform: 'uppercase',
+                        color: '#8C8884',
+                      }}
+                    >
+                      {card.origin}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: '0.92rem',
+                        color: '#A8A5A0',
+                        lineHeight: 1.7,
+                        marginTop: 6,
+                      }}
+                    >
+                      {card.note}
+                    </p>
+                  </div>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── Final CTA ─────────────────────────────────────────────────── */}

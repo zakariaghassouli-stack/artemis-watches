@@ -954,7 +954,21 @@
     "swissPrice": "950-1550 CAD",
     "positionAssumed": "Artemis ne vend pas de mouvement chinois. Position assumée.",
     "footnote": "*Architecture inspirée des calibres suisses (Rolex 32xx series). Production VSF/Clean/ARF.",
-    "ctaLabel": "Discuter d'une pièce sur WhatsApp"
+    "ctaLabel": "Discuter d'une pièce sur WhatsApp",
+    "visualSectionTitle": "Les 3 mouvements en image",
+    "visualSectionSubtitle": "Mingzhu, Miyota, Dandong. Ce qu'on trouve à l'intérieur.",
+    "visualCard1Name": "Mingzhu",
+    "visualCard1Origin": "Chine",
+    "visualCard1Tier": "Non commercialisé",
+    "visualCard1Note": "Référence pour comprendre l'entrée de gamme. Non vendu chez Artemis.",
+    "visualCard2Name": "Miyota",
+    "visualCard2Origin": "Japon",
+    "visualCard2Tier": "Essential",
+    "visualCard2Note": "Robustesse éprouvée, précision quotidienne.",
+    "visualCard3Name": "Dandong via VSF",
+    "visualCard3Origin": "Suisse",
+    "visualCard3Tier": "Premium",
+    "visualCard3Note": "Architecture de haute horlogerie moderne, finitions soignées."
   },
   "approach": {
     "metaTitle": "Notre approche | Artemis Watches",
