@@ -4,25 +4,46 @@ import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 
 const STORAGE_KEY = 'artemis_cookie_consent';
+const REOPEN_EVENT = 'artemis:cookie-banner-reopen';
 type ConsentValue = 'all' | 'essential';
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
   const t = useTranslations('cookies');
   const locale = useLocale();
-  const privacyHref = locale === 'fr' ? '/fr/privacy' : '/privacy';
+  const privacyHref = locale === 'en' ? '/en/privacy' : '/privacy';
 
   useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      const consent = localStorage.getItem(STORAGE_KEY);
-      if (!consent) setVisible(true);
-    });
+    const showIfNoConsent = () => {
+      try {
+        const consent = localStorage.getItem(STORAGE_KEY);
+        if (!consent) setVisible(true);
+      } catch {
+        setVisible(true);
+      }
+    };
 
-    return () => window.cancelAnimationFrame(frame);
+    const reopen = () => {
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        window.dispatchEvent(new CustomEvent('artemis:cookie-consent'));
+      } catch {}
+      setVisible(true);
+    };
+
+    const frame = window.requestAnimationFrame(showIfNoConsent);
+    window.addEventListener(REOPEN_EVENT, reopen);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener(REOPEN_EVENT, reopen);
+    };
   }, []);
 
   const accept = (value: ConsentValue) => {
-    localStorage.setItem(STORAGE_KEY, value);
+    try {
+      localStorage.setItem(STORAGE_KEY, value);
+    } catch {}
     window.dispatchEvent(new CustomEvent('artemis:cookie-consent'));
     setVisible(false);
   };
@@ -41,36 +62,44 @@ export function CookieBanner() {
         borderTop: '1px solid rgba(201, 169, 110, 0.18)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        padding: '18px 24px',
-        transition: 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.35s ease',
+        padding: '10px 20px',
+        transition:
+          'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.35s ease',
         transform: visible ? 'translateY(0)' : 'translateY(100%)',
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'auto' : 'none',
       }}
     >
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 20,
-          flexWrap: 'wrap',
-        }}
-      >
-        {/* Text */}
-        <p
-          style={{
-            flex: 1,
-            minWidth: 240,
-            fontSize: 13,
-            lineHeight: 1.65,
-            color: 'rgba(245,243,239,0.52)',
-            margin: 0,
-          }}
-        >
+      <style>{`
+        .cookie-banner-row {
+          max-width: 1280px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          flex-wrap: nowrap;
+        }
+        .cookie-banner-message {
+          flex: 1;
+          min-width: 0;
+          font-size: 12px;
+          line-height: 1.4;
+          color: rgba(245,243,239,0.6);
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        @media (max-width: 768px) {
+          .cookie-banner-row { flex-wrap: wrap; gap: 8px; }
+          .cookie-banner-learn-more { display: none; }
+        }
+      `}</style>
+      <div className="cookie-banner-row">
+        <p className="cookie-banner-message">
           {t('message')}{' '}
           <a
+            className="cookie-banner-learn-more"
             href={privacyHref}
             style={{
               color: '#C9A96E',
@@ -80,20 +109,18 @@ export function CookieBanner() {
           >
             {t('learnMore')}
           </a>
-          .
         </p>
 
-        {/* Actions */}
-        <div style={{ display: 'flex', gap: 10, flexShrink: 0, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
           <button
             onClick={() => accept('essential')}
             style={{
-              padding: '8px 16px',
+              padding: '6px 12px',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.12)',
               borderRadius: 1,
-              color: 'rgba(255,255,255,0.42)',
-              fontSize: 11,
+              color: 'rgba(255,255,255,0.5)',
+              fontSize: 10,
               fontWeight: 500,
               letterSpacing: '0.07em',
               cursor: 'pointer',
@@ -101,17 +128,17 @@ export function CookieBanner() {
               fontFamily: 'inherit',
               transition: 'border-color 0.2s, color 0.2s',
             }}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
               (e.currentTarget as HTMLButtonElement).style.borderColor =
                 'rgba(255,255,255,0.28)';
               (e.currentTarget as HTMLButtonElement).style.color =
-                'rgba(255,255,255,0.7)';
+                'rgba(255,255,255,0.78)';
             }}
-            onMouseLeave={e => {
+            onMouseLeave={(e) => {
               (e.currentTarget as HTMLButtonElement).style.borderColor =
                 'rgba(255,255,255,0.12)';
               (e.currentTarget as HTMLButtonElement).style.color =
-                'rgba(255,255,255,0.42)';
+                'rgba(255,255,255,0.5)';
             }}
           >
             {t('essentialOnly')}
@@ -120,12 +147,12 @@ export function CookieBanner() {
           <button
             onClick={() => accept('all')}
             style={{
-              padding: '8px 18px',
+              padding: '6px 14px',
               background: '#C9A96E',
               border: '1px solid #C9A96E',
               borderRadius: 1,
               color: '#0A0A0A',
-              fontSize: 11,
+              fontSize: 10,
               fontWeight: 700,
               letterSpacing: '0.07em',
               cursor: 'pointer',
@@ -133,10 +160,10 @@ export function CookieBanner() {
               fontFamily: 'inherit',
               transition: 'background 0.2s',
             }}
-            onMouseEnter={e => {
+            onMouseEnter={(e) => {
               (e.currentTarget as HTMLButtonElement).style.background = '#B8924A';
             }}
-            onMouseLeave={e => {
+            onMouseLeave={(e) => {
               (e.currentTarget as HTMLButtonElement).style.background = '#C9A96E';
             }}
           >

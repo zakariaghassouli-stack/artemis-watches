@@ -515,7 +515,8 @@
     "message": "Nous utilisons des témoins (cookies) pour améliorer votre expérience et analyser le trafic. En continuant, vous acceptez notre",
     "learnMore": "Politique de confidentialité",
     "acceptAll": "Tout accepter",
-    "essentialOnly": "Essentiels seulement"
+    "essentialOnly": "Essentiels seulement",
+    "preferencesLink": "Préférences cookies"
   },
   "search": {
     "pageTitle": "Recherche",

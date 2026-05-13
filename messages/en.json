@@ -509,7 +509,8 @@
     "message": "We use cookies to enhance your experience and analyze traffic. By continuing, you agree to our",
     "learnMore": "Privacy Policy",
     "acceptAll": "Accept All",
-    "essentialOnly": "Essential Only"
+    "essentialOnly": "Essential Only",
+    "preferencesLink": "Cookie preferences"
   },
   "search": {
     "pageTitle": "Search",

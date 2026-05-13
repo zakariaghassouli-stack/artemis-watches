@@ -5,11 +5,18 @@ import { useLocale, useTranslations } from 'next-intl';
 import { analytics } from '@/lib/analytics';
 import { getFooterWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
+const COOKIE_REOPEN_EVENT = 'artemis:cookie-banner-reopen';
+
 export function Footer() {
   const t = useTranslations('footer');
+  const tCookies = useTranslations('cookies');
   const locale = useLocale();
   const year = new Date().getFullYear();
   const footerWhatsAppUrl = getWhatsAppUrl(getFooterWhatsAppMessage(locale));
+
+  const reopenCookieBanner = () => {
+    window.dispatchEvent(new CustomEvent(COOKIE_REOPEN_EVENT));
+  };
 
   return (
     <footer
@@ -146,6 +153,9 @@ export function Footer() {
             <FooterLink href="/privacy">{t('privacyPolicy')}</FooterLink>
             <FooterLink href="/returns">{t('returnPolicyShort')}</FooterLink>
             <FooterLink href="/shipping">{t('shippingPolicyShort')}</FooterLink>
+            <FooterButton onClick={reopenCookieBanner}>
+              {tCookies('preferencesLink')}
+            </FooterButton>
           </FooterColumn>
         </div>
 
@@ -248,6 +258,38 @@ function FooterLink({
       <Link href={href} style={style} {...hover}>
         {children}
       </Link>
+    </li>
+  );
+}
+
+function FooterButton({
+  onClick,
+  children,
+}: {
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={onClick}
+        style={{
+          fontSize: '0.82rem',
+          color: '#6B6965',
+          background: 'transparent',
+          border: 'none',
+          padding: 0,
+          cursor: 'pointer',
+          fontFamily: 'inherit',
+          textAlign: 'left',
+          transition: 'color 0.2s ease',
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = '#A8A5A0')}
+        onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6965')}
+      >
+        {children}
+      </button>
     </li>
   );
 }
