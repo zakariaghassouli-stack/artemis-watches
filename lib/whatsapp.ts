@@ -58,6 +58,66 @@ export function getProductWhatsAppMessage(input: {
   return `Hi! I'm interested in the ${productName} (${variant})${sizePart}${rangeSentence}${boxPart}, ${price} CAD. Is it still available?`;
 }
 
+export interface CartWhatsAppItem {
+  brand: string;
+  name: string;
+  variant?: string;
+  size?: string;
+  range?: 'essential' | 'premium';
+  boxAndPapers?: boolean;
+  price: number;
+  quantity: number;
+}
+
+/**
+ * Builds the prefilled WhatsApp message for the cart "Finalize on WhatsApp"
+ * CTA used during the Pivot V2 stand-by. Lists each cart item with brand,
+ * model, variant, size, range, optional Box & Papers flag, and unit price.
+ * Closes with the estimated total and a request for availability + timing.
+ *
+ * The total is what the customer sees in the drawer (subtotal minus any
+ * applied promo); Artemis confirms the actual price + timing in the chat.
+ */
+export function getCartWhatsAppMessage(input: {
+  locale: string;
+  items: CartWhatsAppItem[];
+  total: number;
+}): string {
+  const { locale, items, total } = input;
+  const isFr = locale === 'fr';
+
+  const intro = isFr
+    ? 'Bonjour ARTEMIS, je souhaite commander :'
+    : 'Hello ARTEMIS, I would like to order:';
+
+  const lines = items.map((it) => {
+    const sizePart = it.size ? ` ${it.size}` : '';
+    const variantPart = it.variant ? ` (${it.variant})` : '';
+    const rangeLabel = it.range
+      ? isFr
+        ? it.range === 'premium'
+          ? ' · gamme Premium'
+          : ' · gamme Essential (Miyota)'
+        : it.range === 'premium'
+          ? ' · Premium range'
+          : ' · Essential range (Miyota)'
+      : '';
+    const boxPart = it.boxAndPapers ? (isFr ? ' + Box & Papers' : ' + Box & Papers') : '';
+    const qtyPart = it.quantity > 1 ? `${it.quantity}× ` : '';
+    const linePrice = it.price * it.quantity;
+    return `- ${qtyPart}${it.brand} ${it.name}${variantPart}${sizePart}${rangeLabel}${boxPart} — ${linePrice} CAD`;
+  });
+
+  const totalLine = isFr
+    ? `Total estimé : ${total} CAD`
+    : `Estimated total: ${total} CAD`;
+  const closing = isFr
+    ? 'Disponibilité et délai SVP ?'
+    : 'Can you confirm availability and timing?';
+
+  return `${intro}\n${lines.join('\n')}\n\n${totalLine}\n\n${closing}`;
+}
+
 export function getOrderWhatsAppMessage(locale: string, orderId?: string): string {
   if (locale === 'fr') {
     return orderId

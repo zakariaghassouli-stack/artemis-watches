@@ -74,6 +74,21 @@ async function resolveCanonicalCheckoutItem(item: CartItem) {
 }
 
 export async function POST(request: NextRequest) {
+  // Pivot V2 stand-by: Stripe checkout is gated behind a feature flag so
+  // it can be reactivated from the Vercel dashboard (env var → redeploy)
+  // without a code change. Until the flag flips back to 'true', the route
+  // returns 503 and the cart UI redirects customers to WhatsApp instead.
+  // The Stripe SDK init, webhook receiver, and order-success page stay
+  // active so historical sessions and future reactivations still work.
+  if (process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_ENABLED !== 'true') {
+    return NextResponse.json(
+      {
+        error: 'Checkout temporarily unavailable. Please contact us on WhatsApp.',
+      },
+      { status: 503 }
+    );
+  }
+
   let items: CartItem[];
   let promoCode: string | undefined;
   let promoEmail: string | undefined;

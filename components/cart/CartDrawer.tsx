@@ -7,7 +7,11 @@ import { useSession } from 'next-auth/react';
 import { analytics } from '@/lib/analytics';
 import { useCartStore, selectItemCount, selectCartTotal } from '@/store/cart';
 import type { CartItem } from '@/store/cart';
-import { getGeneralWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
+import {
+  getCartWhatsAppMessage,
+  getGeneralWhatsAppMessage,
+  getWhatsAppUrl,
+} from '@/lib/whatsapp';
 
 function formatCAD(amount: number): string {
   return new Intl.NumberFormat('en-CA', {
@@ -363,6 +367,8 @@ export function CartDrawer({
     setPromoError('');
   }, []);
 
+  const stripeEnabled = process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_ENABLED === 'true';
+
   const handleCheckout = useCallback(async () => {
     if (items.length === 0) return;
     setIsCheckingOut(true);
@@ -370,6 +376,34 @@ export function CartDrawer({
     const checkoutItems = items.map((item) =>
       item.range === 'premium' ? { ...item, boxAndPapers: true } : item
     );
+    const finalTotal = Math.max(displaySubtotal - promoDiscountAmount, 0);
+
+    // Pivot V2 stand-by: redirect to WhatsApp instead of Stripe Checkout.
+    // The Stripe SDK and webhook stay active for historical sessions, and
+    // flipping NEXT_PUBLIC_STRIPE_CHECKOUT_ENABLED back to 'true' (via the
+    // Vercel dashboard + redeploy) restores the original checkout flow
+    // with no code change.
+    if (!stripeEnabled) {
+      const waMessage = getCartWhatsAppMessage({
+        locale,
+        items: checkoutItems.map((item) => ({
+          brand: item.brand,
+          name: item.name,
+          variant: item.variant,
+          size: item.size,
+          range: item.range,
+          boxAndPapers: item.boxAndPapers,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        total: finalTotal,
+      });
+      const waUrl = getWhatsAppUrl(waMessage);
+      analytics.whatsappClick('cart_drawer_finalize');
+      window.location.href = waUrl;
+      return;
+    }
+
     analytics.beginCheckout(
       checkoutItems.map((item) => ({
         id: item.id,
@@ -379,7 +413,7 @@ export function CartDrawer({
         price: item.price,
         quantity: item.quantity,
       })),
-      Math.max(displaySubtotal - promoDiscountAmount, 0)
+      finalTotal
     );
 
     try {
@@ -419,6 +453,7 @@ export function CartDrawer({
     promoCode,
     promoDiscountAmount,
     session?.user?.email,
+    stripeEnabled,
     t,
   ]);
 
@@ -905,7 +940,11 @@ export function CartDrawer({
                 marginBottom: 10,
               }}
             >
-              {isCheckingOut ? t('checkoutLoading') : t('checkout')}
+              {isCheckingOut
+                ? t('checkoutLoading')
+                : stripeEnabled
+                  ? t('checkout')
+                  : t('checkoutWhatsApp')}
             </button>
 
             <p
@@ -917,7 +956,9 @@ export function CartDrawer({
                 lineHeight: 1.6,
               }}
             >
-              {replaceDiscountCopy(t('checkoutMicrocopy'), resolvedWelcomeDiscountPercent)}
+              {stripeEnabled
+                ? replaceDiscountCopy(t('checkoutMicrocopy'), resolvedWelcomeDiscountPercent)
+                : t('checkoutWhatsAppMicrocopy')}
             </p>
 
             {/* Continue shopping */}

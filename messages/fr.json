@@ -728,6 +728,8 @@
     "promoInvalid": "Ce code n'a pas pu être appliqué",
     "promoNetError": "Impossible de vérifier ce code pour le moment",
     "checkout": "Ouvrir la caisse sécurisée →",
+    "checkoutWhatsApp": "Finaliser sur WhatsApp",
+    "checkoutWhatsAppMicrocopy": "Nous confirmons disponibilité, prix final et délai exact sur WhatsApp avant tout paiement.",
     "checkoutLoading": "Redirection...",
     "continueShopping": "Continuer les achats",
     "remove": "Retirer",
