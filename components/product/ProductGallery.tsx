@@ -255,6 +255,10 @@ export function ProductGallery({ product }: Props) {
               priority={selected === 0}
               style={{
                 objectFit: 'cover',
+                // Sanity sources are 1536x2730 portrait (ratio 0.56). Square 1/1
+                // container with default center crop hides the dial. Top-aligning
+                // the crop keeps the dial visible since photos are framed dial-up.
+                objectPosition: 'top',
                 zIndex: 0,
               }}
             />
