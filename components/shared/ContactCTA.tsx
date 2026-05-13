@@ -18,7 +18,11 @@ export type ContactSource =
   | 'product_sticky'
   | 'mobile_nav'
   | 'footer'
-  | 'general';
+  | 'general'
+  | 'collection_hero'
+  | 'brand_hero'
+  | 'category_hero'
+  | 'movements_hero';
 
 type Channel = 'whatsapp';
 type Variant = 'primary' | 'secondary' | 'ghost';

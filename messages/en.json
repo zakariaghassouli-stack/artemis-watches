@@ -305,7 +305,8 @@
     "trustShipping": "Tracked shipping across Canada",
     "trustGuarantee": "30-day returns",
     "trustQuality": "Carefully inspected",
-    "trustWhatsApp": "WhatsApp: 514-560-9765"
+    "trustWhatsApp": "WhatsApp: 514-560-9765",
+    "catalogCTAWhatsapp": "Chat on WhatsApp"
   },
   "footer": {
     "tagline": "A considered watch selection from Montreal, with direct service.",

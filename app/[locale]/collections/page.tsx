@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
+import { ContactCTA } from '@/components/shared/ContactCTA';
 import { getAllProducts } from '@/lib/queries';
 
 const BASE = process.env.NEXT_PUBLIC_APP_URL ?? 'https://artemis-watches.com';
@@ -257,6 +258,17 @@ export default async function CollectionsPage() {
             >
               {t('subtitle', { count: counts.total })}
             </p>
+          </ScrollReveal>
+          <ScrollReveal delay={160}>
+            <div style={{ marginTop: 28, display: 'inline-flex' }}>
+              <ContactCTA
+                channel="whatsapp"
+                variant="primary"
+                size="md"
+                source="collection_hero"
+                label={t('catalogCTAWhatsapp')}
+              />
+            </div>
           </ScrollReveal>
         </div>
       </section>

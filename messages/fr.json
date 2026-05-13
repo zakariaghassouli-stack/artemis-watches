@@ -311,7 +311,8 @@
     "trustShipping": "Livraison suivie au Canada",
     "trustGuarantee": "Retours sous 30 jours",
     "trustQuality": "Inspection soignée",
-    "trustWhatsApp": "WhatsApp : 514-560-9765"
+    "trustWhatsApp": "WhatsApp : 514-560-9765",
+    "catalogCTAWhatsapp": "Discuter sur WhatsApp"
   },
   "footer": {
     "tagline": "Une sélection horlogère réfléchie depuis Montréal, avec un service direct.",
