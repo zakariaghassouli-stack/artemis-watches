@@ -13,6 +13,7 @@ import { formatPrice } from '@/lib/products';
 
 export type ContactSource =
   | 'home_hero'
+  | 'product_hero'
   | 'product_page'
   | 'product_sticky'
   | 'mobile_nav'

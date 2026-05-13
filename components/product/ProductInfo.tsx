@@ -260,6 +260,26 @@ export function ProductInfo({
         {displayTitle}
       </h1>
 
+      {/* Hero WhatsApp CTA: above-the-fold contextual entry */}
+      <div style={{ marginBottom: 20 }}>
+        <ContactCTA
+          channel="whatsapp"
+          variant="primary"
+          size="md"
+          source="product_hero"
+          label={t.orderWhatsApp}
+          productContext={{
+            brand: product.brand,
+            name: product.name,
+            variant: product.variant,
+            range: product.range,
+            boxAndPapers: product.range === 'premium',
+            price: product.price,
+            productId: product.id,
+          }}
+        />
+      </div>
+
       {/* Star rating */}
       {avgRating !== null && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>

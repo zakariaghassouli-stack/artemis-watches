@@ -346,7 +346,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Hero: gallery + sticky info ─────────────────────────────── */}
       <section style={{ padding: 'clamp(80px, 10vw, 120px) 24px 0' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1440, margin: '0 auto' }}>
           <Breadcrumb
             crumbs={[
               { label: tCollections('breadcrumbCollections'), href: '/collections' },
@@ -413,7 +413,7 @@ export default async function ProductPage({ params }: Props) {
           padding: 'clamp(48px, 7vw, 88px) 24px',
         }}
       >
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1440, margin: '0 auto' }}>
           <ProductTabs product={enrichedLocalizedProduct} t={productTabsT} />
         </div>
       </section>
@@ -434,7 +434,7 @@ export default async function ProductPage({ params }: Props) {
           padding: 'clamp(48px, 7vw, 88px) 24px',
         }}
       >
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1440, margin: '0 auto' }}>
           <RelatedProducts
             allProducts={allProducts}
             product={enrichedLocalizedProduct}
