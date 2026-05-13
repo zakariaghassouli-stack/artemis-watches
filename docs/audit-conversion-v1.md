@@ -253,6 +253,21 @@ Audit V1 a inspecté `lib/analytics.ts` en isolation et conclu trop vite à l'ab
 
 Cette méthode aurait évité la rédaction puis la révision de friction #1. Économie estimée : 1 cycle audit + 1 cycle fix (Sprint V4 Phase 1 entièrement skippée car non-bug).
 
+### Validation visuelle headless requise pour tout changement gallery / layout
+
+Sprint AUDIT_V3 Fix A (commit `a677f41`) avait validé le rendu galerie via `curl` du HTML serveur (6 aria-label thumbnails confirmés sur `submariner-label-noir-essential`). Le test confirmait que le DOM serveur contenait bien les boutons, mais ne mesurait pas leur **position vertical dans le viewport**. Bug latent : sur 1440x900 desktop, le strip thumbnails arrivait à offset 962-1122 = 100% sous le fold. Découvert seulement Sprint post-V4 quand Zaki a rapporté un bug visuel.
+
+**Méthode obligatoire à partir de Sprint V5** pour tout changement à `components/product/ProductGallery.tsx`, `components/product/ProductInfo.tsx`, `components/product/MobileStickyBar.tsx`, ou tout autre composant rendu above-the-fold sur le PDP :
+
+1. **Curl HTML server output** pour confirmer le DOM (méthode actuelle, à conserver)
+2. **Headless screenshot** via Playwright Chromium sur **au moins 5 viewports** : 1440x900, 1440x1024, 1920x1080, 375x812 mobile, 768x1024 tablette portrait
+3. **Inspecter `getBoundingClientRect()` du strip ou de l'élément critique** pour confirmer position vertical absolue + visibility above fold
+4. **Comparer screenshot before/after** pour détection régression visuelle
+
+Pattern code utilisable : `/tmp/test-gallery-multi.mjs` (script Playwright Sprint V5, archive si besoin pour réutilisation).
+
+Cette méthode aurait évité l'omission du bug latent du strip thumbnails. Économie estimée future : 1 cycle audit + 1 cycle reproduction-bug + 1 cycle fix par bug visual missed.
+
 ---
 
 **Fin audit V1.** Prochain audit V2 recommandé après le sprint suivant pour comparer scoring TDAH avant/après et valider l'efficacité des fixes.
