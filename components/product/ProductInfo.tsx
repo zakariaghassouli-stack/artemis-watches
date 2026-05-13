@@ -205,6 +205,12 @@ export function ProductInfo({
 
   const totalPrice = activePrice + (resolvedBoxAndPapers ? boxAndPapersPrice : 0);
 
+  // Pivot V2: the secondary "Add to Cart" button is gated behind a feature
+  // flag. Default (unset / 'false') hides it — customers reach checkout via
+  // WhatsApp from the primary ContactCTA. Set NEXT_PUBLIC_ENABLE_CART to
+  // 'true' on Vercel to restore the legacy cart flow.
+  const cartEnabled = process.env.NEXT_PUBLIC_ENABLE_CART === 'true';
+
   const avgRating =
     product.reviews.length > 0
       ? product.reviews.reduce((s, r) => s + r.rating, 0) / product.reviews.length
@@ -801,7 +807,8 @@ export function ProductInfo({
           }}
         />
 
-        {/* Add to Cart secondary (outline) */}
+        {/* Add to Cart secondary (outline) — Pivot V2: hidden by default. */}
+        {cartEnabled && (
         <button
           disabled={!product.inStock}
           onClick={() => {
@@ -868,6 +875,7 @@ export function ProductInfo({
         >
           {product.inStock ? t.addToCart : t.outOfStock}
         </button>
+        )}
       </div>
 
       <p
