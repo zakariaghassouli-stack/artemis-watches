@@ -25,10 +25,12 @@
  * stockout appears (no code change needed — only the Studio Stock Status
  * radio + optional Lead Time number).
  */
-import { loadEnvConfig } from '@next/env';
+import nextEnv from '@next/env';
 import { createClient } from '@sanity/client';
 
-loadEnvConfig(process.cwd());
+// @next/env ships as CommonJS, so we import the default export and pull
+// loadEnvConfig off it — the bare named-import syntax does not work in ESM.
+nextEnv.loadEnvConfig(process.cwd());
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID?.trim();
 const dataset =
