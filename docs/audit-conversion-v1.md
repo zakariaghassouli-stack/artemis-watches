@@ -231,12 +231,27 @@ Synthèse en 5 priorités pour le prochain sprint, avec mapping vers frictions :
 
 ## 8. Frictions identifiées post-audit
 
-Bugs latents découverts pendant Sprint V3 Phase 3, hors scope sprint mais à traiter Sprint V4.
+Bugs latents découverts pendant Sprint V3 Phase 3, traités Sprint V4.
 
-| # | Bug | Page / Fichier | Impact | Priorité |
+| # | Bug | Page / Fichier | Statut | Résolution |
 |---|---|---|---|---|
-| 1 | Buffer `__artemisPendingAnalytics` ne flush jamais | `lib/analytics.ts:21-29` | Events bufferés avant chargement de gtag (consent === 'all' arrivé tard) sont permanently perdus. Sous-estimation des conversions GA4 d'environ 20-30% selon timing utilisateur | M |
-| 2 | CookieBanner `learn more` link caché sur mobile | `components/shared/CookieBanner.tsx` media query 768px | Compromis volontaire Sprint V3 Phase 1 (espace mobile). Accessible via Footer "Préférences cookies" qui réouvre le banner mais le link reste caché. Pas de blocker Loi 25 (article 8.1 satisfait), mais une seconde session mobile sans rappel direct vers /privacy depuis le banner. À convertir en icône `(?)` cliquable inline | L |
+| 1 | Buffer `__artemisPendingAnalytics` ne flush jamais | `lib/analytics.ts:21-29` | **RESOLVED, false alarm** | Flush déjà implémenté dans `components/analytics/GoogleAnalytics.tsx:45-50` via inline Script ga4-init. Le buffer `__artemisPendingAnalytics` est flushé synchronously quand le stub gtag est défini post-consent. Pas de data loss. Estimation 15-20% révisée à **0%**. Sprint V4 audit a raté la cross-component check au moment de la rédaction Sprint V3 Phase 3. |
+| 2 | CookieBanner `learn more` link caché sur mobile | `components/shared/CookieBanner.tsx` media query 768px | **RESOLVED in commit `4d88372`** | Friction confirmée réelle (CSS rule + className unique, fallback Footer distant du choice). Fix : ajout d'une icône Lucide `Info` (22x22 gold circle) au début de la row mobile, cliquable target="_blank" vers /privacy, aria-label "En savoir plus sur les cookies". Adaptive disclosure : icône mobile (≤768px), full text desktop (≥769px). Loi 25 article 9 (consent éclairé) : politique adjacent au choice sur tous les viewports. |
+
+## 9. Notes de méthode
+
+### Cross-component check avant flagger une friction (Sprint V5+)
+
+Audit V1 a inspecté `lib/analytics.ts` en isolation et conclu trop vite à l'absence de flush du buffer `__artemisPendingAnalytics`. La logique de flush vivait ailleurs (inline JS dans `components/analytics/GoogleAnalytics.tsx` Script ga4-init), invisible depuis une lecture seule du fichier analytics. Conséquence : friction #1 listée à tort priority M, false alarm découvert Sprint V4 Phase 1.
+
+**Leçon** : avant de flagger une friction analytics / lifecycle / tracking, vérifier les composants downstream qui pourraient implémenter la complement logic. Pre-audit checklist Sprint V5+ :
+
+1. Pour chaque friction candidate, grep cross-component pour les patterns suspectés manquants (variable name, function name, custom event name)
+2. Inspecter explicitement les Script inline `dangerouslySetInnerHTML` qui peuvent contenir de la lifecycle logic invisible aux imports
+3. Tester le scenario complet bout-en-bout avant de prononcer un verdict bug latent
+4. Pour les bugs liés à des side effects async (ordre de chargement, timing post-consent, etc.), reproduire avec un test manuel DevTools avant écriture de l'audit
+
+Cette méthode aurait évité la rédaction puis la révision de friction #1. Économie estimée : 1 cycle audit + 1 cycle fix (Sprint V4 Phase 1 entièrement skippée car non-bug).
 
 ---
 
