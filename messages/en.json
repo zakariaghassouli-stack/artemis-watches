@@ -106,24 +106,6 @@
       "no1Bestseller": "Client favourite",
       "piecesCount": "{count} pieces"
     },
-    "why": {
-      "overline": "WHY ARTEMIS",
-      "headline": "A more personal way to shop watches.",
-      "subheadline": "A focused catalogue, careful preparation, and direct service from Montreal.",
-      "p1Title": "Curated selection",
-      "p1Body": "We focus on four brands: Rolex, Cartier, Audemars Piguet, and Patek Philippe. Each piece is chosen for design coherence, condition, and overall presence on the wrist.",
-      "p2Title": "Carefully inspected",
-      "p2Body": "Every watch is reviewed before shipment for case condition, crystal clarity, bracelet feel, and overall finish. Only pieces that meet our standard are prepared for delivery.",
-      "p3Title": "Montreal-based service",
-      "p3Body": "Artemis is based in Montreal and designed to feel direct. You can message us on WhatsApp, speak with our team, or arrange a private viewing locally.",
-      "p4Title": "30-day return window",
-      "p4Body": "If the piece is not right for you, return it within 30 days in its original condition for a full refund. Clear terms, no hidden restocking fees.",
-      "p5Title": "Talk to a Real Person",
-      "p5Body": "Message us on WhatsApp for a direct answer from the Artemis team during business hours.",
-      "p6Title": "Everything You Need, Included",
-      "p6Body": "Every order comes with a bracelet adjustment tool, protective presentation packaging, tracked shipping, and an optional box & papers set.",
-      "reviewsCta": "See what our clients say →"
-    },
     "range": {
       "overline": "FIND YOUR FIT",
       "headline": "Two ranges, one considered standard.",
@@ -229,6 +211,45 @@
       "a7": "Premium pieces use automatic movements from the modern generation: high-frequency 28,800 vibrations per hour (4 Hz), extended 70-hour power reserve, architecture tuned for daily accuracy. This is a higher category than the older short-reserve architectures still found at some resellers. For detailed specs on a specific reference, message us on WhatsApp.",
       "q8": "What is the water resistance of your watches?",
       "a8": "Essential pieces use a case designed to resist daily splashes — handwashing, rain, perspiration. They are not designed for immersion (pool, swimming, prolonged shower).\n\nPremium pieces come from tier 1 factories (VSF, ARF, Clean, ZF, APSF, AF) that produce cases to the original specifications of the model being referenced. Depending on the model, this covers daily wear through surface swimming. For water sports, diving, or prolonged immersion, message us on WhatsApp for case-by-case validation."
+    },
+    "tiersCards": {
+      "overline": "Two tiers, one standard",
+      "headline": "Choose your tier.",
+      "essentialTitle": "Essential",
+      "essentialSub": "Japanese Miyota movement",
+      "essentialBullet1": "40h power reserve",
+      "essentialBullet2": "21,600 alt/h",
+      "essentialBullet3": "Daily water resistance",
+      "essentialCta": "View Essentials",
+      "premiumTitle": "Premium",
+      "premiumSub": "Modern architecture, tier 1 factory",
+      "premiumBullet1": "70h power reserve",
+      "premiumBullet2": "28,800 alt/h",
+      "premiumBullet3": "Original water spec",
+      "premiumCta": "View Premium"
+    },
+    "authenticityAssumed": {
+      "overline": "Authenticity assumed",
+      "headline": "What you get. Honestly.",
+      "card1Title": "Movement",
+      "card1Body": "Miyota or modern tier 1 architecture.",
+      "card1LinkLabel": "See the comparison",
+      "card2Title": "Water resistance",
+      "card2Body": "Controlled test on selected models before shipment.",
+      "card3Title": "Warranty",
+      "card3Body": "1 year on the movement, 30 days satisfaction or refund.",
+      "card3LinkLabel": "Our approach"
+    },
+    "howToOrder": {
+      "overline": "How to order",
+      "headline": "Three steps, zero friction.",
+      "step1Title": "WhatsApp",
+      "step1Body": "Send us a message with the piece you're interested in.",
+      "step2Title": "Confirmation",
+      "step2Body": "We confirm availability, final price, and exact delay.",
+      "step3Title": "Shipping",
+      "step3Body": "Montréal Preparation, tracked shipping, continuous support.",
+      "ctaWhatsapp": "Start the conversation"
     }
   },
   "collections": {

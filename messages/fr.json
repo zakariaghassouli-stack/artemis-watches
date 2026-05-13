@@ -106,24 +106,6 @@
       "no1Bestseller": "Favori clients",
       "piecesCount": "{count} pièces"
     },
-    "why": {
-      "overline": "POURQUOI ARTEMIS",
-      "headline": "Une façon plus personnelle de choisir sa montre.",
-      "subheadline": "Un catalogue ciblé, une préparation soignée et un service direct depuis Montréal.",
-      "p1Title": "Sélection ciblée",
-      "p1Body": "Nous nous concentrons sur quatre marques : Rolex, Cartier, Audemars Piguet et Patek Philippe. Chaque pièce est choisie pour la cohérence de son design, son état et sa présence au poignet.",
-      "p2Title": "Soigneusement inspectée",
-      "p2Body": "Chaque montre est vérifiée avant expédition : état du boîtier, clarté du verre, tenue du bracelet et finition générale. Seules les pièces qui satisfont notre standard sont préparées pour la livraison.",
-      "p3Title": "Service basé à Montréal",
-      "p3Body": "Artemis est basée à Montréal et conçue pour un contact direct. Vous pouvez nous écrire sur WhatsApp, parler avec notre équipe ou organiser une visite privée.",
-      "p4Title": "Retour sous 30 jours",
-      "p4Body": "Si la pièce ne vous convient pas, retournez-la dans les 30 jours en état original pour un remboursement complet. Conditions claires, aucun frais de restockage.",
-      "p5Title": "Parlez à une vraie personne",
-      "p5Body": "Écrivez-nous sur WhatsApp pour échanger directement avec l'équipe Artemis pendant les heures d'ouverture.",
-      "p6Title": "Tout inclus",
-      "p6Body": "Chaque commande comprend un outil d'ajustement de bracelet, un coffret de présentation protecteur, une livraison avec suivi et une option boîte & papiers.",
-      "reviewsCta": "Voir ce que nos clients disent →"
-    },
     "range": {
       "overline": "TROUVEZ VOTRE GAMME",
       "headline": "Deux gammes. La même exigence.",
@@ -235,6 +217,45 @@
       "a7": "Les pièces Premium utilisent des mouvements automatiques de génération moderne : haute fréquence 28 800 alternances/heure (4 Hz), réserve de marche étendue à 70 heures, architecture optimisée pour la précision quotidienne. C'est une catégorie supérieure aux architectures plus anciennes à réserve courte qu'on retrouve encore chez certains revendeurs. Pour les spécifications détaillées d'une référence précise, contactez-nous sur WhatsApp.",
       "q8": "Quelle est l'étanchéité de vos montres ?",
       "a8": "Les pièces Essential utilisent un boîtier conçu pour résister aux éclaboussures du quotidien — lavage des mains, pluie, transpiration. Elles ne sont pas conçues pour l'immersion (piscine, baignade, douche prolongée).\n\nLes pièces Premium sortent de factories tier 1 (VSF, ARF, Clean, ZF, APSF, AF) qui produisent les boîtiers selon les spécifications d'origine du modèle imité. Selon le modèle, cela couvre l'usage quotidien à la natation surface. Pour les sports aquatiques, plongée ou immersion prolongée, contactez-nous sur WhatsApp pour validation au cas par cas."
+    },
+    "tiersCards": {
+      "overline": "Deux niveaux, un standard",
+      "headline": "Choisissez votre niveau.",
+      "essentialTitle": "Essential",
+      "essentialSub": "Mouvement japonais Miyota",
+      "essentialBullet1": "Réserve 40h",
+      "essentialBullet2": "21 600 alt/h",
+      "essentialBullet3": "Étanchéité quotidienne",
+      "essentialCta": "Voir les Essentials",
+      "premiumTitle": "Premium",
+      "premiumSub": "Architecture moderne, factory tier 1",
+      "premiumBullet1": "Réserve 70h",
+      "premiumBullet2": "28 800 alt/h",
+      "premiumBullet3": "Spec étanchéité d'origine",
+      "premiumCta": "Voir les Premium"
+    },
+    "authenticityAssumed": {
+      "overline": "Authenticité assumée",
+      "headline": "Ce que vous obtenez. Honnêtement.",
+      "card1Title": "Mouvement",
+      "card1Body": "Miyota ou architecture moderne tier 1.",
+      "card1LinkLabel": "Voir le comparatif",
+      "card2Title": "Étanchéité",
+      "card2Body": "Test contrôlé sur certains modèles avant expédition.",
+      "card3Title": "Garantie",
+      "card3Body": "1 an sur le mouvement, 30 jours satisfait ou remboursé.",
+      "card3LinkLabel": "Notre approche"
+    },
+    "howToOrder": {
+      "overline": "Comment commander",
+      "headline": "Trois étapes, zéro friction.",
+      "step1Title": "WhatsApp",
+      "step1Body": "Envoyez-nous un message avec la pièce qui vous intéresse.",
+      "step2Title": "Confirmation",
+      "step2Body": "Nous confirmons disponibilité, prix final, et délai exact.",
+      "step3Title": "Livraison",
+      "step3Body": "Préparation Montréal, expédition suivie, support continu.",
+      "ctaWhatsapp": "Lancer la conversation"
     }
   },
   "collections": {

@@ -5,8 +5,10 @@ import { TrustBar } from '@/components/home/TrustBar';
 import { TierOneSourcing } from '@/components/home/TierOneSourcing';
 import { PreparationMontreal } from '@/components/home/PreparationMontreal';
 import { FeaturedCollections } from '@/components/home/FeaturedCollections';
-import { WhyArtemis } from '@/components/home/WhyArtemis';
+import { TiersCards } from '@/components/home/TiersCards';
 import { BestSellers } from '@/components/home/BestSellers';
+import { AuthenticityAssumed } from '@/components/home/AuthenticityAssumed';
+import { HowToOrder } from '@/components/home/HowToOrder';
 // Testimonials hidden pending verified reviews migration.
 // Restore import + JSX usage once Sanity verifiedReview schema is live.
 // import { Testimonials } from '@/components/home/Testimonials';
@@ -83,19 +85,25 @@ export default async function HomePage({
       {/* §5 Featured collections */}
       <FeaturedCollections counts={brandCounts} />
 
-      {/* §6 Why Artemis */}
-      <WhyArtemis />
+      {/* §6 Two tiers, one standard */}
+      <TiersCards />
 
       {/* §7 Best sellers */}
       <BestSellers products={homepageProducts} />
 
-      {/* §8 Testimonials + UGC — hidden pending verified reviews migration */}
+      {/* §8 Authenticity assumed — 3 cards Movement / Water / Warranty */}
+      <AuthenticityAssumed />
+
+      {/* §9 How to order — 3-step WhatsApp flow */}
+      <HowToOrder />
+
+      {/* §10 Testimonials + UGC — hidden pending verified reviews migration */}
       {/* <Testimonials /> */}
 
-      {/* §9 Signup promo */}
+      {/* §11 Signup promo */}
       <SignupPromo discountPercent={welcomeDiscountPercent} />
 
-      {/* §10 FAQ */}
+      {/* §12 FAQ */}
       <FAQAccordion />
     </>
   );
