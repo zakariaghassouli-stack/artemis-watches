@@ -964,7 +964,9 @@
     "visualCard3Name": "Dandong via VSF",
     "visualCard3Origin": "Switzerland",
     "visualCard3Tier": "Premium",
-    "visualCard3Note": "Modern high-watchmaking architecture, refined finishing."
+    "visualCard3Note": "Modern high-watchmaking architecture, refined finishing.",
+    "ctaPrimary": "View the collection",
+    "ctaSecondary": "Chat on WhatsApp"
   },
   "approach": {
     "metaTitle": "Our Approach | Artemis Watches",

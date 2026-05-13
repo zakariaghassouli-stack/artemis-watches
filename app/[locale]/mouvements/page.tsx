@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { ContactCTA } from '@/components/shared/ContactCTA';
 import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { getMovementsWhatsAppMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
@@ -146,10 +148,33 @@ export default async function MovementsPage() {
                 color: '#A8A5A0',
                 lineHeight: 1.8,
                 maxWidth: 720,
+                marginBottom: 32,
               }}
             >
               {t('intro')}
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div
+              style={{
+                display: 'flex',
+                gap: 14,
+                flexWrap: 'wrap',
+                alignItems: 'center',
+              }}
+            >
+              <Link href="/collections" style={ctaPrimaryStyle}>
+                {t('ctaPrimary')}
+              </Link>
+              <ContactCTA
+                channel="whatsapp"
+                variant="secondary"
+                size="md"
+                source="movements_hero"
+                label={t('ctaSecondary')}
+              />
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -574,6 +599,22 @@ export default async function MovementsPage() {
     </>
   );
 }
+
+const ctaPrimaryStyle: React.CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '13px 22px',
+  background: '#C9A96E',
+  color: '#0A0A0A',
+  textDecoration: 'none',
+  fontSize: '0.68rem',
+  fontWeight: 700,
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase',
+  borderRadius: 3,
+  border: 'none',
+};
 
 const cellHeadStyle: React.CSSProperties = {
   padding: '18px 20px',
