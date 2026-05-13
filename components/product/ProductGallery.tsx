@@ -217,8 +217,9 @@ export function ProductGallery({ product }: Props) {
           justifyContent: 'center',
           width: '100%',
           minWidth: 0,
-          maxWidth: '100%',
-          maxHeight: 'min(80vh, 820px)',
+          maxWidth: 'min(48vh, 460px)',
+          maxHeight: 'min(48vh, 460px)',
+          margin: '0 auto',
           isolation: 'isolate',
           zIndex: 0,
         }}
