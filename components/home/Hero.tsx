@@ -123,23 +123,24 @@ export function Hero({ headlineOverride, subheadlineOverride }: HeroProps) {
           <ScrollReveal delay={80}>
             <h1
               style={{
-                fontSize: 'clamp(2.9rem, 6vw, 5.5rem)',
+                fontSize: 'clamp(2.5rem, 4.8vw, 4rem)',
                 fontWeight: 600,
-                lineHeight: 0.98,
-                letterSpacing: '-0.03em',
+                lineHeight: 1.02,
+                letterSpacing: '-0.025em',
                 color: '#F5F3EF',
                 marginBottom: 28,
+                fontFamily:
+                  'var(--font-playfair, "Playfair Display", Georgia, serif)',
               }}
             >
               <span style={{ display: 'block', color: '#F5F3EF' }}>{headlinePrimary}</span>
               <span
                 style={{
                   display: 'block',
-                  marginTop: 6,
-                  fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
+                  marginTop: 4,
                   fontStyle: 'italic',
                   fontWeight: 400,
-                  fontSize: 'clamp(3.15rem, 6.4vw, 6rem)',
+                  fontSize: 'clamp(2.7rem, 5vw, 4.3rem)',
                   background:
                     'linear-gradient(135deg, #D4B882 0%, #C9A96E 50%, #B8924A 100%)',
                   WebkitBackgroundClip: 'text',
