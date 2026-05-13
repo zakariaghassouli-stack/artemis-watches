@@ -208,7 +208,7 @@ export default async function MovementsPage() {
           {/* Mobile cards */}
           <div
             className="mvt-cards-mobile"
-            style={{ display: 'grid', gap: 16 }}
+            style={{ gap: 16 }}
           >
             {[
               {

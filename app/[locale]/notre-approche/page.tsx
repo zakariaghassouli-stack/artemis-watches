@@ -304,7 +304,7 @@ export default async function ApproachPage() {
           {/* Mobile cards */}
           <div
             className="ep-cards-mobile"
-            style={{ display: 'grid', gap: 16 }}
+            style={{ gap: 16 }}
           >
             {[
               {
